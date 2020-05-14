@@ -1,0 +1,50 @@
+import org.codehaus.groovy.runtime.GStringImpl
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+static def specVersion(Project project) {
+	String major = prop(project, "major", "MAJ")
+	String minor = prop(project, "minor", "MIN")
+	"${major}.${minor}"
+}
+
+static def implVersion(Project project) {
+	String major = prop(project, "major", "MAJ")
+	String minor = prop(project, "minor", "MIN")
+	String build = prop(project, "build", "DEV")
+	"${major}.${minor}.${build}"
+}
+
+static def prop(Project project, String propName, Object defaultValue) {
+	if (project.hasProperty(propName)) {
+		project[propName]
+	} else if (project.ext.has(propName)) {
+		project.ext[propName]
+	} else {
+		defaultValue
+	}
+}
+
+ext {
+	specVersion = specVersion(project) as GStringImpl
+	implVersion = implVersion(project) as GStringImpl
+}
+
+jar {
+//	baseName = projectName
+	getArchiveBaseName().set(project.getName())
+	manifest {
+		attributes(
+				"Specification-Title": "B3Tuning Module Console",
+				"Specification-Version": specVersion,
+				"Specification-Vendor": "B3Tuning, LLC.",
+				"Implementation-Title": "B3Tuning Module Console",
+				"Implementation-Version": implVersion,
+				"Implementation-Vendor": "B3Tuning, LLC.")
+	}
+}

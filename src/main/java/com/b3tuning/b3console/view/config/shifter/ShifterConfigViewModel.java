@@ -1,0 +1,58 @@
+package com.b3tuning.b3console.view.config.shifter;
+
+import com.b3tuning.b3console.service.module.shifter.ShifterConfig;
+import com.b3tuning.b3console.view.BaseViewModel;
+import com.b3tuning.b3console.view.EditableViewModel;
+import com.b3tuning.b3console.view.Refreshable;
+import com.b3tuning.b3console.view.utils.AlertUtils;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import lombok.extern.slf4j.XSlf4j;
+
+/*
+ *  Created on:  May 04, 2020
+ *      Author: James Hildebrand
+ *              of B3Tuning
+ *              b3tuning@gmail.com
+ *
+ * Copyright (C) 2020 B3Tuning, LLC.
+ */
+@XSlf4j
+public class ShifterConfigViewModel extends BaseViewModel implements EditableViewModel, Refreshable {
+
+	private ObjectProperty<ShifterConfig> config = new SimpleObjectProperty<>();
+	private ShifterConfig                 originalConfig;
+
+	private BooleanProperty dirty = new SimpleBooleanProperty(false);
+
+	@Override
+	public void refresh() {
+		log.entry();
+		if (dirty.get()) {
+			AlertUtils.warn(saveChangesMessage());
+		} else {
+//			config.set(moduleService.getShifterConfig());
+			originalConfig = config.get().copy();
+			config.get().resetTrackingChanges();
+			dirty.set(false);
+		}
+	}
+
+	@Override public BooleanProperty dirtyProperty() {
+		return null;
+	}
+
+	@Override public boolean isDirty() {
+		return false;
+	}
+
+	@Override public String saveChangesMessage() {
+		return null;
+	}
+
+	@Override public void navigationCancelledAction() {
+
+	}
+}

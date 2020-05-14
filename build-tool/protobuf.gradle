@@ -1,0 +1,5 @@
+apply plugin: 'com.google.protobuf'
+
+protobuf {
+	generatedFilesBaseDir = "${projectDir}/src/"
+}

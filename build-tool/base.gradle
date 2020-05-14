@@ -1,0 +1,28 @@
+repositories {
+	mavenCentral()
+}
+
+configurations.all {
+	// check for updates every build
+	resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+	resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+}
+
+// All B3Tuning projects belong to this group
+group = 'com.b3tuning'
+
+// set the project version
+apply from: 'build-tool/versioning.gradle'
+
+// set the standard library versions
+apply from: 'build-tool/versions.gradle'
+
+ext {
+	// All B3Tuning projects belong to this family
+	projectFamily = 'b3console'
+
+	// references to other optional gradle files to include
+	javaPlugin = 'build-tool/java.gradle'
+	coberturaPlugin = 'build-tool/cobertura.gradle'
+	protobufPlugin = 'build-tool/protobuf.gradle'
+}
