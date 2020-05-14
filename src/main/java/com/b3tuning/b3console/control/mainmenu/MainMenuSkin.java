@@ -29,18 +29,18 @@ import static org.reactfx.EventStreams.eventsOf;
 @XSlf4j
 public class MainMenuSkin extends SkinBase<MainMenu> implements Skin<MainMenu> {
 
-	private static final String MENU_ITEM_STYLE_CLASS = "menu-item-text";
+	private static final String MENU_ITEM_STYLE_CLASS     = "menu-item-text";
 	private static final double CONTAINER_PREFERRED_WIDTH = 87;
-	private static final double CONTAINER_MINIMUM_WIDTH = CONTAINER_PREFERRED_WIDTH;
-	private static final double CONTAINER_MAXIMUM_WIDTH = CONTAINER_PREFERRED_WIDTH;
+	private static final double CONTAINER_MINIMUM_WIDTH   = CONTAINER_PREFERRED_WIDTH;
+	private static final double CONTAINER_MAXIMUM_WIDTH   = CONTAINER_PREFERRED_WIDTH;
 
-	private static final double ITEM_PREFERRED_WIDTH = CONTAINER_PREFERRED_WIDTH;// - (INSET * 2);  // REMOVED as it was padding the toggle inside the vbox
-	private static final double ITEM_PREFERRED_HEIGHT = 50;
+	private static final double ITEM_PREFERRED_WIDTH   = CONTAINER_PREFERRED_WIDTH;// - (INSET * 2);  // REMOVED as it was padding the toggle inside the vbox
+	private static final double ITEM_PREFERRED_HEIGHT  = 50;
 	private static final double TITLE_PREFERRED_HEIGHT = 20;
-	private static final double ITEM_MINIMUM_WIDTH = ITEM_PREFERRED_WIDTH;
-	private static final double ITEM_MINIMUM__HEIGHT = ITEM_PREFERRED_HEIGHT;
-	private static final double ITEM_MAXIMUM_WIDTH = ITEM_PREFERRED_WIDTH;
-	private static final double ITEM_MAXIMUM_HEIGHT = ITEM_PREFERRED_HEIGHT;
+	private static final double ITEM_MINIMUM_WIDTH     = ITEM_PREFERRED_WIDTH;
+	private static final double ITEM_MINIMUM__HEIGHT   = ITEM_PREFERRED_HEIGHT;
+	private static final double ITEM_MAXIMUM_WIDTH     = ITEM_PREFERRED_WIDTH;
+	private static final double ITEM_MAXIMUM_HEIGHT    = ITEM_PREFERRED_HEIGHT;
 
 	private VBox        menuItemsTopContainer;    // region to hold the menu items
 	private VBox        menuItemsBottomContainer; // region to hold the menu items

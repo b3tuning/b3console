@@ -1,4 +1,5 @@
 version = new ProjectVersion(project)
+
 class ProjectVersion {
 	final String major
 	final String minor
@@ -10,7 +11,8 @@ class ProjectVersion {
 		build = ext(project, "build", "DEV")
 	}
 
-	@Override String toString() {
+	@Override
+	String toString() {
 		"$major.$minor.$build"
 	}
 

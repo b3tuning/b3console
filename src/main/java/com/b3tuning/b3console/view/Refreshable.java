@@ -9,5 +9,5 @@ package com.b3tuning.b3console.view;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 public interface Refreshable {
-	public void refresh();
+	void refresh();
 }

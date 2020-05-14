@@ -43,9 +43,9 @@ public class TableViewUtils {
 	private static final DataFormat SERIALIZED_MIME_TYPE = new DataFormat("application/x-java-serialized-object");
 
 	private static final int DEFAULT_HEADER_HEIGHT = 26;
-	public static final int DEFAULT_ROW_HEIGHT = 40;
-	private static final int DEFAULT_MARGIN = 5;
-	private static final int DEFAULT_MAX_ROWS = 10;
+	public static final  int DEFAULT_ROW_HEIGHT    = 40;
+	private static final int DEFAULT_MARGIN        = 5;
+	private static final int DEFAULT_MAX_ROWS      = 10;
 
 
 	/**
@@ -87,8 +87,8 @@ public class TableViewUtils {
 			TableRow<T> row = new TableRow<>();
 			row.setOnDragDetected(event -> {
 				if (!row.isEmpty()) {
-					Integer index = row.getIndex();
-					Dragboard db = row.startDragAndDrop(TransferMode.MOVE);
+					Integer   index = row.getIndex();
+					Dragboard db    = row.startDragAndDrop(TransferMode.MOVE);
 					db.setDragView(row.snapshot(null, null));
 					ClipboardContent cc = new ClipboardContent();
 					cc.put(SERIALIZED_MIME_TYPE, index);
@@ -108,8 +108,8 @@ public class TableViewUtils {
 			row.setOnDragDropped(event -> {
 				Dragboard db = event.getDragboard();
 				if (db.hasContent(SERIALIZED_MIME_TYPE)) {
-					int draggedIndex = (Integer) db.getContent(SERIALIZED_MIME_TYPE);
-					T draggedObject = tableView.getItems().remove(draggedIndex);
+					int draggedIndex  = (Integer) db.getContent(SERIALIZED_MIME_TYPE);
+					T   draggedObject = tableView.getItems().remove(draggedIndex);
 					int dropIndex;
 					if (row.isEmpty()) {
 						dropIndex = tableView.getItems().size();
@@ -224,7 +224,7 @@ public class TableViewUtils {
 
 	private static <S> String buildRow(TableView<S> table, int row, String separator) {
 		TableSelectionModel<S> selectionModel = table.getSelectionModel();
-		List<String> items = Lists.newArrayList();
+		List<String>           items          = Lists.newArrayList();
 		for (TableColumn<S, ?> column : table.getColumns()) {
 			if (selectionModel.isSelected(row, column)
 			    && column.getCellObservableValue(row) != null

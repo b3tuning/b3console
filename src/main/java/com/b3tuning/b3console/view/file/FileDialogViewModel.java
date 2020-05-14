@@ -22,7 +22,7 @@ import java.util.Collection;
 @XSlf4j
 public class FileDialogViewModel extends BaseViewModel {
 
-	private ObjectProperty<File> rootPath;
+	private ObjectProperty<File>                 rootPath;
 	private ObjectProperty<ObservableList<File>> filesToIngest;
 	private ObjectProperty<ObservableList<File>> invalidFiles;
 

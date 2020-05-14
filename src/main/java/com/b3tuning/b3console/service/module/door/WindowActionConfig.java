@@ -16,7 +16,7 @@ import java.io.Serializable;
  */
 public class WindowActionConfig extends EditableEntity implements Serializable {
 
-	private static final long serialVersionUID = -639202706083388861L;
+	private static final long serialVersionUID = -7074999213839249453L;
 
 	private IntegerProperty autoDownMax;
 	private IntegerProperty autoDownMin;

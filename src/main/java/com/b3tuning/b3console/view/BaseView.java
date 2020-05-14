@@ -33,5 +33,4 @@ public class BaseView<T extends ViewModel> implements FxmlView<T>, Disposable {
 			subscriptions.unsubscribe();
 		}
 	}
-
 }

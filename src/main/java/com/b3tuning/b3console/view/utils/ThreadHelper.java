@@ -12,6 +12,7 @@ public abstract class ThreadHelper {
 
 	/**
 	 * Automatically start the Runnable on a new thread, setting as a daemon thread
+	 *
 	 * @param target thread
 	 */
 	public static void run(Runnable target) {

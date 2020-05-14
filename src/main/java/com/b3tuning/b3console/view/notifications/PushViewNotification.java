@@ -21,7 +21,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class PushViewNotification {
 
-	private final String key;
+	private final String                                                key;
 	private final ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple;
 
 	private final MainMenuItemAction appArea;

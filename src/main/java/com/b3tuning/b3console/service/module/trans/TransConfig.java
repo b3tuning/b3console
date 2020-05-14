@@ -21,7 +21,7 @@ import java.io.Serializable;
  */
 public class TransConfig extends EditableEntity implements Serializable {
 
-	private static final long serialVersionUID = 7816115443512874750L;
+	private static final long serialVersionUID = -1672464467145141989L;
 
 	public ObjectProperty<CanBusConfig>  canBus;
 	public ObjectProperty<Ems22AConfig>  ems22A;
@@ -44,8 +44,8 @@ public class TransConfig extends EditableEntity implements Serializable {
 		this.pid.set(pid);
 	}
 
-	public com.b3tuning.b3console.service.module.trans.TransConfig copy() {
-		return new com.b3tuning.b3console.service.module.trans.TransConfig(this.getCanBusConfig(), this.getEms22A(), this.getVnh5019(), this.getPid());
+	public TransConfig copy() {
+		return new TransConfig(this.getCanBusConfig(), this.getEms22A(), this.getVnh5019(), this.getPid());
 	}
 
 	public CanBusConfig getCanBusConfig() {
@@ -98,7 +98,7 @@ public class TransConfig extends EditableEntity implements Serializable {
 
 	public static class Ems22AConfig extends EditableEntity implements Serializable {
 
-		private static final long            serialVersionUID = -383655464140756437L;
+		private static final long            serialVersionUID = -1816774402792280218L;
 		private              IntegerProperty encMax;
 		private              IntegerProperty encMin;
 
@@ -141,7 +141,7 @@ public class TransConfig extends EditableEntity implements Serializable {
 
 	public static class Vnh5019Config extends EditableEntity implements Serializable {
 
-		private static final long serialVersionUID = -7388515209757859799L;
+		private static final long serialVersionUID = 4510253484722703807L;
 
 		private IntegerProperty maxCurrent;
 
@@ -169,8 +169,7 @@ public class TransConfig extends EditableEntity implements Serializable {
 	}
 
 	public static class PidConfig extends EditableEntity implements Serializable {
-
-		private static final long serialVersionUID = -3130189326093065427L;
+		private static final long serialVersionUID = -2484001825137621307L;
 
 		private DoubleProperty aggKd;
 		private DoubleProperty aggKi;

@@ -15,5 +15,5 @@ public enum MainMenuItemAction {
 	TRANSFER, // fa EXCHANGE
 	LIVE,     // fa TACHOMETER
 	SETTINGS, // fa COGS
-	HELP_APP;
+	HELP_APP
 }

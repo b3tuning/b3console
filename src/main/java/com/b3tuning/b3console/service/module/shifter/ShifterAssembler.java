@@ -23,12 +23,11 @@ import java.util.stream.Collectors;
  */
 public class ShifterAssembler {
 
-	public com.b3tuning.b3console.service.module.shifter.ShifterConfig assemble(
-			com.b3tuning.b3console.service.module.shifter.ShifterConfigResource resource) {
-		return new com.b3tuning.b3console.service.module.shifter.ShifterConfig(CanBusAssembler.assemble(resource.getCanBus()),
-		                                                                               assemble(resource.getIndicator()),
-		                                                                               assemble(resource.getMelexis()),
-		                                                                               assemble(resource.getShifters()));
+	public ShifterConfig assemble(ShifterConfigResource resource) {
+		return new ShifterConfig(CanBusAssembler.assemble(resource.getCanBus()),
+		                         assemble(resource.getIndicator()),
+		                         assemble(resource.getMelexis()),
+		                         assemble(resource.getShifters()));
 	}
 
 	public IndicatorConfig assemble(IndicatorResource resource) {
@@ -54,12 +53,11 @@ public class ShifterAssembler {
 		                                 resource.getEnumValue());
 	}
 
-	public com.b3tuning.b3console.service.module.shifter.ShifterConfigResource assemble(
-			com.b3tuning.b3console.service.module.shifter.ShifterConfig config) {
-		return new com.b3tuning.b3console.service.module.shifter.ShifterConfigResource(CanBusAssembler.assemble(config.getCanBusConfig()),
-		                                                                                       assemble(config.getIndicatorConfig()),
-		                                                                                       assemble(config.getMelexisConfig()),
-		                                                                                       assemble(config.getShifterPositionConfigs()));
+	public ShifterConfigResource assemble(ShifterConfig config) {
+		return new ShifterConfigResource(CanBusAssembler.assemble(config.getCanBusConfig()),
+		                                 assemble(config.getIndicatorConfig()),
+		                                 assemble(config.getMelexisConfig()),
+		                                 assemble(config.getShifterPositionConfigs()));
 	}
 
 

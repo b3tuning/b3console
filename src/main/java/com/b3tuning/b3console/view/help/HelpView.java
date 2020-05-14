@@ -27,9 +27,9 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class HelpView extends BaseView<HelpViewModel> {
 
-	@FXML WebView webView;
+	@FXML WebView    webView;
 	@FXML AnchorPane helpPane;
-	@FXML Button detachHelpButton;
+	@FXML Button     detachHelpButton;
 
 	@InjectViewModel HelpViewModel viewModel;
 

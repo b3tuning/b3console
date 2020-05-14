@@ -1,0 +1,102 @@
+@font-face {
+	font-family: Raleway-Regular;
+	src: url(../fonts/Raleway-Regular.ttf);
+}
+
+@font-face {
+	font-family: Raleway-Bold;
+	src: url(../fonts/Raleway-Bold.ttf);
+}
+
+@font-face {
+	font-family: Raleway-Light;
+	src: url(../fonts/Raleway-Light.ttf);
+}
+
+@font-face {
+	font-family: Raleway-Thin;
+	src: url(../fonts/Raleway-Thin.ttf);
+}
+
+@font-face {
+	font-family: Roboto-Regular;
+	src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+	font-family: Roboto-Bold;
+	src: url(../fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+	font-family: Roboto-Light;
+	src: url(../fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+	font-family: Roboto-Thin;
+	src: url(../fonts/Roboto-Thin.ttf);
+}
+
+@font-face {
+	font-family: FontAwesome;
+	src: url(../fonts/fontawesome-webfont.ttf);
+}
+
+body {
+	background-color: #FFFFFF;
+	padding: 0 15px 15px 15px;
+	font-family: Raleway-Light;
+	font-weight: lighter;
+	font-size: 12pt;
+	/*fill: #3B3B3B;*/
+	text-fill: #3B3B3B;
+}
+
+h1 {
+	font-family: Roboto-Light;
+	font-weight: lighter;
+	font-size: 16pt;
+}
+
+h2 {
+	font-family: Roboto-Light;
+	font-weight: lighter;
+	font-size: 14pt;
+}
+
+h3 {
+	font-family: Roboto-Light;
+	font-weight: lighter;
+	font-size: 12pt;
+}
+
+p {
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th {
+	background-color: #262626;
+	color: white;
+}
+
+td, th {
+	padding: 0.5rem;
+	border-bottom: 1px solid #ddd;
+	text-align: left;
+}
+
+
+.actionButton {
+	background-color: #0D0C0C, #3B3B3B, #262626;
+	background-insets: 0, 0 0 1px 0, 1px 0 1px 0;
+	background-radius: 0;
+	font-family: FontAwesome;
+	font-size: 40pt;
+	/*fill: #939393;*/
+	text-fill: #939393;
+	border-color: transparent;
+}

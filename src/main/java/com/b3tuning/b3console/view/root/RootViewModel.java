@@ -53,6 +53,7 @@ import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.CONFIG;
 import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.FILE;
 import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.HELP_APP;
 import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.LIVE;
+import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.NONE;
 import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.SETTINGS;
 import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.TRANSFER;
 import static com.b3tuning.b3console.control.mainmenu.MainMenuItemModel.Mode.APP;
@@ -78,11 +79,11 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class RootViewModel extends BaseViewModel {
 
-	public static final String MENU_ACTION_EVENT = "main_menu";
-	public static final String HELP_DETACHED_EVENT = "help_detached";
-	public static final String APP_CSS = "app.css";
-	private static final String HELP_STAGE_TITLE = "B3Tuning Module Help";
-	private static final String MENU_ITEM_ERROR = "Unrecognized menu item action: '{}'";
+	public static final  String MENU_ACTION_EVENT   = "main_menu";
+	public static final  String HELP_DETACHED_EVENT = "help_detached";
+	public static final  String APP_CSS             = "app.css";
+	private static final String HELP_STAGE_TITLE    = "B3Tuning Module Help";
+	private static final String MENU_ITEM_ERROR     = "Unrecognized menu item action: '{}'";
 
 	private static final double HELP_WIDTH = 0.3f;
 
@@ -98,11 +99,11 @@ public class RootViewModel extends BaseViewModel {
 	private ObjectProperty<MainMenuItemModel> selectedMenuItem = new SimpleObjectProperty<>();
 	private ObjectProperty<StackPane>         childViewPane    = new SimpleObjectProperty<>();
 
-	private EventSource<Boolean> displayHelp = new EventSource<>();
-	private BooleanProperty helpPaneVisible = new SimpleBooleanProperty(false);
-	private DoubleProperty helpPaneLocation = new SimpleDoubleProperty();
-	private DoubleProperty helpPaneOpacity = new SimpleDoubleProperty();
-	private BooleanProperty initialized = new SimpleBooleanProperty(false);
+	private EventSource<Boolean> displayHelp      = new EventSource<>();
+	private BooleanProperty      helpPaneVisible  = new SimpleBooleanProperty(false);
+	private DoubleProperty       helpPaneLocation = new SimpleDoubleProperty();
+	private DoubleProperty       helpPaneOpacity  = new SimpleDoubleProperty();
+	private BooleanProperty      initialized      = new SimpleBooleanProperty(false);
 
 	@Inject
 	public RootViewModel(AppProperties appProperties, NotificationCenter globalNotifications, ViewManager viewManager) {
@@ -188,8 +189,8 @@ public class RootViewModel extends BaseViewModel {
 		Stage helpStage = new Stage();
 		helpStage.setTitle(HELP_STAGE_TITLE);
 
-		Scene helpScene = new Scene((Parent) tuple.getView(), 640, 480);
-		final String uri = App.class.getResource(APP_CSS).toExternalForm();
+		Scene        helpScene = new Scene((Parent) tuple.getView(), 640, 480);
+		final String uri       = App.class.getResource(APP_CSS).toExternalForm();
 		helpScene.getStylesheets().add(uri);
 		helpStage.setScene(helpScene);
 		viewManager.republishPageContextChanged();
@@ -283,10 +284,10 @@ public class RootViewModel extends BaseViewModel {
 		helpPaneVisible.set(false);
 		helpPaneLocation.set(0);
 		helpPaneOpacity.set(0);
-		KeyFrame kf1 = new KeyFrame(Duration.millis(1), new KeyValue(helpPaneVisible, true));
-		KeyFrame kf2 = new KeyFrame(Duration.millis(200), new KeyValue(helpPaneLocation, HELP_WIDTH));
-		KeyFrame kf3 = new KeyFrame(Duration.millis(200), new KeyValue(helpPaneOpacity, 0));
-		KeyFrame kf4 = new KeyFrame(Duration.millis(300), new KeyValue(helpPaneOpacity, 1));
+		KeyFrame kf1      = new KeyFrame(Duration.millis(1), new KeyValue(helpPaneVisible, true));
+		KeyFrame kf2      = new KeyFrame(Duration.millis(200), new KeyValue(helpPaneLocation, HELP_WIDTH));
+		KeyFrame kf3      = new KeyFrame(Duration.millis(200), new KeyValue(helpPaneOpacity, 0));
+		KeyFrame kf4      = new KeyFrame(Duration.millis(300), new KeyValue(helpPaneOpacity, 1));
 		Timeline timeline = new Timeline(kf1, kf2, kf3, kf4);
 		timeline.play();
 	}

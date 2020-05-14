@@ -12,7 +12,7 @@ import lombok.Data;
  */
 @SuppressWarnings({"rawtypes", "unchecked"})
 @Data
-public class BaseResponse <T extends com.b3tuning.b3console.service.BaseResponse>{
+public class BaseResponse<T extends BaseResponse> {
 
 	private boolean badRequest;
 

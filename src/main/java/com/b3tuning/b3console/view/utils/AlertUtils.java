@@ -27,7 +27,7 @@ import static javafx.scene.control.ButtonType.YES;
 @XSlf4j
 public class AlertUtils {
 
-	public static final String MESSAGE_WARNING = "Warning";
+	public static final String MESSAGE_WARNING                 = "Warning";
 	public static final String MESSAGE_SERVICE_UNAVAILABLE_MSG = "Service not available, please try again later.";
 
 	public static void warnServiceUnavailable() {

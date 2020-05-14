@@ -24,6 +24,5 @@ public class ServiceResponseHelper {
 			log.error("Failed! {}", response.getFailedReason());
 			// TODO inform user failed for some reason
 		}
-
 	}
 }

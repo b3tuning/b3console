@@ -18,12 +18,11 @@ import com.b3tuning.b3console.service.module.trans.TransConfigResource.Vnh5019Re
  */
 public class TransConfigAssembler {
 
-	public com.b3tuning.b3console.service.module.trans.TransConfig assemble(
-			com.b3tuning.b3console.service.module.trans.TransConfigResource resource) {
-		return new com.b3tuning.b3console.service.module.trans.TransConfig(CanBusAssembler.assemble(resource.getCanBus()),
-		                                                                           assemble(resource.getEms22A()),
-		                                                                           assemble(resource.getVnh5019()),
-		                                                                           assemble(resource.getPid()));
+	public TransConfig assemble(TransConfigResource resource) {
+		return new TransConfig(CanBusAssembler.assemble(resource.getCanBus()),
+		                       assemble(resource.getEms22A()),
+		                       assemble(resource.getVnh5019()),
+		                       assemble(resource.getPid()));
 	}
 
 	public static Ems22AConfig assemble(Ems22AResource resource) {
@@ -44,12 +43,11 @@ public class TransConfigAssembler {
 		                     resource.getConsKp());
 	}
 
-	public com.b3tuning.b3console.service.module.trans.TransConfigResource assemble(
-			com.b3tuning.b3console.service.module.trans.TransConfig config) {
-		return new com.b3tuning.b3console.service.module.trans.TransConfigResource(CanBusAssembler.assemble(config.getCanBusConfig()),
-		                                                                                   assemble(config.getEms22A()),
-		                                                                                   assemble(config.getVnh5019()),
-		                                                                                   assemble(config.getPid()));
+	public TransConfigResource assemble(TransConfig config) {
+		return new TransConfigResource(CanBusAssembler.assemble(config.getCanBusConfig()),
+		                               assemble(config.getEms22A()),
+		                               assemble(config.getVnh5019()),
+		                               assemble(config.getPid()));
 	}
 
 	public Ems22AResource assemble(Ems22AConfig config) {

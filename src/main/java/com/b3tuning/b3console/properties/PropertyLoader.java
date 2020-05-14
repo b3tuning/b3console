@@ -32,16 +32,16 @@ public class PropertyLoader {
 
 	private static final String APP_PROPERTIES_FILE_TEMPLATE = "/properties/app-common.properties";
 
-	private static final String DEFAULT_PAGE_SIZE = "default.page.size";
-	private static final String DEFAULT_CSS = "default.css.file";
-	private static final String VERSION = "app.version";
-	private static final String BUILD = "app.build";
-	private static final String LOG_URL = "app.log.url";
+	private static final String DEFAULT_PAGE_SIZE    = "default.page.size";
+	private static final String DEFAULT_CSS          = "default.css.file";
+	private static final String VERSION              = "app.version";
+	private static final String BUILD                = "app.build";
+	private static final String LOG_URL              = "app.log.url";
 	private static final String FILES_MIME_SUPPORTED = "files.mimetype.supported";
-	private static final String USER_HELP_URL = "help.user.url";
-	private static final String API_HELP_URL = "help.api.url";
-	private static final String USER_AGENT_PROPERTY = "app.useragent";
-	private static final String LOG_LEVEL_PROPERTY = "log.level";
+	private static final String USER_HELP_URL        = "help.user.url";
+	private static final String API_HELP_URL         = "help.api.url";
+	private static final String USER_AGENT_PROPERTY  = "app.useragent";
+	private static final String LOG_LEVEL_PROPERTY   = "log.level";
 
 	private CompositeConfiguration config;
 
@@ -92,6 +92,7 @@ public class PropertyLoader {
 
 	private LinkedHashMap<FileType, List<String>> loadFileTypes() {
 		final String prefix = "files.types.";
+
 		final LinkedHashMap<FileType, List<String>> types = Maps.newLinkedHashMap();
 		config.getKeys().forEachRemaining(key -> {
 			if (key.startsWith(prefix)) {

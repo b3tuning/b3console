@@ -49,9 +49,9 @@ public class ViewManagerImpl implements ViewManager {
 	private static List<ViewManager> viewManagers = new ArrayList<>();
 
 	private PageContextChangedNotification lastContextChange;
-	private NotificationCenter notifications;
-	private Map<String, ViewInfo> views;
-	private SuspendableNo handlingDirtyIndicator = new SuspendableNo();
+	private NotificationCenter             notifications;
+	private Map<String, ViewInfo>          views;
+	private SuspendableNo                  handlingDirtyIndicator = new SuspendableNo();
 
 	@Inject
 	public ViewManagerImpl(NotificationCenter notifications) {
@@ -130,9 +130,9 @@ public class ViewManagerImpl implements ViewManager {
 			log.error("info.getViewTuple() is null!");
 			return;
 		}
-		Node view = info.getViewTuple().getView();
+		Node               view    = info.getViewTuple().getView();
 		MainMenuItemAction appArea = info.getAppArea();
-		StackPane pane = info.getPane();
+		StackPane          pane    = info.getPane();
 
 		List<ViewInfo> toRemove = new ArrayList<>();
 		views.entrySet().stream().map(Entry::getValue).filter(vi -> pane.equals(vi.getPane()))
@@ -198,7 +198,7 @@ public class ViewManagerImpl implements ViewManager {
 			                                                      .map(vm -> vm.getDirty()).findFirst();
 
 			if (dirty.isPresent()) {
-				String key = dirty.get().getKey();
+				String   key   = dirty.get().getKey();
 				ViewInfo value = dirty.get().getValue();
 				log.trace("View `{}` is dirty", key);
 
@@ -240,13 +240,13 @@ public class ViewManagerImpl implements ViewManager {
 			int size = pane.getChildren().size();
 
 			// get the top most view that we're popping
-			Node topView = pane.getChildren().get(size - 1);
+			Node topView  = pane.getChildren().get(size - 1);
 			Node nextView = pane.getChildren().get(size - 2);
 
 			// find the corresponding viewTuple for the view
-			Entry<String, ViewInfo> topViewInfo = null;
-			Entry<String, ViewInfo> nextViewInfo = null;
-			Iterator<Entry<String, ViewInfo>> iter = views.entrySet().iterator();
+			Entry<String, ViewInfo>           topViewInfo  = null;
+			Entry<String, ViewInfo>           nextViewInfo = null;
+			Iterator<Entry<String, ViewInfo>> iter         = views.entrySet().iterator();
 			while (iter.hasNext()) {
 				Entry<String, ViewInfo> checking = (Entry<String, ViewInfo>) iter.next();
 				if (topView.equals(checking.getValue().viewTuple.getView())) {
@@ -308,8 +308,8 @@ public class ViewManagerImpl implements ViewManager {
 		Node topView = pane.getChildren().get(pane.getChildren().size() - 1);
 
 		// find the corresponding viewinfo for the view
-		Entry<String, ViewInfo> topViewInfo = null;
-		Iterator<Entry<String, ViewInfo>> iter = views.entrySet().iterator();
+		Entry<String, ViewInfo>           topViewInfo = null;
+		Iterator<Entry<String, ViewInfo>> iter        = views.entrySet().iterator();
 		while (iter.hasNext()) {
 			Entry<String, ViewInfo> checking = (Entry<String, ViewInfo>) iter.next();
 			if (topView.equals(checking.getValue().viewTuple.getView())) {
@@ -359,9 +359,9 @@ public class ViewManagerImpl implements ViewManager {
 	public static class ViewInfo {
 
 		private ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple;
-		private StackPane pane;
-		private MainMenuItemAction appArea;
-		private boolean closeOnLostFocus;
+		private StackPane                                             pane;
+		private MainMenuItemAction                                    appArea;
+		private boolean                                               closeOnLostFocus;
 	}
 
 	@Override
@@ -395,8 +395,8 @@ public class ViewManagerImpl implements ViewManager {
 	public void destroyAllBut(String key, StackPane pane) {
 		log.entry(key, pane.getId());
 
-		ViewInfo soleSurvivor = null;
-		Iterator<Entry<String, ViewInfo>> iter = views.entrySet().iterator();
+		ViewInfo                          soleSurvivor = null;
+		Iterator<Entry<String, ViewInfo>> iter         = views.entrySet().iterator();
 		while (iter.hasNext()) {
 			Entry<String, ViewInfo> current = (Entry<String, ViewInfo>) iter.next();
 			if (pane.equals(current.getValue().getPane())) {

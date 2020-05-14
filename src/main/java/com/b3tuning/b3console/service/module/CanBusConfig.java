@@ -17,7 +17,7 @@ import java.io.Serializable;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 public class CanBusConfig extends EditableEntity implements Serializable {
-	private static final long serialVersionUID = -2000141384829637951L;
+	private static final long serialVersionUID = -7443557657981767820L;
 
 	private LongProperty    addrTX;    // unsigned long
 	private LongProperty    bootRX;    // unsigned long

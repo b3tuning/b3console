@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane fx:controller="com.b3tuning.b3console.view.transfer.TransferMenuView"
+            AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1">
+
+    <AnchorPane styleClass="white-background-with-border" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                AnchorPane.topAnchor="60.0">
+        <Label styleClass="tile-text-sub" text="TRANSFERS" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
+
+        <AnchorPane AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0" AnchorPane.rightAnchor="30.0">
+            <Label styleClass="tile-label-text" text="Download Location" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.topAnchor="0.0"/>
+
+        </AnchorPane>
+    </AnchorPane>
+
+    <Label styleClass="tile-text" text="TRANSFER" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="15.0"/>
+</AnchorPane>

@@ -31,14 +31,14 @@ import static com.b3tuning.b3console.view.settings.SettingsMenuViewModel.MODULE_
 public class HelpViewModel extends BaseViewModel {
 
 	private static final String HELP_LOCATION_TEMPLATE = "/help/%s.html";
-	private static final String NO_HELP_AVAILABLE = "/help/404.html";
+	private static final String NO_HELP_AVAILABLE      = "/help/404.html";
 
-	private UserPreferences preferences;
+	private UserPreferences    preferences;
 	private NotificationCenter globalNotifications;
 
-	private StringProperty helpFile = new SimpleStringProperty();
-	private BooleanProperty detached = new SimpleBooleanProperty(false);
-	private ObjectProperty<ModuleAction> module = new SimpleObjectProperty<>();
+	private StringProperty               helpFile = new SimpleStringProperty();
+	private BooleanProperty              detached = new SimpleBooleanProperty(false);
+	private ObjectProperty<ModuleAction> module   = new SimpleObjectProperty<>();
 
 	@Inject
 	public HelpViewModel(UserPreferences prefs, NotificationCenter notificationCenter) {

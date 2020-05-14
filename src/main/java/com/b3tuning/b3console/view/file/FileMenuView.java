@@ -57,13 +57,13 @@ public class FileMenuView extends BaseView<FileMenuViewModel> {
 
 	private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
 
-	@FXML private Label dropArea;
+	@FXML private Label     dropArea;
 	@FXML private TextField browsePath;
-	@FXML private Button changeButton;
+	@FXML private Button    changeButton;
 
-	@FXML private TreeTableView<FileWrapper> treeView;
-	@FXML private TreeTableColumn<FileWrapper, String> fileColumn;
-	@FXML private TreeTableColumn<FileWrapper, Number> sizeColumn;
+	@FXML private TreeTableView<FileWrapper>                  treeView;
+	@FXML private TreeTableColumn<FileWrapper, String>        fileColumn;
+	@FXML private TreeTableColumn<FileWrapper, Number>        sizeColumn;
 	@FXML private TreeTableColumn<FileWrapper, LocalDateTime> lastModifiedColumn;
 
 

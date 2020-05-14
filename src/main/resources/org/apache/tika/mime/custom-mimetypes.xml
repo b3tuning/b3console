@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info>
+    <mime-type type="application/x-mpegURL">
+        <sub-class-of type="text/plain"/>
+        <glob pattern="*.m3u8"/>
+    </mime-type>
+    <mime-type type="video/MP2T">
+        <glob pattern="*.ts"/>
+    </mime-type>
+</mime-info>

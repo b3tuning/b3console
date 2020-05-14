@@ -45,8 +45,8 @@ import static javafx.scene.CacheHint.SPEED;
 public class GuiUtils {
 
 
-	public static final int UI_ANIMATION_TIME_MSEC = 2000;
-	public static final Duration UI_ANIMATION_TIME = Duration.millis(UI_ANIMATION_TIME_MSEC);
+	public static final int      UI_ANIMATION_TIME_MSEC = 2000;
+	public static final Duration UI_ANIMATION_TIME      = Duration.millis(UI_ANIMATION_TIME_MSEC);
 
 	public static Animation fadeIn(Node ui) {
 		return fadeIn(ui, 0, 1.0);
@@ -98,8 +98,8 @@ public class GuiUtils {
 		GaussianBlur blur = new GaussianBlur(0.0);
 		node.setEffect(blur);
 		Timeline timeline = new Timeline();
-		KeyValue kv = new KeyValue(blur.radiusProperty(), 10.0);
-		KeyFrame kf = new KeyFrame(UI_ANIMATION_TIME, kv);
+		KeyValue kv       = new KeyValue(blur.radiusProperty(), 10.0);
+		KeyFrame kf       = new KeyFrame(UI_ANIMATION_TIME, kv);
 		timeline.getKeyFrames().add(kf);
 		timeline.play();
 	}
@@ -111,8 +111,8 @@ public class GuiUtils {
 			return;
 		}
 		Timeline timeline = new Timeline();
-		KeyValue kv = new KeyValue(blur.radiusProperty(), 0.0);
-		KeyFrame kf = new KeyFrame(duration, kv);
+		KeyValue kv       = new KeyValue(blur.radiusProperty(), 0.0);
+		KeyFrame kf       = new KeyFrame(duration, kv);
 		timeline.getKeyFrames().add(kf);
 		timeline.setOnFinished(actionEvent -> node.setEffect(null));
 		timeline.play();
@@ -159,7 +159,7 @@ public class GuiUtils {
 
 	public static void dropShadowOff(Node node) {
 		DropShadow dropShadow = (DropShadow) node.getEffect();
-		Timeline timeline = new Timeline();
+		Timeline   timeline   = new Timeline();
 		timeline.getKeyFrames().add(
 				new KeyFrame(Duration.millis(UI_ANIMATION_TIME_MSEC / 3),
 				             new KeyValue(dropShadow.radiusProperty(), 0.0))
@@ -205,7 +205,6 @@ public class GuiUtils {
 		return accumulator;
 	}
 
-
 	public static void runOnGuiThreadAfter(long millis, Runnable runnable) {
 		new Thread(() -> {
 			Uninterruptibles.sleepUninterruptibly(millis, TimeUnit.MILLISECONDS);
@@ -238,9 +237,9 @@ public class GuiUtils {
 	}
 
 	public static class AnimatedBindInfo {
-		public Timeline timeline;
+		public Timeline      timeline;
 		public NumberBinding bindFrom;
-		public Runnable onAnimFinish;
+		public Runnable      onAnimFinish;
 	}
 
 	public static AnimatedBindInfo animatedBind(Node node, WritableDoubleValue bindTo, NumberBinding bindFrom) {

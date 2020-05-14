@@ -20,10 +20,10 @@ import static org.reactfx.EventStreams.changesOf;
  */
 public abstract class EditableEntity implements Disposable {
 
-	private final EventSource<Boolean> dirtyStream;
+	private final EventSource<Boolean>            dirtyStream;
 	private final SuspendableEventStream<Boolean> suspendableDirtyStream;
-	private final Binding<Boolean> dirty;
-	private Guard guardOfDirtyStream;
+	private final Binding<Boolean>                dirty;
+	private       Guard                           guardOfDirtyStream;
 
 	private Subscription subscriptions;
 

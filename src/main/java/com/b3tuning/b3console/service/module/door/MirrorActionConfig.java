@@ -16,7 +16,7 @@ import java.io.Serializable;
  */
 public class MirrorActionConfig extends EditableEntity implements Serializable {
 
-	private static final long serialVersionUID = 5181372062732497629L;
+	private static final long serialVersionUID = -4651332825883884318L;
 
 	private IntegerProperty downMax;
 	private IntegerProperty downMin;

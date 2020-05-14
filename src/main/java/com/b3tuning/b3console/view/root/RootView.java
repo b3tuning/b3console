@@ -39,10 +39,10 @@ import static org.reactfx.EventStreams.valuesOf;
 public class RootView extends BaseView<RootViewModel> {
 
 	@FXML AnchorPane leftPane;
-	@FXML StackPane centerPane;
+	@FXML StackPane  centerPane;
 	@FXML AnchorPane topPane;
-	@FXML Button logOutButton;
-	@FXML SplitPane centerSplitPane;
+	@FXML Button     logOutButton;
+	@FXML SplitPane  centerSplitPane;
 
 	private Node helpView;
 
@@ -143,7 +143,7 @@ public class RootView extends BaseView<RootViewModel> {
 		if (centerSplitPane.getDividers().size() == 0) {
 			return;
 		}
-		double newPosition = 1 - position;
+		double newPosition     = 1 - position;
 		double currentPosition = centerSplitPane.getDividerPositions()[0];
 		if (Math.floor(newPosition * 100) != Math.floor(currentPosition * 100)) {
 			centerSplitPane.setDividerPosition(0, newPosition);
@@ -178,7 +178,7 @@ public class RootView extends BaseView<RootViewModel> {
 				}
 				skin.getToggleGroup().getToggles().forEach(t -> {
 					ToggleButton menuItem = (ToggleButton) t;
-					String id = menuItem.getId();
+					String       id       = menuItem.getId();
 //					if(MainMenuItemAction.SETTINGS == MainMenuItemAction.valueOf(id)) {
 //						menuItem.setSelected(true);
 //					}

@@ -29,16 +29,16 @@ import static org.reactfx.EventStreams.valuesOf;
 @XSlf4j
 public class FileDialogView extends BaseView<FileDialogViewModel> {
 
-	private static int MAX_ROWS_TO_DISPLAY = 6;
+	private static final int MAX_ROWS_TO_DISPLAY = 6;
 
 	@InjectViewModel
 	public FileDialogViewModel viewModel;
 
-	@FXML Label description;
-	@FXML TableView<File> filesToIngestTable;
+	@FXML Label                     description;
+	@FXML TableView<File>           filesToIngestTable;
 	@FXML TableColumn<File, String> fileToIngestNameColumn;
 	@FXML TableColumn<File, String> fileToIngestSizeColumn;
-	@FXML TableView<File> invalidFilesTable;
+	@FXML TableView<File>           invalidFilesTable;
 	@FXML TableColumn<File, String> invalidFileNameColumn;
 	@FXML TableColumn<File, String> invalidFileSizeColumn;
 

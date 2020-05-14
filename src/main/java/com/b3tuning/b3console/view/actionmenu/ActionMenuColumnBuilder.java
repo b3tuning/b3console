@@ -26,7 +26,7 @@ import static javafx.geometry.Pos.CENTER_LEFT;
 @XSlf4j
 public class ActionMenuColumnBuilder<S, T> {
 
-	ObjectProperty<S> selectable;
+	ObjectProperty<S>      selectable;
 	ObjectProperty<Action> selectableAction;
 
 	public ActionMenuColumnBuilder(ObjectProperty<S> selectable,
@@ -52,7 +52,7 @@ public class ActionMenuColumnBuilder<S, T> {
 						super.updateItem(value, empty);
 
 						ActionsMenu<S> menu = new ActionsMenu<>(actions);
-						HBox hbox = new HBox();
+						HBox           hbox = new HBox();
 
 						final TableCell<S, T> c = this;
 						@SuppressWarnings("unchecked") TableRow<S> tableRow = c.getTableRow();

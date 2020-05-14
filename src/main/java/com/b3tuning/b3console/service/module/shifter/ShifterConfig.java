@@ -29,7 +29,7 @@ import static org.reactfx.EventStreams.changesOf;
 @EqualsAndHashCode(callSuper = false)
 public class ShifterConfig extends EditableEntity implements Serializable {
 
-	private static final long serialVersionUID = 6491927089324353068L;
+	private static final long serialVersionUID = -3770714227800505079L;
 
 	public ObjectProperty<CanBusConfig>        canBus;
 	public ObjectProperty<IndicatorConfig>     indicator;
@@ -54,9 +54,9 @@ public class ShifterConfig extends EditableEntity implements Serializable {
 		this.shifterPositions.setAll(positions);
 	}
 
-	public com.b3tuning.b3console.service.module.shifter.ShifterConfig copy() {
-		return new com.b3tuning.b3console.service.module.shifter.ShifterConfig(this.getCanBusConfig(), this.getIndicatorConfig(), this.getMelexisConfig(),
-		                                                                               new ArrayList<>(this.getShifterPositionConfigs()));
+	public ShifterConfig copy() {
+		return new ShifterConfig(this.getCanBusConfig(), this.getIndicatorConfig(), this.getMelexisConfig(),
+		                         new ArrayList<>(this.getShifterPositionConfigs()));
 	}
 
 	public CanBusConfig getCanBusConfig() {
@@ -121,7 +121,7 @@ public class ShifterConfig extends EditableEntity implements Serializable {
 	 * MelexisConfig
 	 */
 	public static class MelexisConfig extends EditableEntity implements Serializable {
-		private static final long serialVersionUID = 1009408752450992602L;
+		private static final long serialVersionUID = -3082171139589377360L;
 
 		private IntegerProperty range;
 
@@ -152,7 +152,7 @@ public class ShifterConfig extends EditableEntity implements Serializable {
 	 * IndicatorConfig
 	 */
 	public static class IndicatorConfig extends EditableEntity implements Serializable {
-		private static final long serialVersionUID = 8536974986658985519L;
+		private static final long serialVersionUID = -7837278550103560074L;
 
 		private IntegerProperty brightness; // uint_8t - needs mask 0x0FF?
 		private IntegerProperty color;      // uint_8t - needs mask 0xFF?
@@ -213,7 +213,7 @@ public class ShifterConfig extends EditableEntity implements Serializable {
 	 * Shifter Position Config
 	 */
 	public static class ShifterPositionConfig extends EditableEntity implements Serializable {
-		private static final long serialVersionUID = -2495890607919657827L;
+		private static final long serialVersionUID = -3677812416764695651L;
 
 		private IntegerProperty x1; // int16_t - needs mask?
 		private IntegerProperty x2; // int16_t - needs mask?

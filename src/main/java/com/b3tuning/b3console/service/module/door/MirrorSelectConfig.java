@@ -16,7 +16,7 @@ import java.io.Serializable;
  */
 public class MirrorSelectConfig extends EditableEntity implements Serializable {
 
-	private static final long serialVersionUID = -3893787304279072139L;
+	private static final long serialVersionUID = -2218249870810467004L;
 
 	private IntegerProperty driverMax;
 	private IntegerProperty driverMin;

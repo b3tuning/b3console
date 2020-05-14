@@ -29,7 +29,7 @@ public class ScrollBarHelper {
 	public ScrollBar getVerticalScrollbar(Control scrollable) {
 		if (scrollable instanceof ComboBox) {
 			ComboBoxListViewSkin<?> skin = ((ComboBoxListViewSkin<?>) scrollable.getSkin());
-			if (skin==null) {
+			if (skin == null) {
 				return null;
 			}
 //			scrollable = skin.getListView();  // <---- getListView() no longer public API

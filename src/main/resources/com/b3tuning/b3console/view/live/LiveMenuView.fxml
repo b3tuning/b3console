@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<AnchorPane fx:controller="com.b3tuning.b3console.view.live.LiveMenuView"
+            AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1">
+
+    <AnchorPane styleClass="white-background-with-border" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                AnchorPane.topAnchor="60.0">
+        <Label styleClass="tile-text-sub" text="LIVE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
+
+        <AnchorPane AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0" AnchorPane.rightAnchor="30.0">
+<!--            <StackPane fx:id="moduleStack" AnchorPane.bottomAnchor="5" AnchorPane.leftAnchor="5" AnchorPane.rightAnchor="5"-->
+<!--                       AnchorPane.topAnchor="5" >-->
+<!--            </StackPane>>-->
+        </AnchorPane>
+    </AnchorPane>
+
+    <Label styleClass="tile-text" text="LIVE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="15.0"/>
+</AnchorPane>

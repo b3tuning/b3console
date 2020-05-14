@@ -17,8 +17,8 @@ public class MemoryUtil {
 		if (!log.isTraceEnabled()) {
 			return;
 		}
-		Runtime runtime = Runtime.getRuntime();
-		long beforeGC = runtime.totalMemory() - runtime.freeMemory();
+		Runtime runtime  = Runtime.getRuntime();
+		long    beforeGC = runtime.totalMemory() - runtime.freeMemory();
 
 		System.gc();
 		long afterGC = runtime.totalMemory() - runtime.freeMemory();

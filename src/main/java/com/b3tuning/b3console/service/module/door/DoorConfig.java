@@ -18,7 +18,7 @@ import java.io.Serializable;
  */
 public class DoorConfig extends EditableEntity implements Serializable {
 
-	private static final long serialVersionUID = 6223895326415199745L;
+	private static final long serialVersionUID = 4780456121009969723L;
 
 	private ObjectProperty<MirrorActionConfig> mirrorAction;
 	private ObjectProperty<MirrorSelectConfig> mirrorSelect;

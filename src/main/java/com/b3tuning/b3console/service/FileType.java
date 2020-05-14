@@ -14,6 +14,5 @@ public enum FileType {
 	IMAGE,
 	TEXT,
 	OTHER,
-	DIRECTORY,
-	;
+	DIRECTORY
 }

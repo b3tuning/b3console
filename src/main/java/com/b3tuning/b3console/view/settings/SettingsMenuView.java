@@ -36,12 +36,12 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class SettingsMenuView extends BaseView<SettingsMenuViewModel> {
 
-	@FXML Button selectDirectory;
+	@FXML Button    selectDirectory;
 	@FXML TextField downloadPath;
 
 	@FXML private Label version;
 
-	@FXML private ToggleGroup moduleGroup;
+	@FXML private ToggleGroup  moduleGroup;
 	@FXML private ToggleButton doorButton;
 	@FXML private ToggleButton shifterButton;
 	@FXML private ToggleButton transButton;
@@ -61,8 +61,8 @@ public class SettingsMenuView extends BaseView<SettingsMenuViewModel> {
 		selectDirectory.setText(FOLDER_OPEN);
 		manage(eventsOf(selectDirectory, ACTION).subscribe(e -> {
 			DirectoryChooser directoryChooser = new DirectoryChooser();
-			Stage primaryStage = (Stage) selectDirectory.getScene().getWindow();
-			File selected = directoryChooser.showDialog(primaryStage);
+			Stage            primaryStage     = (Stage) selectDirectory.getScene().getWindow();
+			File             selected         = directoryChooser.showDialog(primaryStage);
 			if (selected != null) {
 				downloadPath.setText(selected.getAbsolutePath());
 			}

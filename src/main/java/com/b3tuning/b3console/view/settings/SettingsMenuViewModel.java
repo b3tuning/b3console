@@ -36,9 +36,9 @@ public class SettingsMenuViewModel extends BaseViewModel {
 	private             NotificationCenter globalNotifications;
 
 	// exposed properties
-	private StringProperty downloadPath = new SimpleStringProperty();
-	private StringProperty versionString = new SimpleStringProperty();
-	private ObjectProperty<ModuleAction> module = new SimpleObjectProperty<>();
+	private StringProperty               downloadPath  = new SimpleStringProperty();
+	private StringProperty               versionString = new SimpleStringProperty();
+	private ObjectProperty<ModuleAction> module        = new SimpleObjectProperty<>();
 
 	public enum ModuleAction {
 		DOOR, SHIFTER, TRANS
@@ -86,10 +86,11 @@ public class SettingsMenuViewModel extends BaseViewModel {
 		log.debug("DescriptivePortName = {}", port.getDescriptivePortName());
 		log.debug("PortDescription = {}", port.getPortDescription());
 		if (port.getDescriptivePortName().contains(B3_USB_PORT_DESCRIPTION)
-		&& port.getDescriptivePortName().contains("cu.")) {
+		    && port.getDescriptivePortName().contains("cu.")) {
 			log.debug("YAY FOUND SERIAL PORT B3");
 		}
 	}
+
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX properties
 	/////////////////////////////////////////////////////////////////////////////

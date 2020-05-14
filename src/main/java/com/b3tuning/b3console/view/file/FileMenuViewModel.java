@@ -44,6 +44,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static com.b3tuning.b3console.view.file.DropAreaConstants.DEFAULT_DISABLED_DRAG_DROP_MESSAGE;
+import static com.b3tuning.b3console.view.utils.BackgroundColorConstants.GREEN_BACKGROUND;
+import static com.b3tuning.b3console.view.utils.BackgroundColorConstants.LIGHT_GRAY_BACKGROUND;
+import static com.b3tuning.b3console.view.utils.BackgroundColorConstants.RED_BACKGROUND;
 import static javafx.scene.control.ButtonBar.ButtonData.CANCEL_CLOSE;
 import static javafx.scene.control.ButtonBar.ButtonData.OK_DONE;
 import static javafx.scene.input.TransferMode.MOVE;
@@ -59,7 +62,7 @@ import static org.reactfx.EventStreams.valuesOf;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 @XSlf4j
-public class FileMenuViewModel extends com.b3tuning.b3console.view.BaseViewModel implements Refreshable {
+public class FileMenuViewModel extends BaseViewModel implements Refreshable {
 
 	static final String REFRESH_PAGE = "refresh me";
 

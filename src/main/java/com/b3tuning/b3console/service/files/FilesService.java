@@ -32,8 +32,6 @@ public class FilesService {
 		checkArgument(request.getLocationUid() != null, "Location Uid not provided");
 		checkArgument(request.getFileUidOrPath() != null, "File Uid not provided");
 
-
-
 		RetrieveFileEvent apiRequest = new RetrieveFileEvent(
 				request.getOrganizationUid(),
 				request.getLocationUid(),
@@ -51,6 +49,4 @@ public class FilesService {
 
 		return null;
 	}
-
-}
 }

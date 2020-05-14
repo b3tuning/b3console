@@ -27,7 +27,7 @@ import static com.b3tuning.b3console.service.FileType.OTHER;
 public class FileInspectorServiceImpl implements FileInspectorService {
 
 	private AppProperties properties;
-	private Tika tika;
+	private Tika          tika;
 
 	@Inject
 	public FileInspectorServiceImpl(AppProperties properties, Tika tika) {
@@ -63,5 +63,4 @@ public class FileInspectorServiceImpl implements FileInspectorService {
 	static boolean anyMatch(List<String> allowed, String mimeType) {
 		return allowed.stream().anyMatch(a -> mimeType.matches(RegexUtils.regexFromGlob(a)));
 	}
-
 }

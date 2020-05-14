@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<StackPane fx:id="pane" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0"
+           AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label alignment="CENTER" styleClass="tile-label-text" text="Save changes?"/>
+        <Button fx:id="noButton" StackPane.alignment="BOTTOM_LEFT" mnemonicParsing="false" prefWidth="50.0"
+                prefHeight="30.0" text="NO"/>
+        <Button fx:id="yesButton" StackPane.alignment="BOTTOM_RIGHT" mnemonicParsing="false" prefWidth="50.0"
+                prefHeight="30.0" text="YES"/>
+    </children>
+</StackPane>

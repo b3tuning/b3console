@@ -25,13 +25,13 @@ import java.util.List;
  */
 public class FileEntity implements TreeElement {
 
-	private final StringProperty name;
-	private final StringProperty alias;
-	private final StringProperty mimeType;
+	private final StringProperty       name;
+	private final StringProperty       alias;
+	private final StringProperty       mimeType;
 	private final ObjectProperty<Date> createdAt;
 	private final ObjectProperty<Date> lastModified;
-	private final LongProperty size;
-	private final StringProperty relativePath;
+	private final LongProperty         size;
+	private final StringProperty       relativePath;
 
 	private final List<FileEntity> children;
 

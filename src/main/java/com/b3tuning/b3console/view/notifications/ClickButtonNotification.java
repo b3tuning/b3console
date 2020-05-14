@@ -18,7 +18,7 @@ import lombok.extern.slf4j.XSlf4j;
 public class ClickButtonNotification {
 
 	private MainMenuItemAction mainMenuItemAction;
-	private String buttonId;
+	private String             buttonId;
 
 	public static void fire(NotificationCenter globalNotifications, MainMenuItemAction action) {
 		fire(globalNotifications, action, null);

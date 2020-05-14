@@ -31,12 +31,12 @@ public class TimeConverter {
 	 */
 	private static final int ONE = 1;
 
-	private static final String SPACE = " ";
-	private static final String DAY = "day";
-	private static final String HOUR = "hour";
+	private static final String SPACE  = " ";
+	private static final String DAY    = "day";
+	private static final String HOUR   = "hour";
 	private static final String MINUTE = "minute";
 	private static final String SECOND = "second";
-	private static final String MILLI = "milli";
+	private static final String MILLI  = "milli";
 
 	/**
 	 * Text for converted date
@@ -77,7 +77,7 @@ public class TimeConverter {
 			log.warn("not date provided");
 			return "";
 		}
-		Date current = new Date();
+		Date current  = new Date();
 		long duration = current.getTime() - date.getTime();
 
 		StringBuilder res = new StringBuilder();
@@ -114,9 +114,9 @@ public class TimeConverter {
 			return "";
 		}
 
-		long d = duration.toMillis();
-		long days = TimeUnit.MILLISECONDS.toDays(d);
-		long hours = TimeUnit.MILLISECONDS.toHours(d) - TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(d));
+		long d       = duration.toMillis();
+		long days    = TimeUnit.MILLISECONDS.toDays(d);
+		long hours   = TimeUnit.MILLISECONDS.toHours(d) - TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(d));
 		long minutes = TimeUnit.MILLISECONDS.toMinutes(d) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(d));
 		long seconds =
 				TimeUnit.MILLISECONDS.toSeconds(d) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(d));

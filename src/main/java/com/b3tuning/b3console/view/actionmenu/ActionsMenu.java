@@ -18,8 +18,8 @@ public class ActionsMenu<T> extends Control {
 	public final static String CSS_CLASS = "actionsmenu";
 
 	private ObjectProperty<ActionsMenuModel> model;
-	private ObjectProperty<Action> selectedAction;
-	private ObjectProperty<T> associatedEntity;
+	private ObjectProperty<Action>           selectedAction;
+	private ObjectProperty<T>                associatedEntity;
 
 	public ActionsMenu(ActionsMenuModel model) {
 		this.model = new SimpleObjectProperty<>(model);
