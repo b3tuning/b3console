@@ -1,7 +1,6 @@
 package com.b3tuning.b3console.platform;
 
 import com.b3tuning.b3console.properties.AppProperties;
-import com.b3tuning.b3console.service.files.FilesService;
 import com.b3tuning.b3console.service.utils.FileInspectorService;
 import com.b3tuning.b3console.service.utils.FileInspectorServiceImpl;
 import com.b3tuning.b3console.view.availablefiles.AvailableFilesViewModel;
@@ -32,9 +31,9 @@ public class DesktopDependenciesModule {
 	}
 
 	@Provides
-	AvailableFilesViewModel provideAvailableFilesViewModel(FilesService filesService) {
+	AvailableFilesViewModel provideAvailableFilesViewModel(/*FilesService filesService*/) {
 		log.entry();
-		return new DesktopAvailableFilesViewModel(filesService);
+		return new DesktopAvailableFilesViewModel(/*filesService*/);
 	}
 
 	@Provides

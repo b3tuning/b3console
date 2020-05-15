@@ -1,7 +1,6 @@
 package com.b3tuning.b3console.view.file;
 
 import com.b3tuning.b3console.service.files.FileEntity;
-import com.b3tuning.b3console.service.files.FilesService;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.Refreshable;
 import com.b3tuning.b3console.view.availablefiles.AvailableFilesViewModel;
@@ -22,18 +21,14 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Background;
 import lombok.extern.slf4j.XSlf4j;
 import org.apache.commons.lang3.mutable.MutableBoolean;
-import org.datafx.concurrent.ProcessChain;
 import org.reactfx.Guard;
 import org.reactfx.Indicator;
+import org.reactfx.SuspendableNo;
 
 import javax.inject.Inject;
 import java.io.File;
 import java.text.DateFormat;
-import java.text.ParseException;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 import static com.b3tuning.b3console.view.utils.BackgroundColorConstants.GREEN_BACKGROUND;
@@ -60,7 +55,7 @@ public class DesktopAvailableFilesViewModel extends BaseViewModel implements Ava
 
 	// data sources
 	private ObjectProperty<FileEntity> file              = new SimpleObjectProperty<>();
-	private Indicator                  loadingInProgress = new Indicator();
+	private SuspendableNo              loadingInProgress = new SuspendableNo();
 
 	// consumed by view
 	private StringProperty                       availableFilesTablePlaceholder = new SimpleStringProperty();
@@ -70,13 +65,13 @@ public class DesktopAvailableFilesViewModel extends BaseViewModel implements Ava
 	private ObjectProperty<TreeItem<FileEntity>> rootElement                    = new SimpleObjectProperty<>();
 
 	// injected dependencies
-	private FilesService filesService;
+//	private FilesService filesService;
 
 	@Inject
-	public DesktopAvailableFilesViewModel(FilesService filesService) {
+	public DesktopAvailableFilesViewModel(/*FilesService filesService*/) {
 		log.entry();
 
-		this.filesService = filesService;
+//		this.filesService = filesService;
 
 		manage(valuesOf(dropAreaDisabled).subscribe(e -> {
 			log.entry(e);
@@ -111,7 +106,7 @@ public class DesktopAvailableFilesViewModel extends BaseViewModel implements Ava
 	private List<File> getFileList(ObservableList<TreeItem<FileEntity>> sourceList) {
 		log.entry(sourceList);
 		return sourceList.stream()
-		                 .map(treeItem -> new File(treeItem.getValue().getUid().toString()))
+		                 .map(treeItem -> new File(treeItem.getValue().getName().toString()))
 		                 .collect(Collectors.toList());
 	}
 
@@ -143,10 +138,10 @@ public class DesktopAvailableFilesViewModel extends BaseViewModel implements Ava
 			db.getFiles().forEach(file -> {
 				try {
 					// set the uid
-					UUID sourceFileUid = UUID.fromString(file.getName());
+					String sourceFileName = file.getName();
 					FileEntity entity = TreeItemStreamSupport.stream(getRootElement())
 					                                         .map(TreeItem::getValue)
-					                                         .filter(f -> f.getUid().equals(sourceFileUid))
+					                                         .filter(f -> f.getName().equals(sourceFileName))
 					                                         .findAny()
 					                                         .orElse(null);
 					if (entity == null) {
@@ -154,21 +149,21 @@ public class DesktopAvailableFilesViewModel extends BaseViewModel implements Ava
 						return;
 					}
 					entity.setRelativePath(null);
-					ProcessChain.create()
-					            .addRunnableInPlatformThread(
-							            () -> dropAreaText.set(DropAreaConstants.PROCESSING_FILES_MESSAGE))
-					            .addRunnableInExecutor(() -> createSourceFileJob(entity.getUid()))
-					            .addRunnableInPlatformThread(() -> dropAreaText.set(entity.isDirectory()
-					                                                                ? DropAreaConstants.DROPPED_REMOTE_DIR_MESSAGE
-					                                                                : String.format(
-							                                                                DropAreaConstants.DROPPED_MESSAGE,
-							                                                                entity.getAlias())))
-					            .onException(ex -> {
-						            success.setValue(false);
-						            log.error("Unable to process chain for posting jobs {}", ex);
-						            dropAreaText.set(DropAreaConstants.DEFAULT_LOCATION_SELECTED_MESSAGE);
-					            })
-					            .run();
+//					ProcessChain.create()
+//					            .addRunnableInPlatformThread(
+//							            () -> dropAreaText.set(DropAreaConstants.PROCESSING_FILES_MESSAGE))
+//					            .addRunnableInExecutor(() -> createSourceFileJob(entity.getUid()))
+//					            .addRunnableInPlatformThread(() -> dropAreaText.set(entity.isDirectory()
+//					                                                                ? DropAreaConstants.DROPPED_REMOTE_DIR_MESSAGE
+//					                                                                : String.format(
+//							                                                                DropAreaConstants.DROPPED_MESSAGE,
+//							                                                                entity.getAlias())))
+//					            .onException(ex -> {
+//						            success.setValue(false);
+//						            log.error("Unable to process chain for posting jobs {}", ex);
+//						            dropAreaText.set(DropAreaConstants.DEFAULT_LOCATION_SELECTED_MESSAGE);
+//					            })
+//					            .run();
 				}
 				catch (IllegalArgumentException iae) {
 					log.error(iae.getMessage());
@@ -183,78 +178,78 @@ public class DesktopAvailableFilesViewModel extends BaseViewModel implements Ava
 	void loadFile() {
 		log.entry();
 
-		if (loadingInProgress.isOn()) {
+		if (loadingInProgress.get()) {
 			log.trace("Already loading therefore not performing a duplicate page load");
 			return;
 		}
 
-		final Guard lock = loadingInProgress.on();
+		final Guard lock = loadingInProgress.suspend();
 
 		availableFilesTablePlaceholder.set("Loading files...");
 
-		ProcessChain.create()
-		            .addRunnableInExecutor(() -> processFilesResponseFromServer(
-				            requestFilesDataFromServer(selectedLocation.get().getUid(),
-				                                       file.get() == null
-				                                       ? ROOT_FILE_PATH
-				                                       : file.get().getUid().toString())))
-		            .addRunnableInPlatformThread(() -> {
-			            availableFilesTablePlaceholder
-					            .set("There are no files that you have permission to view.");
-			            lock.close();
-		            }).onException(e -> {
-			log.error("Unable to retrieve the list of files", e);
-			lock.close();
-		}).run();
+//		ProcessChain.create()
+//		            .addRunnableInExecutor(() -> processFilesResponseFromServer(
+//				            requestFilesDataFromServer(selectedLocation.get().getUid(),
+//				                                       file.get() == null
+//				                                       ? ROOT_FILE_PATH
+//				                                       : file.get().getUid().toString())))
+//		            .addRunnableInPlatformThread(() -> {
+//			            availableFilesTablePlaceholder
+//					            .set("There are no files that you have permission to view.");
+//			            lock.close();
+//		            }).onException(e -> {
+//			log.error("Unable to retrieve the list of files", e);
+//			lock.close();
+//		}).run();
 	}
 
-	private FileEntity requestFilesDataFromServer(UUID locationUid, String fileUidOrPath) {
-		log.entry(locationUid, fileUidOrPath);
+//	private FileEntity requestFilesDataFromServer(UUID locationUid, String fileUidOrPath) {
+//		log.entry(locationUid, fileUidOrPath);
+//
+//		FileByLocationRequest request = new FileByLocationRequest(
+//				user.getOrganizationUid(),
+//				locationUid,
+//				fileUidOrPath);
+//		FileEntity response = filesService.file(request);
+//		if (response != null) {
+//			orderJobAliases(response);
+//		} else {
+//			log.debug("NO FILES TO SHOW!");
+//		}
+//		return response;
+//	}
 
-		FileByLocationRequest request = new FileByLocationRequest(
-				user.getOrganizationUid(),
-				locationUid,
-				fileUidOrPath);
-		FileEntity response = filesService.file(request);
-		if (response != null) {
-			orderJobAliases(response);
-		} else {
-			log.debug("NO FILES TO SHOW!");
-		}
-		return response;
-	}
+//	private void orderJobAliases(FileEntity file) {
+//		List<FileEntity> sortedChildren = file.getChildren().stream()
+//		                                      .filter(c -> fromShortDateFormat(c.getAlias()) != null)
+//		                                      .sorted(Comparator.comparing(c -> fromShortDateFormat(c.getAlias()),
+//		                                                                   Comparator.reverseOrder()))
+//		                                      .collect(Collectors.toList());
+//
+//		if (!sortedChildren.isEmpty()) {
+//			file.setChildren(sortedChildren);
+//		}
+//	}
 
-	private void orderJobAliases(FileEntity file) {
-		List<FileEntity> sortedChildren = file.getChildren().stream()
-		                                      .filter(c -> fromShortDateFormat(c.getAlias()) != null)
-		                                      .sorted(Comparator.comparing(c -> fromShortDateFormat(c.getAlias()),
-		                                                                   Comparator.reverseOrder()))
-		                                      .collect(Collectors.toList());
+//	private Date fromShortDateFormat(String dateFormat) {
+//		try {
+//			return dateTimeFormatter.parse(dateFormat);
+//		}
+//		catch (ParseException e) {
+//			log.error("Error parsing date {}", dateFormat);
+//			return null;
+//		}
+//	}
 
-		if (!sortedChildren.isEmpty()) {
-			file.setChildren(sortedChildren);
-		}
-	}
-
-	private Date fromShortDateFormat(String dateFormat) {
-		try {
-			return dateTimeFormatter.parse(dateFormat);
-		}
-		catch (ParseException e) {
-			log.error("Error parsing date {}", dateFormat);
-			return null;
-		}
-	}
-
-	private void processFilesResponseFromServer(FileEntity data) {
-		log.entry();
-		if (data == null) {
-			log.error("could not retrieve the files");
-			return;
-		}
-		Platform.runLater(() -> file.set(data));
-
-	}
+//	private void processFilesResponseFromServer(FileEntity data) {
+//		log.entry();
+//		if (data == null) {
+//			log.error("could not retrieve the files");
+//			return;
+//		}
+//		Platform.runLater(() -> file.set(data));
+//
+//	}
 
 	private void clearTree() {
 		file.setValue(null);

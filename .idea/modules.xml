@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/b3console.iml" filepath="$PROJECT_DIR$/.idea/modules/b3console.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/b3console.daggerMain.iml" filepath="$PROJECT_DIR$/.idea/modules/b3console.daggerMain.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/b3console.main.iml" filepath="$PROJECT_DIR$/.idea/modules/b3console.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/b3console.test.iml" filepath="$PROJECT_DIR$/.idea/modules/b3console.test.iml" />
     </modules>

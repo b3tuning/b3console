@@ -80,7 +80,7 @@ public class DesktopAvailableFilesView extends BaseView<DesktopAvailableFilesVie
 		placeHolderText.textProperty().bind(viewModel.availableFilesTablePlaceholderProperty());
 		treeView.setPlaceholder(placeHolderText);
 
-		browsePath.textProperty().bindBidirectional(viewModel.browsePathProperty());
+//		browsePath.textProperty().bindBidirectional(viewModel.browsePathProperty());
 
 		changeButton.setText(FOLDER_OPEN);
 
@@ -188,7 +188,7 @@ public class DesktopAvailableFilesView extends BaseView<DesktopAvailableFilesVie
 	@SuppressWarnings("unchecked")
 	private void addTreeChild(FileEntity file) {
 		TreeItemStreamSupport.stream(viewModel.getRootElement())
-		                     .filter(c -> c.getValue().getUid().equals(file.getUid()))
+		                     .filter(c -> c.getValue().getName().equals(file.getName()))
 		                     .findAny()
 		                     .ifPresent(c -> {
 			                     TreeItem<FileEntity> childNode = (TreeItem<FileEntity>) TreeItemBuilderHelper

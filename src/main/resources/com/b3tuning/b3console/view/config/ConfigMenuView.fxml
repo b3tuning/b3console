@@ -10,8 +10,16 @@
                 AnchorPane.topAnchor="60.0">
         <Label styleClass="tile-text-sub" text="CONFIG" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
 
-        <AnchorPane AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0" AnchorPane.rightAnchor="30.0">
-            <Label styleClass="tile-label-text" text="Download Location" AnchorPane.leftAnchor="0.0"
+        <AnchorPane fx:id="doorPlaceholder" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0" AnchorPane.rightAnchor="30.0">
+            <Label styleClass="tile-label-text" text="Door Module" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.topAnchor="0.0"/>
+        </AnchorPane>
+        <AnchorPane fx:id="shifterPlaceholder" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0" AnchorPane.rightAnchor="30.0">
+            <Label styleClass="tile-label-text" text="Shifter Module" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.topAnchor="0.0"/>
+        </AnchorPane>
+        <AnchorPane fx:id="transPlaceholder" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0" AnchorPane.rightAnchor="30.0">
+            <Label styleClass="tile-label-text" text="Trans Module" AnchorPane.leftAnchor="0.0"
                    AnchorPane.topAnchor="0.0"/>
         </AnchorPane>
     </AnchorPane>

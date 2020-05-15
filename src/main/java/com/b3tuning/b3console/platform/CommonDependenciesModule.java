@@ -6,7 +6,6 @@ import com.b3tuning.b3console.properties.PropertyLoader;
 import com.b3tuning.b3console.service.EntityPatcher;
 import com.b3tuning.b3console.service.comms.SerialComms;
 import com.b3tuning.b3console.service.files.FileAssembler;
-import com.b3tuning.b3console.service.files.FilesService;
 import com.b3tuning.b3console.service.module.door.DoorConfigAssembler;
 import com.b3tuning.b3console.service.module.door.DoorModuleService;
 import com.b3tuning.b3console.service.module.shifter.ShifterAssembler;
@@ -67,11 +66,11 @@ public class CommonDependenciesModule {
 		return new DoorModuleService(assembler, comms);
 	}
 
-	@Provides
-	@Singleton
-	FilesService provideFilesService(FileAssembler assembler) {
-		return new FilesService(assembler);
-	}
+//	@Provides
+//	@Singleton
+//	FilesService provideFilesService(FileAssembler assembler) {
+//		return new FilesService(assembler);
+//	}
 
 	@Provides
 	@Singleton

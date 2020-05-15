@@ -138,7 +138,7 @@
  ******************************************************************************/
 
 .mainmenu {
-    -fx-skin: "com.b3tuning.module.configtool.control.mainmenu.MainMenuSkin";
+    -fx-skin: "com.b3tuning.b3console.control.mainmenu.MainMenuSkin";
     -fx-background-color: var(--b3-color-menu-bar-background);
     /*-fx-padding: 0.666667em 0.333333em 0.666667em 0.333333em ;     /!* 8 4 8 4 *!/*/
 

@@ -40,7 +40,7 @@
                 </VBox>
                 <Button fx:id="logOutButton" styleClass="header-button">
                     <tooltip>
-                        <Tooltip autoHide="false" text="Log out"/>
+                        <Tooltip text="Log out"/>
                     </tooltip>
                 </Button>
             </HBox>

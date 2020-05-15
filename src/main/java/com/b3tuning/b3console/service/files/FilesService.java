@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.service.files;
 
-import com.b3tuning.b3console.service.ServiceResponseHelper;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -18,35 +17,35 @@ import static com.google.common.base.Preconditions.checkArgument;
 @XSlf4j
 public class FilesService {
 
-	private final com.b3tuning.b3console.service.files.FileAssembler assembler;
+	private final FileAssembler assembler;
 
 	@Inject
-	public FilesService(com.b3tuning.b3console.service.files.FileAssembler assembler) {
+	public FilesService(FileAssembler assembler) {
 		this.assembler = assembler;
 	}
 
 
-	public com.b3tuning.b3console.service.files.FileEntity file(FileByLocationRequest request) {
-		checkArgument(request != null, "FileByLocationRequest not provided");
-		checkArgument(request.getOrganizationUid() != null, "Organization Uid not provided");
-		checkArgument(request.getLocationUid() != null, "Location Uid not provided");
-		checkArgument(request.getFileUidOrPath() != null, "File Uid not provided");
+//	public FileEntity file(FileByLocationRequest request) {
+//		checkArgument(request != null, "FileByLocationRequest not provided");
+//		checkArgument(request.getOrganizationUid() != null, "Organization Uid not provided");
+//		checkArgument(request.getLocationUid() != null, "Location Uid not provided");
+//		checkArgument(request.getFileUidOrPath() != null, "File Uid not provided");
+//
+//		RetrieveFileEvent apiRequest = new RetrieveFileEvent(
+//				request.getOrganizationUid(),
+//				request.getLocationUid(),
+//				request.getFileUidOrPath(),
+//				user.getToken());
+//
+//		FileResponse response = filesApi.file(apiRequest);
+//
+//		log.info("get File response {}", response);
+//		if (!response.isFailed()) {
+//			return assembler.assemble(response.getFile());
+//		}
 
-		RetrieveFileEvent apiRequest = new RetrieveFileEvent(
-				request.getOrganizationUid(),
-				request.getLocationUid(),
-				request.getFileUidOrPath(),
-				user.getToken());
+//		ServiceResponseHelper.processFailure(response, user);
 
-		FileResponse response = filesApi.file(apiRequest);
-
-		log.info("get File response {}", response);
-		if (!response.isFailed()) {
-			return assembler.assemble(response.getFile());
-		}
-
-		ServiceResponseHelper.processFailure(response, user);
-
-		return null;
-	}
+//		return null;
+//	}
 }

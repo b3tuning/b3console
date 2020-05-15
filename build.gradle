@@ -55,6 +55,16 @@ mainClassName = 'com.b3tuning.b3console.App'
 group 'com.b3tuning'
 version '1.0-SNAPSHOT'
 
+sourceSets {
+    daggerMain {
+        java {
+            srcDirs = ['src/main/dagger']
+            compileClasspath += main.output
+            runtimeClasspath += main.output
+        }
+    }
+}
+
 configurations {
     implementationDagger
     implementation.exclude module: "spring-boot-starter-web"
@@ -147,20 +157,28 @@ dependencies {
 }
 
 compileJava {
-    sourceSets.main.java.srcDirs*.mkdirs()
+    sourceSets.daggerMain.java.srcDirs*.mkdirs()
     classpath += configurations.implementationDagger
+    options.compilerArgs += ['-s', sourceSets.daggerMain.java.srcDirs.iterator().next()
+    ]
+}
+
+compileDaggerMainJava {
+    classpath += configurations.implementationDagger
+    classpath += sourceSets.main.output
     options.compilerArgs += ['-s', sourceSets.main.java.srcDirs.iterator().next()
     ]
 }
 
-
 clean {
     description = "delete files in generated source directory tree"
+    delete fileTree(dir: sourceSets.daggerMain.java.srcDirs.iterator().next())
 }
 
 task debug(dependsOn: 'classes', type: JavaExec) {
 	main = mainClassName
 	classpath = sourceSets.main.runtimeClasspath
+	classpath += sourceSets.daggerMain.runtimeClasspath
 	debug = true
 }
 

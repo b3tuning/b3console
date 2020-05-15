@@ -11,6 +11,8 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import lombok.extern.slf4j.XSlf4j;
 
+import javax.inject.Inject;
+
 /*
  *  Created on:  May 04, 2020
  *      Author: James Hildebrand
@@ -26,6 +28,11 @@ public class ShifterConfigViewModel extends BaseViewModel implements EditableVie
 	private ShifterConfig                 originalConfig;
 
 	private BooleanProperty dirty = new SimpleBooleanProperty(false);
+
+	@Inject
+	public ShifterConfigViewModel() {
+		log.entry();
+	}
 
 	@Override
 	public void refresh() {

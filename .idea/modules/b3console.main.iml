@@ -3,8 +3,13 @@
   <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/../../build/classes/java/main" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../src/main">
+    <content url="file://$MODULE_DIR$/../../build/generated/sources/annotationProcessor/java/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../build/generated/sources/annotationProcessor/java/main" isTestSource="false" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../src/main/java">
       <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../src/main/resources">
       <sourceFolder url="file://$MODULE_DIR$/../../src/main/resources" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -18,13 +23,13 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Gradle: :javafx.web:" level="project" />
-    <orderEntry type="library" name="Gradle: :javafx.swing:" level="project" />
     <orderEntry type="library" name="Gradle: :javafx.base:" level="project" />
-    <orderEntry type="library" name="Gradle: :javafx.media:" level="project" />
     <orderEntry type="library" name="Gradle: :javafx.fxml:" level="project" />
-    <orderEntry type="library" name="Gradle: :javafx.graphics:" level="project" />
+    <orderEntry type="library" name="Gradle: :javafx.swing:" level="project" />
     <orderEntry type="library" name="Gradle: :javafx.controls:" level="project" />
+    <orderEntry type="library" name="Gradle: :javafx.web:" level="project" />
+    <orderEntry type="library" name="Gradle: :javafx.media:" level="project" />
+    <orderEntry type="library" name="Gradle: :javafx.graphics:" level="project" />
     <orderEntry type="library" name="Gradle: com.vinumeris:updatefx:1.5" level="project" />
     <orderEntry type="library" name="Gradle: org.bouncycastle:bcprov-jdk15on:1.54" level="project" />
     <orderEntry type="library" name="Gradle: org.javafxdata:datafx-core:8.0b5" level="project" />
