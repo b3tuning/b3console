@@ -7,69 +7,76 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.b3tuning.b3console.view.config.door.DoorConfigView">
-    <AnchorPane styleClass="white-background-with-border" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
-        <Label styleClass="tile-text-sub" text="DoorConfig" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0" />
+<AnchorPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.b3tuning.b3console.view.config.door.DoorConfigView">
+    <AnchorPane styleClass="white-background-with-border" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                AnchorPane.topAnchor="60.0">
+        <Label styleClass="tile-text-sub" text="DoorConfig" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
         <AnchorPane AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="130.0">
             <BorderPane>
                 <top>
                     <AnchorPane BorderPane.alignment="CENTER">
-                        <VBox alignment="CENTER" spacing="5.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
+                        <VBox alignment="CENTER" spacing="5.0" AnchorPane.leftAnchor="30.0"
+                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
                             <HBox alignment="CENTER">
-                                <TextField fx:id="mirrorActionUpMax" prefWidth="40.0" />
-                                <Label text="MAX" />
+                                <TextField fx:id="mirrorActionUpMax" prefWidth="40.0"/>
+                                <Label text="MAX"/>
                             </HBox>
                             <HBox alignment="CENTER">
-                                <TextField fx:id="mirrorActionUpMin" prefWidth="40.0" />
-                                <Label text="MIN" />
+                                <TextField fx:id="mirrorActionUpMin" prefWidth="40.0"/>
+                                <Label text="MIN"/>
                             </HBox>
                         </VBox>
                     </AnchorPane>
                 </top>
                 <left>
                     <AnchorPane BorderPane.alignment="CENTER">
-                        <VBox alignment="BASELINE_LEFT" spacing="5.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
+                        <VBox alignment="BASELINE_LEFT" spacing="5.0" AnchorPane.leftAnchor="30.0"
+                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
                             <HBox alignment="CENTER">
-                                <TextField fx:id="mirrorActionLeftMax" prefWidth="40.0" />
-                                <Label text="MAX" />
+                                <TextField fx:id="mirrorActionLeftMax" prefWidth="40.0"/>
+                                <Label text="MAX"/>
                             </HBox>
                             <HBox alignment="CENTER">
-                                <TextField fx:id="mirrorActionLeftMin" prefWidth="40.0" />
-                                <Label text="MIN" />
+                                <TextField fx:id="mirrorActionLeftMin" prefWidth="40.0"/>
+                                <Label text="MIN"/>
                             </HBox>
                         </VBox>
                     </AnchorPane>
                 </left>
                 <right>
                     <AnchorPane BorderPane.alignment="CENTER">
-                        <VBox alignment="BASELINE_RIGHT" spacing="5.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
+                        <VBox alignment="BASELINE_RIGHT" spacing="5.0" AnchorPane.leftAnchor="30.0"
+                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
                             <HBox alignment="CENTER">
-                                <TextField fx:id="mirrorActionRightMax" prefWidth="40.0" />
-                                <Label text="MAX" />
+                                <TextField fx:id="mirrorActionRightMax" prefWidth="40.0"/>
+                                <Label text="MAX"/>
                             </HBox>
                             <HBox alignment="CENTER">
-                                <TextField fx:id="mirrorActionRightMin" prefWidth="40.0" />
-                                <Label text="MIN" />
+                                <TextField fx:id="mirrorActionRightMin" prefWidth="40.0"/>
+                                <Label text="MIN"/>
                             </HBox>
                         </VBox>
                     </AnchorPane>
                 </right>
                 <bottom>
                     <AnchorPane BorderPane.alignment="CENTER">
-                        <VBox alignment="BOTTOM_CENTER" spacing="5.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
+                        <VBox alignment="BOTTOM_CENTER" spacing="5.0" AnchorPane.leftAnchor="30.0"
+                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
                             <HBox alignment="CENTER">
-                                <TextField fx:id="mirrorActionDownMax" prefWidth="40.0" />
-                                <Label text="MAX" />
+                                <TextField fx:id="mirrorActionDownMax" prefWidth="40.0"/>
+                                <Label text="MAX"/>
                             </HBox>
                             <HBox alignment="CENTER">
-                                <TextField fx:id="mirrorActionDownMin" prefWidth="40.0" />
-                                <Label text="MIN" />
+                                <TextField fx:id="mirrorActionDownMin" prefWidth="40.0"/>
+                                <Label text="MIN"/>
                             </HBox>
                         </VBox>
                     </AnchorPane>
                 </bottom>
             </BorderPane>
         </AnchorPane>
-        <Label styleClass="tile-text" text="CONFIGURATION" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="15.0" />
+        <Label styleClass="tile-text" text="CONFIGURATION" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="15.0"/>
     </AnchorPane>
 </AnchorPane>
