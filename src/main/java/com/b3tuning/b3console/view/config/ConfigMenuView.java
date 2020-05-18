@@ -73,19 +73,19 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 		createButton.visibleProperty().bind(moduleGroup.selectedToggleProperty().isNotNull());
 		manage(eventsOf(createButton, MouseEvent.MOUSE_CLICKED).subscribe(e -> viewModel.onCreateClicked()));
 
-		loadFromFile.setText(FontAwesome.PLUS);
+		loadFromFile.setText(FontAwesome.LOAD_FILE);
 		loadFromFile.visibleProperty().bind(moduleGroup.selectedToggleProperty().isNotNull());
 		manage(eventsOf(loadFromFile, MouseEvent.MOUSE_CLICKED).subscribe(e -> viewModel.loadConfigFromFile()));
 
-		saveToFile.setText(FontAwesome.PLUS);
+		saveToFile.setText(FontAwesome.SAVE);
 		saveToFile.visibleProperty().bind(moduleGroup.selectedToggleProperty().isNotNull());
 		manage(eventsOf(saveToFile, MouseEvent.MOUSE_CLICKED).subscribe(e -> viewModel.saveConfigToFile()));
 
-		getFromModule.setText(FontAwesome.PLUS);
+		getFromModule.setText(FontAwesome.GET_FROM_MODULE);
 		getFromModule.visibleProperty().bind(moduleGroup.selectedToggleProperty().isNotNull());
 		manage(eventsOf(getFromModule, MouseEvent.MOUSE_CLICKED).subscribe(e -> viewModel.getConfigFromModule()));
 
-		sendToModule.setText(FontAwesome.PLUS);
+		sendToModule.setText(FontAwesome.SEND_TO_MODULE);
 		sendToModule.visibleProperty().bind(moduleGroup.selectedToggleProperty().isNotNull());
 		manage(eventsOf(sendToModule, MouseEvent.MOUSE_CLICKED).subscribe(e -> viewModel.sendConfigToModule()));
 

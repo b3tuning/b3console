@@ -44,5 +44,13 @@ public class FontAwesome {
 
 	// https://fontawesome.com/icons/exchange-alt?style=solid
 //	public static final String EXCHANGE = "\uf362";
-	public static final String EXCHANGE = "\uf0ec";
+	public static final String EXCHANGE        = "\uf0ec";
+
+	public static final String LOAD_FILE       = "\uf1c9";
+
+	public static final String SAVE            = "\uf0c7";
+
+	public static final String GET_FROM_MODULE = "\uf093";
+
+	public static final String SEND_TO_MODULE  = "\uf019";
 }

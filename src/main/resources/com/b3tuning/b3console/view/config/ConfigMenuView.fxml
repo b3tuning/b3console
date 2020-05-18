@@ -16,7 +16,7 @@
     <top>
         <AnchorPane fx:id="menuPane" BorderPane.alignment="TOP_LEFT">
             <HBox spacing="10.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0"
-                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="53.0"
+                  AnchorPane.topAnchor="53.0"
                   styleClass="second-level-menu">
                 <fx:define>
                     <ToggleGroup fx:id="moduleGroup"/>
@@ -27,6 +27,9 @@
                               styleClass="button-big" toggleGroup="$moduleGroup"/>
                 <ToggleButton fx:id="transButton" minWidth="75.0" mnemonicParsing="false" text="TRANS"
                               styleClass="button-big" toggleGroup="$moduleGroup"/>
+            </HBox>
+            <HBox spacing="10.0" AnchorPane.topAnchor="53.0" AnchorPane.rightAnchor="30.0" AnchorPane.bottomAnchor="15.0"
+                  styleClass="second-level-menu">
                 <Button fx:id="createButton" mnemonicParsing="false" styleClass="awesome-button">
                     <tooltip>
                         <Tooltip text="Create a new Config"/>
