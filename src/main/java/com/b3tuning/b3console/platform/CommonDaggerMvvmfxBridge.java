@@ -2,6 +2,12 @@ package com.b3tuning.b3console.platform;
 
 import com.b3tuning.b3console.view.config.ConfigMenuView;
 import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
+import com.b3tuning.b3console.view.config.door.DoorConfigView;
+import com.b3tuning.b3console.view.config.door.DoorConfigViewModel;
+import com.b3tuning.b3console.view.config.shifter.ShifterConfigView;
+import com.b3tuning.b3console.view.config.shifter.ShifterConfigViewModel;
+import com.b3tuning.b3console.view.config.trans.TransConfigView;
+import com.b3tuning.b3console.view.config.trans.TransConfigViewModel;
 import com.b3tuning.b3console.view.help.HelpView;
 import com.b3tuning.b3console.view.help.HelpViewModel;
 import com.b3tuning.b3console.view.live.LiveMenuView;
@@ -54,6 +60,30 @@ public abstract class CommonDaggerMvvmfxBridge implements DaggerMvvmfxBridge {
 
 		if (ConfigMenuViewModel.class.equals(type)) {
 			return (T) getApplicationComponents().provideConfigMenuViewModel();
+		}
+
+		if (DoorConfigView.class.equals(type)) {
+			return (T) getApplicationComponents().provideDoorConfigView();
+		}
+
+		if (DoorConfigViewModel.class.equals(type)) {
+			return (T) getApplicationComponents().provideDoorConfigViewModel();
+		}
+
+		if (ShifterConfigView.class.equals(type)) {
+			return (T) getApplicationComponents().provideShifterConfigView();
+		}
+
+		if (ShifterConfigViewModel.class.equals(type)) {
+			return (T) getApplicationComponents().provideShifterConfigViewModel();
+		}
+
+		if (TransConfigView.class.equals(type)) {
+			return (T) getApplicationComponents().provideTransConfigView();
+		}
+
+		if (TransConfigViewModel.class.equals(type)) {
+			return (T) getApplicationComponents().provideTransConfigViewModel();
 		}
 
 		if (TransferMenuView.class.equals(type)) {

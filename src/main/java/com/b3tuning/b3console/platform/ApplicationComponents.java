@@ -2,10 +2,17 @@ package com.b3tuning.b3console.platform;
 
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.properties.AppProperties;
+import com.b3tuning.b3console.service.module.shifter.ShifterConfig;
 import com.b3tuning.b3console.service.settings.SettingsService;
 import com.b3tuning.b3console.view.availablefiles.AvailableFilesViewModel;
 import com.b3tuning.b3console.view.config.ConfigMenuView;
 import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
+import com.b3tuning.b3console.view.config.door.DoorConfigView;
+import com.b3tuning.b3console.view.config.door.DoorConfigViewModel;
+import com.b3tuning.b3console.view.config.shifter.ShifterConfigView;
+import com.b3tuning.b3console.view.config.shifter.ShifterConfigViewModel;
+import com.b3tuning.b3console.view.config.trans.TransConfigView;
+import com.b3tuning.b3console.view.config.trans.TransConfigViewModel;
 import com.b3tuning.b3console.view.help.HelpView;
 import com.b3tuning.b3console.view.help.HelpViewModel;
 import com.b3tuning.b3console.view.live.LiveMenuView;
@@ -73,6 +80,25 @@ public interface ApplicationComponents {
 	void inject(ConfigMenuViewModel viewModel);
 
 	ConfigMenuViewModel provideConfigMenuViewModel();
+
+	void inject(DoorConfigView view);
+	DoorConfigView provideDoorConfigView();
+
+	void inject(DoorConfigViewModel viewModel);
+	DoorConfigViewModel provideDoorConfigViewModel();
+
+	void inject(ShifterConfigView view);
+	ShifterConfigView provideShifterConfigView();
+
+	void inject(ShifterConfigViewModel viewModel);
+	ShifterConfigViewModel provideShifterConfigViewModel();
+
+	void inject(TransConfigView view);
+	TransConfigView provideTransConfigView();
+
+	void inject(TransConfigViewModel viewModel);
+	TransConfigViewModel provideTransConfigViewModel();
+
 
 	/*  TRANSFER  */
 	void inject(TransferMenuView view);

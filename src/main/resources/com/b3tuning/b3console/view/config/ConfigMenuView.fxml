@@ -1,28 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane fx:controller="com.b3tuning.b3console.view.config.ConfigMenuView"
-            AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<BorderPane fx:controller="com.b3tuning.b3console.view.config.ConfigMenuView"
+            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+            AnchorPane.topAnchor="0.0"
             xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1">
-
-    <AnchorPane styleClass="white-background-with-border" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                AnchorPane.topAnchor="60.0">
-        <Label styleClass="tile-text-sub" text="CONFIG" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
-
-        <AnchorPane fx:id="doorPlaceholder" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0" AnchorPane.rightAnchor="30.0">
-            <Label styleClass="tile-label-text" text="Door Module" AnchorPane.leftAnchor="0.0"
-                   AnchorPane.topAnchor="0.0"/>
+    <top>
+        <AnchorPane fx:id="menuPane" BorderPane.alignment="TOP_LEFT">
+            <HBox spacing="10.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0"
+                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="53.0"
+                  styleClass="second-level-menu">
+                <fx:define>
+                    <ToggleGroup fx:id="moduleGroup"/>
+                </fx:define>
+                <ToggleButton fx:id="doorButton" minWidth="75.0" mnemonicParsing="false" text="DOOR"
+                              styleClass="button-big" toggleGroup="$moduleGroup"/>
+                <ToggleButton fx:id="shifterButton" minWidth="75.0" mnemonicParsing="false" text="SHIFTER"
+                              styleClass="button-big" toggleGroup="$moduleGroup"/>
+                <ToggleButton fx:id="transButton" minWidth="75.0" mnemonicParsing="false" text="TRANS"
+                              styleClass="button-big" toggleGroup="$moduleGroup"/>
+            </HBox>
         </AnchorPane>
-        <AnchorPane fx:id="shifterPlaceholder" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0" AnchorPane.rightAnchor="30.0">
-            <Label styleClass="tile-label-text" text="Shifter Module" AnchorPane.leftAnchor="0.0"
-                   AnchorPane.topAnchor="0.0"/>
-        </AnchorPane>
-        <AnchorPane fx:id="transPlaceholder" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0" AnchorPane.rightAnchor="30.0">
-            <Label styleClass="tile-label-text" text="Trans Module" AnchorPane.leftAnchor="0.0"
-                   AnchorPane.topAnchor="0.0"/>
-        </AnchorPane>
-    </AnchorPane>
-
-    <Label styleClass="tile-text" text="CONFIGURATION" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="15.0"/>
-</AnchorPane>
+    </top>
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="TOP_LEFT">
+            <StackPane fx:id="centerPane" BorderPane.alignment="TOP_CENTER"/>
+        </ScrollPane>
+    </center>
+</BorderPane>

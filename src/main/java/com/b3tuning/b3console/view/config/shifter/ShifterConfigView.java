@@ -2,6 +2,7 @@ package com.b3tuning.b3console.view.config.shifter;
 
 import com.b3tuning.b3console.view.BaseView;
 import de.saxsys.mvvmfx.InjectViewModel;
+import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -16,6 +17,8 @@ import javax.inject.Inject;
  */
 @XSlf4j
 public class ShifterConfigView extends BaseView<ShifterConfigViewModel> {
+
+	private ControlsFxVisualizer validationVisualizer = new ControlsFxVisualizer();
 
 	@InjectViewModel private ShifterConfigViewModel viewModel;
 
