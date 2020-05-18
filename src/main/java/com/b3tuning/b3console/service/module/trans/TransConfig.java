@@ -2,6 +2,7 @@ package com.b3tuning.b3console.service.module.trans;
 
 import com.b3tuning.b3console.service.EditableEntity;
 import com.b3tuning.b3console.service.module.CanBusConfig;
+import com.b3tuning.b3console.service.module.ConfigBase;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -19,7 +20,7 @@ import java.io.Serializable;
  *
  * Copyright (C) 2020 B3Tuning, LLC.
  */
-public class TransConfig extends EditableEntity implements Serializable {
+public class TransConfig extends ConfigBase implements Serializable {
 
 	private static final long serialVersionUID = -1672464467145141989L;
 

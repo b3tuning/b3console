@@ -1,6 +1,7 @@
 package com.b3tuning.b3console.service.module.door;
 
 import com.b3tuning.b3console.service.EditableEntity;
+import com.b3tuning.b3console.service.module.ConfigBase;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
@@ -14,7 +15,7 @@ import java.io.Serializable;
  *
  * Copyright (C) 2020 B3Tuning, LLC.
  */
-public class DoorConfig extends EditableEntity implements Serializable {
+public class DoorConfig extends ConfigBase implements Serializable {
 
 	private static final long serialVersionUID = 4780456121009969723L;
 

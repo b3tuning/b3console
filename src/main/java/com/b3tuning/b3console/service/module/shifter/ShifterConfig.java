@@ -2,6 +2,7 @@ package com.b3tuning.b3console.service.module.shifter;
 
 import com.b3tuning.b3console.service.EditableEntity;
 import com.b3tuning.b3console.service.module.CanBusConfig;
+import com.b3tuning.b3console.service.module.ConfigBase;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
@@ -27,7 +28,7 @@ import static org.reactfx.EventStreams.changesOf;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 @EqualsAndHashCode(callSuper = false)
-public class ShifterConfig extends EditableEntity implements Serializable {
+public class ShifterConfig extends ConfigBase implements Serializable {
 
 	private static final long serialVersionUID = -3770714227800505079L;
 
