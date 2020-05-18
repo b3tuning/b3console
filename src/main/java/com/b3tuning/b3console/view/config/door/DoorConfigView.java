@@ -7,9 +7,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.util.converter.IntegerStringConverter;
 import lombok.extern.slf4j.XSlf4j;
+import org.controlsfx.validation.decoration.StyleClassValidationDecoration;
 
 import javax.inject.Inject;
 
+import static org.reactfx.EventStreams.nonNullValuesOf;
 
 /*
  *  Created on:  May 04, 2020
@@ -61,5 +63,48 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 		log.entry();
 
 		IntegerStringConverter intToString = new IntegerStringConverter();
+
+		manage(nonNullValuesOf(viewModel.configProperty()).subscribe(c -> {
+			log.entry();
+			manage(nonNullValuesOf(c.mirrorActionProperty()).subscribe(ma -> {
+				mirrorActionDownMax.textProperty().bindBidirectional(ma.downMaxProperty(), intToString);
+				mirrorActionDownMin.textProperty().bindBidirectional(ma.downMinProperty(), intToString);
+				mirrorActionLeftMax.textProperty().bindBidirectional(ma.leftMaxProperty(), intToString);
+				mirrorActionLeftMin.textProperty().bindBidirectional(ma.leftMinProperty(), intToString);
+				mirrorActionRightMax.textProperty().bindBidirectional(ma.rightMaxProperty(), intToString);
+				mirrorActionRightMin.textProperty().bindBidirectional(ma.rightMinProperty(), intToString);
+				mirrorActionUpMax.textProperty().bindBidirectional(ma.upMaxProperty(), intToString);
+				mirrorActionUpMin.textProperty().bindBidirectional(ma.upMinProperty(), intToString);
+			}));
+
+			manage(nonNullValuesOf(c.mirrorSelectProperty()).subscribe(ms -> {
+				mirrorSelectDriverMax.textProperty().bindBidirectional(ms.driverMaxProperty(), intToString);
+				mirrorSelectDriverMin.textProperty().bindBidirectional(ms.driverMinProperty(), intToString);
+				mirrorSelectFoldMax.textProperty().bindBidirectional(ms.foldMaxProperty(), intToString);
+				mirrorSelectFoldMin.textProperty().bindBidirectional(ms.foldMinProperty(), intToString);
+				mirrorSelectPassengerMax.textProperty().bindBidirectional(ms.passengerMaxProperty(), intToString);
+				mirrorSelectPassengerMin.textProperty().bindBidirectional(ms.passengerMinProperty(), intToString);
+			}));
+
+			manage(nonNullValuesOf(c.windowActionProperty()).subscribe(wa -> {
+				windowActionAutoDownMax.textProperty().bindBidirectional(wa.autoDownMaxProperty(), intToString);
+				windowActionAutoDownMin.textProperty().bindBidirectional(wa.autoDownMinProperty(), intToString);
+				windowActionAutoUpMax.textProperty().bindBidirectional(wa.autoUpMaxProperty(), intToString);
+				windowActionAutoUpMin.textProperty().bindBidirectional(wa.autoUpMinProperty(), intToString);
+				mirrorActionDownMax.textProperty().bindBidirectional(wa.downMaxProperty(), intToString);
+				windowActionDownMin.textProperty().bindBidirectional(wa.downMinProperty(), intToString);
+				windowActionUpMax.textProperty().bindBidirectional(wa.upMaxProperty(), intToString);
+				windowActionUpMin.textProperty().bindBidirectional(wa.upMinProperty(), intToString);
+			}));
+
+			mirrorActionDownMax.textProperty().bindBidirectional(c.driverWindowMaxCurrentProperty(), intToString);
+			mirrorActionDownMax.textProperty().bindBidirectional(c.passengerWindowMaxCurrentProperty(), intToString);
+
+		}));
+	}
+	private void initializeValidation() {
+		log.entry();
+		validationVisualizer.setDecoration(new StyleClassValidationDecoration());
+
 	}
 }

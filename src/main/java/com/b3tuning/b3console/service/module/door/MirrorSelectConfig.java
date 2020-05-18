@@ -1,8 +1,8 @@
 package com.b3tuning.b3console.service.module.door;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 import java.io.Serializable;
 
@@ -18,20 +18,20 @@ public class MirrorSelectConfig extends EditableEntity implements Serializable {
 
 	private static final long serialVersionUID = -2218249870810467004L;
 
-	private IntegerProperty driverMax;
-	private IntegerProperty driverMin;
-	private IntegerProperty foldMax;
-	private IntegerProperty foldMin;
-	private IntegerProperty passengerMax;
-	private IntegerProperty passengerMin;
+	private ObjectProperty<Integer> driverMax;
+	private ObjectProperty<Integer> driverMin;
+	private ObjectProperty<Integer> foldMax;
+	private ObjectProperty<Integer> foldMin;
+	private ObjectProperty<Integer> passengerMax;
+	private ObjectProperty<Integer> passengerMin;
 
 	public MirrorSelectConfig() {
-		this.driverMax    = new SimpleIntegerProperty();
-		this.driverMin    = new SimpleIntegerProperty();
-		this.foldMax      = new SimpleIntegerProperty();
-		this.foldMin      = new SimpleIntegerProperty();
-		this.passengerMax = new SimpleIntegerProperty();
-		this.passengerMin = new SimpleIntegerProperty();
+		this.driverMax    = new SimpleObjectProperty<>();
+		this.driverMin    = new SimpleObjectProperty<>();
+		this.foldMax      = new SimpleObjectProperty<>();
+		this.foldMin      = new SimpleObjectProperty<>();
+		this.passengerMax = new SimpleObjectProperty<>();
+		this.passengerMin = new SimpleObjectProperty<>();
 		super.trackProperties(this.driverMax,
 		                      this.driverMin,
 		                      this.foldMax,
@@ -108,27 +108,27 @@ public class MirrorSelectConfig extends EditableEntity implements Serializable {
 		this.passengerMin.set(value);
 	}
 
-	public IntegerProperty driverMaxProperty() {
+	public ObjectProperty<Integer> driverMaxProperty() {
 		return this.driverMax;
 	}
 
-	public IntegerProperty driverMinProperty() {
+	public ObjectProperty<Integer> driverMinProperty() {
 		return this.driverMin;
 	}
 
-	public IntegerProperty foldMaxProperty() {
+	public ObjectProperty<Integer> foldMaxProperty() {
 		return this.foldMax;
 	}
 
-	public IntegerProperty foldMinProperty() {
+	public ObjectProperty<Integer> foldMinProperty() {
 		return this.foldMin;
 	}
 
-	public IntegerProperty passengerMaxProperty() {
+	public ObjectProperty<Integer> passengerMaxProperty() {
 		return this.passengerMax;
 	}
 
-	public IntegerProperty passengerMinProperty() {
+	public ObjectProperty<Integer> passengerMinProperty() {
 		return this.passengerMin;
 	}
 }

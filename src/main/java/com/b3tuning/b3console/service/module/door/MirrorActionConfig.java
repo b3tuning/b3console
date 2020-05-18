@@ -1,8 +1,8 @@
 package com.b3tuning.b3console.service.module.door;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 import java.io.Serializable;
 
@@ -18,24 +18,24 @@ public class MirrorActionConfig extends EditableEntity implements Serializable {
 
 	private static final long serialVersionUID = -4651332825883884318L;
 
-	private IntegerProperty downMax;
-	private IntegerProperty downMin;
-	private IntegerProperty leftMax;
-	private IntegerProperty leftMin;
-	private IntegerProperty rightMax;
-	private IntegerProperty rightMin;
-	private IntegerProperty upMax;
-	private IntegerProperty upMin;
+	private ObjectProperty<Integer> downMax;
+	private ObjectProperty<Integer> downMin;
+	private ObjectProperty<Integer> leftMax;
+	private ObjectProperty<Integer> leftMin;
+	private ObjectProperty<Integer> rightMax;
+	private ObjectProperty<Integer> rightMin;
+	private ObjectProperty<Integer> upMax;
+	private ObjectProperty<Integer> upMin;
 
 	public MirrorActionConfig() {
-		this.downMax  = new SimpleIntegerProperty();
-		this.downMin  = new SimpleIntegerProperty();
-		this.leftMax  = new SimpleIntegerProperty();
-		this.leftMin  = new SimpleIntegerProperty();
-		this.rightMax = new SimpleIntegerProperty();
-		this.rightMin = new SimpleIntegerProperty();
-		this.upMax    = new SimpleIntegerProperty();
-		this.upMin    = new SimpleIntegerProperty();
+		this.downMax  = new SimpleObjectProperty<>();
+		this.downMin  = new SimpleObjectProperty<>();
+		this.leftMax  = new SimpleObjectProperty<>();
+		this.leftMin  = new SimpleObjectProperty<>();
+		this.rightMax = new SimpleObjectProperty<>();
+		this.rightMin = new SimpleObjectProperty<>();
+		this.upMax    = new SimpleObjectProperty<>();
+		this.upMin    = new SimpleObjectProperty<>();
 		super.trackProperties(this.downMax,
 		                      this.downMin,
 		                      this.leftMax,
@@ -134,35 +134,35 @@ public class MirrorActionConfig extends EditableEntity implements Serializable {
 		this.upMin.set(value);
 	}
 
-	public IntegerProperty downMaxProperty() {
+	public ObjectProperty<Integer> downMaxProperty() {
 		return this.downMax;
 	}
 
-	public IntegerProperty downMinProperty() {
+	public ObjectProperty<Integer> downMinProperty() {
 		return this.downMin;
 	}
 
-	public IntegerProperty leftMaxProperty() {
+	public ObjectProperty<Integer> leftMaxProperty() {
 		return this.leftMax;
 	}
 
-	public IntegerProperty leftMinProperty() {
+	public ObjectProperty<Integer> leftMinProperty() {
 		return this.leftMin;
 	}
 
-	public IntegerProperty rightMaxProperty() {
+	public ObjectProperty<Integer> rightMaxProperty() {
 		return this.rightMax;
 	}
 
-	public IntegerProperty rightMinProperty() {
+	public ObjectProperty<Integer> rightMinProperty() {
 		return this.rightMin;
 	}
 
-	public IntegerProperty upMaxProperty() {
+	public ObjectProperty<Integer> upMaxProperty() {
 		return this.upMax;
 	}
 
-	public IntegerProperty upMinProperty() {
+	public ObjectProperty<Integer> upMinProperty() {
 		return this.upMin;
 	}
 }

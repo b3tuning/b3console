@@ -1,9 +1,7 @@
 package com.b3tuning.b3console.service.module.door;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
 import java.io.Serializable;
@@ -23,15 +21,15 @@ public class DoorConfig extends EditableEntity implements Serializable {
 	private ObjectProperty<MirrorActionConfig> mirrorAction;
 	private ObjectProperty<MirrorSelectConfig> mirrorSelect;
 	private ObjectProperty<WindowActionConfig> windowAction;
-	private IntegerProperty                    driverWindowMaxCurrent;
-	private IntegerProperty                    passengerWindowMaxCurrent;
+	private ObjectProperty<Integer>            driverWindowMaxCurrent;
+	private ObjectProperty<Integer>            passengerWindowMaxCurrent;
 
 	public DoorConfig() {
 		this.mirrorAction              = new SimpleObjectProperty<>();
 		this.mirrorSelect              = new SimpleObjectProperty<>();
 		this.windowAction              = new SimpleObjectProperty<>();
-		this.driverWindowMaxCurrent    = new SimpleIntegerProperty();
-		this.passengerWindowMaxCurrent = new SimpleIntegerProperty();
+		this.driverWindowMaxCurrent    = new SimpleObjectProperty<>();
+		this.passengerWindowMaxCurrent = new SimpleObjectProperty<>();
 		super.trackProperties(this.mirrorAction,
 		                      this.mirrorSelect,
 		                      this.windowAction,
@@ -109,11 +107,11 @@ public class DoorConfig extends EditableEntity implements Serializable {
 		return windowAction;
 	}
 
-	public IntegerProperty driverWindowMaxCurrentProperty() {
+	public ObjectProperty<Integer> driverWindowMaxCurrentProperty() {
 		return driverWindowMaxCurrent;
 	}
 
-	public IntegerProperty passengerWindowMaxCurrentProperty() {
+	public ObjectProperty<Integer> passengerWindowMaxCurrentProperty() {
 		return passengerWindowMaxCurrent;
 	}
 

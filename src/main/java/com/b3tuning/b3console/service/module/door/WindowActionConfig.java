@@ -1,8 +1,8 @@
 package com.b3tuning.b3console.service.module.door;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 import java.io.Serializable;
 
@@ -18,24 +18,24 @@ public class WindowActionConfig extends EditableEntity implements Serializable {
 
 	private static final long serialVersionUID = -7074999213839249453L;
 
-	private IntegerProperty autoDownMax;
-	private IntegerProperty autoDownMin;
-	private IntegerProperty autoUpMax;
-	private IntegerProperty autoUpMin;
-	private IntegerProperty downMax;
-	private IntegerProperty downMin;
-	private IntegerProperty upMax;
-	private IntegerProperty upMin;
+	private ObjectProperty<Integer> autoDownMax;
+	private ObjectProperty<Integer> autoDownMin;
+	private ObjectProperty<Integer> autoUpMax;
+	private ObjectProperty<Integer> autoUpMin;
+	private ObjectProperty<Integer> downMax;
+	private ObjectProperty<Integer> downMin;
+	private ObjectProperty<Integer> upMax;
+	private ObjectProperty<Integer> upMin;
 
 	public WindowActionConfig() {
-		this.autoDownMax = new SimpleIntegerProperty();
-		this.autoDownMin = new SimpleIntegerProperty();
-		this.autoUpMax   = new SimpleIntegerProperty();
-		this.autoUpMin   = new SimpleIntegerProperty();
-		this.downMax     = new SimpleIntegerProperty();
-		this.downMin     = new SimpleIntegerProperty();
-		this.upMax       = new SimpleIntegerProperty();
-		this.upMin       = new SimpleIntegerProperty();
+		this.autoDownMax = new SimpleObjectProperty<>();
+		this.autoDownMin = new SimpleObjectProperty<>();
+		this.autoUpMax   = new SimpleObjectProperty<>();
+		this.autoUpMin   = new SimpleObjectProperty<>();
+		this.downMax     = new SimpleObjectProperty<>();
+		this.downMin     = new SimpleObjectProperty<>();
+		this.upMax       = new SimpleObjectProperty<>();
+		this.upMin       = new SimpleObjectProperty<>();
 		super.trackProperties(this.autoDownMax,
 		                      this.autoDownMin,
 		                      this.autoUpMax,
@@ -134,35 +134,35 @@ public class WindowActionConfig extends EditableEntity implements Serializable {
 		this.upMin.set(value);
 	}
 
-	public IntegerProperty autoDownMaxProperty() {
+	public ObjectProperty<Integer> autoDownMaxProperty() {
 		return this.autoDownMax;
 	}
 
-	public IntegerProperty autoDownMinProperty() {
+	public ObjectProperty<Integer> autoDownMinProperty() {
 		return this.autoDownMin;
 	}
 
-	public IntegerProperty autoUpMaxProperty() {
+	public ObjectProperty<Integer> autoUpMaxProperty() {
 		return this.autoUpMax;
 	}
 
-	public IntegerProperty autoUpMinProperty() {
+	public ObjectProperty<Integer> autoUpMinProperty() {
 		return this.autoUpMin;
 	}
 
-	public IntegerProperty downMaxProperty() {
+	public ObjectProperty<Integer> downMaxProperty() {
 		return this.downMax;
 	}
 
-	public IntegerProperty downMinProperty() {
+	public ObjectProperty<Integer> downMinProperty() {
 		return this.downMin;
 	}
 
-	public IntegerProperty upMaxProperty() {
+	public ObjectProperty<Integer> upMaxProperty() {
 		return this.upMax;
 	}
 
-	public IntegerProperty upMinProperty() {
+	public ObjectProperty<Integer> upMinProperty() {
 		return this.upMin;
 	}
 }
