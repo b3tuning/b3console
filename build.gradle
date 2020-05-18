@@ -173,6 +173,8 @@ compileDaggerMainJava {
 clean {
     description = "delete files in generated source directory tree"
     delete fileTree(dir: sourceSets.daggerMain.java.srcDirs.iterator().next())
+    delete fileTree(dir: "log.directory_IS_UNDEFINED")
+    delete fileTree(dir: "/Users/B3/Library/Application Support/B3Tuning Module ConfigTool/logs")
 }
 
 task debug(dependsOn: 'classes', type: JavaExec) {
