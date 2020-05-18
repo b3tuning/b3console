@@ -4,12 +4,15 @@ import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.config.ConfigMenuViewModel.MenuAction;
 import com.b3tuning.b3console.view.notifications.ClickButtonNotification;
+import com.b3tuning.b3console.view.root.FontAwesome;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import lombok.extern.slf4j.XSlf4j;
@@ -37,12 +40,12 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 	@FXML private ToggleButton shifterButton;
 	@FXML private ToggleButton transButton;
 
-//	@FXML private Button open;
-//	@FXML private Button create;
-//	@FXML private Button cancel;
-//	@FXML private Button saveToFile;
-//	@FXML private Button sendToModule;
-//	@FXML private Button getFromModule;
+	@FXML private Button createButton;
+	@FXML private Button loadFromFile;
+	@FXML private Button saveToFile;
+	@FXML private Button getFromModule;
+	@FXML private Button sendToModule;
+	@FXML private Button cancel;
 
 	@InjectViewModel private ConfigMenuViewModel viewModel;
 
@@ -65,6 +68,27 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 
 		transButton.setUserData(MenuAction.TRANS);
 		manage(eventsOf(transButton, ActionEvent.ACTION).subscribe(e -> viewModel.onTransClicked()));
+
+		createButton.setText(FontAwesome.PLUS);
+		createButton.visibleProperty().bind(moduleGroup.selectedToggleProperty().isNotNull());
+		manage(eventsOf(createButton, MouseEvent.MOUSE_CLICKED).subscribe(e -> viewModel.onCreateClicked()));
+
+		loadFromFile.setText(FontAwesome.PLUS);
+		loadFromFile.visibleProperty().bind(moduleGroup.selectedToggleProperty().isNotNull());
+		manage(eventsOf(loadFromFile, MouseEvent.MOUSE_CLICKED).subscribe(e -> viewModel.loadConfigFromFile()));
+
+		saveToFile.setText(FontAwesome.PLUS);
+		saveToFile.visibleProperty().bind(moduleGroup.selectedToggleProperty().isNotNull());
+		manage(eventsOf(saveToFile, MouseEvent.MOUSE_CLICKED).subscribe(e -> viewModel.saveConfigToFile()));
+
+		getFromModule.setText(FontAwesome.PLUS);
+		getFromModule.visibleProperty().bind(moduleGroup.selectedToggleProperty().isNotNull());
+		manage(eventsOf(getFromModule, MouseEvent.MOUSE_CLICKED).subscribe(e -> viewModel.getConfigFromModule()));
+
+		sendToModule.setText(FontAwesome.PLUS);
+		sendToModule.visibleProperty().bind(moduleGroup.selectedToggleProperty().isNotNull());
+		manage(eventsOf(sendToModule, MouseEvent.MOUSE_CLICKED).subscribe(e -> viewModel.sendConfigToModule()));
+
 
 		viewModel.setChildViewPane(centerPane);
 

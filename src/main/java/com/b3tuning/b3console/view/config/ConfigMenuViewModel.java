@@ -39,7 +39,7 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 
 	private UserPreferences    preferences;
 	private NotificationCenter globalNotifications;
-	private ViewManager viewManager;
+	private ViewManager        viewManager;
 
 	private ObjectProperty<ModuleAction> module = new SimpleObjectProperty<>();
 
@@ -58,7 +58,7 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 		log.entry();
 		this.preferences         = prefs;
 		this.globalNotifications = notifications;
-		this.viewManager = viewManager;
+		this.viewManager         = viewManager;
 
 		module.set(ModuleAction.valueOf(preferences.getModule()));
 		globalNotifications.subscribe(MODULE_EVENT, (key, payload) -> module.set((ModuleAction) (payload[0])));
@@ -74,7 +74,8 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 		if (viewManager.contains(key)) {
 			viewManager.toFront(key);
 		} else {
-			ViewTuple<DoorConfigView, DoorConfigViewModel> viewTuple = FluentViewLoader.fxmlView(DoorConfigView.class).load();
+			ViewTuple<DoorConfigView, DoorConfigViewModel> viewTuple = FluentViewLoader.fxmlView(DoorConfigView.class)
+			                                                                           .load();
 
 			viewManager.push(key, viewTuple, childViewPane.get(), MainMenuItemAction.CONFIG);
 		}
@@ -90,7 +91,8 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 		if (viewManager.contains(key)) {
 			viewManager.toFront(key);
 		} else {
-			ViewTuple<ShifterConfigView, ShifterConfigViewModel> viewTuple = FluentViewLoader.fxmlView(ShifterConfigView.class).load();
+			ViewTuple<ShifterConfigView, ShifterConfigViewModel> viewTuple = FluentViewLoader
+					.fxmlView(ShifterConfigView.class).load();
 
 			viewManager.push(key, viewTuple, childViewPane.get(), MainMenuItemAction.CONFIG);
 		}
@@ -106,7 +108,8 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 		if (viewManager.contains(key)) {
 			viewManager.toFront(key);
 		} else {
-			ViewTuple<TransConfigView, TransConfigViewModel> viewTuple = FluentViewLoader.fxmlView(TransConfigView.class).load();
+			ViewTuple<TransConfigView, TransConfigViewModel> viewTuple = FluentViewLoader
+					.fxmlView(TransConfigView.class).load();
 
 			viewManager.push(key, viewTuple, childViewPane.get(), MainMenuItemAction.CONFIG);
 		}
@@ -127,6 +130,31 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 		showTransConfigView();
 	}
 
+	public void onCreateClicked() {
+		log.entry();
+
+	}
+
+	public void loadConfigFromFile() {
+		log.entry();
+
+	}
+
+	public void saveConfigToFile() {
+		log.entry();
+
+	}
+
+	public void getConfigFromModule() {
+		log.entry();
+
+	}
+
+	public void sendConfigToModule() {
+		log.entry();
+
+	}
+
 	public ObjectProperty<ModuleAction> getModule() {
 		return module;
 	}
@@ -143,10 +171,10 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 	public void refresh() {
 		log.entry();
 		ViewInfo currentView = viewManager.peek(childViewPane.get());
-		if (currentView!=null) {
+		if (currentView != null) {
 			ViewModel vm = currentView.getViewTuple().getViewModel();
 			if (vm instanceof Refreshable) {
-				((Refreshable)vm).refresh();
+				((Refreshable) vm).refresh();
 			}
 		}
 	}
@@ -157,7 +185,7 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 		super.dispose();
 
 		viewManager.destroyAll(childViewPane.get());
-		viewManager=null;
+		viewManager = null;
 	}
 
 }
