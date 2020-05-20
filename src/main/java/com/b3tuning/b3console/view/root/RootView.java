@@ -3,6 +3,7 @@ package com.b3tuning.b3console.view.root;
 import com.b3tuning.b3console.control.mainmenu.MainMenu;
 import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import com.b3tuning.b3console.control.mainmenu.MainMenuSkin;
+import com.b3tuning.b3console.control.menubar.MainMenuBar;
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.notifications.ClickButtonNotification;
 import de.saxsys.mvvmfx.InjectViewModel;
@@ -52,6 +53,7 @@ public class RootView extends BaseView<RootViewModel> {
 
 	private MainMenu mainMenu;
 
+	private MainMenuBar mainMenuBar;
 
 	@Inject
 	public RootView(NotificationCenter notificationCenter) {
@@ -153,6 +155,7 @@ public class RootView extends BaseView<RootViewModel> {
 	private void constructMainMenu() {
 		// construct the menu
 		mainMenu = new MainMenu();
+		mainMenuBar = new MainMenuBar();
 		mainMenu.setMenuItems(viewModel.menuItems());
 
 		viewModel.selectedMenuItemProperty().bind(mainMenu.selectedItemProperty());
@@ -164,6 +167,7 @@ public class RootView extends BaseView<RootViewModel> {
 		AnchorPane.setRightAnchor(mainMenu, 0.0);
 		AnchorPane.setBottomAnchor(mainMenu, 0.0);
 
+		topPane.getChildren().add(mainMenuBar.getMenuBar());
 		valuesOf(viewModel.initializedProperty()).subscribe(i -> {
 			if (!i) {
 				return;
