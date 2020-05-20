@@ -1,5 +1,6 @@
 package com.b3tuning.b3console.control.menubar;
 
+import javafx.scene.Node;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -12,7 +13,7 @@ import javafx.scene.control.MenuItem;
  *
  * Copyright (C) 2020 B3Tuning, LLC.
  */
-public class MainMenuBar {
+public class MainMenuBar extends Node {
 
 	private final MenuBar menu;
 
@@ -27,6 +28,7 @@ public class MainMenuBar {
 	private Menu createMenu(MainMenuBarItem item) {
 		Menu menu = new Menu();
 		menu.setText(item.getLabel());
+		menu.setId(item.getLabel());
 		menu.setGraphic(item.getIcon());
 		menu.setAccelerator(item.getShortcut());
 		menu.setOnAction(item.getAction());

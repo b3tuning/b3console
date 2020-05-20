@@ -23,7 +23,11 @@ public enum ToolsMenu implements MenuItemInterface {
 	// Options
 
 
-	OPTIONS("Options", new Glyph("FontAwesome", FontAwesome.Glyph.GEARS).size(16).color(Color.GREY), KeyCombination.valueOf("Ctrl+Shift+O"), e -> {log.entry();}),
+	OPTIONS("Options", new Glyph("FontAwesome", FontAwesome.Glyph.GEARS).size(16).color(Color.GREY),
+	        KeyCombination.valueOf("Ctrl+Shift+O"), e -> {
+		log.entry();
+		e.notify();
+	}),
 	;
 
 	@Getter private final String                    label;
