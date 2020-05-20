@@ -3,8 +3,11 @@ package com.b3tuning.b3console.control.menubar;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.paint.Color;
 import lombok.Getter;
 import lombok.extern.slf4j.XSlf4j;
+import org.controlsfx.glyphfont.FontAwesome;
+import org.controlsfx.glyphfont.Glyph;
 
 /*
  *  Created on:  May 19, 2020
@@ -20,15 +23,15 @@ public enum HelpMenu implements MenuItemInterface {
 	// HELP HELP
 	//
 
-	Help("Help", null, KeyCombination.valueOf("Ctrl+Shift+H"), e -> {log.entry();}),
+	Help("Help", new Glyph("FontAwesome", FontAwesome.Glyph.QUESTION).size(16).color(Color.GREY), KeyCombination.valueOf("Ctrl+Shift+H"), e -> {log.entry();}),
 	;
 
 	@Getter private final String                    label;
-	@Getter private final String                    icon;
+	@Getter private final Glyph                    icon;
 	@Getter private final KeyCombination            shortcut;
 	@Getter private final EventHandler<ActionEvent> action;
 
-	HelpMenu(String label, String icon, KeyCombination shortcut, EventHandler<ActionEvent> action) {
+	HelpMenu(String label, Glyph icon, KeyCombination shortcut, EventHandler<ActionEvent> action) {
 		this.label    = label;
 		this.icon     = icon;
 		this.shortcut = shortcut;

@@ -36,4 +36,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="14" />
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="&quot;--add-opens=javafx.graphics/com.sun.javafx.css=ALL-UNNAMED&quot;" />
+  </component>
 </project>

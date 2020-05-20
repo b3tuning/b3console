@@ -78,6 +78,12 @@ javafx {
     modules = [ 'javafx.base', 'javafx.graphics', 'javafx.controls', 'javafx.fxml', 'javafx.web', 'javafx.swing' ]
 }
 
+application {
+    applicationDefaultJvmArgs = [
+            "--add-opens=javafx.graphics/com.sun.javafx.css=ALL-UNNAMED"
+    ]
+}
+
 repositories {
     flatDir {
         dirs 'libs'

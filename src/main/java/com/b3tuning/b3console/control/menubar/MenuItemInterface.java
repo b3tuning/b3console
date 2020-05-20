@@ -3,6 +3,7 @@ package com.b3tuning.b3console.control.menubar;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCombination;
+import org.controlsfx.glyphfont.Glyph;
 
 /*
  *  Created on:  May 19, 2020
@@ -16,7 +17,7 @@ public interface MenuItemInterface {
 
 	String getLabel();
 
-	String getIcon();
+	Glyph getIcon();
 
 	KeyCombination getShortcut();
 

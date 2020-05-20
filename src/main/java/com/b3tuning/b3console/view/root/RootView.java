@@ -16,6 +16,8 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import lombok.extern.slf4j.XSlf4j;
+import org.controlsfx.glyphfont.FontAwesome;
+import org.controlsfx.glyphfont.Glyph;
 
 import javax.inject.Inject;
 
@@ -149,6 +151,7 @@ public class RootView extends BaseView<RootViewModel> {
 		viewModel.selectedMenuItemProperty().bind(mainMenu.selectedItemProperty());
 		mainMenu.visibleProperty().setValue(true);
 
+		Glyph g = new Glyph("FontAwesome", "GEAR");
 		leftPane.getChildren().add(mainMenu);
 		AnchorPane.setTopAnchor(mainMenu, 0.0);
 		AnchorPane.setLeftAnchor(mainMenu, 0.0);

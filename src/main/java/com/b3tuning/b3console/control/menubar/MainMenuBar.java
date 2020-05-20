@@ -25,7 +25,11 @@ public class MainMenuBar {
 	}
 
 	private Menu createMenu(MainMenuBarItem item) {
-		Menu menu = new Menu(item.getLabel());
+		Menu menu = new Menu();
+		menu.setText(item.getLabel());
+		menu.setGraphic(item.getIcon());
+		menu.setAccelerator(item.getShortcut());
+		menu.setOnAction(item.getAction());
 		if (item.getItems() != null) {
 			for (Object barItem : item.getItems()) {
 				menu.getItems().add(createMenuItem((MenuItemInterface) barItem));
@@ -37,7 +41,7 @@ public class MainMenuBar {
 	private MenuItem createMenuItem(MenuItemInterface barItem) {
 		MenuItem item = new MenuItem();
 		item.setText(barItem.getLabel());
-		item.setGraphic(null);
+		item.setGraphic(barItem.getIcon());
 		item.setAccelerator(barItem.getShortcut());
 		item.setOnAction(barItem.getAction());
 		return item;
