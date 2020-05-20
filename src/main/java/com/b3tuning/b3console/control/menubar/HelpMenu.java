@@ -23,7 +23,7 @@ public enum HelpMenu implements MenuItemInterface {
 	// HELP HELP
 	//
 
-	HELP_MENU(HELP, "Help", new Glyph("FontAwesome", FontAwesome.Glyph.QUESTION), KeyCombination.valueOf("Ctrl+Shift+H"), true),
+	HELP_MENU(HELP, "Help", new Glyph("FontAwesome", FontAwesome.Glyph.QUESTION), KeyCombination.valueOf("Ctrl+Shift+H"), true, false),
 	;
 
 	@Getter private final MainMenuItemAction action;
@@ -31,13 +31,16 @@ public enum HelpMenu implements MenuItemInterface {
 	@Getter private final Glyph              icon;
 	@Getter private final KeyCombination     shortcut;
 	@Getter private final boolean            selectable;
+	@Getter private final boolean            separated;
 
-	HelpMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable) {
+	HelpMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	         boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;
 		this.shortcut   = shortcut;
 		this.selectable = selectable;
+		this.separated  = separated;
 	}
 
 	public HelpMenu findByLabel(String label) {

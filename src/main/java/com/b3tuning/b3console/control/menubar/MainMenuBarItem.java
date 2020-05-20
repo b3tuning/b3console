@@ -23,12 +23,12 @@ import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.NONE;
 @XSlf4j
 public enum MainMenuBarItem implements MenuItemInterface {
 
-	FILE(NONE, "File", new Glyph("FontAwesome", FontAwesome.Glyph.FILE), null, false, Arrays.asList(FileMenu.values())),
-	EDIT(NONE, "Edit", new Glyph("FontAwesome", FontAwesome.Glyph.EDIT), null, false, Arrays.asList(EditMenu.values())),
-	VIEW(NONE, "View", new Glyph("FontAwesome", FontAwesome.Glyph.GLASS), null, false, Arrays.asList(ViewMenu.values())),
-	ONLINE(NONE, "Online", new Glyph("FontAwesome", FontAwesome.Glyph.EDIT), null, false, Arrays.asList(OnlineMenu.values())),
-	TOOLS(NONE, "Tools", new Glyph("FontAwesome", FontAwesome.Glyph.GEARS), null, false, Arrays.asList(ToolsMenu.values())),
-	HELP(NONE, "Help", new Glyph("FontAwesome", FontAwesome.Glyph.QUESTION), null, false, Arrays.asList(HelpMenu.values())),
+	FILE(NONE, "File", new Glyph("FontAwesome", FontAwesome.Glyph.FILE), null, false, false, Arrays.asList(FileMenu.values())),
+	EDIT(NONE, "Edit", new Glyph("FontAwesome", FontAwesome.Glyph.EDIT), null, false, false, Arrays.asList(EditMenu.values())),
+	VIEW(NONE, "View", new Glyph("FontAwesome", FontAwesome.Glyph.GLASS), null, false, false, Arrays.asList(ViewMenu.values())),
+	ONLINE(NONE, "Online", new Glyph("FontAwesome", FontAwesome.Glyph.EDIT), null, false, false, Arrays.asList(OnlineMenu.values())),
+	TOOLS(NONE, "Tools", new Glyph("FontAwesome", FontAwesome.Glyph.GEARS), null, false, false, Arrays.asList(ToolsMenu.values())),
+	HELP(NONE, "Help", new Glyph("FontAwesome", FontAwesome.Glyph.QUESTION), null, false, false, Arrays.asList(HelpMenu.values())),
 	;
 
 	@Getter private final MainMenuItemAction      action;
@@ -36,15 +36,17 @@ public enum MainMenuBarItem implements MenuItemInterface {
 	@Getter private final Glyph                   icon;
 	@Getter private final KeyCombination          shortcut;
 	@Getter private final boolean                 selectable;
+	@Getter private final boolean                 separated;
 	@Getter private final List<MenuItemInterface> items;
 
 	MainMenuBarItem(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
-	                List<MenuItemInterface> items) {
+	                boolean separated, List<MenuItemInterface> items) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;
 		this.shortcut   = shortcut;
 		this.selectable = selectable;
+		this.separated  = separated;
 		this.items      = items;
 	}
 

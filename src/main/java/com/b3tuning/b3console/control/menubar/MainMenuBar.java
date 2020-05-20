@@ -6,6 +6,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Separator;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.paint.Color;
 import lombok.extern.slf4j.XSlf4j;
 
@@ -37,6 +39,9 @@ public class MainMenuBar extends Node {
 		constructMenuItem(menu, item);
 		if (item.getItems() != null) {
 			for (MenuItemInterface barItem : item.getItems()) {
+				if (barItem.isSeparated()) {
+					menu.getItems().add(new SeparatorMenuItem());
+				}
 				menu.getItems().add(createMenuItem(barItem));
 			}
 		}

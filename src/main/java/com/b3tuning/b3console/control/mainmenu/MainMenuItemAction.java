@@ -25,10 +25,14 @@ public enum MainMenuItemAction {
 	DELETE,
 
 	// FILE
+	NEW,
 	OPEN,
+	OPEN_RECENT,
+	CLOSE,
 	SAVE,
 	SAVE_AS,
 	SEND,
+	QUIT,
 
 	// HELP
 	HELP,

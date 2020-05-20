@@ -24,6 +24,12 @@ public interface MenuItemInterface {
 
 	boolean isSelectable();
 
+	boolean isSeparated();
+
+	Glyph setIcon(Object icon);
+
+	KeyCombination setShortCut(String keys);
+
 	MenuItemInterface findByLabel(String label);
 
 	String toString();

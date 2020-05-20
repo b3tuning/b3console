@@ -26,9 +26,9 @@ public enum OnlineMenu implements MenuItemInterface {
 	// Disconnect
 	// Monitor IO
 
-	CONNECT_MENU(CONNECT, "Connect", new Glyph("FontAwesome", FontAwesome.Glyph.EXCHANGE), KeyCombination.valueOf("Ctrl+Shift+L"), true),
-	DISCONNECT_MENU(DISCONNECT, "Disconnect", new Glyph("FontAwesome", FontAwesome.Glyph.XING), KeyCombination.valueOf("Ctrl+Shift+D"), true),
-	MONITOR_IO_MENU(MONITOR_IO, "Monitor IO", new Glyph("FontAwesome", FontAwesome.Glyph.TIMES), KeyCombination.valueOf("Ctrl+Shift+M"), true),
+	CONNECT_MENU(CONNECT, "Connect", new Glyph("FontAwesome", FontAwesome.Glyph.EXCHANGE), KeyCombination.valueOf("Ctrl+Shift+L"), true, false),
+	DISCONNECT_MENU(DISCONNECT, "Disconnect", new Glyph("FontAwesome", FontAwesome.Glyph.XING), KeyCombination.valueOf("Ctrl+Shift+D"), true, false),
+	MONITOR_IO_MENU(MONITOR_IO, "Monitor IO", new Glyph("FontAwesome", FontAwesome.Glyph.TIMES), KeyCombination.valueOf("Ctrl+Shift+M"), true, true),
 	;
 
 	@Getter private final MainMenuItemAction action;
@@ -36,13 +36,16 @@ public enum OnlineMenu implements MenuItemInterface {
 	@Getter private final Glyph              icon;
 	@Getter private final KeyCombination     shortcut;
 	@Getter private final boolean            selectable;
+	@Getter private final boolean            separated;
 
-	OnlineMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable) {
+	OnlineMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	         boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;
 		this.shortcut   = shortcut;
 		this.selectable = selectable;
+		this.separated  = separated;
 	}
 
 	public OnlineMenu findByLabel(String label) {

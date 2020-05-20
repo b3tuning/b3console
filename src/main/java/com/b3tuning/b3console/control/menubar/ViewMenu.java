@@ -22,7 +22,7 @@ public enum ViewMenu implements MenuItemInterface {
 	// VIEW VIEW
 	//
 
-	PLACEHOLDER_MENU(NONE, "PlaceHolder", new Glyph("FontAwesome", FontAwesome.Glyph.MAP_MARKER), KeyCombination.valueOf("Ctrl+Shift+P"), true),
+	PLACEHOLDER_MENU(NONE, "PlaceHolder", new Glyph("FontAwesome", FontAwesome.Glyph.MAP_MARKER), KeyCombination.valueOf("Ctrl+Shift+P"), true, false),
 	;
 
 	@Getter private final MainMenuItemAction action;
@@ -30,13 +30,16 @@ public enum ViewMenu implements MenuItemInterface {
 	@Getter private final Glyph              icon;
 	@Getter private final KeyCombination     shortcut;
 	@Getter private final boolean            selectable;
+	@Getter private final boolean            separated;
 
-	ViewMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable) {
+	ViewMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	         boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;
 		this.shortcut   = shortcut;
 		this.selectable = selectable;
+		this.separated  = separated;
 	}
 
 	public ViewMenu findByLabel(String label) {

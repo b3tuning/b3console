@@ -30,11 +30,11 @@ public enum EditMenu implements MenuItemInterface {
 	// Copy
 	// Delete
 
-	UNDO_MENU(UNDO, "Undo", new Glyph("FontAwesome", FontAwesome.Glyph.UNDO), KeyCombination.valueOf("Ctrl+Z"), true),
-	REDO_MENU(REDO, "Redo", new Glyph("FontAwesome", FontAwesome.Glyph.BACKWARD), KeyCombination.valueOf("Ctrl+Shift+Z"), true),
-	CUT_MENU(CUT, "Cut", new Glyph("FontAwesome", FontAwesome.Glyph.CUT), KeyCombination.valueOf("Ctrl+Shift+X"), true),
-	COPY_MENU(COPY, "Copy", new Glyph("FontAwesome", FontAwesome.Glyph.COPY), KeyCombination.valueOf("Ctrl+Shift+C"), true),
-	DELETE_MENU(DELETE, "Delete", new Glyph("FontAwesome", FontAwesome.Glyph.REMOVE), KeyCombination.valueOf("Ctrl+Shift+D"), true),
+	UNDO_MENU(UNDO, "Undo", setIcon(FontAwesome.Glyph.UNDO),new Glyph("FontAwesome", FontAwesome.Glyph.UNDO), KeyCombination.valueOf("Ctrl+Z"), true, false),
+	REDO_MENU(REDO, "Redo", new Glyph("FontAwesome", FontAwesome.Glyph.BACKWARD), KeyCombination.valueOf("Ctrl+Shift+Z"), true, false),
+	CUT_MENU(CUT, "Cut", new Glyph("FontAwesome", FontAwesome.Glyph.CUT), KeyCombination.valueOf("Ctrl+Shift+X"), true, false),
+	COPY_MENU(COPY, "Copy", new Glyph("FontAwesome", FontAwesome.Glyph.COPY), KeyCombination.valueOf("Ctrl+Shift+C"), true, false),
+	DELETE_MENU(DELETE, "Delete", new Glyph("FontAwesome", FontAwesome.Glyph.REMOVE), KeyCombination.valueOf("Ctrl+Shift+D"), true, false),
 	;
 
 	@Getter private final MainMenuItemAction action;
@@ -42,13 +42,24 @@ public enum EditMenu implements MenuItemInterface {
 	@Getter private final Glyph              icon;
 	@Getter private final KeyCombination     shortcut;
 	@Getter private final boolean            selectable;
+	@Getter private final boolean            separated;
 
-	EditMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable) {
+	EditMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	         boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;
 		this.shortcut   = shortcut;
 		this.selectable = selectable;
+		this.separated  = separated;
+	}
+
+	public 	Glyph setIcon(Object icon) {
+		return new Glyph("FontAwesome", icon);
+	}
+
+	public KeyCombination setShortCut(String keys) {
+		return KeyCombination.valueOf(keys);
 	}
 
 	public EditMenu findByLabel(String label) {

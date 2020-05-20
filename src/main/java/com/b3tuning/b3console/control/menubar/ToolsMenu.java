@@ -23,7 +23,7 @@ public enum ToolsMenu implements MenuItemInterface {
 	// Options
 
 
-	OPTIONS_MENU(OPTIONS, "Options", new Glyph("FontAwesome", FontAwesome.Glyph.GEARS), KeyCombination.valueOf("Ctrl+Shift+O"), true),
+	OPTIONS_MENU(OPTIONS, "Options", new Glyph("FontAwesome", FontAwesome.Glyph.GEARS), KeyCombination.valueOf("Ctrl+Shift+O"), true, false),
 	;
 
 	@Getter private final MainMenuItemAction action;
@@ -31,13 +31,16 @@ public enum ToolsMenu implements MenuItemInterface {
 	@Getter private final Glyph              icon;
 	@Getter private final KeyCombination     shortcut;
 	@Getter private final boolean            selectable;
+	@Getter private final boolean            separated;
 
-	ToolsMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable) {
+	ToolsMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	         boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;
 		this.shortcut   = shortcut;
 		this.selectable = selectable;
+		this.separated  = separated;
 	}
 
 	public ToolsMenu findByLabel(String label) {
