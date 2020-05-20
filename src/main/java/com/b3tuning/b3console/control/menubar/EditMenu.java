@@ -41,7 +41,7 @@ public enum EditMenu implements MenuItemInterface {
 		this.action   = action;
 	}
 
-	public static EditMenu findByLabel(String label) {
+	public EditMenu findByLabel(String label) {
 		log.entry();
 		for (EditMenu item : EditMenu.values()) {
 			if (item.getLabel().equals(label)) {

@@ -34,7 +34,7 @@ public enum ViewMenu implements MenuItemInterface {
 		this.action   = action;
 	}
 
-	public static ViewMenu findByLabel(String label) {
+	public ViewMenu findByLabel(String label) {
 		log.entry();
 		for (ViewMenu item : ViewMenu.values()) {
 			if (item.getLabel().equals(label)) {

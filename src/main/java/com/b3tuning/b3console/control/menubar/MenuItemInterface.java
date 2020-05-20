@@ -13,6 +13,7 @@ import javafx.scene.input.KeyCombination;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 public interface MenuItemInterface {
+
 	String getLabel();
 
 	String getIcon();
@@ -21,4 +22,7 @@ public interface MenuItemInterface {
 
 	EventHandler<ActionEvent> getAction();
 
+	MenuItemInterface findByLabel(String label);
+
+	String toString();
 }

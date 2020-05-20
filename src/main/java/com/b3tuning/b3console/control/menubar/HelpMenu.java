@@ -35,7 +35,7 @@ public enum HelpMenu implements MenuItemInterface {
 		this.action   = action;
 	}
 
-	public static HelpMenu findByLabel(String label) {
+	public HelpMenu findByLabel(String label) {
 		log.entry();
 		for (HelpMenu item : HelpMenu.values()) {
 			if (item.getLabel().equals(label)) {

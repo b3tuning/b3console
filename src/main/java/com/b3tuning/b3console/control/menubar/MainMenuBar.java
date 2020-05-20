@@ -15,6 +15,7 @@ import javafx.scene.control.MenuItem;
 public class MainMenuBar {
 
 	private final MenuBar menu;
+
 	public MainMenuBar() {
 		this.menu = new MenuBar();
 

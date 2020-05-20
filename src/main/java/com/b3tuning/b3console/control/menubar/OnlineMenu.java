@@ -38,7 +38,7 @@ public enum OnlineMenu implements MenuItemInterface {
 		this.action   = action;
 	}
 
-	public static OnlineMenu findByLabel(String label) {
+	public OnlineMenu findByLabel(String label) {
 		log.entry();
 		for (OnlineMenu item : OnlineMenu.values()) {
 			if (item.getLabel().equals(label)) {

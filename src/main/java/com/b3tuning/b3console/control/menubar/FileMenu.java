@@ -16,6 +16,11 @@ import lombok.extern.slf4j.XSlf4j;
  */
 @XSlf4j
 public enum FileMenu implements MenuItemInterface {
+	// FILE FILE
+	// Open
+	// Save
+	// Save as
+	// Send
 
 	OPEN("Open", null, KeyCombination.valueOf("Ctrl+Shift+O"), e -> {log.entry();}),
 	SAVE("Save", null, KeyCombination.valueOf("Ctrl+Shift+S"), e -> {log.entry();}),
@@ -34,7 +39,7 @@ public enum FileMenu implements MenuItemInterface {
 		this.action   = action;
 	}
 
-	public static FileMenu findByLabel(String label) {
+	public FileMenu findByLabel(String label) {
 		log.entry();
 		for (FileMenu item : FileMenu.values()) {
 			if (item.getLabel().equals(label)) {
@@ -49,8 +54,3 @@ public enum FileMenu implements MenuItemInterface {
 	}
 
 }
-// FILE FILE
-// Open
-// Save
-// Save as
-// Send

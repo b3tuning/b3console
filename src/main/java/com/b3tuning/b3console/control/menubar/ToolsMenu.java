@@ -35,7 +35,7 @@ public enum ToolsMenu implements MenuItemInterface {
 		this.action   = action;
 	}
 
-	public static ToolsMenu findByLabel(String label) {
+	public ToolsMenu findByLabel(String label) {
 		log.entry();
 		for (ToolsMenu item : ToolsMenu.values()) {
 			if (item.getLabel().equals(label)) {
