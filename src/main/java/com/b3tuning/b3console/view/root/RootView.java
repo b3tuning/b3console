@@ -11,7 +11,6 @@ import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
@@ -20,11 +19,8 @@ import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
 
-import static com.b3tuning.b3console.view.root.FontAwesome.INFO;
 import static com.b3tuning.b3console.view.root.RootViewModel.MENU_ACTION_EVENT;
-import static javafx.event.ActionEvent.ACTION;
 import static org.reactfx.EventStreams.combine;
-import static org.reactfx.EventStreams.eventsOf;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 import static org.reactfx.EventStreams.valuesOf;
 
@@ -42,7 +38,6 @@ public class RootView extends BaseView<RootViewModel> {
 	@FXML AnchorPane leftPane;
 	@FXML StackPane  centerPane;
 	@FXML AnchorPane topPane;
-	@FXML Button     logOutButton;
 	@FXML SplitPane  centerSplitPane;
 
 	private Node helpView;
@@ -80,13 +75,6 @@ public class RootView extends BaseView<RootViewModel> {
 			MainMenuItemAction action = (MainMenuItemAction) payload[0];
 			mainMenu.selectAction(action);
 		});
-
-		// log out button
-		logOutButton.setText(INFO);
-		manage(eventsOf(logOutButton, ACTION).subscribe(e -> {
-			log.entry();
-			viewModel.onLogoutClick();
-		}));
 
 		initializeHelp();
 
@@ -154,7 +142,7 @@ public class RootView extends BaseView<RootViewModel> {
 
 	private void constructMainMenu() {
 		// construct the menu
-		mainMenu = new MainMenu();
+		mainMenu    = new MainMenu();
 		mainMenuBar = new MainMenuBar();
 		mainMenu.setMenuItems(viewModel.menuItems());
 

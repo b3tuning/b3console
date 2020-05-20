@@ -163,12 +163,6 @@ public class RootViewModel extends BaseViewModel {
 		return FXCollections.observableArrayList(menuItems);
 	}
 
-	public void onLogoutClick() {
-		log.entry();
-
-		publish(MENU_ACTION_EVENT, NONE);
-	}
-
 	public Node helpView() {
 		return helpViewTuple().getView();
 	}

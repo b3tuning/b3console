@@ -32,7 +32,7 @@
 	-b3-color-theme-blue: #25B3CF;
 	-b3-color-theme-grey: #919191;
 
-	-b3-color-menu-bar-background: #262626;
+	-b3-color-menu-bar-background: #919191;/*#262626;*/
 
 	/*-b3-color-header-font: -b3-color-white;*/
 	/*-b3-color-header-blue-highlight: -b3-color-blue;*/
@@ -136,6 +136,19 @@
  * Main Menu                                                                   *
  *                                                                             *
  ******************************************************************************/
+
+.menu-bar {
+	-fx-background-color: -b3-mainmenu-item-background-color;
+	/*-fx-padding: 0.666667em 0.333333em 0.666667em 0.333333em ;     /!* 8 4 8 4 *!/*/
+
+	/* Main Menu custom variables */
+	-b3-mainmenu-item-background-color: -b3-color-menu-bar-background;
+	-b3-mainmenu-selected-item-background-color: -b3-color-black;
+	-b3-mainmenu-item-foreground-color: -b3-color-light-grey;
+	-b3-mainmenu-darkest-highlight: #0D0C0C;
+	-b3-mainmenu-dark-highlight: -b3-color-dark-grey;
+
+}
 
 .mainmenu {
 	-fx-skin: "com.b3tuning.b3console.control.mainmenu.MainMenuSkin";

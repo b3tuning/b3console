@@ -24,10 +24,10 @@
         </AnchorPane>
     </left>
     <top>
-        <AnchorPane fx:id="topPane" maxHeight="70.0" minHeight="70.0" prefHeight="70.0" styleClass="top-menu-background"
+        <AnchorPane fx:id="topPane" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" styleClass="top-menu-background"
                     BorderPane.alignment="TOP_LEFT">
-            <ImageView fitHeight="70.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0"
-                       AnchorPane.leftAnchor="0.0"
+            <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0"
                        AnchorPane.topAnchor="0.0">
                 <Image url="@B3Tuning.png"/>
             </ImageView>
@@ -38,11 +38,6 @@
                         <Insets bottom="5.0" top="5.0"/>
                     </padding>
                 </VBox>
-                <Button fx:id="logOutButton" styleClass="header-button">
-                    <tooltip>
-                        <Tooltip text="Log out"/>
-                    </tooltip>
-                </Button>
             </HBox>
         </AnchorPane>
     </top>
