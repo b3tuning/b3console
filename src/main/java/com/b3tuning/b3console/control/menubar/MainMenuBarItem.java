@@ -1,9 +1,7 @@
 package com.b3tuning.b3console.control.menubar;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import javafx.scene.input.KeyCombination;
-import javafx.scene.paint.Color;
 import lombok.Getter;
 import lombok.extern.slf4j.XSlf4j;
 import org.controlsfx.glyphfont.FontAwesome;
@@ -11,6 +9,8 @@ import org.controlsfx.glyphfont.Glyph;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.NONE;
 
 /*
  *  Created on:  May 19, 2020
@@ -23,26 +23,29 @@ import java.util.List;
 @XSlf4j
 public enum MainMenuBarItem implements MenuItemInterface {
 
-	FILE("File", new Glyph("FontAwesome", FontAwesome.Glyph.FILE).size(16).color(Color.GREY), null, e -> {log.entry();}, Arrays.asList(FileMenu.values())),
-	EDIT("Edit", new Glyph("FontAwesome", FontAwesome.Glyph.EDIT).size(16).color(Color.GREY), null, e -> {log.entry();}, Arrays.asList(EditMenu.values())),
-	VIEW("View", new Glyph("FontAwesome", FontAwesome.Glyph.GLASS).size(16).color(Color.GREY), null, e -> {log.entry();}, Arrays.asList(ViewMenu.values())),
-	ONLINE("Online", new Glyph("FontAwesome", FontAwesome.Glyph.EDIT).size(16).color(Color.GREY), null, e -> {log.entry();}, Arrays.asList(OnlineMenu.values())),
-	TOOLS("Tools", new Glyph("FontAwesome", FontAwesome.Glyph.GEARS).size(16).color(Color.GREY), null, e -> {log.entry();}, Arrays.asList(ToolsMenu.values())),
-	HELP("Help", new Glyph("FontAwesome", FontAwesome.Glyph.QUESTION).size(16).color(Color.GREY), null, e -> {log.entry();}, Arrays.asList(HelpMenu.values()));
+	FILE(NONE, "File", new Glyph("FontAwesome", FontAwesome.Glyph.FILE), null, false, Arrays.asList(FileMenu.values())),
+	EDIT(NONE, "Edit", new Glyph("FontAwesome", FontAwesome.Glyph.EDIT), null, false, Arrays.asList(EditMenu.values())),
+	VIEW(NONE, "View", new Glyph("FontAwesome", FontAwesome.Glyph.GLASS), null, false, Arrays.asList(ViewMenu.values())),
+	ONLINE(NONE, "Online", new Glyph("FontAwesome", FontAwesome.Glyph.EDIT), null, false, Arrays.asList(OnlineMenu.values())),
+	TOOLS(NONE, "Tools", new Glyph("FontAwesome", FontAwesome.Glyph.GEARS), null, false, Arrays.asList(ToolsMenu.values())),
+	HELP(NONE, "Help", new Glyph("FontAwesome", FontAwesome.Glyph.QUESTION), null, false, Arrays.asList(HelpMenu.values())),
+	;
 
-	@Getter private final String                    label;
-	@Getter private final Glyph                     icon;
-	@Getter private final KeyCombination            shortcut;
-	@Getter private final EventHandler<ActionEvent> action;
-	@Getter private final List<?>                   items;
+	@Getter private final MainMenuItemAction      action;
+	@Getter private final String                  label;
+	@Getter private final Glyph                   icon;
+	@Getter private final KeyCombination          shortcut;
+	@Getter private final boolean                 selectable;
+	@Getter private final List<MenuItemInterface> items;
 
-	MainMenuBarItem(String label, Glyph icon, KeyCombination shortcut, EventHandler<ActionEvent> action,
-	                List<?> items) {
-		this.label    = label;
-		this.icon     = icon;
-		this.shortcut = shortcut;
-		this.action   = action;
-		this.items    = items;
+	MainMenuBarItem(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	                List<MenuItemInterface> items) {
+		this.action     = action;
+		this.label      = label;
+		this.icon       = icon;
+		this.shortcut   = shortcut;
+		this.selectable = selectable;
+		this.items      = items;
 	}
 
 	public MainMenuBarItem findByLabel(String label) {

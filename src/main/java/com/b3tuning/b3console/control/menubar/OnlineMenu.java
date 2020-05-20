@@ -1,13 +1,15 @@
 package com.b3tuning.b3console.control.menubar;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import javafx.scene.input.KeyCombination;
-import javafx.scene.paint.Color;
 import lombok.Getter;
 import lombok.extern.slf4j.XSlf4j;
 import org.controlsfx.glyphfont.FontAwesome;
 import org.controlsfx.glyphfont.Glyph;
+
+import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.CONNECT;
+import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.DISCONNECT;
+import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.MONITOR_IO;
 
 /*
  *  Created on:  May 19, 2020
@@ -24,21 +26,23 @@ public enum OnlineMenu implements MenuItemInterface {
 	// Disconnect
 	// Monitor IO
 
-	CONNECT("Connect", new Glyph("FontAwesome", FontAwesome.Glyph.EXCHANGE).size(16).color(Color.GREY), KeyCombination.valueOf("Ctrl+Shift+L"), e -> {log.entry();}),
-	DISCONNECT("Disconnect", new Glyph("FontAwesome", FontAwesome.Glyph.XING).size(16).color(Color.GREY), KeyCombination.valueOf("Ctrl+Shift+D"), e -> {log.entry();}),
-	MONITOR_IO("Monitor IO", new Glyph("FontAwesome", FontAwesome.Glyph.TIMES).size(16).color(Color.GREY), KeyCombination.valueOf("Ctrl+Shift+M"), e -> {log.entry();}),
+	CONNECT_MENU(CONNECT, "Connect", new Glyph("FontAwesome", FontAwesome.Glyph.EXCHANGE), KeyCombination.valueOf("Ctrl+Shift+L"), true),
+	DISCONNECT_MENU(DISCONNECT, "Disconnect", new Glyph("FontAwesome", FontAwesome.Glyph.XING), KeyCombination.valueOf("Ctrl+Shift+D"), true),
+	MONITOR_IO_MENU(MONITOR_IO, "Monitor IO", new Glyph("FontAwesome", FontAwesome.Glyph.TIMES), KeyCombination.valueOf("Ctrl+Shift+M"), true),
 	;
 
-	@Getter private final String                    label;
-	@Getter private final Glyph                     icon;
-	@Getter private final KeyCombination            shortcut;
-	@Getter private final EventHandler<ActionEvent> action;
+	@Getter private final MainMenuItemAction action;
+	@Getter private final String             label;
+	@Getter private final Glyph              icon;
+	@Getter private final KeyCombination     shortcut;
+	@Getter private final boolean            selectable;
 
-	OnlineMenu(String label, Glyph icon, KeyCombination shortcut, EventHandler<ActionEvent> action) {
-		this.label    = label;
-		this.icon     = icon;
-		this.shortcut = shortcut;
-		this.action   = action;
+	OnlineMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable) {
+		this.action     = action;
+		this.label      = label;
+		this.icon       = icon;
+		this.shortcut   = shortcut;
+		this.selectable = selectable;
 	}
 
 	public OnlineMenu findByLabel(String label) {

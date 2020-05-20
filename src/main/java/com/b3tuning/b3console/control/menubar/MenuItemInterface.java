@@ -1,7 +1,6 @@
 package com.b3tuning.b3console.control.menubar;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import javafx.scene.input.KeyCombination;
 import org.controlsfx.glyphfont.Glyph;
 
@@ -15,15 +14,18 @@ import org.controlsfx.glyphfont.Glyph;
  */
 public interface MenuItemInterface {
 
+	MainMenuItemAction getAction();
+
 	String getLabel();
 
 	Glyph getIcon();
 
 	KeyCombination getShortcut();
 
-	EventHandler<ActionEvent> getAction();
+	boolean isSelectable();
 
 	MenuItemInterface findByLabel(String label);
 
 	String toString();
+
 }

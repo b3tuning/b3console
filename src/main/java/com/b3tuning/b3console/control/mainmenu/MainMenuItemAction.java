@@ -15,5 +15,32 @@ public enum MainMenuItemAction {
 	TRANSFER, // fa EXCHANGE
 	LIVE,     // fa TACHOMETER
 	SETTINGS, // fa COGS
-	HELP_APP
+	HELP_APP,
+
+	// EDIT
+	UNDO,
+	REDO,
+	CUT,
+	COPY,
+	DELETE,
+
+	// FILE
+	OPEN,
+	SAVE,
+	SAVE_AS,
+	SEND,
+
+	// HELP
+	HELP,
+
+	// ONLINE
+	CONNECT,
+	DISCONNECT,
+	MONITOR_IO,
+
+	// TOOLS
+	OPTIONS,
+
+	// VIEW
+	;
 }

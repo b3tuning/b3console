@@ -3,6 +3,7 @@ package com.b3tuning.b3console.view.root;
 import com.b3tuning.b3console.App;
 import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import com.b3tuning.b3console.control.mainmenu.MainMenuItemModel;
+import com.b3tuning.b3console.control.menubar.MenuItemInterface;
 import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.config.ConfigMenuView;
@@ -53,7 +54,6 @@ import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.CONFIG;
 import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.FILE;
 import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.HELP_APP;
 import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.LIVE;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.NONE;
 import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.SETTINGS;
 import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.TRANSFER;
 import static com.b3tuning.b3console.control.mainmenu.MainMenuItemModel.Mode.APP;
@@ -96,8 +96,9 @@ public class RootViewModel extends BaseViewModel {
 	private ViewManager        viewManager;
 
 	// exposed properties
-	private ObjectProperty<MainMenuItemModel> selectedMenuItem = new SimpleObjectProperty<>();
-	private ObjectProperty<StackPane>         childViewPane    = new SimpleObjectProperty<>();
+	private ObjectProperty<MainMenuItemModel> selectedMenuItem    = new SimpleObjectProperty<>();
+	private ObjectProperty<MenuItemInterface> selectedMenuBarItem = new SimpleObjectProperty<>();
+	private ObjectProperty<StackPane>         childViewPane       = new SimpleObjectProperty<>();
 
 	private EventSource<Boolean> displayHelp      = new EventSource<>();
 	private BooleanProperty      helpPaneVisible  = new SimpleBooleanProperty(false);
@@ -124,6 +125,12 @@ public class RootViewModel extends BaseViewModel {
 
 			manage(nonNullValuesOf(selectedMenuItem).subscribe(e -> {
 				log.entry();
+				handleAction(e.getAction());
+			}));
+
+			manage(nonNullValuesOf(selectedMenuBarItem).subscribe(e -> {
+				log.entry();
+				log.debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    Got Menu {}", e.getAction());
 				handleAction(e.getAction());
 			}));
 
@@ -242,6 +249,7 @@ public class RootViewModel extends BaseViewModel {
 				break;
 
 			case SETTINGS:
+			case OPTIONS:
 				if (viewManager.contains(SettingsMenuView.class.getName())) {
 					viewManager.toFront(SettingsMenuView.class.getName());
 				} else {
@@ -341,5 +349,9 @@ public class RootViewModel extends BaseViewModel {
 
 	public ObjectProperty<MainMenuItemModel> selectedMenuItemProperty() {
 		return selectedMenuItem;
+	}
+
+	public ObjectProperty<MenuItemInterface> selectedMenuBarItemProperty() {
+		return selectedMenuBarItem;
 	}
 }
