@@ -1,15 +1,18 @@
 package com.b3tuning.b3console.control.menubar;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import javafx.scene.input.KeyCombination;
 import lombok.Getter;
 import lombok.extern.slf4j.XSlf4j;
-import org.controlsfx.glyphfont.FontAwesome;
 import org.controlsfx.glyphfont.Glyph;
 
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.CONNECT;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.DISCONNECT;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.MONITOR_IO;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_CONNECT;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_DISCONNECT;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_MONITOR_IO;
+import static com.b3tuning.b3console.control.menubar.MenuItemInterface.setIcon;
+import static com.b3tuning.b3console.control.menubar.MenuItemInterface.setShortCut;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.EXCHANGE;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.TIMES;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.XING;
 
 /*
  *  Created on:  May 19, 2020
@@ -26,20 +29,20 @@ public enum OnlineMenu implements MenuItemInterface {
 	// Disconnect
 	// Monitor IO
 
-	CONNECT_MENU(CONNECT, "Connect", new Glyph("FontAwesome", FontAwesome.Glyph.EXCHANGE), KeyCombination.valueOf("Ctrl+Shift+L"), true, false),
-	DISCONNECT_MENU(DISCONNECT, "Disconnect", new Glyph("FontAwesome", FontAwesome.Glyph.XING), KeyCombination.valueOf("Ctrl+Shift+D"), true, false),
-	MONITOR_IO_MENU(MONITOR_IO, "Monitor IO", new Glyph("FontAwesome", FontAwesome.Glyph.TIMES), KeyCombination.valueOf("Ctrl+Shift+M"), true, true),
+	M_CONNECT(A_CONNECT, "Connect", setIcon(EXCHANGE), setShortCut("Ctrl+Shift+L"), true, false),
+	M_DISCONNECT(A_DISCONNECT, "Disconnect", setIcon(XING), setShortCut("Ctrl+Shift+D"), true, false),
+	M_MONITOR_IO(A_MONITOR_IO, "Monitor IO", setIcon(TIMES), setShortCut("Ctrl+Shift+M"), true, true),
 	;
 
-	@Getter private final MainMenuItemAction action;
-	@Getter private final String             label;
-	@Getter private final Glyph              icon;
-	@Getter private final KeyCombination     shortcut;
-	@Getter private final boolean            selectable;
-	@Getter private final boolean            separated;
+	@Getter private final MenuAction     action;
+	@Getter private final String         label;
+	@Getter private final Glyph          icon;
+	@Getter private final KeyCombination shortcut;
+	@Getter private final boolean        selectable;
+	@Getter private final boolean        separated;
 
-	OnlineMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
-	         boolean separated) {
+	OnlineMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	           boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;

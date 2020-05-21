@@ -1,8 +1,7 @@
 package com.b3tuning.b3console.view.config;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
+import com.b3tuning.b3console.control.menubar.MenuAction;
 import com.b3tuning.b3console.view.BaseView;
-import com.b3tuning.b3console.view.config.ConfigMenuViewModel.MenuAction;
 import com.b3tuning.b3console.view.notifications.ClickButtonNotification;
 import com.b3tuning.b3console.view.root.FontAwesome;
 import de.saxsys.mvvmfx.InjectViewModel;
@@ -60,13 +59,13 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 	public void initialize() {
 		log.entry();
 
-		doorButton.setUserData(MenuAction.DOOR);
+		doorButton.setUserData(MenuAction.A_NONE);
 		manage(eventsOf(doorButton, ActionEvent.ACTION).subscribe(e -> viewModel.onDoorClicked()));
 
-		shifterButton.setUserData(MenuAction.SHIFTER);
+		shifterButton.setUserData(MenuAction.A_NONE);
 		manage(eventsOf(shifterButton, ActionEvent.ACTION).subscribe(e -> viewModel.onShifterClicked()));
 
-		transButton.setUserData(MenuAction.TRANS);
+		transButton.setUserData(MenuAction.A_NONE);
 		manage(eventsOf(transButton, ActionEvent.ACTION).subscribe(e -> viewModel.onTransClicked()));
 
 		createButton.setText(FontAwesome.PLUS);
@@ -89,7 +88,6 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 		sendToModule.visibleProperty().bind(moduleGroup.selectedToggleProperty().isNotNull());
 		manage(eventsOf(sendToModule, MouseEvent.MOUSE_CLICKED).subscribe(e -> viewModel.sendConfigToModule()));
 
-
 		viewModel.setChildViewPane(centerPane);
 
 		initNotifications();
@@ -101,8 +99,8 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 
 		globalNotifications.subscribe(ClickButtonNotification.class.getName(), (key, payload) -> {
 			ClickButtonNotification n = ((ClickButtonNotification) payload[0]);
-			log.entry(n.getMainMenuItemAction(), n.getButtonId());
-			if (MainMenuItemAction.CONFIG.equals(n.getMainMenuItemAction()) && n.getButtonId() != null) {
+			log.entry(n.getMenuAction(), n.getButtonId());
+			if (MenuAction.A_NONE.equals(n.getMenuAction()) && n.getButtonId() != null) {
 				moduleGroup.selectToggle(null);
 				ToggleButton btn = null;
 				if ("doorButton".equals(n.getButtonId())) {

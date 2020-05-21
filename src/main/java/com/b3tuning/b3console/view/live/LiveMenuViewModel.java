@@ -2,7 +2,7 @@ package com.b3tuning.b3console.view.live;
 
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.view.BaseViewModel;
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleAction;
+import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -26,14 +26,14 @@ public class LiveMenuViewModel extends BaseViewModel {
 	private UserPreferences    preferences;
 	private NotificationCenter globalNotifications;
 
-	private ObjectProperty<ModuleAction> module = new SimpleObjectProperty<>();
+	private ObjectProperty<ModuleType> module = new SimpleObjectProperty<>();
 
 	@Inject
 	public LiveMenuViewModel(UserPreferences preferences, NotificationCenter notifications) {
 		log.entry();
 		this.preferences         = preferences;
 		this.globalNotifications = notifications;
-		module.set(ModuleAction.valueOf(preferences.getModule()));
-		globalNotifications.subscribe(MODULE_EVENT, (key, payload) -> module.set((ModuleAction) (payload[0])));
+		module.set(ModuleType.valueOf(preferences.getModule()));
+		globalNotifications.subscribe(MODULE_EVENT, (key, payload) -> module.set((ModuleType) (payload[0])));
 	}
 }

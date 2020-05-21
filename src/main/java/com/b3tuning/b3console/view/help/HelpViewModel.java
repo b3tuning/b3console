@@ -3,7 +3,7 @@ package com.b3tuning.b3console.view.help;
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.notifications.PageContextChangedNotification;
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleAction;
+import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
@@ -36,9 +36,9 @@ public class HelpViewModel extends BaseViewModel {
 	private UserPreferences    preferences;
 	private NotificationCenter globalNotifications;
 
-	private StringProperty               helpFile = new SimpleStringProperty();
-	private BooleanProperty              detached = new SimpleBooleanProperty(false);
-	private ObjectProperty<ModuleAction> module   = new SimpleObjectProperty<>();
+	private StringProperty             helpFile = new SimpleStringProperty();
+	private BooleanProperty            detached = new SimpleBooleanProperty(false);
+	private ObjectProperty<ModuleType> module   = new SimpleObjectProperty<>();
 
 	@Inject
 	public HelpViewModel(UserPreferences prefs, NotificationCenter notificationCenter) {
@@ -46,8 +46,8 @@ public class HelpViewModel extends BaseViewModel {
 		this.preferences         = prefs;
 		this.globalNotifications = notificationCenter;
 
-		module.set(ModuleAction.valueOf(preferences.getModule()));
-		globalNotifications.subscribe(MODULE_EVENT, (key, payload) -> module.set((ModuleAction) (payload[0])));
+		module.set(ModuleType.valueOf(preferences.getModule()));
+		globalNotifications.subscribe(MODULE_EVENT, (key, payload) -> module.set((ModuleType) (payload[0])));
 
 		globalNotifications.subscribe(PageContextChangedNotification.class.getName(),
 		                              (key, payload) -> {

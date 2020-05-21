@@ -1,13 +1,14 @@
 package com.b3tuning.b3console.control.menubar;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import javafx.scene.input.KeyCombination;
 import lombok.Getter;
 import lombok.extern.slf4j.XSlf4j;
-import org.controlsfx.glyphfont.FontAwesome;
 import org.controlsfx.glyphfont.Glyph;
 
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.HELP;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_HELP;
+import static com.b3tuning.b3console.control.menubar.MenuItemInterface.setIcon;
+import static com.b3tuning.b3console.control.menubar.MenuItemInterface.setShortCut;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.QUESTION;
 
 /*
  *  Created on:  May 19, 2020
@@ -23,17 +24,17 @@ public enum HelpMenu implements MenuItemInterface {
 	// HELP HELP
 	//
 
-	HELP_MENU(HELP, "Help", new Glyph("FontAwesome", FontAwesome.Glyph.QUESTION), KeyCombination.valueOf("Ctrl+Shift+H"), true, false),
+	M_HELP(A_HELP, "Help", setIcon(QUESTION), setShortCut("Ctrl+Shift+H"), true, false),
 	;
 
-	@Getter private final MainMenuItemAction action;
-	@Getter private final String             label;
-	@Getter private final Glyph              icon;
-	@Getter private final KeyCombination     shortcut;
-	@Getter private final boolean            selectable;
-	@Getter private final boolean            separated;
+	@Getter private final MenuAction     action;
+	@Getter private final String         label;
+	@Getter private final Glyph          icon;
+	@Getter private final KeyCombination shortcut;
+	@Getter private final boolean        selectable;
+	@Getter private final boolean        separated;
 
-	HelpMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	HelpMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
 	         boolean separated) {
 		this.action     = action;
 		this.label      = label;

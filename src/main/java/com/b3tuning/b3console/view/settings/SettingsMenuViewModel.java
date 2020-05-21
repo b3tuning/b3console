@@ -38,9 +38,9 @@ public class SettingsMenuViewModel extends BaseViewModel {
 	// exposed properties
 	private StringProperty               downloadPath  = new SimpleStringProperty();
 	private StringProperty               versionString = new SimpleStringProperty();
-	private ObjectProperty<ModuleAction> module        = new SimpleObjectProperty<>();
+	private ObjectProperty<ModuleType> module        = new SimpleObjectProperty<>();
 
-	public enum ModuleAction {
+	public enum ModuleType {
 		DOOR, SHIFTER, TRANS
 	}
 
@@ -64,7 +64,7 @@ public class SettingsMenuViewModel extends BaseViewModel {
 		// populate initial values
 		downloadPath.set(preferences.getDownloadPath());
 		versionStringProperty().set(appProperties.getVersion());
-		module.set(ModuleAction.valueOf(preferences.getModule()));
+		module.set(ModuleType.valueOf(preferences.getModule()));
 
 		// wire up updates
 		manage(changesOf(downloadPath).subscribe(v -> preferences.setDownloadPath(v.getNewValue())));
@@ -75,7 +75,7 @@ public class SettingsMenuViewModel extends BaseViewModel {
 		}));
 	}
 
-	void onButtonAction(ModuleAction action) {
+	void onButtonAction(ModuleType action) {
 		log.entry(action);
 		module.set(action);
 	}
@@ -98,7 +98,7 @@ public class SettingsMenuViewModel extends BaseViewModel {
 		return downloadPath;
 	}
 
-	public ObjectProperty<ModuleAction> moduleProperty() {
+	public ObjectProperty<ModuleType> moduleProperty() {
 		return module;
 	}
 

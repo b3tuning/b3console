@@ -1,20 +1,24 @@
 package com.b3tuning.b3console.control.menubar;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import javafx.scene.input.KeyCombination;
 import lombok.Getter;
 import lombok.extern.slf4j.XSlf4j;
-import org.controlsfx.glyphfont.FontAwesome;
 import org.controlsfx.glyphfont.Glyph;
 
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.CLOSE;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.NEW;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.OPEN;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.OPEN_RECENT;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.QUIT;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.SAVE;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.SAVE_AS;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.SEND;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_CLOSE;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_NEW;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_OPEN;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_QUIT;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_RECENTS;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_SAVE;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_SAVE_AS;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_SEND;
+import static com.b3tuning.b3console.control.menubar.MenuItemInterface.setIcon;
+import static com.b3tuning.b3console.control.menubar.MenuItemInterface.setShortCut;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.ELLIPSIS_H;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.FOLDER_OPEN;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.SAVE;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.SEND;
 
 /*
  *  Created on:  May 19, 2020
@@ -32,24 +36,24 @@ public enum FileMenu implements MenuItemInterface {
 	// Save as
 	// Send
 
-	NEW_MENU(NEW, "New", new Glyph("FontAwesome", FontAwesome.Glyph.FOLDER_OPEN), KeyCombination.valueOf("Ctrl+Shift+O"), true, false),
-	OPEN_MENU(OPEN, "Open", new Glyph("FontAwesome", FontAwesome.Glyph.FOLDER_OPEN), KeyCombination.valueOf("Ctrl+Shift+O"), true, false),
-	OPEN_RECENT_MENU(OPEN_RECENT, "Open Recent", new Glyph("FontAwesome", FontAwesome.Glyph.FOLDER_OPEN), KeyCombination.valueOf("Ctrl+Shift+O"), true, false),
-	CLOSE_MENU(CLOSE, "Close", new Glyph("FontAwesome", FontAwesome.Glyph.FOLDER_OPEN), KeyCombination.valueOf("Ctrl+Shift+O"), true, false),
-	SAVE_MENU(SAVE, "Save", new Glyph("FontAwesome", FontAwesome.Glyph.SAVE), KeyCombination.valueOf("Ctrl+Shift+S"), true, true),
-	SAVE_AS_MENU(SAVE_AS, "Save As", new Glyph("FontAwesome", FontAwesome.Glyph.ELLIPSIS_H), KeyCombination.valueOf("Ctrl+Shift+A"), true, false),
-	SEND_MENU(SEND, "Send", new Glyph("FontAwesome", FontAwesome.Glyph.SEND), KeyCombination.valueOf("Ctrl+Shift+U"), true, true),
-	QUIT_MENU(QUIT, "Quit", new Glyph("FontAwesome", FontAwesome.Glyph.SEND), KeyCombination.valueOf("Ctrl+Shift+U"), true, true),
+	M_NEW(A_NEW, "New", setIcon(FOLDER_OPEN), setShortCut("Ctrl+Shift+O"), true, false),
+	M_OPEN(A_OPEN, "Open", setIcon(FOLDER_OPEN), setShortCut("Ctrl+Shift+O"), true, false),
+	M_RECENTS(A_RECENTS, "Open Recent", setIcon(FOLDER_OPEN), setShortCut("Ctrl+Shift+O"), true, false),
+	M_CLOSE(A_CLOSE, "Close", setIcon(FOLDER_OPEN), setShortCut("Ctrl+Shift+O"), true, false),
+	M_SAVE(A_SAVE, "Save", setIcon(SAVE), setShortCut("Ctrl+Shift+S"), true, true),
+	M_SAVE_AS(A_SAVE_AS, "Save As", setIcon(ELLIPSIS_H), setShortCut("Ctrl+Shift+A"), true, false),
+	M_SEND(A_SEND, "Send", setIcon(SEND), setShortCut("Ctrl+Shift+U"), true, true),
+	M_QUIT(A_QUIT, "Quit", setIcon(SEND), setShortCut("Ctrl+Shift+U"), true, true),
 	;
 
-	@Getter private final MainMenuItemAction action;
-	@Getter private final String             label;
-	@Getter private final Glyph              icon;
-	@Getter private final KeyCombination     shortcut;
-	@Getter private final boolean            selectable;
-	@Getter private final boolean            separated;
+	@Getter private final MenuAction     action;
+	@Getter private final String         label;
+	@Getter private final Glyph          icon;
+	@Getter private final KeyCombination shortcut;
+	@Getter private final boolean        selectable;
+	@Getter private final boolean        separated;
 
-	FileMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	FileMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
 	         boolean separated) {
 		this.action     = action;
 		this.label      = label;

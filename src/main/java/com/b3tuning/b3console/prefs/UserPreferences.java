@@ -1,6 +1,6 @@
 package com.b3tuning.b3console.prefs;
 
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleAction;
+import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import lombok.extern.slf4j.XSlf4j;
 
 import java.io.File;
@@ -58,7 +58,7 @@ public class UserPreferences {
 		return preferences.get(BROWSE_LOCAL_PATH, BROWSE_LOCAL_PATH_DEFAULT);
 	}
 
-	public void setModule(ModuleAction module) {
+	public void setModule(ModuleType module) {
 		set(MODULE_TYPE, module.toString());
 	}
 

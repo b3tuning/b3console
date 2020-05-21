@@ -6,10 +6,12 @@ import javafx.scene.Node;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.Separator;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.paint.Color;
 import lombok.extern.slf4j.XSlf4j;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /*
  *  Created on:  May 19, 2020
@@ -22,43 +24,51 @@ import lombok.extern.slf4j.XSlf4j;
 @XSlf4j
 public class MainMenuBar extends Node {
 
-	private final MenuBar menu;
+	private static final double MENU_BAR_ICON_SIZE  = 16;
+	private static final Color  MENU_BAR_ICON_COLOR = Color.GREY;
 
-	private ObjectProperty<MenuItemInterface> selectedItem = new SimpleObjectProperty<>();
+	private final MenuBar menuBar = new MenuBar();
+
+	private static ObjectProperty<MenuItemInterface> selectedItem = new SimpleObjectProperty<>();
 
 	public MainMenuBar() {
-		this.menu = new MenuBar();
-
-		for (MainMenuBarItem item : MainMenuBarItem.values()) {
-			this.menu.getMenus().add(createMenu(item));
-		}
+		this.menuBar.getMenus().addAll(Arrays.stream(MainMenuBarItem.values())
+		                                     .map(this::createMenu)
+		                                     .collect(Collectors.toList()));
 	}
 
 	private Menu createMenu(MainMenuBarItem item) {
 		Menu menu = new Menu();
-		constructMenuItem(menu, item);
-		if (item.getItems() != null) {
-			for (MenuItemInterface barItem : item.getItems()) {
-				if (barItem.isSeparated()) {
-					menu.getItems().add(new SeparatorMenuItem());
-				}
-				menu.getItems().add(createMenuItem(barItem));
-			}
-		}
+		assembleMenu(menu, item);
+		assembleSubMenus(menu, item);
 		return menu;
 	}
 
-	private MenuItem createMenuItem(MenuItemInterface barItem) {
-		MenuItem item = new MenuItem();
-		constructMenuItem(item, barItem);
-		return item;
-	}
-
-	private void constructMenuItem(final MenuItem menu, final MenuItemInterface item) {
+	private static void assembleMenu(final MenuItem menu, final MenuItemInterface item) {
 		menu.setId(item.getLabel());
 		menu.setText(item.getLabel());
-		menu.setGraphic(item.getIcon().size(16).color(Color.GREY));
+		menu.setGraphic(item.getIcon().size(MENU_BAR_ICON_SIZE).color(MENU_BAR_ICON_COLOR));
 		menu.setAccelerator(item.getShortcut());
+	}
+
+	private static void assembleSubMenus(final Menu menu, final MainMenuBarItem item) {
+		if (item.getItems() != null) {
+			item.getItems().forEach(m -> {
+				if (m.isSeparated()) {
+					menu.getItems().add(new SeparatorMenuItem());
+				}
+				menu.getItems().add(createMenuItem(m));
+			});
+		}
+	}
+
+	private static MenuItem createMenuItem(final MenuItemInterface item) {
+		MenuItem menu = new MenuItem();
+		assembleMenu(menu, item);
+		return addAction(menu, item);
+	}
+
+	private static MenuItem addAction(final MenuItem menu, final MenuItemInterface item) {
 		if (item.isSelectable()) {
 			menu.setOnAction(e -> {
 				log.entry();
@@ -66,17 +76,18 @@ public class MainMenuBar extends Node {
 				setSelectedItem(null);
 			});
 		}
+		return menu;
 	}
 
 	public MenuBar getMenuBar() {
-		return this.menu;
+		return this.menuBar;
 	}
 
 	public MenuItemInterface getSelectedItem() {
 		return selectedItem.get();
 	}
 
-	public void setSelectedItem(MenuItemInterface value) {
+	public static void setSelectedItem(MenuItemInterface value) {
 		selectedItem.set(value);
 	}
 

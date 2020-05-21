@@ -1,6 +1,6 @@
 package com.b3tuning.b3console.view.notifications;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
+import com.b3tuning.b3console.control.menubar.MenuAction;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import lombok.Data;
 import lombok.extern.slf4j.XSlf4j;
@@ -17,17 +17,17 @@ import lombok.extern.slf4j.XSlf4j;
 @Data
 public class ClickButtonNotification {
 
-	private MainMenuItemAction mainMenuItemAction;
-	private String             buttonId;
+	private MenuAction menuAction;
+	private String     buttonId;
 
-	public static void fire(NotificationCenter globalNotifications, MainMenuItemAction action) {
+	public static void fire(NotificationCenter globalNotifications, MenuAction action) {
 		fire(globalNotifications, action, null);
 	}
 
-	public static void fire(NotificationCenter globalNotifications, MainMenuItemAction action, String buttonId) {
+	public static void fire(NotificationCenter globalNotifications, MenuAction action, String buttonId) {
 		log.entry(action, buttonId);
 		ClickButtonNotification notification = new ClickButtonNotification();
-		notification.setMainMenuItemAction(action);
+		notification.setMenuAction(action);
 		notification.setButtonId(buttonId);
 		globalNotifications.publish(ClickButtonNotification.class.getName(), notification);
 	}

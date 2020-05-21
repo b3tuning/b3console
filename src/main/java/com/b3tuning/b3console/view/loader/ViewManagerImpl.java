@@ -1,6 +1,6 @@
 package com.b3tuning.b3console.view.loader;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
+import com.b3tuning.b3console.control.menubar.MenuAction;
 import com.b3tuning.b3console.view.Disposable;
 import com.b3tuning.b3console.view.EditableViewModel;
 import com.b3tuning.b3console.view.Refreshable;
@@ -68,19 +68,19 @@ public class ViewManagerImpl implements ViewManager {
 	 */
 	@Override
 	public void push(String key, ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple, StackPane pane,
-	                 MainMenuItemAction appArea) {
+	                 MenuAction appArea) {
 		push(key, viewTuple, pane, appArea, false, false);
 	}
 
 	@Override
 	public void push(String key, ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple, StackPane pane,
-	                 MainMenuItemAction appArea, boolean closeOnLostFocus) {
+	                 MenuAction appArea, boolean closeOnLostFocus) {
 		push(key, viewTuple, pane, appArea, closeOnLostFocus, false);
 	}
 
 	@Override
 	public void push(String key, ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple, StackPane pane,
-	                 MainMenuItemAction appArea, boolean closeOnLostFocus, boolean ignoreDirty) {
+	                 MenuAction appArea, boolean closeOnLostFocus, boolean ignoreDirty) {
 		checkArgument(pane != null, "Pane cannot be null!");
 
 		log.entry(key, viewTuple.getCodeBehind().getClass().getName(), viewTuple.getViewModel().getClass().getName(),
@@ -131,7 +131,7 @@ public class ViewManagerImpl implements ViewManager {
 			return;
 		}
 		Node               view    = info.getViewTuple().getView();
-		MainMenuItemAction appArea = info.getAppArea();
+		MenuAction appArea = info.getAppArea();
 		StackPane          pane    = info.getPane();
 
 		List<ViewInfo> toRemove = new ArrayList<>();
@@ -360,7 +360,7 @@ public class ViewManagerImpl implements ViewManager {
 
 		private ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple;
 		private StackPane                                             pane;
-		private MainMenuItemAction                                    appArea;
+		private MenuAction                                    appArea;
 		private boolean                                               closeOnLostFocus;
 	}
 

@@ -1,26 +1,17 @@
 package com.b3tuning.b3console.view.root;
 
 import com.b3tuning.b3console.App;
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemModel;
+import com.b3tuning.b3console.control.menubar.MenuAction;
 import com.b3tuning.b3console.control.menubar.MenuItemInterface;
 import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.config.ConfigMenuView;
 import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
-import com.b3tuning.b3console.view.file.FileMenuView;
-import com.b3tuning.b3console.view.file.FileMenuViewModel;
 import com.b3tuning.b3console.view.help.HelpView;
 import com.b3tuning.b3console.view.help.HelpViewModel;
-import com.b3tuning.b3console.view.live.LiveMenuView;
-import com.b3tuning.b3console.view.live.LiveMenuViewModel;
 import com.b3tuning.b3console.view.loader.ViewManager;
 import com.b3tuning.b3console.view.notifications.PopViewNotification;
 import com.b3tuning.b3console.view.notifications.PushViewNotification;
-import com.b3tuning.b3console.view.settings.SettingsMenuView;
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel;
-import com.b3tuning.b3console.view.transfer.TransferMenuView;
-import com.b3tuning.b3console.view.transfer.TransferMenuViewModel;
 import de.saxsys.mvvmfx.FluentViewLoader;
 import de.saxsys.mvvmfx.ViewTuple;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
@@ -34,8 +25,6 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -47,25 +36,8 @@ import lombok.extern.slf4j.XSlf4j;
 import org.reactfx.EventSource;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.List;
 
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.CONFIG;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.FILE;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.HELP_APP;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.LIVE;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.SETTINGS;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.TRANSFER;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemModel.Mode.APP;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemModel.Mode.EXTERNAL;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemModel.Position.BOTTOM;
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemModel.Position.TOP;
-import static com.b3tuning.b3console.view.root.FontAwesome.EXCHANGE;
-import static com.b3tuning.b3console.view.root.FontAwesome.FOLDER_OPEN;
-import static com.b3tuning.b3console.view.root.FontAwesome.MODIFY;
-import static com.b3tuning.b3console.view.root.FontAwesome.QUESTION;
-import static com.b3tuning.b3console.view.root.FontAwesome.TACHOMETER;
-import static com.b3tuning.b3console.view.root.FontAwesome.WRENCH;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_OPTIONS;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 
 /*
@@ -96,7 +68,7 @@ public class RootViewModel extends BaseViewModel {
 	private ViewManager        viewManager;
 
 	// exposed properties
-	private ObjectProperty<MainMenuItemModel> selectedMenuItem    = new SimpleObjectProperty<>();
+//	private ObjectProperty<MainMenuItemModel> selectedMenuItem    = new SimpleObjectProperty<>();
 	private ObjectProperty<MenuItemInterface> selectedMenuBarItem = new SimpleObjectProperty<>();
 	private ObjectProperty<StackPane>         childViewPane       = new SimpleObjectProperty<>();
 
@@ -119,14 +91,14 @@ public class RootViewModel extends BaseViewModel {
 
 			// dispose of any loaded views that we may have
 //			viewManager.destroyAll(c);
-			publish(MENU_ACTION_EVENT, SETTINGS);
+//			publish(MENU_ACTION_EVENT, SETTINGS);
 			initialized.set(true);
-			handleAction(SETTINGS);
+//			handleAction(SETTINGS);
 
-			manage(nonNullValuesOf(selectedMenuItem).subscribe(e -> {
-				log.entry();
-				handleAction(e.getAction());
-			}));
+//			manage(nonNullValuesOf(selectedMenuItem).subscribe(e -> {
+//				log.entry();
+//				handleAction(e.getAction());
+//			}));
 
 			manage(nonNullValuesOf(selectedMenuBarItem).subscribe(e -> {
 				log.entry();
@@ -158,17 +130,17 @@ public class RootViewModel extends BaseViewModel {
 		});
 	}
 
-	public ObservableList<MainMenuItemModel> menuItems() {
-		List<MainMenuItemModel> menuItems = new ArrayList<>();
-		menuItems.add(new MainMenuItemModel("FILE", FOLDER_OPEN, FILE, TOP, APP));
-		menuItems.add(new MainMenuItemModel("CONFIG", MODIFY, CONFIG, TOP, APP));
-		menuItems.add(new MainMenuItemModel("TRANSFER", EXCHANGE, TRANSFER, TOP, APP));
-		menuItems.add(new MainMenuItemModel("LIVE", TACHOMETER, LIVE, TOP, APP));
-		menuItems.add(new MainMenuItemModel("SETTINGS", WRENCH, SETTINGS, TOP, APP));
-		menuItems.add(new MainMenuItemModel("HELP", QUESTION, HELP_APP, BOTTOM, EXTERNAL));
-
-		return FXCollections.observableArrayList(menuItems);
-	}
+//	public ObservableList<MainMenuItemModel> menuItems() {
+//		List<MainMenuItemModel> menuItems = new ArrayList<>();
+//		menuItems.add(new MainMenuItemModel("FILE", FOLDER_OPEN, FILE, TOP, APP));
+//		menuItems.add(new MainMenuItemModel("CONFIG", MODIFY, CONFIG, TOP, APP));
+//		menuItems.add(new MainMenuItemModel("TRANSFER", EXCHANGE, TRANSFER, TOP, APP));
+//		menuItems.add(new MainMenuItemModel("LIVE", TACHOMETER, LIVE, TOP, APP));
+//		menuItems.add(new MainMenuItemModel("SETTINGS", WRENCH, SETTINGS, TOP, APP));
+//		menuItems.add(new MainMenuItemModel("HELP", QUESTION, HELP_APP, BOTTOM, EXTERNAL));
+//
+//		return FXCollections.observableArrayList(menuItems);
+//	}
 
 	public Node helpView() {
 		return helpViewTuple().getView();
@@ -199,67 +171,96 @@ public class RootViewModel extends BaseViewModel {
 		helpStage.show();
 	}
 
+//	/**
+//	 * load the relevant view depending on the menu action taken
+//	 *
+//	 * @param action - the selected menu item
+//	 */
+//	private void handleAction(MainMenuItemAction action) {
+//		log.entry();
+////		HostServicesDelegate hostServices = HostServicesFactory.getInstance(application);
+//		switch (action) {
+//			case FILE:
+//				if (viewManager.contains(FileMenuView.class.getName())) {
+//					viewManager.toFront(FileMenuView.class.getName());
+//				} else {
+//					ViewTuple<FileMenuView, FileMenuViewModel> tuple = FluentViewLoader.fxmlView(FileMenuView.class)
+//					                                                                   .load();
+//					viewManager.push(FileMenuView.class.getName(), tuple, childViewPane.get(), FILE);
+//				}
+//				break;
+//
+//			case CONFIG:
+//				if (viewManager.contains(ConfigMenuView.class.getName())) {
+//					viewManager.toFront(ConfigMenuView.class.getName());
+//				} else {
+//					ViewTuple<ConfigMenuView, ConfigMenuViewModel> tuple = FluentViewLoader
+//							.fxmlView(ConfigMenuView.class).load();
+//					viewManager.push(ConfigMenuView.class.getName(), tuple, childViewPane.get(), CONFIG);
+//				}
+//				break;
+//
+//			case TRANSFER:
+//				if (viewManager.contains(TransferMenuView.class.getName())) {
+//					viewManager.toFront(TransferMenuView.class.getName());
+//				} else {
+//					ViewTuple<TransferMenuView, TransferMenuViewModel> tuple = FluentViewLoader
+//							.fxmlView(TransferMenuView.class).load();
+//					viewManager.push(TransferMenuView.class.getName(), tuple, childViewPane.get(), TRANSFER);
+//				}
+//				break;
+//
+//			case LIVE:
+//				if (viewManager.contains(LiveMenuView.class.getName())) {
+//					viewManager.toFront(LiveMenuView.class.getName());
+//				} else {
+//					ViewTuple<LiveMenuView, LiveMenuViewModel> tuple = FluentViewLoader.fxmlView(LiveMenuView.class)
+//					                                                                   .load();
+//					viewManager.push(LiveMenuView.class.getName(), tuple, childViewPane.get(), LIVE);
+//				}
+//				break;
+//
+//			case SETTINGS:
+//				if (viewManager.contains(SettingsMenuView.class.getName())) {
+//					viewManager.toFront(SettingsMenuView.class.getName());
+//				} else {
+//					ViewTuple<SettingsMenuView, SettingsMenuViewModel> tuple = FluentViewLoader
+//							.fxmlView(SettingsMenuView.class).load();
+//					viewManager.push(SettingsMenuView.class.getName(), tuple, childViewPane.get(), SETTINGS);
+//				}
+//				break;
+//
+//			case HELP_APP:
+////				 hostServices.showDocument(appProperties.getUserHelpUrl().toString());
+//				displayHelp.push(true);
+//				break;
+//
+//			default:
+//				log.error(MENU_ITEM_ERROR, action);
+//		}
+//	}
+
 	/**
 	 * load the relevant view depending on the menu action taken
 	 *
 	 * @param action - the selected menu item
 	 */
-	private void handleAction(MainMenuItemAction action) {
+	private void handleAction(MenuAction action) {
 		log.entry();
 //		HostServicesDelegate hostServices = HostServicesFactory.getInstance(application);
 		switch (action) {
-			case FILE:
-				if (viewManager.contains(FileMenuView.class.getName())) {
-					viewManager.toFront(FileMenuView.class.getName());
-				} else {
-					ViewTuple<FileMenuView, FileMenuViewModel> tuple = FluentViewLoader.fxmlView(FileMenuView.class)
-					                                                                   .load();
-					viewManager.push(FileMenuView.class.getName(), tuple, childViewPane.get(), FILE);
-				}
-				break;
 
-			case CONFIG:
+			case A_OPTIONS:
 				if (viewManager.contains(ConfigMenuView.class.getName())) {
 					viewManager.toFront(ConfigMenuView.class.getName());
 				} else {
 					ViewTuple<ConfigMenuView, ConfigMenuViewModel> tuple = FluentViewLoader
 							.fxmlView(ConfigMenuView.class).load();
-					viewManager.push(ConfigMenuView.class.getName(), tuple, childViewPane.get(), CONFIG);
+					viewManager.push(ConfigMenuView.class.getName(), tuple, childViewPane.get(), A_OPTIONS);
 				}
 				break;
 
-			case TRANSFER:
-				if (viewManager.contains(TransferMenuView.class.getName())) {
-					viewManager.toFront(TransferMenuView.class.getName());
-				} else {
-					ViewTuple<TransferMenuView, TransferMenuViewModel> tuple = FluentViewLoader
-							.fxmlView(TransferMenuView.class).load();
-					viewManager.push(TransferMenuView.class.getName(), tuple, childViewPane.get(), TRANSFER);
-				}
-				break;
-
-			case LIVE:
-				if (viewManager.contains(LiveMenuView.class.getName())) {
-					viewManager.toFront(LiveMenuView.class.getName());
-				} else {
-					ViewTuple<LiveMenuView, LiveMenuViewModel> tuple = FluentViewLoader.fxmlView(LiveMenuView.class)
-					                                                                   .load();
-					viewManager.push(LiveMenuView.class.getName(), tuple, childViewPane.get(), LIVE);
-				}
-				break;
-
-			case SETTINGS:
-			case OPTIONS:
-				if (viewManager.contains(SettingsMenuView.class.getName())) {
-					viewManager.toFront(SettingsMenuView.class.getName());
-				} else {
-					ViewTuple<SettingsMenuView, SettingsMenuViewModel> tuple = FluentViewLoader
-							.fxmlView(SettingsMenuView.class).load();
-					viewManager.push(SettingsMenuView.class.getName(), tuple, childViewPane.get(), SETTINGS);
-				}
-				break;
-
-			case HELP_APP:
+			case A_HELP:
 //				 hostServices.showDocument(appProperties.getUserHelpUrl().toString());
 				displayHelp.push(true);
 				break;
@@ -347,9 +348,9 @@ public class RootViewModel extends BaseViewModel {
 		return childViewPane;
 	}
 
-	public ObjectProperty<MainMenuItemModel> selectedMenuItemProperty() {
-		return selectedMenuItem;
-	}
+//	public ObjectProperty<MainMenuItemModel> selectedMenuItemProperty() {
+//		return selectedMenuItem;
+//	}
 
 	public ObjectProperty<MenuItemInterface> selectedMenuBarItemProperty() {
 		return selectedMenuBarItem;

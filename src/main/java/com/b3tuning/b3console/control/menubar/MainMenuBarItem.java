@@ -1,16 +1,20 @@
 package com.b3tuning.b3console.control.menubar;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import javafx.scene.input.KeyCombination;
 import lombok.Getter;
 import lombok.extern.slf4j.XSlf4j;
-import org.controlsfx.glyphfont.FontAwesome;
 import org.controlsfx.glyphfont.Glyph;
 
-import java.util.Arrays;
 import java.util.List;
 
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.NONE;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_NONE;
+import static com.b3tuning.b3console.control.menubar.MenuItemInterface.setIcon;
+import static java.util.Arrays.asList;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.EDIT;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.FILE;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.GEARS;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.GLASS;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.QUESTION;
 
 /*
  *  Created on:  May 19, 2020
@@ -23,15 +27,15 @@ import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.NONE;
 @XSlf4j
 public enum MainMenuBarItem implements MenuItemInterface {
 
-	FILE(NONE, "File", new Glyph("FontAwesome", FontAwesome.Glyph.FILE), null, false, false, Arrays.asList(FileMenu.values())),
-	EDIT(NONE, "Edit", new Glyph("FontAwesome", FontAwesome.Glyph.EDIT), null, false, false, Arrays.asList(EditMenu.values())),
-	VIEW(NONE, "View", new Glyph("FontAwesome", FontAwesome.Glyph.GLASS), null, false, false, Arrays.asList(ViewMenu.values())),
-	ONLINE(NONE, "Online", new Glyph("FontAwesome", FontAwesome.Glyph.EDIT), null, false, false, Arrays.asList(OnlineMenu.values())),
-	TOOLS(NONE, "Tools", new Glyph("FontAwesome", FontAwesome.Glyph.GEARS), null, false, false, Arrays.asList(ToolsMenu.values())),
-	HELP(NONE, "Help", new Glyph("FontAwesome", FontAwesome.Glyph.QUESTION), null, false, false, Arrays.asList(HelpMenu.values())),
+	B_FILE(A_NONE, "File", setIcon(FILE), null, false, false, asList(FileMenu.values())),
+	B_EDIT(A_NONE, "Edit", setIcon(EDIT), null, false, false, asList(EditMenu.values())),
+	B_VIEW(A_NONE, "View", setIcon(GLASS), null, false, false, asList(ViewMenu.values())),
+	B_ONLINE(A_NONE, "Online", setIcon(EDIT), null, false, false, asList(OnlineMenu.values())),
+	B_TOOLS(A_NONE, "Tools", setIcon(GEARS), null, false, false, asList(ToolsMenu.values())),
+	B_HELP(A_NONE, "Help", setIcon(QUESTION), null, false, false, asList(HelpMenu.values())),
 	;
 
-	@Getter private final MainMenuItemAction      action;
+	@Getter private final MenuAction              action;
 	@Getter private final String                  label;
 	@Getter private final Glyph                   icon;
 	@Getter private final KeyCombination          shortcut;
@@ -39,7 +43,7 @@ public enum MainMenuBarItem implements MenuItemInterface {
 	@Getter private final boolean                 separated;
 	@Getter private final List<MenuItemInterface> items;
 
-	MainMenuBarItem(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	MainMenuBarItem(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
 	                boolean separated, List<MenuItemInterface> items) {
 		this.action     = action;
 		this.label      = label;

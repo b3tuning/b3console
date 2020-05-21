@@ -1,6 +1,6 @@
 package com.b3tuning.b3console.view.loader;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
+import com.b3tuning.b3console.control.menubar.MenuAction;
 import com.b3tuning.b3console.view.loader.ViewManagerImpl.ViewInfo;
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.ViewModel;
@@ -20,13 +20,13 @@ import java.util.Map.Entry;
 public interface ViewManager {
 
 	void push(String key, ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple,
-	          StackPane pane, MainMenuItemAction appArea);
+	          StackPane pane, MenuAction appArea);
 
 	void push(String key, ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple,
-	          StackPane pane, MainMenuItemAction appArea, boolean closeOnLostFocus);
+	          StackPane pane, MenuAction appArea, boolean closeOnLostFocus);
 
 	void push(String key, ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple,
-	          StackPane pane, MainMenuItemAction appArea, boolean closeOnLostFocus, boolean ignoreDirty);
+	          StackPane pane, MenuAction appArea, boolean closeOnLostFocus, boolean ignoreDirty);
 
 	void pop(StackPane pane, boolean reloadPage);
 

@@ -17,35 +17,37 @@ public enum MainMenuItemAction {
 	SETTINGS, // fa COGS
 	HELP_APP,
 
-	// EDIT
-	UNDO,
-	REDO,
-	CUT,
-	COPY,
-	DELETE,
-
-	// FILE
-	NEW,
-	OPEN,
-	OPEN_RECENT,
-	CLOSE,
-	SAVE,
-	SAVE_AS,
-	SEND,
-	QUIT,
-
-	// HELP
-	HELP,
-
-	// ONLINE
-	CONNECT,
-	DISCONNECT,
-	MONITOR_IO,
-
-	// TOOLS
-	OPTIONS,
-
-	// VIEW
+//	// EDIT
+//	A_UNDO,
+//	A_REDO,
+//	A_CUT,
+//	A_COPY,
+//	A_DELETE,
+//
+//	// FILE
+//	A_NEW,
+//	A_OPEN,
+//	A_RECENTS,
+//	A_CLOSE,
+//	A_SAVE,
+//	A_SAVE_AS,
+//	A_SEND,
+//	A_QUIT,
+//
+//	// HELP
+//	A_HELP,
+//
+//	// ONLINE
+//	A_CONNECT,
+//	A_DISCONNECT,
+//	A_MONITOR_IO,
+//
+//	// TOOLS
+//	A_OPTIONS,
+//
+//	// VIEW
+//
+//	// NONE
+//	A_NONE,
 	;
-	// TEST SO MIKE CAN SEE I'M WORKING
 }

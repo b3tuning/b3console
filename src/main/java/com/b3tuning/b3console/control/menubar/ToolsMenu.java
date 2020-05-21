@@ -1,13 +1,14 @@
 package com.b3tuning.b3console.control.menubar;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import javafx.scene.input.KeyCombination;
 import lombok.Getter;
 import lombok.extern.slf4j.XSlf4j;
-import org.controlsfx.glyphfont.FontAwesome;
 import org.controlsfx.glyphfont.Glyph;
 
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.OPTIONS;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_OPTIONS;
+import static com.b3tuning.b3console.control.menubar.MenuItemInterface.setIcon;
+import static com.b3tuning.b3console.control.menubar.MenuItemInterface.setShortCut;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.GEARS;
 
 /*
  *  Created on:  May 19, 2020
@@ -22,19 +23,18 @@ public enum ToolsMenu implements MenuItemInterface {
 	// TOOLS TOOLS
 	// Options
 
-
-	OPTIONS_MENU(OPTIONS, "Options", new Glyph("FontAwesome", FontAwesome.Glyph.GEARS), KeyCombination.valueOf("Ctrl+Shift+O"), true, false),
+	M_OPTIONS(A_OPTIONS, "Options", setIcon(GEARS), setShortCut("Ctrl+Shift+O"), true, false),
 	;
 
-	@Getter private final MainMenuItemAction action;
-	@Getter private final String             label;
-	@Getter private final Glyph              icon;
-	@Getter private final KeyCombination     shortcut;
-	@Getter private final boolean            selectable;
-	@Getter private final boolean            separated;
+	@Getter private final MenuAction     action;
+	@Getter private final String         label;
+	@Getter private final Glyph          icon;
+	@Getter private final KeyCombination shortcut;
+	@Getter private final boolean        selectable;
+	@Getter private final boolean        separated;
 
-	ToolsMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
-	         boolean separated) {
+	ToolsMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	          boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;

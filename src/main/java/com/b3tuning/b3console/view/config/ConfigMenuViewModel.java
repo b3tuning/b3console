@@ -1,6 +1,6 @@
 package com.b3tuning.b3console.view.config;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
+import com.b3tuning.b3console.control.menubar.MenuAction;
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.Refreshable;
@@ -12,7 +12,7 @@ import com.b3tuning.b3console.view.config.trans.TransConfigView;
 import com.b3tuning.b3console.view.config.trans.TransConfigViewModel;
 import com.b3tuning.b3console.view.loader.ViewManager;
 import com.b3tuning.b3console.view.loader.ViewManagerImpl.ViewInfo;
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleAction;
+import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import de.saxsys.mvvmfx.FluentViewLoader;
 import de.saxsys.mvvmfx.ViewModel;
 import de.saxsys.mvvmfx.ViewTuple;
@@ -41,17 +41,13 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 	private NotificationCenter globalNotifications;
 	private ViewManager        viewManager;
 
-	private ObjectProperty<ModuleAction> module = new SimpleObjectProperty<>();
+	private ObjectProperty<ModuleType> module = new SimpleObjectProperty<>();
 
 	private ObjectProperty<StackPane> childViewPane = new SimpleObjectProperty<>();
 
 	private ViewTuple<DoorConfigView, DoorConfigViewModel>       doorConfigViewTuple;
 	private ViewTuple<ShifterConfigView, ShifterConfigViewModel> shifterConfigViewTuple;
 	private ViewTuple<TransConfigView, TransConfigViewModel>     transConfigViewTuple;
-
-	public enum MenuAction {
-		DOOR, SHIFTER, TRANS
-	}
 
 	@Inject
 	public ConfigMenuViewModel(UserPreferences prefs, NotificationCenter notifications, ViewManager viewManager) {
@@ -60,8 +56,8 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 		this.globalNotifications = notifications;
 		this.viewManager         = viewManager;
 
-		module.set(ModuleAction.valueOf(preferences.getModule()));
-		globalNotifications.subscribe(MODULE_EVENT, (key, payload) -> module.set((ModuleAction) (payload[0])));
+		module.set(ModuleType.valueOf(preferences.getModule()));
+		globalNotifications.subscribe(MODULE_EVENT, (key, payload) -> module.set((ModuleType) (payload[0])));
 	}
 
 	private void showDoorConfigView() {
@@ -76,8 +72,8 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 		} else {
 			ViewTuple<DoorConfigView, DoorConfigViewModel> viewTuple = FluentViewLoader.fxmlView(DoorConfigView.class)
 			                                                                           .load();
-
-			viewManager.push(key, viewTuple, childViewPane.get(), MainMenuItemAction.CONFIG);
+			// TODO: check this
+			viewManager.push(key, viewTuple, childViewPane.get(), MenuAction.A_NONE);
 		}
 	}
 
@@ -94,7 +90,8 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 			ViewTuple<ShifterConfigView, ShifterConfigViewModel> viewTuple = FluentViewLoader
 					.fxmlView(ShifterConfigView.class).load();
 
-			viewManager.push(key, viewTuple, childViewPane.get(), MainMenuItemAction.CONFIG);
+			// TODO: check this
+			viewManager.push(key, viewTuple, childViewPane.get(), MenuAction.A_NONE);
 		}
 	}
 
@@ -111,7 +108,8 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 			ViewTuple<TransConfigView, TransConfigViewModel> viewTuple = FluentViewLoader
 					.fxmlView(TransConfigView.class).load();
 
-			viewManager.push(key, viewTuple, childViewPane.get(), MainMenuItemAction.CONFIG);
+			// TODO: check this
+			viewManager.push(key, viewTuple, childViewPane.get(), MenuAction.A_NONE);
 		}
 	}
 
@@ -155,7 +153,7 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 
 	}
 
-	public ObjectProperty<ModuleAction> getModule() {
+	public ObjectProperty<ModuleType> getModule() {
 		return module;
 	}
 

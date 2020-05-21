@@ -1,13 +1,14 @@
 package com.b3tuning.b3console.control.menubar;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import javafx.scene.input.KeyCombination;
 import lombok.Getter;
 import lombok.extern.slf4j.XSlf4j;
-import org.controlsfx.glyphfont.FontAwesome;
 import org.controlsfx.glyphfont.Glyph;
 
-import static com.b3tuning.b3console.control.mainmenu.MainMenuItemAction.NONE;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_NONE;
+import static com.b3tuning.b3console.control.menubar.MenuItemInterface.setIcon;
+import static com.b3tuning.b3console.control.menubar.MenuItemInterface.setShortCut;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.MAP_MARKER;
 
 /*
  *  Created on:  May 19, 2020
@@ -22,17 +23,17 @@ public enum ViewMenu implements MenuItemInterface {
 	// VIEW VIEW
 	//
 
-	PLACEHOLDER_MENU(NONE, "PlaceHolder", new Glyph("FontAwesome", FontAwesome.Glyph.MAP_MARKER), KeyCombination.valueOf("Ctrl+Shift+P"), true, false),
+	M_PLACEHOLDER(A_NONE, "PlaceHolder", setIcon(MAP_MARKER), setShortCut("Ctrl+Shift+P"), true, false),
 	;
 
-	@Getter private final MainMenuItemAction action;
-	@Getter private final String             label;
-	@Getter private final Glyph              icon;
-	@Getter private final KeyCombination     shortcut;
-	@Getter private final boolean            selectable;
-	@Getter private final boolean            separated;
+	@Getter private final MenuAction     action;
+	@Getter private final String         label;
+	@Getter private final Glyph          icon;
+	@Getter private final KeyCombination shortcut;
+	@Getter private final boolean        selectable;
+	@Getter private final boolean        separated;
 
-	ViewMenu(MainMenuItemAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	ViewMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
 	         boolean separated) {
 		this.action     = action;
 		this.label      = label;

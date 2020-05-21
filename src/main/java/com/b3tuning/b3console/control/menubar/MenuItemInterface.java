@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.control.menubar;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import javafx.scene.input.KeyCombination;
 import org.controlsfx.glyphfont.Glyph;
 
@@ -14,7 +13,7 @@ import org.controlsfx.glyphfont.Glyph;
  */
 public interface MenuItemInterface {
 
-	MainMenuItemAction getAction();
+	MenuAction getAction();
 
 	String getLabel();
 
@@ -26,9 +25,17 @@ public interface MenuItemInterface {
 
 	boolean isSeparated();
 
-	Glyph setIcon(Object icon);
+	static Glyph setIcon(Object icon) {
+		return icon != null
+		       ? new Glyph("FontAwesome", icon)
+		       : null;
+	}
 
-	KeyCombination setShortCut(String keys);
+	static KeyCombination setShortCut(String keys) {
+		return keys != null
+		       ? KeyCombination.valueOf(keys)
+		       : null;
+	}
 
 	MenuItemInterface findByLabel(String label);
 
