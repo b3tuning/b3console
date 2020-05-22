@@ -1,6 +1,7 @@
 package com.b3tuning.b3console.view.config;
 
 import com.b3tuning.b3console.control.menubar.MenuAction;
+import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.notifications.ClickButtonNotification;
 import com.b3tuning.b3console.view.root.FontAwesome;
@@ -49,11 +50,13 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 	@InjectViewModel private ConfigMenuViewModel viewModel;
 
 	private NotificationCenter globalNotifications;
+	private UserPreferences    preferences;
 
 	@Inject
-	public ConfigMenuView(NotificationCenter globalNotifications) {
+	public ConfigMenuView(NotificationCenter globalNotifications, UserPreferences prefs) {
 		log.entry();
 		this.globalNotifications = globalNotifications;
+		this.preferences         = prefs;
 	}
 
 	public void initialize() {
@@ -96,6 +99,9 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 
 	private void initNotifications() {
 		log.entry();
+
+		preferences.setRecent();
+		preferences.getRecent();
 
 		globalNotifications.subscribe(ClickButtonNotification.class.getName(), (key, payload) -> {
 			ClickButtonNotification n = ((ClickButtonNotification) payload[0]);
