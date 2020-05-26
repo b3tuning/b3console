@@ -47,7 +47,6 @@ public class TableViewUtils {
 	private static final int DEFAULT_MARGIN        = 5;
 	private static final int DEFAULT_MAX_ROWS      = 10;
 
-
 	/**
 	 * Helper to set table height based on content (with optional maxRow limiter)
 	 *

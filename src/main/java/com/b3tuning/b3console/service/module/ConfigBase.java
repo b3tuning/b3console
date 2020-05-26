@@ -1,6 +1,7 @@
 package com.b3tuning.b3console.service.module;
 
 import com.b3tuning.b3console.service.EditableEntity;
+import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -24,23 +25,26 @@ public class ConfigBase extends EditableEntity implements Serializable {
 	private StringProperty       name;
 	private ObjectProperty<Date> createdAt;
 	private ObjectProperty<Date> updatedAt;
+	private ObjectProperty<ModuleType> type;
 
 	public ConfigBase() {
 		this.name      = new SimpleStringProperty();
 		this.createdAt = new SimpleObjectProperty<>();
 		this.updatedAt = new SimpleObjectProperty<>();
-		super.trackProperties(this.name, this.createdAt, this.updatedAt);
+		this.type = new SimpleObjectProperty<>();
+		super.trackProperties(this.name, this.createdAt, this.updatedAt, this.type);
 	}
 
-	public ConfigBase(String name, Date created, Date updatedAt) {
+	public ConfigBase(String name, Date created, Date updatedAt, ModuleType type) {
 		this();
 		this.name.set(name);
 		this.createdAt.set(created);
 		this.updatedAt.set(updatedAt);
+		this.type.set(type);
 	}
 
 	public ConfigBase copy() {
-		return new ConfigBase(this.getName(), this.getCreatedAt(), this.getUpdatedAt());
+		return new ConfigBase(this.getName(), this.getCreatedAt(), this.getUpdatedAt(), this.getType());
 	}
 
 	public String getName() {
@@ -55,6 +59,10 @@ public class ConfigBase extends EditableEntity implements Serializable {
 		return updatedAt.get();
 	}
 
+	public ModuleType getType() {
+		return type.get();
+	}
+
 	public void setName(String value) {
 		this.name.set(value);
 	}
@@ -67,6 +75,10 @@ public class ConfigBase extends EditableEntity implements Serializable {
 		this.updatedAt.set(value);
 	}
 
+	public void setType(ModuleType value) {
+		this.type.set(value);
+	}
+
 	public StringProperty nameProperty() {
 		return name;
 	}
@@ -77,5 +89,9 @@ public class ConfigBase extends EditableEntity implements Serializable {
 
 	public ObjectProperty<Date> updatedAtProperty() {
 		return updatedAt;
+	}
+
+	public ObjectProperty<ModuleType> typeProperty() {
+		return type;
 	}
 }

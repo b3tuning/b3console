@@ -2,9 +2,11 @@ package com.b3tuning.b3console.view.config;
 
 import com.b3tuning.b3console.control.menubar.MenuAction;
 import com.b3tuning.b3console.prefs.UserPreferences;
+import com.b3tuning.b3console.service.files.filemanager.RecentFile;
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.notifications.ClickButtonNotification;
 import com.b3tuning.b3console.view.root.FontAwesome;
+import com.google.common.collect.Lists;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.event.ActionEvent;
@@ -18,6 +20,8 @@ import javafx.scene.layout.StackPane;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
+
+import java.util.List;
 
 import static org.reactfx.EventStreams.eventsOf;
 
@@ -100,8 +104,18 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 	private void initNotifications() {
 		log.entry();
 
-		preferences.setRecent();
-		preferences.getRecent();
+		preferences.setRecentFiles(Lists.newArrayList());
+		List<RecentFile> recentFiles = preferences.getRecentFiles();
+		if (!recentFiles.isEmpty()) {
+			recentFiles.forEach(f -> {
+				log.debug("GOT A FILE !!!!!!!!!");
+				log.debug("FFFFFFFFFFFFFFFFFFFFF recent.name = {}", f.getName());
+				log.debug("FFFFFFFFFFFFFFFFFFFFF recent.path = {}", f.getPath());
+				log.debug("FFFFFFFFFFFFFFFFFFFFF recent.type = {}", f.getType());
+				log.debug("FFFFFFFFFFFFFFFFFFFFF recent.LastAccessed = {}", f.getLastAccessed());
+				log.debug("-----------------------------------------------------------------");
+			});
+		}
 
 		globalNotifications.subscribe(ClickButtonNotification.class.getName(), (key, payload) -> {
 			ClickButtonNotification n = ((ClickButtonNotification) payload[0]);

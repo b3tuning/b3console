@@ -1,4 +1,4 @@
-package com.b3tuning.b3console.view.utils;
+package com.b3tuning.b3console.service.files;
 
 import com.google.common.collect.Lists;
 
@@ -7,6 +7,8 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static java.util.Objects.requireNonNull;
 
 /*
  *  Created on:  May 11, 2020
@@ -20,7 +22,7 @@ public class FileWrapper implements TreeElement, Serializable {
 
 	private static final long serialVersionUID = 3803661886906494446L;
 
-	private File file;
+	private final File file;
 
 	public FileWrapper(File file) {
 		this.file = file;
@@ -45,7 +47,7 @@ public class FileWrapper implements TreeElement, Serializable {
 		if (file == null || file.listFiles() == null) {
 			return Lists.newArrayList();
 		}
-		return Arrays.stream(file.listFiles()).map(FileWrapper::new).collect(Collectors.toList());
+		return Arrays.stream(requireNonNull(file.listFiles())).map(FileWrapper::new).collect(Collectors.toList());
 	}
 
 	@Override

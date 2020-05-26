@@ -16,6 +16,7 @@ import com.b3tuning.b3console.view.loader.ViewManagerImpl;
 import com.b3tuning.b3console.view.utils.ScrollBarHelper;
 import com.b3tuning.b3console.view.utils.SortUtility;
 import com.b3tuning.b3console.view.utils.TableViewUtils;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dagger.Module;
 import dagger.Provides;
 import de.saxsys.mvvmfx.MvvmFX;
@@ -66,7 +67,12 @@ public class CommonDependenciesModule {
 		return new DoorModuleService(assembler, comms);
 	}
 
-//	@Provides
+	@Provides
+	@Singleton
+	ObjectMapper providesObjectMapper() {
+		return new ObjectMapper();
+	}
+	//	@Provides
 //	@Singleton
 //	FilesService provideFilesService(FileAssembler assembler) {
 //		return new FilesService(assembler);
@@ -110,8 +116,8 @@ public class CommonDependenciesModule {
 	 ***************/
 	@Provides
 	@Singleton
-	UserPreferences provideUserPreferences() {
-		return new UserPreferences();
+	UserPreferences provideUserPreferences(ObjectMapper mapper) {
+		return new UserPreferences(mapper);
 	}
 
 	@Provides

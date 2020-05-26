@@ -17,7 +17,6 @@ import java.util.stream.StreamSupport;
  */
 public class TreeItemStreamSupport {
 
-
 	public static <T> Stream<TreeItem<T>> stream(TreeItem<T> rootItem) {
 		return asStream(new TreeItemIterator<>(rootItem));
 	}
@@ -27,13 +26,11 @@ public class TreeItemStreamSupport {
 
 		return StreamSupport.stream(
 				iterable.spliterator(),
-				false
-		                           );
+				false);
 	}
 
-
 	private static class TreeItemIterator<T> implements Iterator<TreeItem<T>> {
-		private Stack<TreeItem<T>> stack = new Stack<>();
+		private final Stack<TreeItem<T>> stack = new Stack<>();
 
 		TreeItemIterator(TreeItem<T> root) {
 			stack.push(root);

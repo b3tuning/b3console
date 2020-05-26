@@ -7,8 +7,7 @@ import com.b3tuning.b3console.service.utils.FileInspectorService;
 import com.b3tuning.b3console.service.utils.IOUtils;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.Refreshable;
-import com.b3tuning.b3console.view.utils.FileWrapper;
-import com.b3tuning.b3console.view.utils.ProjectAndPresetTypeUtils;
+import com.b3tuning.b3console.service.files.FileWrapper;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import de.saxsys.mvvmfx.FluentViewLoader;
@@ -44,9 +43,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static com.b3tuning.b3console.view.file.DropAreaConstants.DEFAULT_DISABLED_DRAG_DROP_MESSAGE;
-import static com.b3tuning.b3console.view.utils.BackgroundColorConstants.GREEN_BACKGROUND;
-import static com.b3tuning.b3console.view.utils.BackgroundColorConstants.LIGHT_GRAY_BACKGROUND;
-import static com.b3tuning.b3console.view.utils.BackgroundColorConstants.RED_BACKGROUND;
+import static com.b3tuning.b3console.view.BackgroundColorConstants.GREEN_BACKGROUND;
+import static com.b3tuning.b3console.view.BackgroundColorConstants.LIGHT_GRAY_BACKGROUND;
+import static com.b3tuning.b3console.view.BackgroundColorConstants.RED_BACKGROUND;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 import static org.reactfx.EventStreams.valuesOf;
 

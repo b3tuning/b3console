@@ -22,7 +22,6 @@ import javafx.scene.layout.Background;
 import lombok.extern.slf4j.XSlf4j;
 import org.apache.commons.lang3.mutable.MutableBoolean;
 import org.reactfx.Guard;
-import org.reactfx.Indicator;
 import org.reactfx.SuspendableNo;
 
 import javax.inject.Inject;
@@ -31,9 +30,9 @@ import java.text.DateFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.b3tuning.b3console.view.utils.BackgroundColorConstants.GREEN_BACKGROUND;
-import static com.b3tuning.b3console.view.utils.BackgroundColorConstants.LIGHT_GRAY_BACKGROUND;
-import static com.b3tuning.b3console.view.utils.BackgroundColorConstants.RED_BACKGROUND;
+import static com.b3tuning.b3console.view.BackgroundColorConstants.GREEN_BACKGROUND;
+import static com.b3tuning.b3console.view.BackgroundColorConstants.LIGHT_GRAY_BACKGROUND;
+import static com.b3tuning.b3console.view.BackgroundColorConstants.RED_BACKGROUND;
 import static org.reactfx.EventStreams.valuesOf;
 
 /*

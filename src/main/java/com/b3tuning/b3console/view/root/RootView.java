@@ -39,8 +39,6 @@ public class RootView extends BaseView<RootViewModel> {
 
 	private NotificationCenter globalNotifications;
 
-//	private MainMenu mainMenu;
-
 	private MainMenuBar mainMenuBar;
 
 	@Inject

@@ -2,7 +2,7 @@ package com.b3tuning.b3console.view.file;
 
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.utils.ConversionUtil;
-import com.b3tuning.b3console.view.utils.FileWrapper;
+import com.b3tuning.b3console.service.files.FileWrapper;
 import com.b3tuning.b3console.view.utils.TreeItemBuilderHelper;
 import de.saxsys.mvvmfx.InjectViewModel;
 import javafx.beans.property.SimpleLongProperty;

@@ -23,8 +23,8 @@ import static com.b3tuning.b3console.view.settings.SettingsMenuViewModel.MODULE_
 @XSlf4j
 public class TransferMenuViewModel extends BaseViewModel {
 
-	private UserPreferences    preferences;
-	private NotificationCenter globalNotifications;
+	private final UserPreferences    preferences;
+	private final NotificationCenter globalNotifications;
 
 	private ObjectProperty<ModuleType> module = new SimpleObjectProperty<>();
 

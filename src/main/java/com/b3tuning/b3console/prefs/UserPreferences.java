@@ -1,14 +1,17 @@
 package com.b3tuning.b3console.prefs;
 
-import com.b3tuning.b3console.control.menubar.recent.RecentFile;
+import com.b3tuning.b3console.service.files.filemanager.RecentFile;
 import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Lists;
 import lombok.extern.slf4j.XSlf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.prefs.Preferences;
 
 /*
@@ -22,23 +25,25 @@ import java.util.prefs.Preferences;
 @XSlf4j
 public class UserPreferences {
 
-	private static final String DOWNLOAD_PATH     = "DOWNLOAD_PATH";
-	private static final String BROWSE_LOCAL_PATH = "BROWSE_LOCAL_PATH";
+	private static final String DOWNLOAD_PATH         = "DOWNLOAD_PATH";
+	private static final String DOWNLOAD_PATH_DEFAULT = System.getProperty("user.home") + File.separator + "Desktop";
 
-	private static final String DOWNLOAD_PATH_DEFAULT     =
-			System.getProperty("user.home") + File.separator + "Desktop";
-	private static final String BROWSE_LOCAL_PATH_DEFAULT =
-			System.getProperty("user.home") + File.separator + "Documents";
+	private static final String BROWSE_LOCAL_PATH         = "BROWSE_LOCAL_PATH";
+	private static final String BROWSE_LOCAL_PATH_DEFAULT = System.getProperty("user.home") + File.separator + "Documents";
 
 	private static final String MODULE_TYPE    = "MODULE_TYPE";
 	private static final String MODULE_DEFAULT = "DOOR";
 
-	private static final String RECENT_ITEM = "RECENT_ITEM";
+	private static final String RECENT_FILES = "RECENT_FILES";
+	private static final String RECENT_FILE_DEFAULT = "[{\"name\":\"No recent files to display...\",\"path\":null,\"type\":null,\"lastAccessed\":0}]";
 
 	private final Preferences preferences;
 
-	public UserPreferences() {
+	private final ObjectMapper mapper;
+
+	public UserPreferences(ObjectMapper mapper) {
 		preferences = Preferences.userRoot().node(this.getClass().getName());
+		this.mapper = mapper;
 	}
 
 	private void set(String property, String value) {
@@ -49,34 +54,26 @@ public class UserPreferences {
 		}
 	}
 
-	public void setRecent() {
-		RecentFile item = new RecentFile("TestFile", "/some/dir", ModuleType.DOOR, System.currentTimeMillis());
+	public void setRecentFiles(List<RecentFile> recentFiles) {
 		try {
-			ObjectMapper mapper = new ObjectMapper();
-			preferences.put(RECENT_ITEM, mapper.writeValueAsString(item));
+			preferences.put(RECENT_FILES, mapper.writeValueAsString(recentFiles));
 		}
 		catch (JsonProcessingException e) {
 			log.error("ERROR in saving recent file to preferences {}", e.getMessage(), e);
 		}
 	}
 
-	public RecentFile getRecent() {
-		RecentFile item = new RecentFile(null, null, null, null);
+	public List<RecentFile> getRecentFiles() {
 		try {
-			String json = preferences.get(RECENT_ITEM, null);
-			if (!StringUtils.isEmpty(json)) {
-				ObjectMapper mapper = new ObjectMapper();
-				item = mapper.readValue(json, RecentFile.class);
+			String json = preferences.get(RECENT_FILES, RECENT_FILE_DEFAULT);
+			if (StringUtils.isNotBlank(json)) {
+				return mapper.readValue(json, new TypeReference<>() {
+				});
 			}
+		} catch (IOException e) {
+			log.error("ERROR in getting recent files from preferences {}", e.getMessage(), e);
 		}
-		catch (IOException e) {
-			log.error("ERROR in getting recent file from preferences {}", e.getMessage(), e);
-		}
-		log.debug("FFFFFFFFFFFFFFFFFFFFF recent.name = {}", item.getName());
-		log.debug("FFFFFFFFFFFFFFFFFFFFF recent.path = {}", item.getPath());
-		log.debug("FFFFFFFFFFFFFFFFFFFFF recent.type = {}", item.getType());
-		log.debug("FFFFFFFFFFFFFFFFFFFFF recent.LastAccessed = {}", item.getLastAccessed());
-		return item;
+		return Lists.newArrayList();
 	}
 
 	public void setDownloadPath(String value) {

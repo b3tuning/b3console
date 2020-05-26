@@ -28,20 +28,23 @@ import static org.reactfx.EventStreams.changesOf;
 @XSlf4j
 public class SettingsMenuViewModel extends BaseViewModel {
 
-	public static final String             MODULE_EVENT = "module";
+	public static final String MODULE_EVENT = "module";
+
 	// injected dependencies
 	@SuppressWarnings("unused")
-	private             SettingsService    configService;
-	private             UserPreferences    preferences;
-	private             NotificationCenter globalNotifications;
+	private final SettingsService    configService;
+	private final UserPreferences    preferences;
+	private final NotificationCenter globalNotifications;
 
 	// exposed properties
-	private StringProperty               downloadPath  = new SimpleStringProperty();
-	private StringProperty               versionString = new SimpleStringProperty();
+	private StringProperty             downloadPath  = new SimpleStringProperty();
+	private StringProperty             versionString = new SimpleStringProperty();
 	private ObjectProperty<ModuleType> module        = new SimpleObjectProperty<>();
 
 	public enum ModuleType {
-		DOOR, SHIFTER, TRANS
+		DOOR,
+		SHIFTER,
+		TRANS
 	}
 
 	@Inject

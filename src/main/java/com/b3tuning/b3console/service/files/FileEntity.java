@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.service.files;
 
-import com.b3tuning.b3console.view.utils.TreeElement;
 import com.google.common.collect.Lists;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.ObjectProperty;

@@ -1,4 +1,4 @@
-package com.b3tuning.b3console.control.menubar.recent;
+package com.b3tuning.b3console.service.files.filemanager;
 
 import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
+
+import java.io.Serializable;
 
 /*
  *  Created on:  May 21, 2020
@@ -21,7 +23,9 @@ import org.jetbrains.annotations.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class RecentFile implements Comparable<RecentFile> {
+public class RecentFile implements Comparable<RecentFile>, Serializable {
+
+	private static final long serialVersionUID = -8768741433061399525L;
 
 	private String     name;
 	private String     path;

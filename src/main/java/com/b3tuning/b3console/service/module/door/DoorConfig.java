@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.service.module.door;
 
-import com.b3tuning.b3console.service.EditableEntity;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;

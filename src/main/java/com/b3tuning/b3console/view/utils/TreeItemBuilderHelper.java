@@ -1,5 +1,7 @@
 package com.b3tuning.b3console.view.utils;
 
+import com.b3tuning.b3console.service.files.FileWrapper;
+import com.b3tuning.b3console.service.files.TreeElement;
 import com.google.common.collect.Maps;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -30,7 +32,6 @@ public class TreeItemBuilderHelper {
 	private static final String DIRECTORY_TYPE_IDENTIFIER = ".";
 
 	private static final Map<String, Image> iconCache = Maps.newConcurrentMap();
-
 
 	/**
 	 * Returns the directory structure of the given file as a TreeItem
@@ -96,7 +97,7 @@ public class TreeItemBuilderHelper {
 		final String fileExtension = f.isDirectory()
 		                             ? DIRECTORY_TYPE_IDENTIFIER
 		                             : FilenameUtils.getExtension(f.getName());
-		Image        iconImage     = iconCache.get(fileExtension);
+		Image iconImage = iconCache.get(fileExtension);
 		if (iconImage != null) {
 			imageView.setImage(iconImage);
 		} else {
@@ -133,5 +134,4 @@ public class TreeItemBuilderHelper {
 		}
 		return new File(element.getName());
 	}
-
 }
