@@ -8,6 +8,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Date;
 
 /*
@@ -40,6 +41,15 @@ public class ConfigBase extends EditableEntity implements Serializable {
 		this.name.set(name);
 		this.createdAt.set(created);
 		this.updatedAt.set(updatedAt);
+		this.type.set(type);
+	}
+
+	public ConfigBase(ModuleType type) {
+		this();
+		Date now = Date.from(Instant.now());
+		this.name.set(null);
+		this.createdAt.set(now);
+		this.updatedAt.set(now);
 		this.type.set(type);
 	}
 

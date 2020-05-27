@@ -11,6 +11,7 @@ package com.b3tuning.b3console.service.files.filemanager;
 
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.service.module.ConfigBase;
+import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -19,7 +20,10 @@ import javafx.collections.ObservableList;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 @XSlf4j
@@ -51,7 +55,7 @@ public class FileManager {
 		preferences.setRecentFiles(recentFiles.get());
 	}
 
-	public RecentFile openFile(RecentFile recentFile) {
+	private void updateRecentFiles(RecentFile recentFile) {
 		log.entry(recentFile);
 		currentFile = recentFile;
 		currentFile.setLastAccessed(System.currentTimeMillis());
@@ -59,7 +63,25 @@ public class FileManager {
 		recentFiles.get().add(currentFile);
 		recentFiles.get().sorted();
 		updateRecentFiles();
-		return currentFile;
+	}
+
+	public ConfigBase createNewFile(ModuleType type) {
+		updateRecentFiles(new RecentFile().setType(type));
+		return new ConfigBase(type);
+	}
+
+	public ConfigBase openFile(RecentFile recentFile) {
+		log.entry(recentFile);
+		ConfigBase config = null;
+		try (InputStream in = new FileInputStream(recentFile.getPath());
+		     ObjectInputStream ois = new ObjectInputStream(in)) {
+			config = (ConfigBase) ois.readObject();
+			updateRecentFiles(recentFile);
+		}
+		catch (Exception ex) {
+			log.error("Unable to openFile, path: {} , ex: {}", recentFile.getPath(), ex.getMessage());
+		}
+		return config;
 	}
 
 	public RecentFile getCurrentFile() {
@@ -89,5 +111,4 @@ public class FileManager {
 	public ObjectProperty<ObservableList<RecentFile>> recentFilesProperty() {
 		return recentFiles;
 	}
-
 }
