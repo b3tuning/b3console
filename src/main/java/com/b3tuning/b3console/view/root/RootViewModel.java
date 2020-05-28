@@ -61,11 +61,11 @@ public class RootViewModel extends BaseViewModel {
 
 	// injected
 	@Setter
-	private Application        application;
-	private AppProperties      appProperties;
+	private       Application        application;
+	private final AppProperties      appProperties;
 	@SuppressWarnings("unused")
-	private NotificationCenter globalNotifications;
-	private ViewManager        viewManager;
+	private final NotificationCenter globalNotifications;
+	private final ViewManager        viewManager;
 
 	// exposed properties
 //	private ObjectProperty<MainMenuItemModel> selectedMenuItem    = new SimpleObjectProperty<>();
@@ -261,6 +261,7 @@ public class RootViewModel extends BaseViewModel {
 				break;
 
 			case A_HELP:
+				application.getHostServices().showDocument(appProperties.getUserHelpUrl().toString());
 //				 hostServices.showDocument(appProperties.getUserHelpUrl().toString());
 				displayHelp.push(true);
 				break;

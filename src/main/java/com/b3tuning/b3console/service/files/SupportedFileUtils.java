@@ -6,7 +6,7 @@ import com.google.common.collect.Sets;
 import java.util.Set;
 
 import static com.b3tuning.b3console.service.FileType.DIRECTORY;
-import static com.b3tuning.b3console.service.FileType.VIDEO;
+import static com.b3tuning.b3console.service.FileType.B3CONFIG;
 
 
 /*
@@ -50,6 +50,6 @@ public class SupportedFileUtils {
 
 		// if not in the original source files or audio only category then
 		// the delivery setting must be in a video category
-		return VIDEO == fileType;
+		return B3CONFIG == fileType;
 	}
 }

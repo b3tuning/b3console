@@ -11,6 +11,8 @@ import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.utils.GuiUtils;
 import com.b3tuning.b3console.view.root.RootView;
 import com.b3tuning.b3console.view.root.RootViewModel;
+import com.sun.prism.GraphicsPipeline;
+import com.sun.prism.sw.SWPipeline;
 import com.vinumeris.crashfx.CrashFX;
 import com.vinumeris.crashfx.CrashWindow;
 import com.vinumeris.updatefx.AppDirectory;
@@ -145,15 +147,17 @@ public class App extends Application {
 //		}
 	}
 
-//	public static boolean isSoftwarePipeline() {
-//		return GraphicsPipeline.getPipeline() instanceof SWPipeline;
-//	}
+	public static boolean isSoftwarePipeline() {
+		return GraphicsPipeline.getPipeline() instanceof SWPipeline;
+	}
 
 	private void initGui(Stage primaryStage) {
 		log.entry();
-//		if (isSoftwarePipeline()) {
-//			log.warn("Prism is using software rendering");
-//		}
+		if (isSoftwarePipeline()) {
+			log.warn("Prism is using software rendering");
+		} else {
+			log.warn("Prism is using HARDWARE rendering");
+		}
 
 		// set the custom fonts
 		Font.loadFont(getClass().getResourceAsStream("/fonts/fontawesome-webfont.ttf"), 20);
@@ -260,8 +264,7 @@ public class App extends Application {
 					String.format("Expecting just 1 PlatformInjector, but discovered %s", count));
 		}
 
-		// initialize the dagger to mvvmfx bridge so dagger can act as DI for
-		// mvvmfx
+		// initialize the dagger to mvvmfx bridge so dagger can act as DI for mvvmfx
 		DaggerMvvmfxBridge bridge = applicationComponents.provideDaggerMvvmfxBridge();
 		bridge.setApplicationComponents(applicationComponents);
 		MvvmFX.setCustomDependencyInjector(bridge::getInstance);

@@ -32,7 +32,6 @@ public class PropertyLoader {
 
 	private static final String APP_PROPERTIES_FILE_TEMPLATE = "/properties/app-common.properties";
 
-	private static final String DEFAULT_PAGE_SIZE    = "default.page.size";
 	private static final String DEFAULT_CSS          = "default.css.file";
 	private static final String VERSION              = "app.version";
 	private static final String BUILD                = "app.build";
@@ -43,7 +42,7 @@ public class PropertyLoader {
 	private static final String USER_AGENT_PROPERTY  = "app.useragent";
 	private static final String LOG_LEVEL_PROPERTY   = "log.level";
 
-	private CompositeConfiguration config;
+	private final CompositeConfiguration config;
 
 	public PropertyLoader() {
 
@@ -66,7 +65,6 @@ public class PropertyLoader {
 
 	public AppProperties initAppProperties() {
 		AppProperties appProperties = new AppProperties();
-//		appProperties.setDefaultPageSize(Integer.parseInt(config.getString(DEFAULT_PAGE_SIZE)));
 		appProperties.getDefaultCSS().setBaseFile(config.getString(DEFAULT_CSS));
 		appProperties.setBuild(Integer.parseInt(config.getString(BUILD)));
 		appProperties.setVersion(String.format("%s.%s", config.getString(VERSION), appProperties.getBuild()));
@@ -83,7 +81,7 @@ public class PropertyLoader {
 
 		appProperties.setLogLevel(config.getString(LOG_LEVEL_PROPERTY));
 
-//		appProperties.setFileTypes(loadFileTypes());
+		appProperties.setFileTypes(loadFileTypes());
 
 		log.debug("Running with properties: {}", appProperties.toString());
 

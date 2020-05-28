@@ -9,10 +9,7 @@ package com.b3tuning.b3console.service;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 public enum FileType {
-	VIDEO,
-	AUDIO,
-	IMAGE,
-	TEXT,
+	B3CONFIG,
 	OTHER,
 	DIRECTORY
 }
