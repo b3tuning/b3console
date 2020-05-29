@@ -59,7 +59,6 @@ public class RootView extends BaseView<RootViewModel> {
 
 		constructMainMenu();
 
-
 //		// listen for any menu changes requested
 //		viewModel.subscribe(MENU_ACTION_EVENT, (key, payload) -> {
 //			log.entry(payload);
@@ -133,71 +132,10 @@ public class RootView extends BaseView<RootViewModel> {
 
 	private void constructMainMenu() {
 		// construct the menu
-//		mainMenu    = new MainMenu();
 		mainMenuBar = new MainMenuBar();
-//		mainMenu.setMenuItems(viewModel.menuItems());
 
-//		viewModel.selectedMenuItemProperty().bind(mainMenu.selectedItemProperty());
 		viewModel.selectedMenuBarItemProperty().bind(mainMenuBar.selectedItemProperty());
-//		mainMenu.visibleProperty().setValue(true);
-
-//		Glyph g = new Glyph("FontAwesome", "GEAR");
-//		leftPane.getChildren().add(mainMenu);
-//		AnchorPane.setTopAnchor(mainMenu, 0.0);
-//		AnchorPane.setLeftAnchor(mainMenu, 0.0);
-//		AnchorPane.setRightAnchor(mainMenu, 0.0);
-//		AnchorPane.setBottomAnchor(mainMenu, 0.0);
 
 		topPane.getChildren().add(mainMenuBar.getMenuBar());
-//		valuesOf(viewModel.initializedProperty()).subscribe(i -> {
-//			if (!i) {
-//				return;
-//			}
-//			Platform.runLater(() -> {
-//				// this needs to run on the platform thread so that we can get access to the menu skin
-//				MainMenuSkin skin = (MainMenuSkin) mainMenu.getSkin();
-//				if (skin == null) {
-//					log.entry("MainMenuSkin is NULL!!!!!!!");
-//					mainMenu.setSkin();
-//					skin = (MainMenuSkin) mainMenu.getSkin();
-//				}
-//				skin.getToggleGroup().getToggles().forEach(t -> {
-//					ToggleButton menuItem = (ToggleButton) t;
-//					String       id       = menuItem.getId();
-////					if(MainMenuItemAction.SETTINGS == MainMenuItemAction.valueOf(id)) {
-////						menuItem.setSelected(true);
-////					}
-//					MainMenuItemAction action = MainMenuItemAction.valueOf(id);
-//					switch (action) {
-//						case SETTINGS:
-//							menuItem.setSelected(true); // the default on launch
-//							menuItem.visibleProperty().setValue(true);
-//							menuItem.managedProperty().bind(menuItem.visibleProperty());
-//							break;
-//						case CONFIG:
-//						case FILE:
-//						case LIVE:
-//						case HELP_APP:
-//						case TRANSFER:
-//							menuItem.visibleProperty().setValue(true);
-//							menuItem.managedProperty().bind(menuItem.visibleProperty());
-//							break;
-//						default:
-//							// nothing to do for the remaining actions
-//					}
-//				});
-//			});
-//		});
 	}
-
-//	private void clickMenuItem(MainMenuItemAction action) {
-//		Platform.runLater(() -> {
-//			// this needs to run on the platform thread so that we can get access to the menu skin
-//			MainMenuSkin skin = (MainMenuSkin) mainMenu.getSkin();
-//
-//			skin.getToggleGroup().getToggles().stream()
-//			    .filter(t -> action.equals(MainMenuItemAction.valueOf(((ToggleButton) t).getId())))
-//			    .forEach(t -> t.setSelected(true));
-//		});
-//	}
 }

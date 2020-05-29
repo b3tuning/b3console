@@ -68,7 +68,6 @@ public class RootViewModel extends BaseViewModel {
 	private final ViewManager        viewManager;
 
 	// exposed properties
-//	private ObjectProperty<MainMenuItemModel> selectedMenuItem    = new SimpleObjectProperty<>();
 	private ObjectProperty<MenuItemInterface> selectedMenuBarItem = new SimpleObjectProperty<>();
 	private ObjectProperty<StackPane>         childViewPane       = new SimpleObjectProperty<>();
 
@@ -90,19 +89,12 @@ public class RootViewModel extends BaseViewModel {
 			log.entry();
 
 			// dispose of any loaded views that we may have
-//			viewManager.destroyAll(c);
-//			publish(MENU_ACTION_EVENT, SETTINGS);
-			initialized.set(true);
-//			handleAction(SETTINGS);
+			viewManager.destroyAll(c);
 
-//			manage(nonNullValuesOf(selectedMenuItem).subscribe(e -> {
-//				log.entry();
-//				handleAction(e.getAction());
-//			}));
+			initialized.set(true);
 
 			manage(nonNullValuesOf(selectedMenuBarItem).subscribe(e -> {
 				log.entry();
-				log.debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    Got Menu {}", e.getAction());
 				handleAction(e.getAction());
 			}));
 
@@ -125,22 +117,8 @@ public class RootViewModel extends BaseViewModel {
 		}));
 
 		// detach the help from the sidebar if requested
-		globalNotifications.subscribe(HELP_DETACHED_EVENT, (key, payload) -> {
-			detachHelp();
-		});
+		globalNotifications.subscribe(HELP_DETACHED_EVENT, (key, payload) -> detachHelp());
 	}
-
-//	public ObservableList<MainMenuItemModel> menuItems() {
-//		List<MainMenuItemModel> menuItems = new ArrayList<>();
-//		menuItems.add(new MainMenuItemModel("FILE", FOLDER_OPEN, FILE, TOP, APP));
-//		menuItems.add(new MainMenuItemModel("CONFIG", MODIFY, CONFIG, TOP, APP));
-//		menuItems.add(new MainMenuItemModel("TRANSFER", EXCHANGE, TRANSFER, TOP, APP));
-//		menuItems.add(new MainMenuItemModel("LIVE", TACHOMETER, LIVE, TOP, APP));
-//		menuItems.add(new MainMenuItemModel("SETTINGS", WRENCH, SETTINGS, TOP, APP));
-//		menuItems.add(new MainMenuItemModel("HELP", QUESTION, HELP_APP, BOTTOM, EXTERNAL));
-//
-//		return FXCollections.observableArrayList(menuItems);
-//	}
 
 	public Node helpView() {
 		return helpViewTuple().getView();
@@ -171,75 +149,6 @@ public class RootViewModel extends BaseViewModel {
 		helpStage.show();
 	}
 
-//	/**
-//	 * load the relevant view depending on the menu action taken
-//	 *
-//	 * @param action - the selected menu item
-//	 */
-//	private void handleAction(MainMenuItemAction action) {
-//		log.entry();
-////		HostServicesDelegate hostServices = HostServicesFactory.getInstance(application);
-//		switch (action) {
-//			case FILE:
-//				if (viewManager.contains(FileMenuView.class.getName())) {
-//					viewManager.toFront(FileMenuView.class.getName());
-//				} else {
-//					ViewTuple<FileMenuView, FileMenuViewModel> tuple = FluentViewLoader.fxmlView(FileMenuView.class)
-//					                                                                   .load();
-//					viewManager.push(FileMenuView.class.getName(), tuple, childViewPane.get(), FILE);
-//				}
-//				break;
-//
-//			case CONFIG:
-//				if (viewManager.contains(ConfigMenuView.class.getName())) {
-//					viewManager.toFront(ConfigMenuView.class.getName());
-//				} else {
-//					ViewTuple<ConfigMenuView, ConfigMenuViewModel> tuple = FluentViewLoader
-//							.fxmlView(ConfigMenuView.class).load();
-//					viewManager.push(ConfigMenuView.class.getName(), tuple, childViewPane.get(), CONFIG);
-//				}
-//				break;
-//
-//			case TRANSFER:
-//				if (viewManager.contains(TransferMenuView.class.getName())) {
-//					viewManager.toFront(TransferMenuView.class.getName());
-//				} else {
-//					ViewTuple<TransferMenuView, TransferMenuViewModel> tuple = FluentViewLoader
-//							.fxmlView(TransferMenuView.class).load();
-//					viewManager.push(TransferMenuView.class.getName(), tuple, childViewPane.get(), TRANSFER);
-//				}
-//				break;
-//
-//			case LIVE:
-//				if (viewManager.contains(LiveMenuView.class.getName())) {
-//					viewManager.toFront(LiveMenuView.class.getName());
-//				} else {
-//					ViewTuple<LiveMenuView, LiveMenuViewModel> tuple = FluentViewLoader.fxmlView(LiveMenuView.class)
-//					                                                                   .load();
-//					viewManager.push(LiveMenuView.class.getName(), tuple, childViewPane.get(), LIVE);
-//				}
-//				break;
-//
-//			case SETTINGS:
-//				if (viewManager.contains(SettingsMenuView.class.getName())) {
-//					viewManager.toFront(SettingsMenuView.class.getName());
-//				} else {
-//					ViewTuple<SettingsMenuView, SettingsMenuViewModel> tuple = FluentViewLoader
-//							.fxmlView(SettingsMenuView.class).load();
-//					viewManager.push(SettingsMenuView.class.getName(), tuple, childViewPane.get(), SETTINGS);
-//				}
-//				break;
-//
-//			case HELP_APP:
-////				 hostServices.showDocument(appProperties.getUserHelpUrl().toString());
-//				displayHelp.push(true);
-//				break;
-//
-//			default:
-//				log.error(MENU_ITEM_ERROR, action);
-//		}
-//	}
-
 	/**
 	 * load the relevant view depending on the menu action taken
 	 *
@@ -247,9 +156,41 @@ public class RootViewModel extends BaseViewModel {
 	 */
 	private void handleAction(MenuAction action) {
 		log.entry();
-//		HostServicesDelegate hostServices = HostServicesFactory.getInstance(application);
+		log.debug("RECEIVED ACTION {}", action);
 		switch (action) {
+			// EDIT actions
+			case A_UNDO:
+			case A_REDO:
+			case A_CUT:
+			case A_COPY:
+			case A_DELETE:
 
+			// FILE actions
+			case A_NEW:
+			case A_OPEN:
+			case A_RECENTS:
+			case A_CLOSE:
+			case A_SAVE:
+			case A_SAVE_AS:
+			case A_SEND:
+			case A_QUIT:
+
+			// ONLINE actions
+			case A_CONNECT:
+			case A_DISCONNECT:
+				globalNotifications.publish(action.toString(), action);
+				break;
+			case A_MONITOR_IO:
+				// TODO: load monitor view
+				break;
+
+			// HELP actions
+			case A_HELP:
+//				application.getHostServices().showDocument(appProperties.getUserHelpUrl().toString());
+				displayHelp.push(true);
+				break;
+
+			// TOOLS actions
 			case A_OPTIONS:
 				if (viewManager.contains(ConfigMenuView.class.getName())) {
 					viewManager.toFront(ConfigMenuView.class.getName());
@@ -260,11 +201,8 @@ public class RootViewModel extends BaseViewModel {
 				}
 				break;
 
-			case A_HELP:
-				application.getHostServices().showDocument(appProperties.getUserHelpUrl().toString());
-//				 hostServices.showDocument(appProperties.getUserHelpUrl().toString());
-				displayHelp.push(true);
-				break;
+			// VIEW actions
+			// TODO: figure out view
 
 			default:
 				log.error(MENU_ITEM_ERROR, action);
@@ -348,10 +286,6 @@ public class RootViewModel extends BaseViewModel {
 	public ObjectProperty<StackPane> childViewPaneProperty() {
 		return childViewPane;
 	}
-
-//	public ObjectProperty<MainMenuItemModel> selectedMenuItemProperty() {
-//		return selectedMenuItem;
-//	}
 
 	public ObjectProperty<MenuItemInterface> selectedMenuBarItemProperty() {
 		return selectedMenuBarItem;
