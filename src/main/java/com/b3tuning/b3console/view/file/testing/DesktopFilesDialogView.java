@@ -21,7 +21,7 @@ import static org.reactfx.EventStreams.valuesOf;
 @XSlf4j
 public class DesktopFilesDialogView extends BaseView<DesktopFilesDialogViewModel> {
 	
-	private static int MAX_ROWS_TO_DISPLAY = 6;
+	private static final int MAX_ROWS_TO_DISPLAY = 6;
 
 	@InjectViewModel
 	public DesktopFilesDialogViewModel viewModel;

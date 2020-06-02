@@ -10,8 +10,8 @@ package com.b3tuning.b3console.view.file;
  */
 public abstract class DropAreaConstants {
 
-	static final String DEFAULT_DISABLED_DRAG_DROP_MESSAGE = "Visit module options to configure";
-	static final String DROPPED_MESSAGE                    = "File %s is being processed.";
-	static final String CHECKING_FILES_MESSAGE             = "Inspecting file........";
+	public static final String DEFAULT_DISABLED_DRAG_DROP_MESSAGE = "Visit module options to configure";
+	public static final String DROPPED_MESSAGE                    = "File %s is being processed.";
+	public static final String CHECKING_FILES_MESSAGE             = "Inspecting file........";
 
 }

@@ -1,6 +1,7 @@
 package com.b3tuning.b3console.view.file.testing;
 
 import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
+import com.b3tuning.b3console.control.menubar.MenuAction;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.Refreshable;
 import com.b3tuning.b3console.view.loader.ViewManager;
@@ -16,31 +17,25 @@ import org.reactfx.inhibeans.property.SimpleObjectProperty;
 import javax.inject.Inject;
 
 @XSlf4j
-public class DesktopIngestViewModel extends BaseViewModel implements IngestViewModel, Refreshable {
+public class DesktopIngestViewModel extends BaseViewModel implements Refreshable {
 
 	// injected
 	private ViewManager viewManager;
 
-	private ObjectProperty<ProjectDetail> project       = new SimpleObjectProperty<>();
-	private ObjectProperty<StackPane>     childViewPane = new SimpleObjectProperty<>();
+	private ObjectProperty<StackPane> childViewPane = new SimpleObjectProperty<>();
 
 	@Inject
 	public DesktopIngestViewModel(ViewManager viewManager) {
 		this.viewManager = viewManager;
 	}
 
-	void onButtonAction(MenuAction action) {
+	void onButtonAction(DesktopMenuAction action) {
 		log.entry(action);
 
 		switch (action) {
-		case LOCAL:
-			showLocalView();
-			break;
-		case BROWSE:
-			showBrowseView();
-			break;
-		default:
-			log.error("Unrecognized menu item action: '{}'", action);
+			case LOCAL -> showLocalView();
+			case BROWSE -> showBrowseView();
+			default -> log.error("Unrecognized menu item action: '{}'", action);
 		}
 	}
 
@@ -52,8 +47,9 @@ public class DesktopIngestViewModel extends BaseViewModel implements IngestViewM
 		} else {
 			ViewTuple<DesktopLocalFilesView, DesktopLocalFilesViewModel> viewTuple = FluentViewLoader
 					.fxmlView(DesktopLocalFilesView.class).load();
-			viewTuple.getViewModel().projectProperty().bind(project);
-			viewManager.push(DesktopLocalFilesView.class.getName(), viewTuple, childViewPane.get(), MainMenuItemAction.PROJECTS);
+//			viewTuple.getViewModel().projectProperty().bind(project);
+			viewManager.push(DesktopLocalFilesView.class.getName(), viewTuple, childViewPane.get(), MenuAction.A_NONE);
+//			                 MainMenuItemAction.PROJECTS);
 		}
 	}
 
@@ -73,17 +69,15 @@ public class DesktopIngestViewModel extends BaseViewModel implements IngestViewM
 		}
 	}
 
-	enum MenuAction {
-		LOCAL, SEARCH, BROWSE
+	enum DesktopMenuAction {
+		LOCAL,
+		SEARCH,
+		BROWSE
 	}
 
 	/**
 	 * JAVA FX PROPERTIES
 	 */
-
-	public ObjectProperty<ProjectDetail> projectProperty() {
-		return project;
-	}
 
 	void setChildViewPane(StackPane value) {
 		childViewPane.set(value);

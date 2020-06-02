@@ -13,7 +13,7 @@ import javax.inject.Inject;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 
 @XSlf4j
-public class DesktopIngestView extends BaseView<DesktopIngestViewModel> implements IngestView<DesktopIngestViewModel> {
+public class DesktopIngestView extends BaseView<DesktopIngestViewModel> {
 
 	@FXML private StackPane    childViewPane;
 	@FXML private ToggleGroup  fileMenuGroup;
@@ -31,17 +31,18 @@ public class DesktopIngestView extends BaseView<DesktopIngestViewModel> implemen
 		log.entry();
 
 		manage(nonNullValuesOf(fileMenuGroup.selectedToggleProperty()).subscribe(v -> {
-			DesktopIngestViewModel.MenuAction action = (DesktopIngestViewModel.MenuAction) v.getUserData();
+			DesktopIngestViewModel.DesktopMenuAction action = (DesktopIngestViewModel.DesktopMenuAction) v
+					.getUserData();
 			viewModel.onButtonAction(action);
 		}));
 
 		viewModel.setChildViewPane(childViewPane);
 
-		localButton.setUserData(DesktopIngestViewModel.MenuAction.LOCAL);
-		browseButton.setUserData(DesktopIngestViewModel.MenuAction.BROWSE);
+		localButton.setUserData(DesktopIngestViewModel.DesktopMenuAction.LOCAL);
+		browseButton.setUserData(DesktopIngestViewModel.DesktopMenuAction.BROWSE);
 
 		// Default View
 		localButton.setSelected(true);
-		viewModel.onButtonAction(DesktopIngestViewModel.MenuAction.LOCAL);
+		viewModel.onButtonAction(DesktopIngestViewModel.DesktopMenuAction.LOCAL);
 	}
 }

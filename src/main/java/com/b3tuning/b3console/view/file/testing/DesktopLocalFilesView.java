@@ -131,7 +131,7 @@ public class DesktopLocalFilesView extends BaseView<DesktopLocalFilesViewModel> 
 			}
 		});
 
-		sizeColumn.setCellFactory(column -> new TreeTableCell<FileWrapper, Number>() {
+		sizeColumn.setCellFactory(column -> new TreeTableCell<>() {
 
 			@Override
 			protected void updateItem(Number item, boolean empty) {
@@ -158,7 +158,7 @@ public class DesktopLocalFilesView extends BaseView<DesktopLocalFilesViewModel> 
 			}
 		});
 
-		lastModifiedColumn.setCellFactory(column -> new TreeTableCell<FileWrapper, LocalDateTime>() {
+		lastModifiedColumn.setCellFactory(column -> new TreeTableCell<>() {
 
 			@Override
 			protected void updateItem(LocalDateTime item, boolean empty) {

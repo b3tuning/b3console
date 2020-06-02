@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.view.file.testing;
 
-
 import com.b3tuning.b3console.App;
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.service.FileType;
@@ -12,7 +11,6 @@ import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.Refreshable;
 import com.b3tuning.b3console.view.file.DropAreaConstants;
 import com.b3tuning.b3console.view.file.LocalFilesViewModel;
-import com.b3tuning.b3console.view.utils.ProjectAndPresetTypeUtils;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import de.saxsys.mvvmfx.FluentViewLoader;
@@ -57,15 +55,12 @@ public class DesktopLocalFilesViewModel extends BaseViewModel implements LocalFi
 	private static final String DRAG_DROP_MESSAGE = "Drag files here to process a file through the workflow of this project";
 
 	// injected dependencies
-	private AuthenticatedUser    user;
 	private FileInspectorService fileInspectorService;
-	private TaskManager          taskManager;
 
 	@Getter
 	private UserPreferences preferences;
 
 	// data sources
-	private ObjectProperty<ProjectDetail> project = new SimpleObjectProperty<>();
 
 	// consumed by view
 	private StringProperty             browsePath       = new SimpleStringProperty();
@@ -74,16 +69,12 @@ public class DesktopLocalFilesViewModel extends BaseViewModel implements LocalFi
 	private ObjectProperty<Background> dropAreaColor    = new SimpleObjectProperty<>();
 
 	@Inject
-	public DesktopLocalFilesViewModel(AuthenticatedUser user,
-	                                  FileInspectorService fileInspectorService,
-	                                  UserPreferences preferences,
-	                                  TaskManager taskManager) {
+	public DesktopLocalFilesViewModel(FileInspectorService fileInspectorService,
+	                                  UserPreferences preferences) {
 		log.entry();
 
-		this.user = user;
 		this.fileInspectorService = fileInspectorService;
-		this.preferences = preferences;
-		this.taskManager = taskManager;
+		this.preferences          = preferences;
 
 		manage(valuesOf(dropAreaDisabled).subscribe(v -> {
 			log.entry(v);
@@ -96,10 +87,10 @@ public class DesktopLocalFilesViewModel extends BaseViewModel implements LocalFi
 			});
 		}));
 
-		manage(nonNullValuesOf(project).subscribe(p -> {
-			log.entry();
-			dropAreaDisabled.bind((p.enabledProperty().not()).or(p.hasDeliverySettingsProperty().not()));
-		}));
+//		manage(nonNullValuesOf(project).subscribe(p -> {
+//			log.entry();
+//			dropAreaDisabled.bind((p.enabledProperty().not()).or(p.hasDeliverySettingsProperty().not()));
+//		}));
 
 		browsePath.set(preferences.getBrowseLocalPath());
 		manage(nonNullValuesOf(browsePath).subscribe(preferences::setBrowseLocalPath));
@@ -140,8 +131,8 @@ public class DesktopLocalFilesViewModel extends BaseViewModel implements LocalFi
 	void onDropAreaDragEntered(DragEvent e) {
 		log.entry(e);
 		Background bg = e.getDragboard().hasFiles()
-				? BackgroundColorConstants.GREEN_BACKGROUND
-				: BackgroundColorConstants.RED_BACKGROUND;
+		                ? BackgroundColorConstants.GREEN_BACKGROUND
+		                : BackgroundColorConstants.RED_BACKGROUND;
 		dropAreaColor.set(bg);
 	}
 
@@ -153,16 +144,16 @@ public class DesktopLocalFilesViewModel extends BaseViewModel implements LocalFi
 	void onDropAreaDropped(DragEvent e) {
 		Dragboard db = e.getDragboard();
 		if (db.hasFiles()) {
-			db.getFiles().forEach(file -> ingestFile(file, project.get()));
+			db.getFiles().forEach(file -> ingestFile(file));//, project.get()));
 		}
 		db.clear();
 		e.setDropCompleted(true);
 		e.consume();
 	}
 
-	private void ingestFile(File file, ProjectDetail project) {
-		log.entry(file, project);
-		if (file == null || project == null) {
+	private void ingestFile(File file) {//}, ProjectDetail project) {
+		log.entry(file);//, project);
+		if (file == null) {// || project == null) {
 			log.error("can't ingest file or project is null!");
 			return;
 		}
@@ -171,17 +162,17 @@ public class DesktopLocalFilesViewModel extends BaseViewModel implements LocalFi
 			Set<String>           paths           = IOUtils.toPaths(IOUtils.list(file));
 			Map<String, FileType> classifiedFiles = fileInspectorService.classify(paths);
 
-			Set<FileType> supportedTypes = ProjectAndPresetTypeUtils.getSupportedFileTypes(project);
-			log.debug("supportedTypes: {}", supportedTypes);
+//			Set<FileType> supportedTypes = ProjectAndPresetTypeUtils.getSupportedFileTypes(project);
+//			log.debug("supportedTypes: {}", supportedTypes);
 			Set<File> allowed = Sets.newLinkedHashSet();
-			Set<File> denied = Sets.newLinkedHashSet();
-			classifiedFiles.forEach((path, type) -> {
-				if (supportedTypes.contains(type)) {
-					allowed.add(new File(path));
-				} else {
-					denied.add(new File(path));
-				}
-			});
+			Set<File> denied  = Sets.newLinkedHashSet();
+//			classifiedFiles.forEach((path, type) -> {
+//				if (supportedTypes.contains(type)) {
+//					allowed.add(new File(path));
+//				} else {
+//					denied.add(new File(path));
+//				}
+//			});
 
 			if (!denied.isEmpty() && !confirm(file, allowed, denied)) {
 				log.info("User canceled");
@@ -190,11 +181,12 @@ public class DesktopLocalFilesViewModel extends BaseViewModel implements LocalFi
 
 			if (!allowed.isEmpty()) {
 				log.debug("will upload files: {}", allowed);
-				taskManager.scheduleTask(file, allowed, user, project);
+//				taskManager.scheduleTask(file, allowed, user, project);
 			} else {
 				log.debug("no files to upload");
 			}
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error(e.getMessage(), e);
 			// TODO: show exception to user!
 		}
@@ -222,7 +214,7 @@ public class DesktopLocalFilesViewModel extends BaseViewModel implements LocalFi
 
 		dlg.getDialogPane().setContent(viewTuple.getView());
 
-		ButtonType ok = new ButtonType("OK", ButtonData.OK_DONE);
+		ButtonType ok     = new ButtonType("OK", ButtonData.OK_DONE);
 		ButtonType cancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
 		dlg.getDialogPane().getButtonTypes().addAll(cancel, ok);
 
@@ -233,7 +225,7 @@ public class DesktopLocalFilesViewModel extends BaseViewModel implements LocalFi
 	void onChangeAction(Stage stage) {
 		log.entry();
 		DirectoryChooser directoryChooser = new DirectoryChooser();
-		File selected = directoryChooser.showDialog(stage);
+		File             selected         = directoryChooser.showDialog(stage);
 		if (selected != null) {
 			String path = selected.getAbsolutePath();
 			preferences.setBrowseLocalPath(path);
@@ -244,10 +236,6 @@ public class DesktopLocalFilesViewModel extends BaseViewModel implements LocalFi
 	/**
 	 * JAVAFX PROPERTIES
 	 */
-	@Override
-	public ObjectProperty<ProjectDetail> projectProperty() {
-		return project;
-	}
 
 	StringProperty browsePathProperty() {
 		return browsePath;
@@ -267,7 +255,7 @@ public class DesktopLocalFilesViewModel extends BaseViewModel implements LocalFi
 
 	@Override
 	public void refresh() {
-		publish(REFRESH_PAGE,  new Object());
+		publish(REFRESH_PAGE, new Object());
 	}
 
 }
