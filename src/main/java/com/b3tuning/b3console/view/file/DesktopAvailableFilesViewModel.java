@@ -27,6 +27,8 @@ import org.reactfx.SuspendableNo;
 import javax.inject.Inject;
 import java.io.File;
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -230,15 +232,15 @@ public class DesktopAvailableFilesViewModel extends BaseViewModel implements Ava
 //		}
 //	}
 
-//	private Date fromShortDateFormat(String dateFormat) {
-//		try {
-//			return dateTimeFormatter.parse(dateFormat);
-//		}
-//		catch (ParseException e) {
-//			log.error("Error parsing date {}", dateFormat);
-//			return null;
-//		}
-//	}
+	private Date fromShortDateFormat(String dateFormat) {
+		try {
+			return dateTimeFormatter.parse(dateFormat);
+		}
+		catch (ParseException e) {
+			log.error("Error parsing date {}", dateFormat);
+			return null;
+		}
+	}
 
 //	private void processFilesResponseFromServer(FileEntity data) {
 //		log.entry();

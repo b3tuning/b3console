@@ -2,6 +2,7 @@ package com.b3tuning.b3console.view.file.testing;
 
 import com.b3tuning.b3console.service.files.FileEntity;
 import com.b3tuning.b3console.service.files.FilesService;
+import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.view.BackgroundColorConstants;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.Refreshable;
@@ -55,8 +56,8 @@ public class DesktopAvailableFilesViewModel extends BaseViewModel implements Ava
 	private static DateFormat dateTimeFormatter = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
 	// data sources
-	private ObjectProperty<ProjectDetail>            project           = new SimpleObjectProperty<>();
-	private ObjectProperty<ObservableList<Location>> locations         = new SimpleObjectProperty<>(FXCollections.observableArrayList());
+	private ObjectProperty<ConfigBase>               project   = new SimpleObjectProperty<>();
+	private ObjectProperty<ObservableList<Location>> locations = new SimpleObjectProperty<>(FXCollections.observableArrayList());
 	private ObjectProperty<Location>                 selectedLocation  = new SimpleObjectProperty<>();
 	private ObjectProperty<FileEntity>               file              = new SimpleObjectProperty<>();
 	private Indicator                                loadingInProgress = new Indicator();
