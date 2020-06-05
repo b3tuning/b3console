@@ -4,6 +4,7 @@ import com.b3tuning.b3console.App;
 import com.b3tuning.b3console.control.menubar.MenuAction;
 import com.b3tuning.b3console.control.menubar.MenuItemInterface;
 import com.b3tuning.b3console.properties.AppProperties;
+import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.config.ConfigMenuView;
 import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
@@ -12,6 +13,7 @@ import com.b3tuning.b3console.view.help.HelpViewModel;
 import com.b3tuning.b3console.view.loader.ViewManager;
 import com.b3tuning.b3console.view.notifications.PopViewNotification;
 import com.b3tuning.b3console.view.notifications.PushViewNotification;
+import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import de.saxsys.mvvmfx.FluentViewLoader;
 import de.saxsys.mvvmfx.ViewTuple;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
@@ -19,23 +21,35 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import lombok.Setter;
 import lombok.extern.slf4j.XSlf4j;
 import org.reactfx.EventSource;
+import org.reactfx.util.Tuple2;
 
 import javax.inject.Inject;
+import java.util.Optional;
 
 import static com.b3tuning.b3console.control.menubar.MenuAction.A_OPTIONS;
 import static org.reactfx.EventStreams.nonNullValuesOf;
@@ -165,7 +179,7 @@ public class RootViewModel extends BaseViewModel {
 			case A_COPY:
 			case A_DELETE:
 
-			// FILE actions
+				// FILE actions
 			case A_NEW:
 			case A_OPEN:
 			case A_RECENTS:
@@ -175,7 +189,7 @@ public class RootViewModel extends BaseViewModel {
 			case A_SEND:
 			case A_QUIT:
 
-			// ONLINE actions
+				// ONLINE actions
 			case A_CONNECT:
 			case A_DISCONNECT:
 				globalNotifications.publish(action.toString(), action);
@@ -242,6 +256,68 @@ public class RootViewModel extends BaseViewModel {
 
 		Timeline timeline = new Timeline(kf1, kf2, kf3);
 		timeline.play();
+	}
+
+	private void showNewConfigView() {
+		log.entry();
+
+		// custom dialog for <configName>
+		Dialog<Tuple2<String, ModuleType>> dialog = new Dialog<>();
+		dialog.setTitle("New Configuration");
+		dialog.setHeaderText("Enter a name for your new config");
+		dialog.getDialogPane().getStylesheets().add(App.class.getResource("app.css").toExternalForm());
+		dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+
+		// Create the custom grid
+		GridPane grid = new GridPane();
+		grid.setHgap(10);
+		grid.setVgap(15);
+		grid.setPadding(new Insets(10, 10, 10, 10));
+
+		// Create the config title and module type fields.
+		TextField configName = new TextField();
+		configName.setPrefWidth(300.0);
+		configName.minWidthProperty().bind(configName.prefWidthProperty());
+
+		grid.add(new Label("Config Name:"), 0, 0);
+		grid.add(configName, 1, 0);
+
+		ChoiceBox<ModuleType> chbxModule = new ChoiceBox<>();
+		chbxModule.getItems().setAll(ModuleType.values());
+
+		grid.add(new Label("Module Type:"), 0, 1);
+		grid.add(chbxModule, 1, 1);
+
+		// Enable/Disable OK button depending on whether a project name was entered.
+		Button okButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.OK);
+		okButton.disableProperty().bind(Bindings.isEmpty(configName.textProperty())
+		                                        .and(chbxModule.selectionModelProperty().isNull()));
+
+		dialog.getDialogPane().setContent(grid);
+
+		// Request focus on the config title field by default.
+		Platform.runLater(configName::requestFocus);
+
+		// Convert the result to a configName when the OK button is clicked.
+		dialog.setResultConverter(dialogButton -> {
+			if (dialogButton == ButtonType.OK) {
+				return configName.getText(),chbxModule.getValue();
+			}
+			return null;
+		});
+
+		Optional<Tuple2<String, ModuleType>> results = dialog.showAndWait();
+
+		// create a new config with the entered name and default project type to Video
+		results.ifPresent(name -> createNewConfig(results.get()._1, results.get()._2));
+
+	}
+
+	private void createNewConfig(String name, ModuleType type) {
+		ConfigBase configBase = new ConfigBase(type);
+		configBase.setName(name);
+		viewProject.set(data);
+		showExistingProjectView(true);
 	}
 
 	/**
