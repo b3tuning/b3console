@@ -43,10 +43,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.util.Pair;
 import lombok.Setter;
 import lombok.extern.slf4j.XSlf4j;
 import org.reactfx.EventSource;
-import org.reactfx.util.Tuple2;
 
 import javax.inject.Inject;
 import java.util.Optional;
@@ -262,7 +262,7 @@ public class RootViewModel extends BaseViewModel {
 		log.entry();
 
 		// custom dialog for <configName>
-		Dialog<Tuple2<String, ModuleType>> dialog = new Dialog<>();
+		Dialog<Pair<String, ModuleType>> dialog = new Dialog<>();
 		dialog.setTitle("New Configuration");
 		dialog.setHeaderText("Enter a name for your new config");
 		dialog.getDialogPane().getStylesheets().add(App.class.getResource("app.css").toExternalForm());
@@ -301,15 +301,15 @@ public class RootViewModel extends BaseViewModel {
 		// Convert the result to a configName when the OK button is clicked.
 		dialog.setResultConverter(dialogButton -> {
 			if (dialogButton == ButtonType.OK) {
-				return configName.getText(),chbxModule.getValue();
+				return new Pair<String, ModuleType>(configName.getText(), chbxModule.getValue());
 			}
 			return null;
 		});
 
-		Optional<Tuple2<String, ModuleType>> results = dialog.showAndWait();
+		Optional<Pair<String, ModuleType>> results = dialog.showAndWait();
 
-		// create a new config with the entered name and default project type to Video
-		results.ifPresent(name -> createNewConfig(results.get()._1, results.get()._2));
+		// create a new config with the entered name and module type
+		results.ifPresent(name -> createNewConfig(results.get().getKey(), results.get().getValue()));
 
 	}
 
