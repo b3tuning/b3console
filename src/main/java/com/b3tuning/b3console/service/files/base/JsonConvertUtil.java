@@ -2,7 +2,7 @@ package com.b3tuning.b3console.service.files.base;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+//import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import lombok.extern.slf4j.Slf4j;
 
 /*
@@ -19,9 +19,9 @@ public class JsonConvertUtil {
 
 	private final static ObjectMapper objectMapper = new ObjectMapper();
 	
-	static {
-		objectMapper.registerModules(new Jdk8Module());
-	}
+//	static {
+//		objectMapper.registerModules(new Jdk8Module());
+//	}
 
 	public static String buildBody(Object resource) {
 		try {

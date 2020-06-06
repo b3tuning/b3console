@@ -53,6 +53,11 @@ public class ConfigBase extends EditableEntity implements Serializable {
 		this.type.set(type);
 	}
 
+	public ConfigBase(String name, ModuleType type) {
+		this(type);
+		this.setName(name);
+	}
+
 	public ConfigBase copy() {
 		return new ConfigBase(this.getName(), this.getCreatedAt(), this.getUpdatedAt(), this.getType());
 	}

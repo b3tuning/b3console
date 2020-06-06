@@ -68,7 +68,10 @@ import java.util.ServiceLoader;
 @XSlf4j
 public class App extends Application {
 
-	private static final String APP_NAME          = "B3Tuning Module ConfigTool";
+	public static final String DEFAULT_CSS = "app.css";
+
+	private static final String APP_NAME = "B3Tuning Module ConfigTool";
+
 	private static final double DEFAULT_FONT_SIZE = 12;
 
 	@Getter
@@ -182,7 +185,7 @@ public class App extends Application {
 		scene.getAccelerators().put(KeyCombination.valueOf("Ctrl+Shift+D"),
 		                            () -> Platform.runLater(() -> ScenicView.show(scene)));
 
-		final String uri = getClass().getResource("app.css").toExternalForm();
+		final String uri = getClass().getResource(DEFAULT_CSS).toExternalForm();
 		scene.getStylesheets().add(uri);
 		primaryStage.setScene(scene);
 
@@ -320,7 +323,6 @@ public class App extends Application {
 			CrashWindow.open(e);
 		}
 	}
-
 
 	private void loadInitialUI(ViewTuple<RootView, RootViewModel> viewTuple, final Node splashScreen) {
 		splashAnimationPlaying.addListener((l) -> {

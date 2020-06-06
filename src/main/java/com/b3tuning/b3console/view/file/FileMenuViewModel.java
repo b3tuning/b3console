@@ -50,6 +50,7 @@ import static com.b3tuning.b3console.view.BackgroundColorConstants.RED_BACKGROUN
 import static javafx.scene.control.ButtonBar.ButtonData.CANCEL_CLOSE;
 import static javafx.scene.control.ButtonBar.ButtonData.OK_DONE;
 import static javafx.scene.input.TransferMode.MOVE;
+import static com.b3tuning.b3console.App.DEFAULT_CSS;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 import static org.reactfx.EventStreams.valuesOf;
 
@@ -218,7 +219,7 @@ public class FileMenuViewModel extends BaseViewModel implements Refreshable {
 				.load();
 
 		Dialog<ButtonType> dlg = new Dialog<>();
-		dlg.getDialogPane().getStylesheets().add(App.class.getResource("app.css").toExternalForm());
+		dlg.getDialogPane().getStylesheets().add(App.class.getResource(DEFAULT_CSS).toExternalForm());
 		dlg.setResizable(false);
 
 		dlg.getDialogPane().setContent(viewTuple.getView());

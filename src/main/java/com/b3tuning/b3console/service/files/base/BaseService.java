@@ -3,8 +3,8 @@ package com.b3tuning.b3console.service.files.base;
 import com.google.common.base.Preconditions;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.json.JSONException;
-import org.json.JSONObject;
+//import org.json.JSONException;
+//import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -73,19 +73,19 @@ public abstract class BaseService {
 		                            "Auth Token not provided");
 	}
 
-	/**
-	 * Fills the pagination attributes with the JSONObject
-	 *
-	 * @param response
-	 * @param root
-	 */
-	protected static <T extends PageableResponse<?>> void assemblePaginationAttributes(PageableResponse<T> response, JSONObject root) {
-		JSONObject pagination = root.getJSONObject(PAGINATION_DETAILS_KEY);
-		response.setCurrentPage(pagination.getInt(PAGINATION_PAGE_KEY));
-		response.setPageSize(pagination.getInt(PAGINATION_PAGE_SIZE_KEY));
-		response.setTotalPages(pagination.getInt(PAGINATION_TOTAL_PAGES_KEY));
-		response.setTotalResults(pagination.getInt(PAGINATION_TOTAL_RESULTS_KEY));
-	}
+//	/**
+//	 * Fills the pagination attributes with the JSONObject
+//	 *
+//	 * @param response
+//	 * @param root
+//	 */
+//	protected static <T extends PageableResponse<?>> void assemblePaginationAttributes(PageableResponse<T> response, JSONObject root) {
+//		JSONObject pagination = root.getJSONObject(PAGINATION_DETAILS_KEY);
+//		response.setCurrentPage(pagination.getInt(PAGINATION_PAGE_KEY));
+//		response.setPageSize(pagination.getInt(PAGINATION_PAGE_SIZE_KEY));
+//		response.setTotalPages(pagination.getInt(PAGINATION_TOTAL_PAGES_KEY));
+//		response.setTotalResults(pagination.getInt(PAGINATION_TOTAL_RESULTS_KEY));
+//	}
 
 	protected static <OUT extends PageableResponse<?>, IN extends ResourcesPage> void assemblePaginationAttributes(OUT response, IN resource) {
 		response.setCurrentPage(resource.getCurrentPage());
@@ -101,70 +101,70 @@ public abstract class BaseService {
 		response.getPage().setTotalElement(resource.getTotalResults());
 	}
 
-	protected String getStringOptionalValue(JSONObject jsonResponse, String nameField) {
-		try {
-			if(jsonResponse.has(nameField)) {
-				return jsonResponse.getString(nameField);
-			} 
-		} catch (JSONException e) {
-			try {
-				log.warn("Exception reading {} provided on response, value={}", nameField, jsonResponse.get(nameField));
-			} catch (JSONException ex) {
-				log.error(e.getMessage(), ex);
-			}
-		}
-		return null;
-	}
-
-	protected Boolean getBooleanOptionalValue(JSONObject jsonResponse, String nameField) {
-		try {
-			if(jsonResponse.has(nameField)) {
-				return jsonResponse.getBoolean(nameField);
-			} else {
-				log.warn("No {} provided on response", nameField);
-			}
-		} catch (JSONException e) {
-			try {
-				log.warn("Exception reading {} provided on response, value={}", nameField, jsonResponse.get(nameField));
-			} catch (JSONException ex) {
-				log.error(e.getMessage(), ex);
-			}
-		}
-		return null;
-	}
-
-	protected Integer getIntegerOptionalValue(JSONObject jsonResponse, String nameField) {
-		try {
-			if(jsonResponse.has(nameField)) {
-				return jsonResponse.getInt(nameField);
-			} else {
-				log.warn("No {} provided on response", nameField);
-			}
-		} catch (JSONException e) {
-			try {
-				log.warn("Exception reading {} provided on response, value={}", nameField, jsonResponse.get(nameField));
-			} catch (JSONException ex) {
-				log.error(e.getMessage(), ex);
-			}
-		}
-		return null;
-	}
-
-	protected Double getDoubleOptionalValue(JSONObject jsonResponse, String nameField) {
-		try {
-			if(jsonResponse.has(nameField)) {
-				return jsonResponse.getDouble(nameField);
-			} else {
-				log.warn("No {} provided on response", nameField);
-			}
-		} catch (JSONException e) {
-			try {
-				log.warn("Exception reading {} provided on response, value={}", nameField, jsonResponse.get(nameField));
-			} catch (JSONException ex) {
-				log.error(e.getMessage(), ex);
-			}
-		}
-		return null;
-	}
-	
+//	protected String getStringOptionalValue(JSONObject jsonResponse, String nameField) {
+//		try {
+//			if(jsonResponse.has(nameField)) {
+//				return jsonResponse.getString(nameField);
+//			}
+//		} catch (JSONException e) {
+//			try {
+//				log.warn("Exception reading {} provided on response, value={}", nameField, jsonResponse.get(nameField));
+//			} catch (JSONException ex) {
+//				log.error(e.getMessage(), ex);
+//			}
+//		}
+//		return null;
+//	}
+//
+//	protected Boolean getBooleanOptionalValue(JSONObject jsonResponse, String nameField) {
+//		try {
+//			if(jsonResponse.has(nameField)) {
+//				return jsonResponse.getBoolean(nameField);
+//			} else {
+//				log.warn("No {} provided on response", nameField);
+//			}
+//		} catch (JSONException e) {
+//			try {
+//				log.warn("Exception reading {} provided on response, value={}", nameField, jsonResponse.get(nameField));
+//			} catch (JSONException ex) {
+//				log.error(e.getMessage(), ex);
+//			}
+//		}
+//		return null;
+//	}
+//
+//	protected Integer getIntegerOptionalValue(JSONObject jsonResponse, String nameField) {
+//		try {
+//			if(jsonResponse.has(nameField)) {
+//				return jsonResponse.getInt(nameField);
+//			} else {
+//				log.warn("No {} provided on response", nameField);
+//			}
+//		} catch (JSONException e) {
+//			try {
+//				log.warn("Exception reading {} provided on response, value={}", nameField, jsonResponse.get(nameField));
+//			} catch (JSONException ex) {
+//				log.error(e.getMessage(), ex);
+//			}
+//		}
+//		return null;
+//	}
+//
+//	protected Double getDoubleOptionalValue(JSONObject jsonResponse, String nameField) {
+//		try {
+//			if(jsonResponse.has(nameField)) {
+//				return jsonResponse.getDouble(nameField);
+//			} else {
+//				log.warn("No {} provided on response", nameField);
+//			}
+//		} catch (JSONException e) {
+//			try {
+//				log.warn("Exception reading {} provided on response, value={}", nameField, jsonResponse.get(nameField));
+//			} catch (JSONException ex) {
+//				log.error(e.getMessage(), ex);
+//			}
+//		}
+//		return null;
+//	}
+//
 }

@@ -46,6 +46,7 @@ import static com.b3tuning.b3console.view.file.DropAreaConstants.DEFAULT_DISABLE
 import static com.b3tuning.b3console.view.BackgroundColorConstants.GREEN_BACKGROUND;
 import static com.b3tuning.b3console.view.BackgroundColorConstants.LIGHT_GRAY_BACKGROUND;
 import static com.b3tuning.b3console.view.BackgroundColorConstants.RED_BACKGROUND;
+import static com.b3tuning.b3console.App.DEFAULT_CSS;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 import static org.reactfx.EventStreams.valuesOf;
 
@@ -222,7 +223,7 @@ public class DesktopLocalFilesViewModel extends BaseViewModel implements LocalFi
 				.load();
 
 		Dialog<ButtonType> dlg = new Dialog<>();
-		dlg.getDialogPane().getStylesheets().add(App.class.getResource("app.css").toExternalForm());
+		dlg.getDialogPane().getStylesheets().add(App.class.getResource(DEFAULT_CSS).toExternalForm());
 		dlg.setResizable(false);
 
 		dlg.getDialogPane().setContent(viewTuple.getView());
