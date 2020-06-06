@@ -1,5 +1,11 @@
 package com.b3tuning.b3console.control.menubar;
 
+import com.b3tuning.b3console.control.menubar.edit.EditMenu;
+import com.b3tuning.b3console.control.menubar.file.FileMenu;
+import com.b3tuning.b3console.control.menubar.help.HelpMenu;
+import com.b3tuning.b3console.control.menubar.online.OnlineMenu;
+import com.b3tuning.b3console.control.menubar.tools.ToolsMenu;
+import com.b3tuning.b3console.control.menubar.view.ViewMenu;
 import javafx.scene.input.KeyCombination;
 import lombok.Getter;
 import lombok.extern.slf4j.XSlf4j;

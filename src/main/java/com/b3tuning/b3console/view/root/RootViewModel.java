@@ -41,7 +41,7 @@ import java.util.Optional;
 
 import static com.b3tuning.b3console.App.DEFAULT_CSS;
 import static com.b3tuning.b3console.control.menubar.MenuAction.A_OPTIONS;
-import static com.b3tuning.b3console.view.utils.NewConfigDialog.createNewConfigDialog;
+import static com.b3tuning.b3console.control.menubar.file.subs.NewConfigDialog.createNewConfigDialog;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 
 /*

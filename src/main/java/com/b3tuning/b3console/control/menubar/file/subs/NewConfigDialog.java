@@ -7,7 +7,7 @@
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 
-package com.b3tuning.b3console.view.utils;
+package com.b3tuning.b3console.control.menubar.file.subs;
 
 import com.b3tuning.b3console.App;
 import com.b3tuning.b3console.service.module.ConfigBase;

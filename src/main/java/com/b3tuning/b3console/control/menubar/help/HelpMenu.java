@@ -1,5 +1,7 @@
-package com.b3tuning.b3console.control.menubar;
+package com.b3tuning.b3console.control.menubar.help;
 
+import com.b3tuning.b3console.control.menubar.MenuAction;
+import com.b3tuning.b3console.control.menubar.MenuItemInterface;
 import javafx.scene.input.KeyCombination;
 import lombok.Getter;
 import lombok.extern.slf4j.XSlf4j;

@@ -1,14 +1,16 @@
-package com.b3tuning.b3console.control.menubar;
+package com.b3tuning.b3console.control.menubar.view;
 
+import com.b3tuning.b3console.control.menubar.MenuAction;
+import com.b3tuning.b3console.control.menubar.MenuItemInterface;
 import javafx.scene.input.KeyCombination;
 import lombok.Getter;
 import lombok.extern.slf4j.XSlf4j;
 import org.controlsfx.glyphfont.Glyph;
 
-import static com.b3tuning.b3console.control.menubar.MenuAction.A_OPTIONS;
+import static com.b3tuning.b3console.control.menubar.MenuAction.A_NONE;
 import static com.b3tuning.b3console.control.menubar.MenuItemInterface.setIcon;
 import static com.b3tuning.b3console.control.menubar.MenuItemInterface.setShortCut;
-import static org.controlsfx.glyphfont.FontAwesome.Glyph.GEARS;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.MAP_MARKER;
 
 /*
  *  Created on:  May 19, 2020
@@ -19,11 +21,11 @@ import static org.controlsfx.glyphfont.FontAwesome.Glyph.GEARS;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 @XSlf4j
-public enum ToolsMenu implements MenuItemInterface {
-	// TOOLS TOOLS
-	// Options
+public enum ViewMenu implements MenuItemInterface {
+	// VIEW VIEW
+	//
 
-	M_OPTIONS(A_OPTIONS, "Options", setIcon(GEARS), setShortCut("Ctrl+Shift+O"), true, false),
+	M_PLACEHOLDER(A_NONE, "PlaceHolder", setIcon(MAP_MARKER), setShortCut("Ctrl+Shift+P"), true, false),
 	;
 
 	@Getter private final MenuAction     action;
@@ -33,8 +35,8 @@ public enum ToolsMenu implements MenuItemInterface {
 	@Getter private final boolean        selectable;
 	@Getter private final boolean        separated;
 
-	ToolsMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
-	          boolean separated) {
+	ViewMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	         boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;
@@ -43,9 +45,9 @@ public enum ToolsMenu implements MenuItemInterface {
 		this.separated  = separated;
 	}
 
-	public ToolsMenu findByLabel(String label) {
+	public ViewMenu findByLabel(String label) {
 		log.entry();
-		for (ToolsMenu item : ToolsMenu.values()) {
+		for (ViewMenu item : ViewMenu.values()) {
 			if (item.getLabel().equals(label)) {
 				return item;
 			}
