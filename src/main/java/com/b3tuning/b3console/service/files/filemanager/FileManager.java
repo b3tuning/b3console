@@ -9,6 +9,7 @@
  */
 package com.b3tuning.b3console.service.files.filemanager;
 
+import com.b3tuning.b3console.control.menubar.file.subs.NewConfigDialog;
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
@@ -17,14 +18,18 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Optional;
 
 @XSlf4j
 public class FileManager {
@@ -65,23 +70,47 @@ public class FileManager {
 		updateRecentFiles();
 	}
 
+	public static Optional<ConfigBase> createNewConfigDialog() {
+		return NewConfigDialog.createNewConfigDialog();
+	}
+
 	public ConfigBase createNewFile(ModuleType type) {
 		updateRecentFiles(new RecentFile().setType(type));
 		return new ConfigBase(type);
 	}
 
 	public ConfigBase openFile(RecentFile recentFile) {
-		log.entry(recentFile);
-		ConfigBase config = null;
-		try (InputStream in = new FileInputStream(recentFile.getPath());
-		     ObjectInputStream ois = new ObjectInputStream(in)) {
-			config = (ConfigBase) ois.readObject();
-			updateRecentFiles(recentFile);
-		}
-		catch (Exception ex) {
-			log.error("Unable to openFile, path: {} , ex: {}", recentFile.getPath(), ex.getMessage());
+		return openFile(recentFile.getPath());
+	}
+
+	public ConfigBase openFile(Stage stage) {
+		log.entry();
+
+		ConfigBase  config   = null;
+		FileChooser chooser  = new FileChooser();
+		File        selected = chooser.showOpenDialog(stage);
+		if (selected != null) {
+			config = openFile(selected.getAbsolutePath());
 		}
 		return config;
+	}
+
+	public ConfigBase openFile(String path) {
+		log.entry(path);
+		ConfigBase config = null;
+		try (InputStream in = new FileInputStream(path);
+		     ObjectInputStream ois = new ObjectInputStream(in)) {
+			config = (ConfigBase) ois.readObject();
+			updateRecentFiles(recentFileFromConfig(config, path));
+		}
+		catch (Exception ex) {
+			log.error("Unable to openFile, path: {} , ex: {}", path, ex.getMessage());
+		}
+		return config;
+	}
+
+	public RecentFile recentFileFromConfig(ConfigBase config, String path) {
+		return new RecentFile(config.getName(), path, config.getType(), null);
 	}
 
 	public RecentFile getCurrentFile() {

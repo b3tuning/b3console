@@ -1,11 +1,13 @@
 package com.b3tuning.b3console.platform;
 
+import com.b3tuning.b3console.control.menubar.file.subs.OpenConfigDialog;
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.properties.PropertyLoader;
 import com.b3tuning.b3console.service.EntityPatcher;
 import com.b3tuning.b3console.service.comms.SerialComms;
 import com.b3tuning.b3console.service.files.FileAssembler;
+import com.b3tuning.b3console.service.files.filemanager.FileManager;
 import com.b3tuning.b3console.service.module.door.DoorConfigAssembler;
 import com.b3tuning.b3console.service.module.door.DoorModuleService;
 import com.b3tuning.b3console.service.module.shifter.ShifterAssembler;
@@ -111,9 +113,24 @@ public class CommonDependenciesModule {
 		return new TransConfigAssembler();
 	}
 
+	/*************
+	 * * MENUS * *
+	 *************/
+//	@Provides
+//	@Singleton
+//	OpenConfigDialog provideOpenConfigDialog(FileManager manager) {
+//		return new OpenConfigDialog(manager);
+//	}
+
 	/***************
 	 * * HELPERS * *
 	 ***************/
+	@Provides
+	@Singleton
+	FileManager provideFileManager(UserPreferences preferences, NotificationCenter notifications) {
+		return new FileManager(preferences, notifications);
+	}
+
 	@Provides
 	@Singleton
 	UserPreferences provideUserPreferences(ObjectMapper mapper) {

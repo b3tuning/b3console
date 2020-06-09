@@ -4,6 +4,7 @@ import com.b3tuning.b3console.App;
 import com.b3tuning.b3console.control.menubar.MenuAction;
 import com.b3tuning.b3console.control.menubar.MenuItemInterface;
 import com.b3tuning.b3console.properties.AppProperties;
+import com.b3tuning.b3console.service.files.filemanager.FileManager;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.config.ConfigMenuView;
@@ -41,7 +42,6 @@ import java.util.Optional;
 
 import static com.b3tuning.b3console.App.DEFAULT_CSS;
 import static com.b3tuning.b3console.control.menubar.MenuAction.A_OPTIONS;
-import static com.b3tuning.b3console.control.menubar.file.subs.NewConfigDialog.createNewConfigDialog;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 
 /*
@@ -70,6 +70,7 @@ public class RootViewModel extends BaseViewModel {
 	@SuppressWarnings("unused")
 	private final NotificationCenter globalNotifications;
 	private final ViewManager        viewManager;
+	private final FileManager        manager;
 
 	// exposed properties
 	private ObjectProperty<MenuItemInterface> selectedMenuBarItem = new SimpleObjectProperty<>();
@@ -82,12 +83,14 @@ public class RootViewModel extends BaseViewModel {
 	private BooleanProperty      initialized      = new SimpleBooleanProperty(false);
 
 	@Inject
-	public RootViewModel(AppProperties appProperties, NotificationCenter globalNotifications, ViewManager viewManager) {
+	public RootViewModel(AppProperties appProperties, NotificationCenter globalNotifications, ViewManager viewManager,
+	                     FileManager manager) {
 		log.entry();
 
 		this.appProperties       = appProperties;
 		this.globalNotifications = globalNotifications;
 		this.viewManager         = viewManager;
+		this.manager             = manager;
 
 		manage(nonNullValuesOf(childViewPane).subscribe(c -> {
 			log.entry();
@@ -168,15 +171,15 @@ public class RootViewModel extends BaseViewModel {
 			case A_CUT:
 			case A_COPY:
 			case A_DELETE:
-				globalNotifications.publish(action.toString(), action);
 				break;
 
-				// FILE actions
+			// FILE actions
 			case A_NEW:
 				showNewConfigView();
-				globalNotifications.publish(action.toString(), action);
 				break;
 			case A_OPEN:
+				showOpenConfigDialog();
+				break;
 			case A_RECENTS:
 			case A_CLOSE:
 			case A_SAVE:
@@ -187,8 +190,7 @@ public class RootViewModel extends BaseViewModel {
 				// ONLINE actions
 			case A_CONNECT:
 			case A_DISCONNECT:
-				globalNotifications.publish(action.toString(), action);
-				break;
+
 			case A_MONITOR_IO:
 				// TODO: load monitor view
 				break;
@@ -215,7 +217,9 @@ public class RootViewModel extends BaseViewModel {
 
 			default:
 				log.error(MENU_ITEM_ERROR, action);
+
 		}
+		globalNotifications.publish(action.toString(), action);
 	}
 
 	/**
@@ -255,9 +259,11 @@ public class RootViewModel extends BaseViewModel {
 
 	private void showNewConfigView() {
 		log.entry();
+		Optional<ConfigBase> base = FileManager.createNewConfigDialog();
+	}
 
-		Optional<ConfigBase> base = createNewConfigDialog();
-
+	private void showOpenConfigDialog() {
+		ConfigBase base = manager.openFile(new Stage());
 	}
 
 	/**
