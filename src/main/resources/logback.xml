@@ -26,8 +26,9 @@
 	</appender>
 
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<withJamsi>true</withJamsi>
 		<encoder>
-			<pattern>%date{ISO8601} %-5level [%thread] %class{36}:%L %M - %msg%n</pattern>
+			<pattern>%date{ISO8601} %highlight(%-5level) [%thread] %cyan(%class{36}):%L %yellow(%M) - %msg%n</pattern>
 		</encoder>
 	</appender>
 
