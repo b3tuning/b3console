@@ -23,6 +23,7 @@ import dagger.Module;
 import dagger.Provides;
 import de.saxsys.mvvmfx.MvvmFX;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
+import javafx.stage.FileChooser;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Singleton;
@@ -67,6 +68,12 @@ public class CommonDependenciesModule {
 	@Singleton
 	DoorModuleService provideDoorModuleService(DoorConfigAssembler assembler, SerialComms comms) {
 		return new DoorModuleService(assembler, comms);
+	}
+
+	@Provides
+	@Singleton
+	FileChooser providesFileChooser() {
+		return new FileChooser();
 	}
 
 	@Provides
@@ -127,8 +134,8 @@ public class CommonDependenciesModule {
 	 ***************/
 	@Provides
 	@Singleton
-	FileManager provideFileManager(UserPreferences preferences, NotificationCenter notifications) {
-		return new FileManager(preferences, notifications);
+	FileManager provideFileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser) {
+		return new FileManager(preferences, notifications, chooser);
 	}
 
 	@Provides

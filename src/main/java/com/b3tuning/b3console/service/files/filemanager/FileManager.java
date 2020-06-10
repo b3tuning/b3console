@@ -19,7 +19,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
+import javafx.stage.Window;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -35,6 +35,7 @@ import java.util.Optional;
 public class FileManager {
 
 	private final UserPreferences preferences;
+	private final FileChooser     chooser;
 
 	private NotificationCenter globalNotifications;
 
@@ -44,9 +45,15 @@ public class FileManager {
 			FXCollections.emptyObservableList());
 
 	@Inject
-	public FileManager(UserPreferences preferences, NotificationCenter notifications) {
+	public FileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser) {
 		log.entry();
-		this.preferences         = preferences;
+		this.preferences = preferences;
+		this.chooser     = chooser;
+		this.chooser.setInitialDirectory(new File(preferences.getBrowseLocalPath()));
+		this.chooser.getExtensionFilters()
+		            .addAll(new FileChooser.ExtensionFilter("B3 Door Module Config (*.bdc)", "*.bdc"),
+		                    new FileChooser.ExtensionFilter("B3 Shifter Module Config (*.bsc", "*.bsc"),
+		                    new FileChooser.ExtensionFilter("B3 Trans Module Config (*.btc", "*.btc"));
 		this.globalNotifications = notifications;
 
 		loadRecentFiles();
@@ -83,12 +90,11 @@ public class FileManager {
 		return openFile(recentFile.getPath());
 	}
 
-	public ConfigBase openFile(Stage stage) {
+	public ConfigBase openFile(Window stage) {
 		log.entry();
 
-		ConfigBase  config   = null;
-		FileChooser chooser  = new FileChooser();
-		File        selected = chooser.showOpenDialog(stage);
+		ConfigBase config   = null;
+		File       selected = chooser.showOpenDialog(stage);
 		if (selected != null) {
 			config = openFile(selected.getAbsolutePath());
 		}

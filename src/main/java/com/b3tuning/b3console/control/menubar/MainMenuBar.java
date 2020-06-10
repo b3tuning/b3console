@@ -2,12 +2,14 @@ package com.b3tuning.b3console.control.menubar;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.paint.Color;
+import javafx.util.Pair;
 import lombok.extern.slf4j.XSlf4j;
 
 import java.util.Arrays;
@@ -29,7 +31,7 @@ public class MainMenuBar extends Node {
 
 	private final MenuBar menuBar = new MenuBar();
 
-	private static ObjectProperty<MenuItemInterface> selectedItem = new SimpleObjectProperty<>();
+	private static ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedItem = new SimpleObjectProperty<>();
 
 	public MainMenuBar() {
 		this.menuBar.getMenus().addAll(Arrays.stream(MainMenuBarItem.values())
@@ -72,7 +74,7 @@ public class MainMenuBar extends Node {
 		if (item.isSelectable()) {
 			menu.setOnAction(e -> {
 				log.entry();
-				setSelectedItem(item);
+				setSelectedItem(new Pair<>(item, e));
 				setSelectedItem(null);
 			});
 		}
@@ -83,15 +85,15 @@ public class MainMenuBar extends Node {
 		return this.menuBar;
 	}
 
-	public MenuItemInterface getSelectedItem() {
+	public Pair<MenuItemInterface, ActionEvent> getSelectedItem() {
 		return selectedItem.get();
 	}
 
-	public static void setSelectedItem(MenuItemInterface value) {
+	public static void setSelectedItem(Pair<MenuItemInterface, ActionEvent> value) {
 		selectedItem.set(value);
 	}
 
-	public ObjectProperty<MenuItemInterface> selectedItemProperty() {
+	public ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedItemProperty() {
 		return selectedItem;
 	}
 

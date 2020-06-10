@@ -1,7 +1,6 @@
 package com.b3tuning.b3console.view.root;
 
 import com.b3tuning.b3console.App;
-import com.b3tuning.b3console.control.menubar.MenuAction;
 import com.b3tuning.b3console.control.menubar.MenuItemInterface;
 import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.service.files.filemanager.FileManager;
@@ -27,12 +26,17 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import javafx.util.Duration;
+import javafx.util.Pair;
 import lombok.Setter;
 import lombok.extern.slf4j.XSlf4j;
 import org.reactfx.EventSource;
@@ -73,8 +77,8 @@ public class RootViewModel extends BaseViewModel {
 	private final FileManager        manager;
 
 	// exposed properties
-	private ObjectProperty<MenuItemInterface> selectedMenuBarItem = new SimpleObjectProperty<>();
-	private ObjectProperty<StackPane>         childViewPane       = new SimpleObjectProperty<>();
+	private ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedMenuBarItem = new SimpleObjectProperty<>();
+	private ObjectProperty<StackPane>                            childViewPane       = new SimpleObjectProperty<>();
 
 	private EventSource<Boolean> displayHelp      = new EventSource<>();
 	private BooleanProperty      helpPaneVisible  = new SimpleBooleanProperty(false);
@@ -102,7 +106,7 @@ public class RootViewModel extends BaseViewModel {
 
 			manage(nonNullValuesOf(selectedMenuBarItem).subscribe(e -> {
 				log.entry();
-				handleAction(e.getAction());
+				handleAction(e);
 			}));
 
 			// any child views that need access to their parent are handled via
@@ -161,10 +165,13 @@ public class RootViewModel extends BaseViewModel {
 	 *
 	 * @param action - the selected menu item
 	 */
-	private void handleAction(MenuAction action) {
+	private void handleAction(Pair<MenuItemInterface, ActionEvent> action) {
 		log.entry();
 		log.debug("RECEIVED ACTION {}", action);
-		switch (action) {
+		MenuItem    menuItem = (MenuItem)action.getValue().getTarget();
+		ContextMenu cm       = menuItem.getParentPopup();
+		Scene       scene    = cm.getScene();
+		Window      stage   = scene.getWindow();		switch (action.getKey().getAction()) {
 			// EDIT actions
 			case A_UNDO:
 			case A_REDO:
@@ -178,7 +185,7 @@ public class RootViewModel extends BaseViewModel {
 				showNewConfigView();
 				break;
 			case A_OPEN:
-				showOpenConfigDialog();
+				showOpenConfigDialog(stage);
 				break;
 			case A_RECENTS:
 			case A_CLOSE:
@@ -262,8 +269,8 @@ public class RootViewModel extends BaseViewModel {
 		Optional<ConfigBase> base = FileManager.createNewConfigDialog();
 	}
 
-	private void showOpenConfigDialog() {
-		ConfigBase base = manager.openFile(new Stage());
+	private void showOpenConfigDialog(Window stage) {
+		ConfigBase base = manager.openFile(stage);
 	}
 
 	/**
@@ -309,7 +316,7 @@ public class RootViewModel extends BaseViewModel {
 		return childViewPane;
 	}
 
-	public ObjectProperty<MenuItemInterface> selectedMenuBarItemProperty() {
+	public ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedMenuBarItemProperty() {
 		return selectedMenuBarItem;
 	}
 }

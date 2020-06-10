@@ -140,7 +140,6 @@ public class App extends Application {
 		});
 
 		initGui(stage);
-		countingEights(2);
 
 //		if (prefs.isFirstRun() && isUpdateUrlProvided()) {
 //			// fresh install, therefore download the latest
@@ -346,78 +345,4 @@ public class App extends Application {
 //		                                     //.onAction(arg -> UpdateFX.restartApp())
 //		                                     .showConfirm());
 //	}
-
-	public static int starter = 818825488;
-	public static int working = 81882548;
-	public static int master = 0;
-	public static int placeHolder = 0;
-	public static int nums1  = 818825488;
-	public static int mod = 0;
-	public static boolean found = false;
-
-	public static void countingEights(int n) {
-		log.warn("A: master = {} :: n = {}", master, n);
-		if (n > 0) {
-			placeHolder = working;
-			mod = working % 10;
-			if (mod == 8) {
-				if (found) {
-					master = master * 2;
-				} else {
-					found = true;
-					++master;
-				}
-			}
-			found = false;
-			log.warn("B: master = {} :: n = {}", master, n);
-//			int i = nums1;
-			log.warn("C: master = {} :: n = {}", master, n);
-//			i = i % 10;
-			log.warn("D: master = {} :: n = {}", master, n);
-//			System.out.println(i);
-			if (i != 8) {
-				log.warn("E: master = {} :: n = {}", master, n);
-				log.warn("F: CALLING countingEights() AGAIN!!!!!");
-				countingEights(n - 1);
-				log.warn("G: continuing after entering countingEights from i != 8");
-				log.warn("G: master = {} :: n = {}", master, n);
-				nums1 = nums1 / 10;
-				log.warn("H: master = {} :: n = {}", master, n);
-//				log.warn("H: master = {}", master);
-//				System.out.println(master);
-			} else if (nums1 % 10 == 8) {
-				++master;
-				log.warn("I: master = {} :: n = {}", master, n);
-				i = nums1;
-				log.warn("J: master = {} :: n = {}", master, n);
-				i = i / 10;
-				log.warn("K: master = {} :: n = {}", master, n);
-				i = i % 10;
-				log.warn("L: master = {} :: n = {}", master, n);
-				if (i == 8) {
-					log.warn("M: master = {} :: n = {}", master, n);
-					log.warn("M: CALLING countingEights() AGAIN!!!!!");
-					countingEights(n - 1);
-					log.warn("N: continuing after entering countingEights from i == 8");
-					log.warn("N: master = {} :: n = {}", master, n);
-					nums1 = nums1 / 10;
-					log.warn("O: master = {} :: n = {}", master, n);
-					master = master * 2;
-					log.warn("P: master = {} :: n = {}", master, n);
-//					System.out.println(master);
-				}
-				log.warn("Q: CALLING countingEights() AGAIN!!!!!");
-				countingEights(n - 1);
-				log.warn("R: continuing after entering countingEights from after the if block for i == 8");
-				log.warn("R: master = {} :: n = {}", master, n);
-				nums1 = nums1 / 10;
-				log.warn("S: master = {} :: n = {}", master, n);
-//				master = master + 1;
-				log.warn("T: master = {} :: n = {}", master, n);
-//				System.out.println(master);
-			}
-			log.warn("U: master = {} :: n = {}", master, n);
-		}
-		log.warn("V: master = {} :: n = {}", master, n);
-	}
 }
