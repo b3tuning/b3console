@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.platform;
 
-import com.b3tuning.b3console.control.menubar.file.subs.OpenConfigDialog;
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.properties.PropertyLoader;
@@ -72,20 +71,17 @@ public class CommonDependenciesModule {
 
 	@Provides
 	@Singleton
-	FileChooser providesFileChooser() {
+	FileChooser provideFileChooser() {
+		log.entry();
+		log.error("CREATING A NEW FILE CHOOSER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		return new FileChooser();
 	}
 
 	@Provides
 	@Singleton
-	ObjectMapper providesObjectMapper() {
+	ObjectMapper provideObjectMapper() {
 		return new ObjectMapper();
 	}
-	//	@Provides
-//	@Singleton
-//	FilesService provideFilesService(FileAssembler assembler) {
-//		return new FilesService(assembler);
-//	}
 
 	@Provides
 	@Singleton
@@ -135,6 +131,8 @@ public class CommonDependenciesModule {
 	@Provides
 	@Singleton
 	FileManager provideFileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser) {
+		log.entry();
+		log.error("CREATING A NEW FILE MANAGER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		return new FileManager(preferences, notifications, chooser);
 	}
 

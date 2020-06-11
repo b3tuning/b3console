@@ -1,5 +1,6 @@
 package com.b3tuning.b3console.platform;
 
+import com.b3tuning.b3console.service.files.filemanager.FileManager;
 import com.b3tuning.b3console.view.config.ConfigMenuView;
 import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
 import com.b3tuning.b3console.view.config.door.DoorConfigView;
@@ -12,12 +13,15 @@ import com.b3tuning.b3console.view.help.HelpView;
 import com.b3tuning.b3console.view.help.HelpViewModel;
 import com.b3tuning.b3console.view.live.LiveMenuView;
 import com.b3tuning.b3console.view.live.LiveMenuViewModel;
+import com.b3tuning.b3console.view.menu.MenuView;
+import com.b3tuning.b3console.view.menu.MenuViewModel;
 import com.b3tuning.b3console.view.root.RootView;
 import com.b3tuning.b3console.view.root.RootViewModel;
 import com.b3tuning.b3console.view.settings.SettingsMenuView;
 import com.b3tuning.b3console.view.settings.SettingsMenuViewModel;
 import com.b3tuning.b3console.view.transfer.TransferMenuView;
 import com.b3tuning.b3console.view.transfer.TransferMenuViewModel;
+import javafx.stage.FileChooser;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,14 +50,14 @@ public abstract class CommonDaggerMvvmfxBridge implements DaggerMvvmfxBridge {
 			return (T) getApplicationComponents().provideRootViewModel();
 		}
 
-//		if (FileMenuView.class.equals(type)) {
-//			return (T) getApplicationComponents().provideFileMenuView();
-//		}
-//
-//		if (FileMenuViewModel.class.equals(type)) {
-//			return (T) getApplicationComponents().provideFileMenuViewModel();
-//		}
-//
+		if (FileManager.class.equals(type)) {
+			return (T) getApplicationComponents().provideFileManager();
+		}
+
+		if (FileChooser.class.equals(type)) {
+			return (T) getApplicationComponents().provideFileChooser();
+		}
+
 		if (ConfigMenuView.class.equals(type)) {
 			return (T) getApplicationComponents().provideConfigMenuView();
 		}
@@ -68,6 +72,14 @@ public abstract class CommonDaggerMvvmfxBridge implements DaggerMvvmfxBridge {
 
 		if (DoorConfigViewModel.class.equals(type)) {
 			return (T) getApplicationComponents().provideDoorConfigViewModel();
+		}
+
+		if (MenuView.class.equals(type)) {
+			return (T) getApplicationComponents().provideMenuView();
+		}
+
+		if (MenuViewModel.class.equals(type)) {
+			return (T) getApplicationComponents().provideMenuViewModel();
 		}
 
 		if (ShifterConfigView.class.equals(type)) {
@@ -118,15 +130,6 @@ public abstract class CommonDaggerMvvmfxBridge implements DaggerMvvmfxBridge {
 			return (T) getApplicationComponents().provideHelpViewModel();
 		}
 
-//		if (SerialComms.class.equals(type)) {
-//			return (T) getApplicationComponents().provideSerialComms();
-//		}
-//
-//		if (DoorModuleService.class.equals(type)) {
-//			return (T) getApplicationComponents().provideDoorModuleService();
-//		}
-
 		return null;
 	}
-
 }

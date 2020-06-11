@@ -13,6 +13,7 @@ import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
 
+import static com.b3tuning.b3console.view.root.RootViewModel.ADD_MENU_VIEW;
 import static org.reactfx.EventStreams.combine;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 import static org.reactfx.EventStreams.valuesOf;
@@ -37,7 +38,7 @@ public class RootView extends BaseView<RootViewModel> {
 
 	@InjectViewModel private RootViewModel viewModel;
 
-	private NotificationCenter globalNotifications;
+	private final NotificationCenter globalNotifications;
 
 	private MainMenuBar mainMenuBar;
 
@@ -69,6 +70,8 @@ public class RootView extends BaseView<RootViewModel> {
 		initializeHelp();
 
 //		initializeNotifications();
+
+		viewModel.subscribe(ADD_MENU_VIEW, ((key, payload) -> topPane.getChildren().add((Node) payload[0])));
 
 	}
 

@@ -2,7 +2,7 @@ package com.b3tuning.b3console.platform;
 
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.properties.AppProperties;
-import com.b3tuning.b3console.service.module.shifter.ShifterConfig;
+import com.b3tuning.b3console.service.files.filemanager.FileManager;
 import com.b3tuning.b3console.service.settings.SettingsService;
 import com.b3tuning.b3console.view.availablefiles.AvailableFilesViewModel;
 import com.b3tuning.b3console.view.config.ConfigMenuView;
@@ -17,6 +17,8 @@ import com.b3tuning.b3console.view.help.HelpView;
 import com.b3tuning.b3console.view.help.HelpViewModel;
 import com.b3tuning.b3console.view.live.LiveMenuView;
 import com.b3tuning.b3console.view.live.LiveMenuViewModel;
+import com.b3tuning.b3console.view.menu.MenuView;
+import com.b3tuning.b3console.view.menu.MenuViewModel;
 import com.b3tuning.b3console.view.root.RootView;
 import com.b3tuning.b3console.view.root.RootViewModel;
 import com.b3tuning.b3console.view.settings.SettingsMenuView;
@@ -24,6 +26,7 @@ import com.b3tuning.b3console.view.settings.SettingsMenuViewModel;
 import com.b3tuning.b3console.view.transfer.TransferMenuView;
 import com.b3tuning.b3console.view.transfer.TransferMenuViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
+import javafx.stage.FileChooser;
 
 /*
  *  Created on:  Apr 15, 2020
@@ -51,6 +54,14 @@ public interface ApplicationComponents {
 	void inject(NotificationCenter notificationCenter);
 
 	NotificationCenter provideNotificationCenter();
+
+	void inject(FileManager fileManager);
+
+	FileManager provideFileManager();
+
+	void inject(FileChooser chooser);
+
+	FileChooser provideFileChooser();
 
 	/*  ROOT  */
 	void inject(RootView view);
@@ -82,23 +93,28 @@ public interface ApplicationComponents {
 	ConfigMenuViewModel provideConfigMenuViewModel();
 
 	void inject(DoorConfigView view);
+
 	DoorConfigView provideDoorConfigView();
 
 	void inject(DoorConfigViewModel viewModel);
+
 	DoorConfigViewModel provideDoorConfigViewModel();
 
 	void inject(ShifterConfigView view);
+
 	ShifterConfigView provideShifterConfigView();
 
 	void inject(ShifterConfigViewModel viewModel);
+
 	ShifterConfigViewModel provideShifterConfigViewModel();
 
 	void inject(TransConfigView view);
+
 	TransConfigView provideTransConfigView();
 
 	void inject(TransConfigViewModel viewModel);
-	TransConfigViewModel provideTransConfigViewModel();
 
+	TransConfigViewModel provideTransConfigViewModel();
 
 	/*  TRANSFER  */
 	void inject(TransferMenuView view);
@@ -117,6 +133,14 @@ public interface ApplicationComponents {
 	void inject(LiveMenuViewModel viewModel);
 
 	LiveMenuViewModel provideLiveMenuViewModel();
+
+	void inject(MenuView view);
+
+	MenuView provideMenuView();
+
+	void inject(MenuViewModel viewModel);
+
+	MenuViewModel provideMenuViewModel();
 
 	/* SETTINGS */
 	void inject(SettingsMenuView view);
@@ -139,11 +163,5 @@ public interface ApplicationComponents {
 	void inject(HelpViewModel viewModel);
 
 	HelpViewModel provideHelpViewModel();
-
-//	void inject(SerialComms comms);
-//	SerialComms provideSerialComms();
-//
-//	void inject(DoorModuleService service);
-//	DoorModuleService provideDoorModuleService();
 
 }

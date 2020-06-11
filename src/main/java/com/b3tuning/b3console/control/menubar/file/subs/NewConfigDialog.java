@@ -82,7 +82,10 @@ public class NewConfigDialog {
 		// Create a new ConfigBase when OK button is clicked
 		dialog.setResultConverter(dialogButton -> {
 			if (dialogButton == ButtonType.OK) {
-				return new ConfigBase(configName.getText(), type.getValue());
+				ConfigBase base = new ConfigBase(configName.getText(), type.getValue());
+				base.setCreatedAt(System.currentTimeMillis());
+				base.setUpdatedAt(System.currentTimeMillis());
+				return base;
 			}
 			return null;
 		});

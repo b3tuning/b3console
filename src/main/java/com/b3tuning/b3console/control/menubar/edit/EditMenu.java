@@ -61,6 +61,7 @@ public enum EditMenu implements MenuItemInterface {
 		this.separated  = separated;
 	}
 
+	@Override
 	public EditMenu findByLabel(String label) {
 		log.entry();
 		for (EditMenu item : EditMenu.values()) {
@@ -71,6 +72,7 @@ public enum EditMenu implements MenuItemInterface {
 		return null;
 	}
 
+	@Override
 	public String toString() {
 		return label;
 	}

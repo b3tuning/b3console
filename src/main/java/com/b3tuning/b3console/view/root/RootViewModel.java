@@ -11,6 +11,8 @@ import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
 import com.b3tuning.b3console.view.help.HelpView;
 import com.b3tuning.b3console.view.help.HelpViewModel;
 import com.b3tuning.b3console.view.loader.ViewManager;
+import com.b3tuning.b3console.view.menu.MenuView;
+import com.b3tuning.b3console.view.menu.MenuViewModel;
 import com.b3tuning.b3console.view.notifications.PopViewNotification;
 import com.b3tuning.b3console.view.notifications.PushViewNotification;
 import de.saxsys.mvvmfx.FluentViewLoader;
@@ -28,7 +30,6 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -42,10 +43,10 @@ import lombok.extern.slf4j.XSlf4j;
 import org.reactfx.EventSource;
 
 import javax.inject.Inject;
-import java.util.Optional;
 
 import static com.b3tuning.b3console.App.DEFAULT_CSS;
 import static com.b3tuning.b3console.control.menubar.MenuAction.A_OPTIONS;
+import static org.reactfx.EventStreams.changesOf;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 
 /*
@@ -60,7 +61,8 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class RootViewModel extends BaseViewModel {
 
-	public static final  String MENU_ACTION_EVENT   = "main_menu";
+	public static final  String ADD_MENU_VIEW       = "add_menu_view";
+	public static final  String CONFIG_LOADED       = "config_loaded";
 	public static final  String HELP_DETACHED_EVENT = "help_detached";
 	private static final String HELP_STAGE_TITLE    = "B3Tuning Module Help";
 	private static final String MENU_ITEM_ERROR     = "Unrecognized menu item action: '{}'";
@@ -74,17 +76,18 @@ public class RootViewModel extends BaseViewModel {
 	@SuppressWarnings("unused")
 	private final NotificationCenter globalNotifications;
 	private final ViewManager        viewManager;
-	private final FileManager        manager;
+	private final FileManager        fileManager;
 
 	// exposed properties
-	private ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedMenuBarItem = new SimpleObjectProperty<>();
-	private ObjectProperty<StackPane>                            childViewPane       = new SimpleObjectProperty<>();
+	private final ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedMenuBarItem = new SimpleObjectProperty<>();
+	private final ObjectProperty<StackPane>                            childViewPane       = new SimpleObjectProperty<>();
 
-	private EventSource<Boolean> displayHelp      = new EventSource<>();
-	private BooleanProperty      helpPaneVisible  = new SimpleBooleanProperty(false);
-	private DoubleProperty       helpPaneLocation = new SimpleDoubleProperty();
-	private DoubleProperty       helpPaneOpacity  = new SimpleDoubleProperty();
-	private BooleanProperty      initialized      = new SimpleBooleanProperty(false);
+	private final EventSource<Boolean>       displayHelp      = new EventSource<>();
+	private final BooleanProperty            helpPaneVisible  = new SimpleBooleanProperty(false);
+	private final DoubleProperty             helpPaneLocation = new SimpleDoubleProperty();
+	private final DoubleProperty             helpPaneOpacity  = new SimpleDoubleProperty();
+	private final BooleanProperty            initialized      = new SimpleBooleanProperty(false);
+	private       ObjectProperty<ConfigBase> config           = new SimpleObjectProperty<>(null);
 
 	@Inject
 	public RootViewModel(AppProperties appProperties, NotificationCenter globalNotifications, ViewManager viewManager,
@@ -94,8 +97,15 @@ public class RootViewModel extends BaseViewModel {
 		this.appProperties       = appProperties;
 		this.globalNotifications = globalNotifications;
 		this.viewManager         = viewManager;
-		this.manager             = manager;
+		this.fileManager         = manager;
 
+		if (appProperties.getLogLevel().isEmpty()) {
+			config = new SimpleObjectProperty<>(new ConfigBase());
+		}
+		manage(changesOf(config).subscribe(c -> {
+			log.entry();
+			globalNotifications.publish(CONFIG_LOADED, config.isNotNull().getValue());
+		}));
 		manage(nonNullValuesOf(childViewPane).subscribe(c -> {
 			log.entry();
 
@@ -129,6 +139,10 @@ public class RootViewModel extends BaseViewModel {
 
 		// detach the help from the sidebar if requested
 		globalNotifications.subscribe(HELP_DETACHED_EVENT, (key, payload) -> detachHelp());
+
+		ViewTuple<MenuView, MenuViewModel> tuple = FluentViewLoader
+				.fxmlView(MenuView.class).load();
+		publish(ADD_MENU_VIEW, tuple);
 	}
 
 	public Node helpView() {
@@ -151,7 +165,7 @@ public class RootViewModel extends BaseViewModel {
 		Stage helpStage = new Stage();
 		helpStage.setTitle(HELP_STAGE_TITLE);
 
-		Scene        helpScene = new Scene((Parent) tuple.getView(), 640, 480);
+		Scene        helpScene = new Scene(tuple.getView(), 640, 480);
 		final String uri       = App.class.getResource(DEFAULT_CSS).toExternalForm();
 		helpScene.getStylesheets().add(uri);
 		helpStage.setScene(helpScene);
@@ -168,10 +182,11 @@ public class RootViewModel extends BaseViewModel {
 	private void handleAction(Pair<MenuItemInterface, ActionEvent> action) {
 		log.entry();
 		log.debug("RECEIVED ACTION {}", action);
-		MenuItem    menuItem = (MenuItem)action.getValue().getTarget();
+		MenuItem    menuItem = (MenuItem) action.getValue().getTarget();
 		ContextMenu cm       = menuItem.getParentPopup();
 		Scene       scene    = cm.getScene();
-		Window      stage   = scene.getWindow();		switch (action.getKey().getAction()) {
+		Window      stage    = scene.getWindow();
+		switch (action.getKey().getAction()) {
 			// EDIT actions
 			case A_UNDO:
 			case A_REDO:
@@ -189,7 +204,10 @@ public class RootViewModel extends BaseViewModel {
 				break;
 			case A_RECENTS:
 			case A_CLOSE:
+				break;
 			case A_SAVE:
+				showSaveConfigDialog();
+				break;
 			case A_SAVE_AS:
 			case A_SEND:
 			case A_QUIT:
@@ -266,16 +284,27 @@ public class RootViewModel extends BaseViewModel {
 
 	private void showNewConfigView() {
 		log.entry();
-		Optional<ConfigBase> base = FileManager.createNewConfigDialog();
+		FileManager.createNewConfigDialog().ifPresent(configBase -> config.set(configBase));
 	}
 
 	private void showOpenConfigDialog(Window stage) {
-		ConfigBase base = manager.openFile(stage);
+		log.entry();
+		ConfigBase base = fileManager.openFile(stage);
+		log.warn("Opened config = {}", base);
+	}
+
+	private void showSaveConfigDialog() {
+		log.entry();
+		fileManager.saveConfig(config.get());
 	}
 
 	/**
 	 * JAVAFX PROPERTIES
 	 */
+	public ObjectProperty<ConfigBase> configProperty() {
+		return config;
+	}
+
 	public BooleanProperty initializedProperty() {
 		return initialized;
 	}
