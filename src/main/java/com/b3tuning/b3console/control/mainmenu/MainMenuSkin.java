@@ -19,22 +19,22 @@ import static org.reactfx.EventStreams.eventsOf;
 @XSlf4j
 public class MainMenuSkin extends SkinBase<MainMenu> implements Skin<MainMenu> {
 
-	private static final double	CONTAINER_PREFERRED_WIDTH	= 87;
-	private static final double	CONTAINER_MINIMUM_WIDTH		= CONTAINER_PREFERRED_WIDTH;
-	private static final double	CONTAINER_MAXIMUM_WIDTH		= CONTAINER_PREFERRED_WIDTH;
+	private static final double CONTAINER_PREFERRED_WIDTH = 87;
+	private static final double CONTAINER_MINIMUM_WIDTH   = CONTAINER_PREFERRED_WIDTH;
+	private static final double CONTAINER_MAXIMUM_WIDTH   = CONTAINER_PREFERRED_WIDTH;
 
-	private static final double	ITEM_PREFERRED_WIDTH	= CONTAINER_PREFERRED_WIDTH;// - (INSET * 2);  // REMOVED as it was padding the toggle inside the vbox
-	private static final double	ITEM_PREFERRED_HEIGHT	= 50;
-	private static final double	TITLE_PREFERRED_HEIGHT	= 20;
-	private static final double	ITEM_MINIMUM_WIDTH		= ITEM_PREFERRED_WIDTH;
-	private static final double	ITEM_MINIMUM__HEIGHT	= ITEM_PREFERRED_HEIGHT;
-	private static final double	ITEM_MAXIMUM_WIDTH		= ITEM_PREFERRED_WIDTH;
-	private static final double	ITEM_MAXIMUM_HEIGHT		= ITEM_PREFERRED_HEIGHT;
-	
-	private VBox		menuItemsTopContainer;	// region to hold the menu items
-	private VBox		menuItemsBottomContainer;	// region to hold the menu items
-	@Getter private ToggleGroup	toggleGroup;		// ensures only 1 ToggleButton can be selected at any
-											// time
+	private static final double ITEM_PREFERRED_WIDTH   = CONTAINER_PREFERRED_WIDTH;// - (INSET * 2);  // REMOVED as it was padding the toggle inside the vbox
+	private static final double ITEM_PREFERRED_HEIGHT  = 50;
+	private static final double TITLE_PREFERRED_HEIGHT = 20;
+	private static final double ITEM_MINIMUM_WIDTH     = ITEM_PREFERRED_WIDTH;
+	private static final double ITEM_MINIMUM__HEIGHT   = ITEM_PREFERRED_HEIGHT;
+	private static final double ITEM_MAXIMUM_WIDTH     = ITEM_PREFERRED_WIDTH;
+	private static final double ITEM_MAXIMUM_HEIGHT    = ITEM_PREFERRED_HEIGHT;
+
+	private         VBox        menuItemsTopContainer;    // region to hold the menu items
+	private         VBox        menuItemsBottomContainer;    // region to hold the menu items
+	@Getter private ToggleGroup toggleGroup;        // ensures only 1 ToggleButton can be selected at any
+	// time
 
 	// ******************** Constructors **************************************
 	public MainMenuSkin(final MainMenu CONTROL) {
@@ -60,10 +60,10 @@ public class MainMenuSkin extends SkinBase<MainMenu> implements Skin<MainMenu> {
 	private void initGraphics() {
 
 		AnchorPane anchor = new AnchorPane();
-		menuItemsTopContainer = new VBox();
+		menuItemsTopContainer    = new VBox();
 		menuItemsBottomContainer = new VBox();
-		toggleGroup = new ToggleGroup();
-		
+		toggleGroup              = new ToggleGroup();
+
 		anchor.getChildren().add(menuItemsTopContainer);
 		AnchorPane.setTopAnchor(menuItemsTopContainer, 0.0);
 		AnchorPane.setBottomAnchor(menuItemsBottomContainer, 0.0);
@@ -81,9 +81,10 @@ public class MainMenuSkin extends SkinBase<MainMenu> implements Skin<MainMenu> {
 	private void registerListeners() {
 		getSkinnable().menuItemsProperty().addListener(observable -> populateMenuItems());
 		getSkinnable().visibleProperty().addListener((observable, newValue, oldValue) -> {
-				if (!newValue && toggleGroup.getSelectedToggle() != null)
-					toggleGroup.getSelectedToggle().setSelected(false);
-			});
+			if (!newValue && toggleGroup.getSelectedToggle() != null) {
+				toggleGroup.getSelectedToggle().setSelected(false);
+			}
+		});
 
 	}
 
@@ -94,7 +95,7 @@ public class MainMenuSkin extends SkinBase<MainMenu> implements Skin<MainMenu> {
 		menuItemsTopContainer.getChildren().clear();
 		menuItemsBottomContainer.getChildren().clear();
 
-		for(MainMenuItemModel menuItem: getSkinnable().getMenuItems() ) {
+		for (MainMenuItemModel menuItem : getSkinnable().getMenuItems()) {
 			AnchorPane paneItem = buildMenuItem(menuItem);
 			if (MainMenuItemModel.Position.TOP.equals(menuItem.getPosition())) {
 				menuItemsTopContainer.getChildren().add(paneItem);
@@ -106,22 +107,18 @@ public class MainMenuSkin extends SkinBase<MainMenu> implements Skin<MainMenu> {
 
 	/**
 	 * Build an individual menu item
-	 *
-	 * @param model
-	 * @return
 	 */
 	private AnchorPane buildMenuItem(MainMenuItemModel model) {
 
-
 		ButtonBase b;
-		Label l = null;
+		Label      l = null;
 		AnchorPane ap;
-		
+
 		if (MainMenuItemModel.Mode.APP.equals(model.getMode())) {
 			b = new ToggleButton(model.getCompressedTitle());
 			// having toggle buttons bound to a toggle group ensures that only 1 menu item may be
 			// selected at any time
-			((ToggleButton)b).setToggleGroup(toggleGroup);
+			((ToggleButton) b).setToggleGroup(toggleGroup);
 			ap = new AnchorPane(b);
 			ap.setMinSize(ITEM_MINIMUM_WIDTH, ITEM_MINIMUM__HEIGHT);
 			ap.setPrefSize(ITEM_PREFERRED_WIDTH, ITEM_PREFERRED_HEIGHT);
@@ -141,28 +138,26 @@ public class MainMenuSkin extends SkinBase<MainMenu> implements Skin<MainMenu> {
 
 		// when a menu item is clicked, update the selected item property of the control so that it
 		// can be bound to
-		eventsOf( b, ActionEvent.ACTION).subscribe(e-> {
+		eventsOf(b, ActionEvent.ACTION).subscribe(e -> {
 			log.entry();
 			getSkinnable().setSelectedItem(model);
-			getSkinnable().setSelectedItem(null);	// reset after firing the event
+			getSkinnable().setSelectedItem(null);    // reset after firing the event
 		});
-				
+
 		ap.visibleProperty().bind(b.visibleProperty());
 		ap.managedProperty().bind(ap.visibleProperty());
-
 
 		// fix the size and positioning
 		AnchorPane.setTopAnchor(b, 0.0);
 		AnchorPane.setBottomAnchor(b, 0.0);
 		AnchorPane.setLeftAnchor(b, 0.0);
 		AnchorPane.setRightAnchor(b, 0.0);
-		
-		if (l!=null) {
+
+		if (l != null) {
 			AnchorPane.setBottomAnchor(l, 10.0);
 			AnchorPane.setLeftAnchor(l, 5.0);
 			AnchorPane.setRightAnchor(l, 5.0);
 		}
-
 
 		return ap;
 	}

@@ -51,8 +51,7 @@ public enum EditMenu implements MenuItemInterface {
 	@Getter private final boolean        selectable;
 	@Getter private final boolean        separated;
 
-	EditMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
-	         boolean separated) {
+	EditMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable, boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;

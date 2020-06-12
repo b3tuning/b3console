@@ -53,6 +53,7 @@ public enum OnlineMenu implements MenuItemInterface {
 		this.separated  = separated;
 	}
 
+	@Override
 	public OnlineMenu findByLabel(String label) {
 		log.entry();
 		for (OnlineMenu item : OnlineMenu.values()) {
@@ -63,6 +64,7 @@ public enum OnlineMenu implements MenuItemInterface {
 		return null;
 	}
 
+	@Override
 	public String toString() {
 		return label;
 	}

@@ -11,7 +11,6 @@
 
 package com.b3tuning.b3console.service.module;
 
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,7 +27,8 @@ import java.io.Serializable;
 public class ConfigBaseResource implements Serializable {
 
 	private static final long serialVersionUID = 7063913951740069316L;
-	private String name;
+
+	private String     name;
 	private long       createdAt;
 	private long       updatedAt;
 	private ModuleType type;

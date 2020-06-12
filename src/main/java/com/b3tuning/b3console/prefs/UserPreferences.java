@@ -1,7 +1,6 @@
 package com.b3tuning.b3console.prefs;
 
 import com.b3tuning.b3console.service.files.filemanager.RecentFile;
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,20 +28,18 @@ public class UserPreferences {
 	private static final String DOWNLOAD_PATH_DEFAULT = System.getProperty("user.home") + File.separator + "Desktop";
 
 	private static final String BROWSE_LOCAL_PATH         = "BROWSE_LOCAL_PATH";
-	private static final String BROWSE_LOCAL_PATH_DEFAULT = System.getProperty("user.home") + File.separator + "Documents";
+	private static final String BROWSE_LOCAL_PATH_DEFAULT =
+			System.getProperty("user.home") + File.separator + "Documents";
 
-	private static final String MODULE_TYPE    = "MODULE_TYPE";
-	private static final String MODULE_DEFAULT = "DOOR";
+	private static final String RECENT_FILES        = "RECENT_FILES";
+	private static final String RECENT_FILE_DEFAULT = "";
+//	private static final String RECENT_FILE_DEFAULT = "[{\"name\":\"No recent files to display...\",\"path\":null,\"type\":null,\"lastAccessed\":0}]";
 
-	private static final String RECENT_FILES = "RECENT_FILES";
-	private static final String RECENT_FILE_DEFAULT = "[{\"name\":\"No recent files to display...\",\"path\":null,\"type\":null,\"lastAccessed\":0}]";
-
-	private final Preferences preferences;
-
+	private final Preferences  preferences;
 	private final ObjectMapper mapper;
 
 	public UserPreferences(ObjectMapper mapper) {
-		preferences = Preferences.userRoot().node(this.getClass().getName());
+		this.preferences = Preferences.userRoot().node(this.getClass().getName());
 		this.mapper = mapper;
 	}
 
@@ -55,11 +52,12 @@ public class UserPreferences {
 	}
 
 	public void setRecentFiles(List<RecentFile> recentFiles) {
+		log.entry(recentFiles);
 		try {
-			preferences.put(RECENT_FILES, mapper.writeValueAsString(recentFiles));
+			set(RECENT_FILES, mapper.writeValueAsString(recentFiles));
 		}
 		catch (JsonProcessingException e) {
-			log.error("ERROR in saving recent file to preferences {}", e.getMessage(), e);
+			log.error("ERROR in saving recent file to preferences : {}", e.getMessage(), e);
 		}
 	}
 
@@ -70,8 +68,9 @@ public class UserPreferences {
 				return mapper.readValue(json, new TypeReference<>() {
 				});
 			}
-		} catch (IOException e) {
-			log.error("ERROR in getting recent files from preferences {}", e.getMessage(), e);
+		}
+		catch (IOException e) {
+			log.error("ERROR in getting recent files from preferences : {}", e.getMessage(), e);
 		}
 		return Lists.newArrayList();
 	}
@@ -92,11 +91,4 @@ public class UserPreferences {
 		return preferences.get(BROWSE_LOCAL_PATH, BROWSE_LOCAL_PATH_DEFAULT);
 	}
 
-	public void setModule(ModuleType module) {
-		set(MODULE_TYPE, module.toString());
-	}
-
-	public String getModule() {
-		return preferences.get(MODULE_TYPE, MODULE_DEFAULT);
-	}
 }

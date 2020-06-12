@@ -72,13 +72,9 @@ public interface ApplicationComponents {
 
 	RootViewModel provideRootViewModel();
 
-	/*  FILE  */
-//	void inject(FileMenuView view);
-//	FileMenuView provideFileMenuView();
-//
-//	void inject(FileMenuViewModel viewModel);
-//	FileMenuViewModel provideFileMenuViewModel();
-//
+	//////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////
+
 	void inject(AvailableFilesViewModel viewModel);
 
 	AvailableFilesViewModel provideAvailableFilesViewModel();

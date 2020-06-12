@@ -46,6 +46,7 @@ public enum HelpMenu implements MenuItemInterface {
 		this.separated  = separated;
 	}
 
+	@Override
 	public HelpMenu findByLabel(String label) {
 		log.entry();
 		for (HelpMenu item : HelpMenu.values()) {
@@ -56,6 +57,7 @@ public enum HelpMenu implements MenuItemInterface {
 		return null;
 	}
 
+	@Override
 	public String toString() {
 		return label;
 	}

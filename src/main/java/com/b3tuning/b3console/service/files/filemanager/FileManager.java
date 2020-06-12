@@ -14,7 +14,7 @@ import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.ConfigBaseAssembler;
 import com.b3tuning.b3console.service.module.ConfigBaseResource;
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
+import com.b3tuning.b3console.service.module.ModuleType;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -40,45 +40,52 @@ public class FileManager {
 	private final UserPreferences preferences;
 	private final FileChooser     chooser;
 
-	private NotificationCenter globalNotifications;
+	private final NotificationCenter globalNotifications;
 
 	private RecentFile currentFile;
 
-	ObjectProperty<ObservableList<RecentFile>> recentFiles = new SimpleObjectProperty<>(
-			FXCollections.emptyObservableList());
+	private final ObjectProperty<ObservableList<RecentFile>> recentFiles = new SimpleObjectProperty<>(
+			FXCollections.observableArrayList());
 
 	@Inject
 	public FileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser) {
 		log.entry();
 		this.preferences = preferences;
 		this.chooser     = chooser;
-		log.error("SETTING FILE CHOOSER DIRECTORY AGAIN!!!!!");
 		this.chooser.setInitialDirectory(new File(preferences.getBrowseLocalPath()));
-		log.error("CHOOSER DIRECTORY = {}", chooser.getInitialDirectory().getAbsolutePath());
 		this.chooser.getExtensionFilters()
-		            .addAll(new FileChooser.ExtensionFilter("B3 Door Module Config (*.bdc)", "*.bdc"),
-		                    new FileChooser.ExtensionFilter("B3 Shifter Module Config (*.bsc", "*.bsc"),
-		                    new FileChooser.ExtensionFilter("B3 Trans Module Config (*.btc", "*.btc"));
+		            .add(new FileChooser.ExtensionFilter("B3 Module Config", "*.bdc", "*.bsc", "*.btc"));
 		this.globalNotifications = notifications;
 
 		loadRecentFiles();
 	}
 
 	private void loadRecentFiles() {
+		log.entry();
 		recentFiles.get().addAll(preferences.getRecentFiles());
+		log.info("Stored Recent Files = {}", preferences.getRecentFiles());
+		log.info("RecentFiles loaded = {}", recentFiles);
 	}
 
 	private void updateRecentFiles() {
+		log.entry();
 		preferences.setRecentFiles(recentFiles.get());
 	}
 
 	private void updateRecentFiles(RecentFile recentFile) {
 		log.entry(recentFile);
 		currentFile = recentFile;
+		log.debug("Current file = {}", currentFile);
 		currentFile.setLastAccessed(System.currentTimeMillis());
-		recentFiles.get().remove(recentFile);
+		log.debug("Current file last accessed = {}", currentFile.getLastAccessed());
+		if (recentFiles.get().removeAll(recentFile)) {
+			log.error("REMOVED RECENT FILE");
+		}
+		log.debug("removed recent file from list = {}", recentFile);
 		recentFiles.get().add(currentFile);
+		log.debug("Added current file = {}", currentFile);
 		recentFiles.get().sorted();
+		log.debug("sorted recentFiles file = {}", recentFiles);
 		updateRecentFiles();
 	}
 
@@ -116,13 +123,15 @@ public class FileManager {
 			updateRecentFiles(recentFileFromConfig(config, path));
 		}
 		catch (Exception ex) {
-			log.error("Unable to openFile, path: {} , ex: {}", path, ex.getMessage());
+			log.error("Unable to openFile, path: {} , ex: {}", path, ex.getMessage(), ex);
+			ex.printStackTrace();
 		}
 		return config;
 	}
 
 	public RecentFile recentFileFromConfig(ConfigBase config, String path) {
-		return new RecentFile(config.getName(), path, config.getType(), null);
+		log.entry();
+		return new RecentFile(config.getName(), path, config.getType(), config.getUpdatedAt());
 	}
 
 	public RecentFile getCurrentFile() {
@@ -139,14 +148,13 @@ public class FileManager {
 
 	private void saveConfig(ConfigBase base, File file) {
 		log.entry();
-		log.error("FILE TO SAVE IS : {}", file.getAbsolutePath());
 		ConfigBaseResource resource = ConfigBaseAssembler.assemble(base);
 		try (FileOutputStream out = new FileOutputStream(file.getAbsolutePath(), false);
-		ObjectOutputStream oos = new ObjectOutputStream(out)) {
+		     ObjectOutputStream oos = new ObjectOutputStream(out)) {
 			oos.writeObject(resource);
 		}
 		catch (Exception ex) {
-			log.error("Unable to saveFile, file: {} , ex: {}", file.getAbsolutePath(), ex.getLocalizedMessage());
+			log.error("Unable to saveFile, file: {} , ex: {}", file.getAbsolutePath(), ex.getMessage(), ex);
 			ex.printStackTrace();
 		}
 	}
@@ -162,7 +170,7 @@ public class FileManager {
 			oos.writeObject(config);
 		}
 		catch (Exception ex) {
-			log.error("Unable to saveFile, file: {} , ex: {}", currentFile, ex.getMessage());
+			log.error("Unable to saveFile, file: {} , ex: {}", currentFile, ex.getMessage(), ex);
 		}
 	}
 

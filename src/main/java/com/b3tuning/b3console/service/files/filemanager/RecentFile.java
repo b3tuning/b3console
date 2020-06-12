@@ -1,9 +1,10 @@
 package com.b3tuning.b3console.service.files.filemanager;
 
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
+import com.b3tuning.b3console.service.module.ModuleType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
@@ -23,6 +24,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@EqualsAndHashCode(of = {"name", "path", "type"})
 public class RecentFile implements Comparable<RecentFile>, Serializable {
 
 	private static final long serialVersionUID = -8768741433061399525L;

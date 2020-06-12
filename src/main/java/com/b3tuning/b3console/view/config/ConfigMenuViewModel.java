@@ -12,7 +12,6 @@ import com.b3tuning.b3console.view.config.trans.TransConfigView;
 import com.b3tuning.b3console.view.config.trans.TransConfigViewModel;
 import com.b3tuning.b3console.view.loader.ViewManager;
 import com.b3tuning.b3console.view.loader.ViewManagerImpl.ViewInfo;
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import de.saxsys.mvvmfx.FluentViewLoader;
 import de.saxsys.mvvmfx.ViewModel;
 import de.saxsys.mvvmfx.ViewTuple;
@@ -23,8 +22,6 @@ import javafx.scene.layout.StackPane;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
-
-import static com.b3tuning.b3console.view.settings.SettingsMenuViewModel.MODULE_EVENT;
 
 /*
  *  Created on:  Apr 16, 2020
@@ -37,13 +34,13 @@ import static com.b3tuning.b3console.view.settings.SettingsMenuViewModel.MODULE_
 @XSlf4j
 public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 
-	private UserPreferences    preferences;
-	private NotificationCenter globalNotifications;
-	private ViewManager        viewManager;
+	private final UserPreferences    preferences;
+	private final NotificationCenter globalNotifications;
+	private       ViewManager        viewManager;
 
-	private ObjectProperty<ModuleType> module = new SimpleObjectProperty<>();
+//	private final ObjectProperty<ModuleType> module = new SimpleObjectProperty<>();
 
-	private ObjectProperty<StackPane> childViewPane = new SimpleObjectProperty<>();
+	private final ObjectProperty<StackPane> childViewPane = new SimpleObjectProperty<>();
 
 	private ViewTuple<DoorConfigView, DoorConfigViewModel>       doorConfigViewTuple;
 	private ViewTuple<ShifterConfigView, ShifterConfigViewModel> shifterConfigViewTuple;
@@ -56,8 +53,8 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 		this.globalNotifications = notifications;
 		this.viewManager         = viewManager;
 
-		module.set(ModuleType.valueOf(preferences.getModule()));
-		globalNotifications.subscribe(MODULE_EVENT, (key, payload) -> module.set((ModuleType) (payload[0])));
+//		module.set(ModuleType.valueOf(preferences.getModule()));
+//		globalNotifications.subscribe(MODULE_EVENT, (key, payload) -> module.set((ModuleType) (payload[0])));
 	}
 
 	private void showDoorConfigView() {
@@ -153,9 +150,9 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 
 	}
 
-	public ObjectProperty<ModuleType> getModule() {
-		return module;
-	}
+//	public ObjectProperty<ModuleType> getModule() {
+//		return module;
+//	}
 
 	public void setChildViewPane(StackPane value) {
 		childViewPane.set(value);

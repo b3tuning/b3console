@@ -45,6 +45,7 @@ public enum ViewMenu implements MenuItemInterface {
 		this.separated  = separated;
 	}
 
+	@Override
 	public ViewMenu findByLabel(String label) {
 		log.entry();
 		for (ViewMenu item : ViewMenu.values()) {
@@ -55,6 +56,7 @@ public enum ViewMenu implements MenuItemInterface {
 		return null;
 	}
 
+	@Override
 	public String toString() {
 		return label;
 	}

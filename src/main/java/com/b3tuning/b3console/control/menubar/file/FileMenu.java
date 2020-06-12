@@ -65,6 +65,7 @@ public enum FileMenu implements MenuItemInterface {
 		this.separated  = separated;
 	}
 
+	@Override
 	public FileMenu findByLabel(String label) {
 		log.entry();
 		for (FileMenu item : FileMenu.values()) {
@@ -75,6 +76,7 @@ public enum FileMenu implements MenuItemInterface {
 		return null;
 	}
 
+	@Override
 	public String toString() {
 		return label;
 	}

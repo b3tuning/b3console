@@ -60,6 +60,7 @@ public enum MainMenuBarItem implements MenuItemInterface {
 		this.items      = items;
 	}
 
+	@Override
 	public MainMenuBarItem findByLabel(String label) {
 		log.entry();
 		for (MainMenuBarItem item : MainMenuBarItem.values()) {
@@ -70,6 +71,7 @@ public enum MainMenuBarItem implements MenuItemInterface {
 		return null;
 	}
 
+	@Override
 	public String toString() {
 		return label;
 	}

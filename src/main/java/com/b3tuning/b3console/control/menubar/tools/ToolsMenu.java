@@ -45,6 +45,7 @@ public enum ToolsMenu implements MenuItemInterface {
 		this.separated  = separated;
 	}
 
+	@Override
 	public ToolsMenu findByLabel(String label) {
 		log.entry();
 		for (ToolsMenu item : ToolsMenu.values()) {
@@ -55,6 +56,7 @@ public enum ToolsMenu implements MenuItemInterface {
 		return null;
 	}
 
+	@Override
 	public String toString() {
 		return label;
 	}

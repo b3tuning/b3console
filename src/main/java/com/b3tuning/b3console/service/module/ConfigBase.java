@@ -1,7 +1,6 @@
 package com.b3tuning.b3console.service.module;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleLongProperty;

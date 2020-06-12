@@ -3,12 +3,9 @@ package com.b3tuning.b3console.view.help;
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.notifications.PageContextChangedNotification;
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import lombok.extern.slf4j.XSlf4j;
@@ -17,7 +14,6 @@ import javax.inject.Inject;
 import java.net.URL;
 
 import static com.b3tuning.b3console.view.root.RootViewModel.HELP_DETACHED_EVENT;
-import static com.b3tuning.b3console.view.settings.SettingsMenuViewModel.MODULE_EVENT;
 
 /*
  *  Created on:  Apr 15, 2020
@@ -38,7 +34,7 @@ public class HelpViewModel extends BaseViewModel {
 
 	private StringProperty             helpFile = new SimpleStringProperty();
 	private BooleanProperty            detached = new SimpleBooleanProperty(false);
-	private ObjectProperty<ModuleType> module   = new SimpleObjectProperty<>();
+//	private ObjectProperty<ModuleType> module   = new SimpleObjectProperty<>();
 
 	@Inject
 	public HelpViewModel(UserPreferences prefs, NotificationCenter notificationCenter) {
@@ -46,8 +42,8 @@ public class HelpViewModel extends BaseViewModel {
 		this.preferences         = prefs;
 		this.globalNotifications = notificationCenter;
 
-		module.set(ModuleType.valueOf(preferences.getModule()));
-		globalNotifications.subscribe(MODULE_EVENT, (key, payload) -> module.set((ModuleType) (payload[0])));
+//		module.set(ModuleType.valueOf(preferences.getModule()));
+//		globalNotifications.subscribe(MODULE_EVENT, (key, payload) -> module.set((ModuleType) (payload[0])));
 
 		globalNotifications.subscribe(PageContextChangedNotification.class.getName(),
 		                              (key, payload) -> {

@@ -31,7 +31,7 @@ public class MainMenuBar extends Node {
 
 	private final MenuBar menuBar = new MenuBar();
 
-	private static ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedItem = new SimpleObjectProperty<>();
+	private static final ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedItem = new SimpleObjectProperty<>();
 
 	public MainMenuBar() {
 		this.menuBar.getMenus().addAll(Arrays.stream(MainMenuBarItem.values())

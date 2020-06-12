@@ -52,7 +52,8 @@ public class CommonDependenciesModule {
 	/****************
 	 * * SERVICES * *
 	 ****************/
-	@Provides @Singleton
+	@Provides
+	@Singleton
 	EntityPatcher provideEntityPatcher() {
 		return new EntityPatcher();
 	}
@@ -72,8 +73,6 @@ public class CommonDependenciesModule {
 	@Provides
 	@Singleton
 	FileChooser provideFileChooser() {
-		log.entry();
-		log.error("CREATING A NEW FILE CHOOSER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		return new FileChooser();
 	}
 
@@ -87,6 +86,12 @@ public class CommonDependenciesModule {
 	@Singleton
 	SerialComms provideSerialComms() {
 		return new SerialComms();
+	}
+
+	@Provides
+	@Singleton
+	FileManager provideFileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser) {
+		return new FileManager(preferences, notifications, chooser);
 	}
 
 	/******************
@@ -116,26 +121,9 @@ public class CommonDependenciesModule {
 		return new TransConfigAssembler();
 	}
 
-	/*************
-	 * * MENUS * *
-	 *************/
-//	@Provides
-//	@Singleton
-//	OpenConfigDialog provideOpenConfigDialog(FileManager manager) {
-//		return new OpenConfigDialog(manager);
-//	}
-
 	/***************
 	 * * HELPERS * *
 	 ***************/
-	@Provides
-	@Singleton
-	FileManager provideFileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser) {
-		log.entry();
-		log.error("CREATING A NEW FILE MANAGER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-		return new FileManager(preferences, notifications, chooser);
-	}
-
 	@Provides
 	@Singleton
 	UserPreferences provideUserPreferences(ObjectMapper mapper) {
@@ -165,26 +153,5 @@ public class CommonDependenciesModule {
 	ScrollBarHelper provideScrollBarHelper() {
 		return new ScrollBarHelper();
 	}
-
-	/******************
-	 * * API-CLIENT * *
-	 ******************/
-
-//	@Provides
-//	@Singleton
-//	ServiceFactory provideApiClientServiceFactory(AppProperties appProperties) {
-//		log.trace("Providing ServiceFactory");
-//		ApiClientConfig config = new ApiClientConfig();
-//		config.setAuthnBaseUrl(appProperties.getAuthn().getBaseUrl());
-//		config.setOrganizationsBaseUrl(appProperties.getOrganizations().getBaseUrl());
-//		config.setLocationsBaseUrl(appProperties.getLocations().getBaseUrl());
-//		config.setProjectsBaseUrl(appProperties.getProjects().getBaseUrl());
-//		config.setUsersBaseUrl(appProperties.getUsers().getBaseUrl());
-//		config.setJobsBaseUrl(appProperties.getJobs().getBaseUrl());
-//		config.setProfilesBaseUrl(appProperties.getProfiles().getBaseUrl());
-//		config.setFilesBaseUrl(appProperties.getFiles().getBaseUrl());
-//
-//		return new ServiceFactory(config);
-//	}
 
 }

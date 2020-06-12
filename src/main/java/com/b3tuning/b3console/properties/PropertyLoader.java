@@ -37,8 +37,8 @@ public class PropertyLoader {
 	private static final String BUILD                = "app.build";
 	private static final String LOG_URL              = "app.log.url";
 	private static final String FILES_MIME_SUPPORTED = "files.mimetype.supported";
-	private static final String USER_HELP_URL        = "help.user.url";
-	private static final String API_HELP_URL         = "help.api.url";
+//	private static final String USER_HELP_URL        = "help.user.url";
+//	private static final String API_HELP_URL         = "help.api.url";
 	private static final String USER_AGENT_PROPERTY  = "app.useragent";
 	private static final String LOG_LEVEL_PROPERTY   = "log.level";
 

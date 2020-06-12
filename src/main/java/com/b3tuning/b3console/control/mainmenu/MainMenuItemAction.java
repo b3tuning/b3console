@@ -1,8 +1,7 @@
 package com.b3tuning.b3console.control.mainmenu;
 
-
 public enum MainMenuItemAction {
-	
+
 	NONE,
 	PROJECTS,
 	TRANSFERS,
@@ -10,9 +9,8 @@ public enum MainMenuItemAction {
 	ORGANIZATIONS,
 	USERS,
 	SETTINGS,
-	PROFILES, 
+	PROFILES,
 	HELP_API,
-	HELP_APP
-	;
-	
+	HELP_APP;
+
 }

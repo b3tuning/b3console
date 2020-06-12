@@ -11,7 +11,7 @@ package com.b3tuning.b3console.control.menubar.file.subs;
 
 import com.b3tuning.b3console.App;
 import com.b3tuning.b3console.service.module.ConfigBase;
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel.ModuleType;
+import com.b3tuning.b3console.service.module.ModuleType;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;

@@ -1,5 +1,7 @@
 package com.b3tuning.b3console.platform;
 
+import com.b3tuning.b3console.prefs.UserPreferences;
+import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.service.files.filemanager.FileManager;
 import com.b3tuning.b3console.view.config.ConfigMenuView;
 import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
@@ -21,6 +23,7 @@ import com.b3tuning.b3console.view.settings.SettingsMenuView;
 import com.b3tuning.b3console.view.settings.SettingsMenuViewModel;
 import com.b3tuning.b3console.view.transfer.TransferMenuView;
 import com.b3tuning.b3console.view.transfer.TransferMenuViewModel;
+import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.stage.FileChooser;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,12 +45,20 @@ public abstract class CommonDaggerMvvmfxBridge implements DaggerMvvmfxBridge {
 	@SuppressWarnings("unchecked")
 	public <T> T getInstance(Class<T> type) {
 
-		if (RootView.class.equals(type)) {
-			return (T) getApplicationComponents().provideRootView();
+		if (AppProperties.class.equals(type)) {
+			return (T) getApplicationComponents().provideAppProperties();
 		}
 
-		if (RootViewModel.class.equals(type)) {
-			return (T) getApplicationComponents().provideRootViewModel();
+		if (UserPreferences.class.equals(type)) {
+			return (T) getApplicationComponents().provideUserPreferences();
+		}
+
+		if (DaggerMvvmfxBridge.class.equals(type)) {
+			return (T) getApplicationComponents().provideDaggerMvvmfxBridge();
+		}
+
+		if (NotificationCenter.class.equals(type)) {
+			return (T) getApplicationComponents().provideNotificationCenter();
 		}
 
 		if (FileManager.class.equals(type)) {
@@ -57,6 +68,17 @@ public abstract class CommonDaggerMvvmfxBridge implements DaggerMvvmfxBridge {
 		if (FileChooser.class.equals(type)) {
 			return (T) getApplicationComponents().provideFileChooser();
 		}
+
+		if (RootView.class.equals(type)) {
+			return (T) getApplicationComponents().provideRootView();
+		}
+
+		if (RootViewModel.class.equals(type)) {
+			return (T) getApplicationComponents().provideRootViewModel();
+		}
+
+		//////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////
 
 		if (ConfigMenuView.class.equals(type)) {
 			return (T) getApplicationComponents().provideConfigMenuView();
