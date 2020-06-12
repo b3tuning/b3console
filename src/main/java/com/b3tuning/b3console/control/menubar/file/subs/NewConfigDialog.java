@@ -83,8 +83,8 @@ public class NewConfigDialog {
 		dialog.setResultConverter(dialogButton -> {
 			if (dialogButton == ButtonType.OK) {
 				ConfigBase base = new ConfigBase(configName.getText(), type.getValue());
-				base.setCreatedAt(System.currentTimeMillis());
-				base.setUpdatedAt(System.currentTimeMillis());
+				base.getCreatedAt().set(System.currentTimeMillis());
+				base.getUpdatedAt().set(System.currentTimeMillis());
 				return base;
 			}
 			return null;

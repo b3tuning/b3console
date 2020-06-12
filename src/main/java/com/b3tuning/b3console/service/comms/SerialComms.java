@@ -1,6 +1,6 @@
 package com.b3tuning.b3console.service.comms;
 
-import com.b3tuning.b3console.service.module.door.DoorConfigResource;
+import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource;
 import com.fazecast.jSerialComm.SerialPort;
 import lombok.extern.slf4j.XSlf4j;
 

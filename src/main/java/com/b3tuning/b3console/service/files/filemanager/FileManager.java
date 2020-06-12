@@ -131,7 +131,7 @@ public class FileManager {
 
 	public RecentFile recentFileFromConfig(ConfigBase config, String path) {
 		log.entry();
-		return new RecentFile(config.getName(), path, config.getType(), config.getUpdatedAt());
+		return new RecentFile(config.getName().get(), path, config.getType().get(), config.getUpdatedAt().get());
 	}
 
 	public RecentFile getCurrentFile() {

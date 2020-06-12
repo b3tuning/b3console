@@ -7,6 +7,9 @@ import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -18,8 +21,10 @@ import java.io.Serializable;
  *
  * Copyright (C) 2020 B3Tuning, LLC.
  */
+@Data
+@Accessors(chain = true)
+@EqualsAndHashCode(callSuper = true)
 public class ConfigBase extends EditableEntity implements Serializable {
-
 	private static final long serialVersionUID = 710870165244969653L;
 
 	private StringProperty             name;
@@ -54,58 +59,11 @@ public class ConfigBase extends EditableEntity implements Serializable {
 
 	public ConfigBase(String name, ModuleType type) {
 		this(type);
-		this.setName(name);
+		this.name.set(name);
 	}
 
 	public ConfigBase copy() {
-		return new ConfigBase(this.getName(), this.getCreatedAt(), this.getUpdatedAt(), this.getType());
-	}
-
-	public String getName() {
-		return name.get();
-	}
-
-	public Long getCreatedAt() {
-		return createdAt.get();
-	}
-
-	public Long getUpdatedAt() {
-		return updatedAt.get();
-	}
-
-	public ModuleType getType() {
-		return type.get();
-	}
-
-	public void setName(String value) {
-		this.name.set(value);
-	}
-
-	public void setCreatedAt(Long value) {
-		this.createdAt.set(value);
-	}
-
-	public void setUpdatedAt(Long value) {
-		this.updatedAt.set(value);
-	}
-
-	public void setType(ModuleType value) {
-		this.type.set(value);
-	}
-
-	public StringProperty nameProperty() {
-		return name;
-	}
-
-	public LongProperty createdAtProperty() {
-		return createdAt;
-	}
-
-	public LongProperty updatedAtProperty() {
-		return updatedAt;
-	}
-
-	public ObjectProperty<ModuleType> typeProperty() {
-		return type;
+		return new ConfigBase(this.getName().get(), this.getCreatedAt().get(), this.getUpdatedAt().get(),
+		                      this.getType().get());
 	}
 }

@@ -1,6 +1,6 @@
 package com.b3tuning.b3console.view.config.shifter;
 
-import com.b3tuning.b3console.service.module.shifter.ShifterConfig;
+import com.b3tuning.b3console.service.module.shifter.config.ShifterConfig;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.EditableViewModel;
 import com.b3tuning.b3console.view.Refreshable;

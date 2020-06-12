@@ -1,12 +1,14 @@
 package com.b3tuning.b3console.service.module.shifter;
 
 import com.b3tuning.b3console.service.module.CanBusAssembler;
-import com.b3tuning.b3console.service.module.shifter.ShifterConfig.IndicatorConfig;
-import com.b3tuning.b3console.service.module.shifter.ShifterConfig.MelexisConfig;
-import com.b3tuning.b3console.service.module.shifter.ShifterConfig.ShifterPositionConfig;
-import com.b3tuning.b3console.service.module.shifter.ShifterConfigResource.IndicatorResource;
-import com.b3tuning.b3console.service.module.shifter.ShifterConfigResource.MelexisResource;
-import com.b3tuning.b3console.service.module.shifter.ShifterConfigResource.ShifterPositionResource;
+import com.b3tuning.b3console.service.module.shifter.config.IndicatorConfig;
+import com.b3tuning.b3console.service.module.shifter.config.MelexisConfig;
+import com.b3tuning.b3console.service.module.shifter.config.ShifterConfig;
+import com.b3tuning.b3console.service.module.shifter.config.ShifterPositionConfig;
+import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource;
+import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.IndicatorResource;
+import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.MelexisResource;
+import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.ShifterPositionResource;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -54,21 +56,20 @@ public class ShifterAssembler {
 	}
 
 	public ShifterConfigResource assemble(ShifterConfig config) {
-		return new ShifterConfigResource(CanBusAssembler.assemble(config.getCanBusConfig()),
-		                                 assemble(config.getIndicatorConfig()),
-		                                 assemble(config.getMelexisConfig()),
-		                                 assemble(config.getShifterPositionConfigs()));
+		return new ShifterConfigResource(CanBusAssembler.assemble(config.getCanBus().get()),
+		                                 assemble(config.getIndicator().get()),
+		                                 assemble(config.getMelexis().get()),
+		                                 assemble(config.getShifterPositions().get()));
 	}
 
-
 	public IndicatorResource assemble(IndicatorConfig config) {
-		return new IndicatorResource(config.getBrightness(),
-		                             config.getColor(),
-		                             config.getWait());
+		return new IndicatorResource(config.getBrightness().get(),
+		                             config.getColor().get(),
+		                             config.getWait().get());
 	}
 
 	public MelexisResource assemble(MelexisConfig config) {
-		return new MelexisResource(config.getRange());
+		return new MelexisResource(config.getRange().get());
 	}
 
 	public List<ShifterPositionResource> assemble(ObservableList<ShifterPositionConfig> configs) {
@@ -76,11 +77,11 @@ public class ShifterAssembler {
 	}
 
 	public ShifterPositionResource assemble(ShifterPositionConfig config) {
-		return new ShifterPositionResource(config.getX1(),
-		                                   config.getY1(),
-		                                   config.getX2(),
-		                                   config.getY2(),
-		                                   config.getEnumVal());
+		return new ShifterPositionResource(config.getX1().get(),
+		                                   config.getY1().get(),
+		                                   config.getX2().get(),
+		                                   config.getY2().get(),
+		                                   config.getEnumVal().get());
 	}
 }
 

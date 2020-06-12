@@ -1,6 +1,8 @@
 package com.b3tuning.b3console.service.module.door;
 
 import com.b3tuning.b3console.service.comms.SerialComms;
+import com.b3tuning.b3console.service.module.door.config.DoorConfig;
+import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;

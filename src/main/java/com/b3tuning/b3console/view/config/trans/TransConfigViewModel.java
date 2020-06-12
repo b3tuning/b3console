@@ -1,6 +1,6 @@
 package com.b3tuning.b3console.view.config.trans;
 
-import com.b3tuning.b3console.service.module.trans.TransConfig;
+import com.b3tuning.b3console.service.module.trans.config.TransConfig;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.EditableViewModel;
 import com.b3tuning.b3console.view.Refreshable;

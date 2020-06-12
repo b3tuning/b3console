@@ -1,8 +1,13 @@
 package com.b3tuning.b3console.service.module.door;
 
-import com.b3tuning.b3console.service.module.door.DoorConfigResource.MirrorActionResource;
-import com.b3tuning.b3console.service.module.door.DoorConfigResource.MirrorSelectResource;
-import com.b3tuning.b3console.service.module.door.DoorConfigResource.WindowActionResource;
+import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource;
+import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource.MirrorActionResource;
+import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource.MirrorSelectResource;
+import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource.WindowActionResource;
+import com.b3tuning.b3console.service.module.door.config.DoorConfig;
+import com.b3tuning.b3console.service.module.door.config.MirrorActionConfig;
+import com.b3tuning.b3console.service.module.door.config.MirrorSelectConfig;
+import com.b3tuning.b3console.service.module.door.config.WindowActionConfig;
 
 /*
  *  Created on:  May 04, 2020
@@ -54,41 +59,41 @@ public class DoorConfigAssembler {
 	}
 
 	public DoorConfigResource assemble(DoorConfig config) {
-		return new DoorConfigResource(assemble(config.getMirrorAction()),
-		                              assemble(config.getMirrorSelect()),
-		                              assemble(config.getWindowAction()),
-		                              config.getDriverWindowMaxCurrent(),
-		                              config.getPassengerWindowMaxCurrent());
+		return new DoorConfigResource(assemble(config.getMirrorAction().get()),
+		                              assemble(config.getMirrorSelect().get()),
+		                              assemble(config.getWindowAction().get()),
+		                              config.getDriverWindowMaxCurrent().get(),
+		                              config.getPassengerWindowMaxCurrent().get());
 	}
 
 	public static MirrorActionResource assemble(MirrorActionConfig config) {
-		return new MirrorActionResource(config.getDownMax(),
-		                                config.getDownMin(),
-		                                config.getLeftMax(),
-		                                config.getLeftMin(),
-		                                config.getRightMax(),
-		                                config.getRightMin(),
-		                                config.getUpMax(),
-		                                config.getUpMin());
+		return new MirrorActionResource(config.getDownMax().get(),
+		                                config.getDownMin().get(),
+		                                config.getLeftMax().get(),
+		                                config.getLeftMin().get(),
+		                                config.getRightMax().get(),
+		                                config.getRightMin().get(),
+		                                config.getUpMax().get(),
+		                                config.getUpMin().get());
 	}
 
 	public static MirrorSelectResource assemble(MirrorSelectConfig config) {
-		return new MirrorSelectResource(config.getDriverMax(),
-		                                config.getDriverMin(),
-		                                config.getFoldMax(),
-		                                config.getFoldMin(),
-		                                config.getPassengerMax(),
-		                                config.getPassengerMin());
+		return new MirrorSelectResource(config.getDriverMax().get(),
+		                                config.getDriverMin().get(),
+		                                config.getFoldMax().get(),
+		                                config.getFoldMin().get(),
+		                                config.getPassengerMax().get(),
+		                                config.getPassengerMin().get());
 	}
 
 	public static WindowActionResource assemble(WindowActionConfig config) {
-		return new WindowActionResource(config.getAutoDownMax(),
-		                                config.getAutoDownMin(),
-		                                config.getAutoUpMax(),
-		                                config.getAutoUpMin(),
-		                                config.getDownMax(),
-		                                config.getDownMin(),
-		                                config.getUpMax(),
-		                                config.getUpMin());
+		return new WindowActionResource(config.getAutoDownMax().get(),
+		                                config.getAutoDownMin().get(),
+		                                config.getAutoUpMax().get(),
+		                                config.getAutoUpMin().get(),
+		                                config.getDownMax().get(),
+		                                config.getDownMin().get(),
+		                                config.getUpMax().get(),
+		                                config.getUpMin().get());
 	}
 }

@@ -16,7 +16,9 @@ public class ConfigBaseAssembler {
 	public static ConfigBase assemble(ConfigBaseResource resource) {
 		return new ConfigBase(resource.getName(), resource.getCreatedAt(), resource.getUpdatedAt(), resource.getType());
 	}
+
 	public static ConfigBaseResource assemble(ConfigBase config) {
-		return new ConfigBaseResource(config.getName(), config.getCreatedAt(), config.getUpdatedAt(), config.getType());
+		return new ConfigBaseResource(config.getName().get(), config.getCreatedAt().get(), config.getUpdatedAt().get(),
+		                              config.getType().get());
 	}
 }

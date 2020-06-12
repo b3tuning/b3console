@@ -20,7 +20,6 @@ import javafx.scene.layout.StackPane;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
-
 import java.util.List;
 
 import static org.reactfx.EventStreams.eventsOf;
@@ -53,8 +52,8 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 
 	@InjectViewModel private ConfigMenuViewModel viewModel;
 
-	private NotificationCenter globalNotifications;
-	private UserPreferences    preferences;
+	private final NotificationCenter globalNotifications;
+	private final UserPreferences    preferences;
 
 	@Inject
 	public ConfigMenuView(NotificationCenter globalNotifications, UserPreferences prefs) {

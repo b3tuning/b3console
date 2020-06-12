@@ -1,8 +1,11 @@
-package com.b3tuning.b3console.service.module.door;
+package com.b3tuning.b3console.service.module.door.config;
 
 import com.b3tuning.b3console.service.module.ConfigBase;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -14,8 +17,10 @@ import java.io.Serializable;
  *
  * Copyright (C) 2020 B3Tuning, LLC.
  */
+@Data
+@Accessors(chain = true)
+@EqualsAndHashCode(callSuper = true)
 public class DoorConfig extends ConfigBase implements Serializable {
-
 	private static final long serialVersionUID = 4780456121009969723L;
 
 	private ObjectProperty<MirrorActionConfig> mirrorAction;
@@ -48,71 +53,10 @@ public class DoorConfig extends ConfigBase implements Serializable {
 	}
 
 	public DoorConfig copy() {
-		return new DoorConfig(this.getMirrorAction(),
-		                      this.getMirrorSelect(),
-		                      this.getWindowAction(),
-		                      this.getDriverWindowMaxCurrent(),
-		                      this.getPassengerWindowMaxCurrent());
+		return new DoorConfig(this.getMirrorAction().get(),
+		                      this.getMirrorSelect().get(),
+		                      this.getWindowAction().get(),
+		                      this.getDriverWindowMaxCurrent().get(),
+		                      this.getPassengerWindowMaxCurrent().get());
 	}
-
-	public MirrorActionConfig getMirrorAction() {
-		return mirrorAction.get();
-	}
-
-	public MirrorSelectConfig getMirrorSelect() {
-		return mirrorSelect.get();
-	}
-
-	public WindowActionConfig getWindowAction() {
-		return windowAction.get();
-	}
-
-	public int getDriverWindowMaxCurrent() {
-		return driverWindowMaxCurrent.get();
-	}
-
-	public int getPassengerWindowMaxCurrent() {
-		return passengerWindowMaxCurrent.get();
-	}
-
-	public void setMirrorAction(MirrorActionConfig value) {
-		mirrorAction.set(value);
-	}
-
-	public void setMirrorSelect(MirrorSelectConfig value) {
-		mirrorSelect.set(value);
-	}
-
-	public void setDriverWindowAction(WindowActionConfig value) {
-		windowAction.set(value);
-	}
-
-	public void setDriverWindowMaxCurrent(int value) {
-		driverWindowMaxCurrent.set(value);
-	}
-
-	public void setPassengerWindowMaxCurrent(int value) {
-		passengerWindowMaxCurrent.set(value);
-	}
-
-	public ObjectProperty<MirrorActionConfig> mirrorActionProperty() {
-		return mirrorAction;
-	}
-
-	public ObjectProperty<MirrorSelectConfig> mirrorSelectProperty() {
-		return mirrorSelect;
-	}
-
-	public ObjectProperty<WindowActionConfig> windowActionProperty() {
-		return windowAction;
-	}
-
-	public ObjectProperty<Integer> driverWindowMaxCurrentProperty() {
-		return driverWindowMaxCurrent;
-	}
-
-	public ObjectProperty<Integer> passengerWindowMaxCurrentProperty() {
-		return passengerWindowMaxCurrent;
-	}
-
 }
