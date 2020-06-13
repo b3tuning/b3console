@@ -1,11 +1,9 @@
 package com.b3tuning.b3console.view.config;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.notifications.ClickButtonNotification;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,11 +12,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import lombok.extern.slf4j.XSlf4j;
-import org.fxmisc.easybind.EasyBind;
 
 import javax.inject.Inject;
-
-import static org.reactfx.EventStreams.eventsOf;
 
 @XSlf4j
 public class ProjectFrameView extends BaseView<ProjectFrameViewModel> {

@@ -1,34 +1,17 @@
 package com.b3tuning.b3console.view.config;
 
-import com.b3tuning.b3console.control.mainmenu.MainMenuItemAction;
 import com.b3tuning.b3console.view.BaseViewModel;
-import com.b3tuning.b3console.view.DetailMode;
 import com.b3tuning.b3console.view.Refreshable;
 import com.b3tuning.b3console.view.loader.ViewManager;
-import com.b3tuning.b3console.view.loader.ViewManagerImpl;
 import com.b3tuning.b3console.view.loader.ViewManagerImpl.ViewInfo;
-import com.b3tuning.b3console.view.notifications.ClickButtonNotification;
-import com.b3tuning.b3console.view.notifications.PopViewNotification;
-import de.saxsys.mvvmfx.FluentViewLoader;
 import de.saxsys.mvvmfx.ViewModel;
-import de.saxsys.mvvmfx.ViewTuple;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
-import javafx.application.Platform;
-import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.layout.StackPane;
 import lombok.extern.slf4j.XSlf4j;
-import org.fxmisc.easybind.EasyBind;
-import org.reactfx.EventStream;
 
 import javax.inject.Inject;
-import java.util.UUID;
-
-import static org.reactfx.EventStreams.combine;
-import static org.reactfx.EventStreams.nonNullValuesOf;
-import static org.reactfx.EventStreams.valuesOf;
 
 @XSlf4j
 public class ProjectFrameViewModel extends BaseViewModel implements Refreshable {
@@ -47,24 +30,27 @@ public class ProjectFrameViewModel extends BaseViewModel implements Refreshable 
 //	private ObjectProperty<ProjectDetail>        project              = new SimpleObjectProperty<>();
 //	private ObjectProperty<ProjectRoleHierarchy> userRole             = new SimpleObjectProperty<>();
 //	private BooleanProperty                      projectEditorOrAbove = new SimpleBooleanProperty(false);
-	private ObjectProperty<StackPane>            childViewPane        = new SimpleObjectProperty<>();
+	private ObjectProperty<StackPane> childViewPane = new SimpleObjectProperty<>();
 
 	// private
 //	private ObjectProperty<DetailMode> mode = new SimpleObjectProperty<>();
 
 	public enum MenuAction {
-		BACK, JOBS, INGEST, OPTIONS
+		BACK,
+		JOBS,
+		INGEST,
+		OPTIONS
 	}
 
 	@Inject
 	public ProjectFrameViewModel(//AuthenticatedUser user, ProjectsService projectsService,
-			NotificationCenter globalNotifications, ViewManager viewManager) {
+	                             NotificationCenter globalNotifications, ViewManager viewManager) {
 		log.entry();
 
 //		this.user = user;
 //		this.projectsService = projectsService;
 		this.globalNotifications = globalNotifications;
-		this.viewManager = viewManager;
+		this.viewManager         = viewManager;
 
 		// the overall state of the form is a combination of uid and mode
 //		EventStream<UUID> projectUidStream = nonNullValuesOf(projectUid);
@@ -240,10 +226,10 @@ public class ProjectFrameViewModel extends BaseViewModel implements Refreshable 
 	public void refresh() {
 		log.entry();
 		ViewInfo currentView = viewManager.peek(childViewPane.get());
-		if (currentView!=null) {
+		if (currentView != null) {
 			ViewModel vm = currentView.getViewTuple().getViewModel();
 			if (vm instanceof Refreshable) {
-				((Refreshable)vm).refresh();
+				((Refreshable) vm).refresh();
 			}
 		}
 	}
@@ -258,7 +244,7 @@ public class ProjectFrameViewModel extends BaseViewModel implements Refreshable 
 //		projectUid.unbind();
 
 		viewManager.destroyAll(childViewPane.get());
-		viewManager=null;
+		viewManager = null;
 	}
 
 }
