@@ -40,7 +40,7 @@ public class UserPreferences {
 
 	public UserPreferences(ObjectMapper mapper) {
 		this.preferences = Preferences.userRoot().node(this.getClass().getName());
-		this.mapper = mapper;
+		this.mapper      = mapper;
 	}
 
 	private void set(String property, String value) {

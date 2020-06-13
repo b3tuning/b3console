@@ -53,8 +53,7 @@ public class FileManager {
 		this.preferences = preferences;
 		this.chooser     = chooser;
 		this.chooser.setInitialDirectory(new File(preferences.getBrowseLocalPath()));
-		this.chooser.getExtensionFilters()
-		            .add(new FileChooser.ExtensionFilter("B3 Module Config", "*.bdc", "*.bsc", "*.btc"));
+		this.chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("B3Tuning Module Config", "*.b3t"));
 		this.globalNotifications = notifications;
 
 		loadRecentFiles();
@@ -75,17 +74,10 @@ public class FileManager {
 	private void updateRecentFiles(RecentFile recentFile) {
 		log.entry(recentFile);
 		currentFile = recentFile;
-		log.debug("Current file = {}", currentFile);
 		currentFile.setLastAccessed(System.currentTimeMillis());
-		log.debug("Current file last accessed = {}", currentFile.getLastAccessed());
-		if (recentFiles.get().removeAll(recentFile)) {
-			log.error("REMOVED RECENT FILE");
-		}
-		log.debug("removed recent file from list = {}", recentFile);
+		recentFiles.get().removeAll(recentFile);
 		recentFiles.get().add(currentFile);
-		log.debug("Added current file = {}", currentFile);
 		recentFiles.get().sorted();
-		log.debug("sorted recentFiles file = {}", recentFiles);
 		updateRecentFiles();
 	}
 
