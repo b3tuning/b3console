@@ -2,8 +2,10 @@ package com.b3tuning.b3console.view.settings;
 
 import com.b3tuning.b3console.view.BaseView;
 import de.saxsys.mvvmfx.InjectViewModel;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
@@ -12,6 +14,8 @@ import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static com.b3tuning.b3console.view.root.FontAwesome.FOLDER_OPEN;
 import static javafx.event.ActionEvent.ACTION;

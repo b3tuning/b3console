@@ -15,6 +15,8 @@ import com.b3tuning.b3console.view.menu.MenuView;
 import com.b3tuning.b3console.view.menu.MenuViewModel;
 import com.b3tuning.b3console.view.notifications.PopViewNotification;
 import com.b3tuning.b3console.view.notifications.PushViewNotification;
+import com.b3tuning.b3console.view.settings.SettingsMenuView;
+import com.b3tuning.b3console.view.settings.SettingsMenuViewModel;
 import de.saxsys.mvvmfx.FluentViewLoader;
 import de.saxsys.mvvmfx.ViewTuple;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
@@ -30,6 +32,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -89,6 +92,8 @@ public class RootViewModel extends BaseViewModel {
 	private final BooleanProperty            initialized      = new SimpleBooleanProperty(false);
 	private       ObjectProperty<ConfigBase> config           = new SimpleObjectProperty<>(null);
 
+	private ViewTuple<MenuView, MenuViewModel> menuViewTuple;
+
 	@Inject
 	public RootViewModel(AppProperties appProperties, NotificationCenter globalNotifications, ViewManager viewManager,
 	                     FileManager manager) {
@@ -143,6 +148,8 @@ public class RootViewModel extends BaseViewModel {
 		ViewTuple<MenuView, MenuViewModel> tuple = FluentViewLoader
 				.fxmlView(MenuView.class).load();
 		publish(ADD_MENU_VIEW, tuple);
+
+		menuViewTuple = FluentViewLoader.fxmlView(MenuView.class).load();
 	}
 
 	public Node helpView() {
@@ -228,12 +235,19 @@ public class RootViewModel extends BaseViewModel {
 
 			// TOOLS actions
 			case A_OPTIONS:
-				if (viewManager.contains(ConfigMenuView.class.getName())) {
-					viewManager.toFront(ConfigMenuView.class.getName());
+//				if (viewManager.contains(ConfigMenuView.class.getName())) {
+//					viewManager.toFront(ConfigMenuView.class.getName());
+//				} else {
+//					ViewTuple<ConfigMenuView, ConfigMenuViewModel> tuple = FluentViewLoader
+//							.fxmlView(ConfigMenuView.class).load();
+//					viewManager.push(ConfigMenuView.class.getName(), tuple, childViewPane.get(), A_OPTIONS);
+//				}
+				if (viewManager.contains(SettingsMenuView.class.getName())) {
+					viewManager.toFront(SettingsMenuView.class.getName());
 				} else {
-					ViewTuple<ConfigMenuView, ConfigMenuViewModel> tuple = FluentViewLoader
-							.fxmlView(ConfigMenuView.class).load();
-					viewManager.push(ConfigMenuView.class.getName(), tuple, childViewPane.get(), A_OPTIONS);
+					ViewTuple<SettingsMenuView, SettingsMenuViewModel> tuple = FluentViewLoader
+							.fxmlView(SettingsMenuView.class).load();
+					viewManager.push(SettingsMenuView.class.getName(), tuple, childViewPane.get(), A_OPTIONS);
 				}
 				break;
 
@@ -296,6 +310,7 @@ public class RootViewModel extends BaseViewModel {
 	private void showSaveConfigDialog() {
 		log.entry();
 		fileManager.saveConfig(config.get());
+		menuViewTuple.getView();
 	}
 
 	/**
@@ -347,5 +362,9 @@ public class RootViewModel extends BaseViewModel {
 
 	public ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedMenuBarItemProperty() {
 		return selectedMenuBarItem;
+	}
+
+	public Parent getMenuView() {
+		return menuViewTuple.getView();
 	}
 }

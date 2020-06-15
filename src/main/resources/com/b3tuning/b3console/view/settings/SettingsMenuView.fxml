@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ComboBox?>
 <AnchorPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
             xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -21,6 +22,9 @@
                        AnchorPane.topAnchor="22.0"/>
             <Button fx:id="selectDirectory" mnemonicParsing="false" prefHeight="28.0" prefWidth="40.0" styleClass="icon"
                     AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="22.0"/>
+            <ComboBox fx:id="combo" >
+
+            </ComboBox>
         </AnchorPane>
 <!--        <HBox spacing="10.0" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"-->
 <!--              AnchorPane.topAnchor="53.0"-->

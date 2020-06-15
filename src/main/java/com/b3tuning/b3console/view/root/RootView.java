@@ -135,10 +135,11 @@ public class RootView extends BaseView<RootViewModel> {
 
 	private void constructMainMenu() {
 		// construct the menu
-		mainMenuBar = new MainMenuBar();
-
-		viewModel.selectedMenuBarItemProperty().bind(mainMenuBar.selectedItemProperty());
-
-		topPane.getChildren().add(mainMenuBar.getMenuBar());
+//		mainMenuBar = new MainMenuBar();
+//
+//		viewModel.selectedMenuBarItemProperty().bind(mainMenuBar.selectedItemProperty());
+//
+//		topPane.getChildren().add(mainMenuBar.getMenuBar());
+		topPane.getChildren().add(viewModel.getMenuView());
 	}
 }
