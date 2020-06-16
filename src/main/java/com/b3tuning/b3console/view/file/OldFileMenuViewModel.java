@@ -63,7 +63,7 @@ import static org.reactfx.EventStreams.valuesOf;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 @XSlf4j
-public class FileMenuViewModel extends BaseViewModel implements Refreshable {
+public class OldFileMenuViewModel extends BaseViewModel implements Refreshable {
 
 	static final String REFRESH_PAGE = "refresh me";
 
@@ -81,7 +81,7 @@ public class FileMenuViewModel extends BaseViewModel implements Refreshable {
 
 
 	@Inject
-	public FileMenuViewModel(FileInspectorService fileInspectorService, UserPreferences preferences) {
+	public OldFileMenuViewModel(FileInspectorService fileInspectorService, UserPreferences preferences) {
 		log.entry();
 
 		this.fileInspectorService = fileInspectorService;

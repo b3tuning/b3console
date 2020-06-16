@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <AnchorPane xmlns="http://javafx.com/javafx"
@@ -12,44 +9,12 @@
             prefHeight="400.0" prefWidth="600.0">
     <HBox>
         <MenuBar fx:id="menuBar">
-            <Menu fx:id="fileMenu" text="File">
-                <MenuItem text="New"/>
-                <MenuItem text="Open"/>
-                <MenuItem text="Recent"/>
-                <SeparatorMenuItem/>
-                <MenuItem text="Save"/>
-                <MenuItem text="Save As"/>
-                <SeparatorMenuItem/>
-                <MenuItem text="Send"/>
-                <SeparatorMenuItem/>
-                <MenuItem text="Exit"/>
-            </Menu>
-            <Menu fx:id="editMenu" text="Edit">
-                <MenuItem text="Undo"/>
-                <MenuItem text="Redo"/>
-                <MenuItem text="Cut"/>
-                <MenuItem text="Copy"/>
-                <MenuItem text="Paste"/>
-                <MenuItem text="Delete"/>
-            </Menu>
-            <Menu fx:id="viewMenu" text="View">
-                <MenuItem text="ssss"/>
-            </Menu>
-            <Menu fx:id="onlineMenu" text="Online">
-                <MenuItem text="Connect"/>
-                <MenuItem text="Disconnect"/>
-                <SeparatorMenuItem/>
-                <MenuItem text="Monitor"/>
-            </Menu>
-            <Menu fx:id="toolsMenu" text="Tools">
-                <MenuItem text="Options"/>
-            </Menu>
-            <Menu fx:id="helpMenu" text="Help">
-                <MenuItem text="Search" disable="true"/>
-                <MenuItem text="Online Manual" visible="false"/>
-                <SeparatorMenuItem/>
-                <MenuItem text="About"/>
-            </Menu>
+            <fx:include source="file/FileMenuView.fxml"/>
+            <fx:include source="edit/EditMenuView.fxml"/>
+            <fx:include source="view/ViewMenuView.fxml"/>
+            <fx:include source="online/OnlineMenuView.fxml"/>
+            <fx:include source="tools/ToolsMenuView.fxml"/>
+            <fx:include source="help/HelpMenuView.fxml"/>
         </MenuBar>
     </HBox>
 </AnchorPane>

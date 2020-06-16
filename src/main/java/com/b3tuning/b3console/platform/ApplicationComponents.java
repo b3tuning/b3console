@@ -17,8 +17,20 @@ import com.b3tuning.b3console.view.help.HelpView;
 import com.b3tuning.b3console.view.help.HelpViewModel;
 import com.b3tuning.b3console.view.live.LiveMenuView;
 import com.b3tuning.b3console.view.live.LiveMenuViewModel;
+import com.b3tuning.b3console.view.menu.edit.EditMenuView;
+import com.b3tuning.b3console.view.menu.edit.EditMenuViewModel;
+import com.b3tuning.b3console.view.menu.file.FileMenuView;
+import com.b3tuning.b3console.view.menu.file.FileMenuViewModel;
 import com.b3tuning.b3console.view.menu.MenuView;
 import com.b3tuning.b3console.view.menu.MenuViewModel;
+import com.b3tuning.b3console.view.menu.help.HelpMenuView;
+import com.b3tuning.b3console.view.menu.help.HelpMenuViewModel;
+import com.b3tuning.b3console.view.menu.online.OnlineMenuView;
+import com.b3tuning.b3console.view.menu.online.OnlineMenuViewModel;
+import com.b3tuning.b3console.view.menu.tools.ToolsMenuView;
+import com.b3tuning.b3console.view.menu.tools.ToolsMenuViewModel;
+import com.b3tuning.b3console.view.menu.view.ViewMenuView;
+import com.b3tuning.b3console.view.menu.view.ViewMenuViewModel;
 import com.b3tuning.b3console.view.root.RootView;
 import com.b3tuning.b3console.view.root.RootViewModel;
 import com.b3tuning.b3console.view.settings.SettingsMenuView;
@@ -71,6 +83,64 @@ public interface ApplicationComponents {
 	void inject(RootViewModel viewModel);
 
 	RootViewModel provideRootViewModel();
+
+	/*  MENU  */
+
+	void inject(MenuView view);
+
+	MenuView provideMenuView();
+
+	void inject(MenuViewModel viewModel);
+
+	MenuViewModel provideMenuViewModel();
+
+	void inject(EditMenuView view);
+
+	EditMenuView provideEditMenuView();
+
+	void inject(EditMenuViewModel viewModel);
+
+	EditMenuViewModel provideEditMenuViewModel();
+
+	void inject(FileMenuView view);
+
+	FileMenuView provideFileMenuView();
+
+	void inject(FileMenuViewModel viewModel);
+
+	FileMenuViewModel provideFileMenuViewModel();
+
+	void inject(HelpMenuView view);
+
+	HelpMenuView provideHelpMenuView();
+
+	void inject(HelpMenuViewModel viewModel);
+
+	HelpMenuViewModel provideHelpMenuViewModel();
+
+	void inject(OnlineMenuView view);
+
+	OnlineMenuView provideOnlineMenuView();
+
+	void inject(OnlineMenuViewModel viewModel);
+
+	OnlineMenuViewModel provideOnlineMenuViewModel();
+
+	void inject(ToolsMenuView view);
+
+	ToolsMenuView provideToolsMenuView();
+
+	void inject(ToolsMenuViewModel viewModel);
+
+	ToolsMenuViewModel provideToolsMenuViewModel();
+
+	void inject(ViewMenuView view);
+
+	ViewMenuView provideViewMenuView();
+
+	void inject(ViewMenuViewModel viewModel);
+
+	ViewMenuViewModel provideViewMenuViewModel();
 
 	//////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////
@@ -130,13 +200,6 @@ public interface ApplicationComponents {
 
 	LiveMenuViewModel provideLiveMenuViewModel();
 
-	void inject(MenuView view);
-
-	MenuView provideMenuView();
-
-	void inject(MenuViewModel viewModel);
-
-	MenuViewModel provideMenuViewModel();
 
 	/* SETTINGS */
 	void inject(SettingsMenuView view);

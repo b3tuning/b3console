@@ -28,7 +28,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.TimeZone;
 
-import static com.b3tuning.b3console.view.file.FileMenuViewModel.REFRESH_PAGE;
+import static com.b3tuning.b3console.view.file.OldFileMenuViewModel.REFRESH_PAGE;
 import static com.b3tuning.b3console.view.root.FontAwesome.FOLDER_OPEN;
 import static javafx.event.ActionEvent.ACTION;
 import static javafx.scene.control.SelectionMode.MULTIPLE;
@@ -53,7 +53,7 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 @XSlf4j
-public class FileMenuView extends BaseView<FileMenuViewModel> {
+public class OldFileMenuView extends BaseView<OldFileMenuViewModel> {
 
 	private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
 
@@ -68,10 +68,10 @@ public class FileMenuView extends BaseView<FileMenuViewModel> {
 
 
 	@InjectViewModel
-	private FileMenuViewModel viewModel;
+	private OldFileMenuViewModel viewModel;
 
 	@Inject
-	public FileMenuView() {
+	public OldFileMenuView() {
 		log.entry();
 	}
 

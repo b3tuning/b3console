@@ -6,8 +6,6 @@ import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.service.files.filemanager.FileManager;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.view.BaseViewModel;
-import com.b3tuning.b3console.view.config.ConfigMenuView;
-import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
 import com.b3tuning.b3console.view.help.HelpView;
 import com.b3tuning.b3console.view.help.HelpViewModel;
 import com.b3tuning.b3console.view.loader.ViewManager;
@@ -64,7 +62,6 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class RootViewModel extends BaseViewModel {
 
-	public static final  String ADD_MENU_VIEW       = "add_menu_view";
 	public static final  String CONFIG_LOADED       = "config_loaded";
 	public static final  String HELP_DETACHED_EVENT = "help_detached";
 	private static final String HELP_STAGE_TITLE    = "B3Tuning Module Help";
@@ -92,7 +89,8 @@ public class RootViewModel extends BaseViewModel {
 	private final BooleanProperty            initialized      = new SimpleBooleanProperty(false);
 	private       ObjectProperty<ConfigBase> config           = new SimpleObjectProperty<>(null);
 
-	private ViewTuple<MenuView, MenuViewModel> menuViewTuple;
+	private final ViewTuple<MenuView, MenuViewModel>         menuViewTuple;
+//	private final ViewTuple<FileMenuView, FileMenuViewModel> fileMenuViewTuple;
 
 	@Inject
 	public RootViewModel(AppProperties appProperties, NotificationCenter globalNotifications, ViewManager viewManager,
@@ -145,11 +143,8 @@ public class RootViewModel extends BaseViewModel {
 		// detach the help from the sidebar if requested
 		globalNotifications.subscribe(HELP_DETACHED_EVENT, (key, payload) -> detachHelp());
 
-		ViewTuple<MenuView, MenuViewModel> tuple = FluentViewLoader
-				.fxmlView(MenuView.class).load();
-		publish(ADD_MENU_VIEW, tuple);
-
-		menuViewTuple = FluentViewLoader.fxmlView(MenuView.class).load();
+		menuViewTuple     = FluentViewLoader.fxmlView(MenuView.class).load();
+//		fileMenuViewTuple = FluentViewLoader.fxmlView(FileMenuView.class).load();
 	}
 
 	public Node helpView() {
@@ -367,4 +362,8 @@ public class RootViewModel extends BaseViewModel {
 	public Parent getMenuView() {
 		return menuViewTuple.getView();
 	}
+
+//	public FileMenuView getFileMenuView() {
+//		return fileMenuViewTuple.getCodeBehind();
+//	}
 }

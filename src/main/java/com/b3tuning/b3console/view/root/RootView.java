@@ -13,7 +13,6 @@ import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
 
-import static com.b3tuning.b3console.view.root.RootViewModel.ADD_MENU_VIEW;
 import static org.reactfx.EventStreams.combine;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 import static org.reactfx.EventStreams.valuesOf;
@@ -32,6 +31,7 @@ public class RootView extends BaseView<RootViewModel> {
 	@FXML AnchorPane leftPane;
 	@FXML StackPane  centerPane;
 	@FXML AnchorPane topPane;
+	@FXML AnchorPane bottomPane;
 	@FXML SplitPane  centerSplitPane;
 
 	private Node helpView;
@@ -70,8 +70,6 @@ public class RootView extends BaseView<RootViewModel> {
 		initializeHelp();
 
 //		initializeNotifications();
-
-		viewModel.subscribe(ADD_MENU_VIEW, ((key, payload) -> topPane.getChildren().add((Node) payload[0])));
 
 	}
 
@@ -135,11 +133,13 @@ public class RootView extends BaseView<RootViewModel> {
 
 	private void constructMainMenu() {
 		// construct the menu
-//		mainMenuBar = new MainMenuBar();
+		mainMenuBar = new MainMenuBar();
 //
 //		viewModel.selectedMenuBarItemProperty().bind(mainMenuBar.selectedItemProperty());
 //
 //		topPane.getChildren().add(mainMenuBar.getMenuBar());
+//		bottomPane.getChildren().add(mainMenuBar.getMenuBar());
+//		mainMenuBar.getMenuBar().getMenus().add(viewModel.getFileMenuView().getFileMenuSep());
 		topPane.getChildren().add(viewModel.getMenuView());
 	}
 }
