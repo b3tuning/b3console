@@ -1,188 +1,234 @@
+import java.nio.file.Paths
+
 buildscript {
-    repositories {
-        mavenCentral()
-        jcenter()
-        maven {
-            url "https://nexus.gluonhq.com/nexus/content/repositories/releases"
-        }
-        maven {
-            url "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-        maven {
-            url "https://repo.spring.io/plugins-release/"
-        }
-    }
-    dependencies {
+	repositories {
+		mavenCentral()
+		jcenter()
+		maven {
+			url "https://nexus.gluonhq.com/nexus/content/repositories/releases"
+		}
+		maven {
+			url "https://oss.sonatype.org/content/repositories/snapshots/"
+		}
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+		maven {
+			url "https://repo.spring.io/plugins-release/"
+		}
+	}
+	dependencies {
 
-        // dependency management:
-        classpath("com.netflix.nebula:gradle-dependency-lock-plugin:9.0.0")
-        classpath("com.netflix.nebula:gradle-git-scm-plugin:4.2.0")
-        classpath("com.github.ben-manes:gradle-versions-plugin:0.11.1")
+		// dependency management:
+		classpath("com.netflix.nebula:gradle-dependency-lock-plugin:9.0.0")
+		classpath("com.netflix.nebula:gradle-git-scm-plugin:4.2.0")
+		classpath("com.github.ben-manes:gradle-versions-plugin:0.11.1")
 
-        // auto-updating support:
-        classpath("no.tornado:fxlauncher-gradle-plugin:1.0.20")
-//		classpath "jp.classmethod.aws:gradle-aws-plugin:0.37"
-    }
+		// auto-updating support:
+		classpath("no.tornado:fxlauncher-gradle-plugin:1.0.20")
+	}
 }
 
 plugins {
-    id 'org.openjfx.javafxplugin' version '0.0.8'
+	id 'org.openjfx.javafxplugin' version '0.0.8'
 }
 
 ext {
-    projectName = project.getName()
-    projectTitle = 'B3Tuning Module Console'
-    major = 1
-    minor = 0
+	projectName = project.getName()
+	projectTitle = 'B3Tuning Module Console'
+	major = 1
+	minor = 0
 }
 
 apply from: 'build-tool/base.gradle'
 apply from: "${javaPlugin}"
 apply plugin: 'application'
 
-apply plugin: 'nebula.dependency-lock'        // used for locking gradle dependencies
+// used for locking gradle dependencies
+apply plugin: 'nebula.dependency-lock'
 apply plugin: 'nebula.gradle-git-scm'
-apply plugin: 'com.github.ben-manes.versions' // to check dependencies: ./gradlew dependencyUpdates -Drevision=release
 
-apply plugin: 'no.tornado.fxlauncher'	// auto-updater
-//apply plugin: 'jp.classmethod.aws.s3'	// pushes installer to s3
+// to check dependencies: ./gradlew dependencyUpdates -Drevision=release
+apply plugin: 'com.github.ben-manes.versions'
 
-mainClassName = 'com.b3tuning.b3console.App'
+// auto-updater
+apply plugin: 'no.tornado.fxlauncher'
+
+//mainClassName = 'com.b3tuning.b3console.App'
 
 group 'com.b3tuning'
 version '1.0-SNAPSHOT'
 
 sourceSets {
-    daggerMain {
-        java {
-            srcDirs = ['src/main/dagger']
-            compileClasspath += main.output
-            runtimeClasspath += main.output
-        }
-    }
+	daggerMain {
+		java {
+			srcDirs = ['src/main/dagger']
+			compileClasspath += main.output
+			runtimeClasspath += main.output
+		}
+	}
 }
 
 configurations {
-    implementationDagger
-    implementation.exclude module: "spring-boot-starter-web"
+	implementationDagger
+	implementation.exclude module: "spring-boot-starter-web"
 }
 
 configurations.implementationDagger.extendsFrom configurations.implementation
 
 javafx {
-    version = "14.0.1"
-    sdk = '/Library/Java/JavaVirtualMachines/javafx-sdk-14.0.1'
-    modules = [ 'javafx.base', 'javafx.graphics', 'javafx.controls', 'javafx.fxml', 'javafx.web', 'javafx.swing' ]
+	version = "14.0.1"
+
+	/*******************************************************************************************************************
+	 *
+	 *   Set an environment variable pointing to the location of the JavaFX SDK!
+	 *   JAVAFX_HOME is the sdk directory
+	 *   PATH_TO_FX  is the sdk/lib directory
+	 *
+	 *   ie: for Windows : Open an Administrator Command Prompt
+	 *      To Permanently set an environment variable for the current user:
+	 *             C:\> setx JAVAFX_HOME "C:\bin\Java\javafx-sdk-14.0.1"
+	 *             C:\> setx PATH_TO_FX "C:\bin\Java\javafx-sdk-14.0.1/lib"
+	 *
+	 *      Or, alternatively to Permanently set global environment variable (for all users):
+	 *             C:\> setx /M JAVAFX_HOME "C:\bin\Java\javafx-sdk-14.0.1"
+	 *             C:\> setx /M PATH_TO_FX "C:\bin\Java\javafx-sdk-14.0.1/lib"
+	 *
+	 *   ie: for MacOS  : Open a Terminal
+	 *     If using bash:
+	 *             echo 'export JAVAFX_HOME=/Library/Java/JavaVirtualMachines/javafx-sdk-14.0.1' >> ~/.bash_profile
+	 *             echo 'export PATH_TO_FX=/Library/Java/JavaVirtualMachines/javafx-sdk-14.0.1/lib' >> ~/.bash_profile
+	 *
+	 *     If using zsh:
+	 *             echo 'export JAVAFX_HOME=/Library/Java/JavaVirtualMachines/javafx-sdk-14.0.1' >> ~/.zshrc
+	 *             echo 'export PATH_TO_FX=/Library/Java/JavaVirtualMachines/javafx-sdk-14.0.1/lib' >> ~/.zshrc
+	 *
+	 *******************************************************************************************************************/
+
+	sdk = System.getenv('JAVAFX_HOME')
+	if (sdk == null || sdk.isBlank()) {
+		throw new InvalidUserDataException("JAVAFX_HOME environment variable is not set. It must be set to root folder where JAVAFX SDK is located")
+	}
+	modules = ['javafx.base', 'javafx.graphics', 'javafx.controls', 'javafx.fxml', 'javafx.web', 'javafx.swing']
+	mainClassName = 'com.b3tuning.b3console.App'
 }
 
 application {
-    applicationDefaultJvmArgs = [
-            "--add-opens=javafx.graphics/com.sun.javafx.css=ALL-UNNAMED",
-            "--add-opens=javafx.graphics/com.sun.prism=ALL-UNNAMED",
-            "--add-opens=javafx.graphics/com.sun.prism.sw=ALL-UNNAMED"
-    ]
+	applicationDefaultJvmArgs = [
+			"--add-opens=javafx.graphics/com.sun.javafx.css=ALL-UNNAMED",
+			"--add-opens=javafx.graphics/com.sun.prism=ALL-UNNAMED",
+			"--add-opens=javafx.graphics/com.sun.prism.sw=ALL-UNNAMED"
+	]
 }
 
 repositories {
-    flatDir {
-        dirs 'libs'
-    }
-    mavenCentral()
-    jcenter()
-    maven {
-        url "https://plugins.gradle.org/m2/"
-    }
+	flatDir {
+		dirs 'libs'
+	}
+	mavenCentral()
+	jcenter()
+	maven {
+		url "https://plugins.gradle.org/m2/"
+	}
 }
 
 dependencies {
 
-    def daggerVersion = '2.27'
-    def lombokVersion = '1.18.12'
-    def junitJupiterVersion = '5.6.2'
-    def mockitoVersion = '1.10.19'
-    def javaFxControlsVersion = '15-ea+3'
-    def gluonConnectVersion = '2.0.1'
-    def javaxAnnotationApiVersion = '1.3.2'
-    def mvvmFxVersion = '1.8.0'
-    def javaObjectDiffVersion = '0.95'
-    def guavaVersion = '29.0-jre'
-    def jacksonDatabindVersion = '2.11.0.rc1'
-    def commonsConfigurationVersion = '2.7'
-    def reactFxVersion = '2.0-M5'
-    def slf4jVersion = '2.0.0-alpha1'
-    def logbackVersion = '1.3.0-alpha5'
-    def controlsFxVersion = '11.0.1'
-    def easyBindVersion = '1.0.3'
-    def commonsValidatorVersion = '1.6'
-    def protobufVersion = '3.11.4'
-    def jSerialVersion = '2.6.1'
-    def beanUtilsVersion = '1.9.4'
-    def commons_ioVersion = '2.6'
-    def tikaVersion = '1.24.1'
+	def daggerVersion = '2.27'
+	def lombokVersion = '1.18.12'
+	def junitJupiterVersion = '5.6.2'
+	def mockitoVersion = '1.10.19'
+	def gluonConnectVersion = '2.0.1'
+	def javaxAnnotationApiVersion = '1.3.2'
+	def mvvmFxVersion = '1.8.0'
+	def javaObjectDiffVersion = '0.95'
+	def guavaVersion = '29.0-jre'
+	def jacksonDatabindVersion = '2.11.0.rc1'
+	def commonsConfigurationVersion = '2.7'
+	def reactFxVersion = '2.0-M5'
+	def slf4jVersion = '2.0.0-alpha1'
+	def logbackVersion = '1.3.0-alpha5'
+	def controlsFxVersion = '11.0.1'
+	def easyBindVersion = '1.0.3'
+	def commonsValidatorVersion = '1.6'
+	def protobufVersion = '3.11.4'
+	def jSerialVersion = '2.6.1'
+	def beanUtilsVersion = '1.9.4'
+	def commons_ioVersion = '2.6'
+	def tikaVersion = '1.24.1'
 
-    testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
-    testImplementation("org.mockito:mockito-all:$mockitoVersion")
+	testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
+	testImplementation("org.mockito:mockito-all:$mockitoVersion")
 
-    annotationProcessor("com.google.dagger:dagger-compiler:$daggerVersion")
-    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
-    implementationDagger("com.google.dagger:dagger-compiler:$daggerVersion")
+	annotationProcessor("com.google.dagger:dagger-compiler:$daggerVersion")
+	annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+	implementationDagger("com.google.dagger:dagger-compiler:$daggerVersion")
 
-    implementation("org.bouncycastle:bcprov-jdk15on:1.54")
-    implementation("org.javafxdata:datafx-core:8.0b5")
-    implementation("org.openjfx:javafx-controls:$javaFxControlsVersion")
-    implementation("com.gluonhq:connect:$gluonConnectVersion")
-    implementation("com.google.dagger:dagger:$daggerVersion")
-    implementation("com.google.dagger:dagger-compiler:$daggerVersion")
-    implementation("javax.annotation:javax.annotation-api:$javaxAnnotationApiVersion")
-    implementation("javax.inject:javax.inject:1")
-    implementation("de.saxsys:mvvmfx:$mvvmFxVersion")
-    implementation("de.saxsys:mvvmfx-validation:$mvvmFxVersion")
-    implementation("de.danielbechler:java-object-diff:$javaObjectDiffVersion")
-    implementation("com.google.guava:guava:$guavaVersion")
-    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion")
-    implementation("org.apache.commons:commons-configuration2:$commonsConfigurationVersion")
-    implementation("org.reactfx:reactfx:$reactFxVersion")
-    implementation("org.slf4j:slf4j-api:$slf4jVersion")
-    implementation("org.slf4j:slf4j-ext:$slf4jVersion")
-    implementation("ch.qos.logback:logback-core:$logbackVersion")
-    implementation("ch.qos.logback:logback-classic:$logbackVersion")
-    implementation("org.controlsfx:controlsfx:$controlsFxVersion")
-    implementation("org.fxmisc.easybind:easybind:$easyBindVersion")
-    implementation("commons-validator:commons-validator:$commonsValidatorVersion")
-    implementation("com.google.protobuf:protobuf-java:$protobufVersion")
-    implementation("com.fazecast:jSerialComm:$jSerialVersion")
-    implementation("org.projectlombok:lombok:$lombokVersion")
-    implementation("commons-beanutils:commons-beanutils:$beanUtilsVersion")
-    implementation("commons-io:commons-io:$commons_ioVersion")
-    implementation("org.apache.tika:tika-core:$tikaVersion")
-    implementation("com.vinumeris:crashfx-client:1.2")
-    implementation("com.vinumeris:updatefx:1.5")
-    implementation files("libs/ScenicView.jar")
+	implementation("org.bouncycastle:bcprov-jdk15on:1.54")
+	implementation("org.javafxdata:datafx-core:8.0b5")
+	implementation("com.gluonhq:connect:$gluonConnectVersion")
+	implementation("com.google.dagger:dagger:$daggerVersion")
+	implementation("com.google.dagger:dagger-compiler:$daggerVersion")
+	implementation("javax.annotation:javax.annotation-api:$javaxAnnotationApiVersion")
+	implementation("javax.inject:javax.inject:1")
+	implementation("de.saxsys:mvvmfx:$mvvmFxVersion")
+	implementation("de.saxsys:mvvmfx-validation:$mvvmFxVersion")
+	implementation("de.danielbechler:java-object-diff:$javaObjectDiffVersion")
+	implementation("com.google.guava:guava:$guavaVersion")
+	implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion")
+	implementation("org.apache.commons:commons-configuration2:$commonsConfigurationVersion")
+	implementation("org.reactfx:reactfx:$reactFxVersion")
+	implementation("org.slf4j:slf4j-api:$slf4jVersion")
+	implementation("org.slf4j:slf4j-ext:$slf4jVersion")
+	implementation("ch.qos.logback:logback-core:$logbackVersion")
+	implementation("ch.qos.logback:logback-classic:$logbackVersion")
+	implementation("org.controlsfx:controlsfx:$controlsFxVersion")
+	implementation("org.fxmisc.easybind:easybind:$easyBindVersion")
+	implementation("commons-validator:commons-validator:$commonsValidatorVersion")
+	implementation("com.google.protobuf:protobuf-java:$protobufVersion")
+	implementation("com.fazecast:jSerialComm:$jSerialVersion")
+	implementation("org.projectlombok:lombok:$lombokVersion")
+	implementation("commons-beanutils:commons-beanutils:$beanUtilsVersion")
+	implementation("commons-io:commons-io:$commons_ioVersion")
+	implementation("org.apache.tika:tika-core:$tikaVersion")
+	implementation("com.vinumeris:crashfx-client:1.2")
+	implementation("com.vinumeris:updatefx:1.5")
+	implementation files("libs/ScenicView.jar")
 
 }
 
 compileJava {
-    sourceSets.daggerMain.java.srcDirs*.mkdirs()
-    classpath += configurations.implementationDagger
-    options.compilerArgs += ['-s', sourceSets.daggerMain.java.srcDirs.iterator().next()
-    ]
+	sourceSets.daggerMain.java.srcDirs*.mkdirs()
+	classpath += configurations.implementationDagger
+	options.compilerArgs += ['-s', sourceSets.daggerMain.java.srcDirs.iterator().next()
+	]
 }
 
 compileDaggerMainJava {
-    classpath += configurations.implementationDagger
-    classpath += sourceSets.main.output
-    options.compilerArgs += ['-s', sourceSets.main.java.srcDirs.iterator().next()
-    ]
+	classpath += configurations.implementationDagger
+	classpath += sourceSets.main.output
+	options.compilerArgs += ['-s', sourceSets.main.java.srcDirs.iterator().next()
+	]
 }
 
 clean {
-    description = "delete files in generated source directory tree"
-    delete fileTree(dir: sourceSets.daggerMain.java.srcDirs.iterator().next())
-    delete fileTree(dir: "log.directory_IS_UNDEFINED")
-    delete fileTree(dir: "/Users/B3/Library/Application Support/B3Tuning Module ConfigTool/logs")
+	description = "delete files in generated source directory tree"
+	delete fileTree(dir: sourceSets.daggerMain.java.srcDirs.iterator().next())
+
+	// Delete log files in project root before logger is initialized
+	delete fileTree(dir: "log.directory_IS_UNDEFINED")
+
+	// Get OS type to delete platform specific Application logs
+	String os = System.getProperty("os.name").toLowerCase()
+	java.nio.file.Path logDir
+	if (os.contains("win")) {
+		logDir = Paths.get(System.getenv("APPDATA"))
+	} else if (os.contains("mac")) {
+		logDir = Paths.get(System.getProperty("user.home"), "Library", "Application Support")
+	} else {
+		logDir = Paths.get(System.getProperty("user.home"), ".local", "share")
+	}
+	delete fileTree(dir: logDir.resolve("B3Tuning Module ConfigTool").resolve("logs"))
 }
 
 task debug(dependsOn: 'classes', type: JavaExec) {
@@ -196,16 +242,16 @@ task debug(dependsOn: 'classes', type: JavaExec) {
 // is also of type JavaExec.
 tasks.withType(JavaExec) {
 //	 jvmArgs '-XX:+HeapDumpOnOutOfMemoryError', '-verbosegc'
-    // Assign all Java system properties from
-    // the command line to the JavaExec task.
-    systemProperties System.properties
+	// Assign all Java system properties from
+	// the command line to the JavaExec task.
+	systemProperties System.properties
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
-    archiveClassifier.set('sources')
-    from sourceSets.main.allSource
+	archiveClassifier.set('sources')
+	from sourceSets.main.allSource
 }
 
 artifacts {
-    archives sourcesJar
+	archives sourcesJar
 }
