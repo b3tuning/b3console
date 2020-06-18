@@ -38,29 +38,31 @@ public enum FileMenu implements MenuItemInterface {
 	// Save as
 	// Send
 
-	M_NEW(A_NEW, "New", setIcon(FOLDER_OPEN), setShortCut("Ctrl+Shift+O"), true, false),
-	M_OPEN(A_OPEN, "Open", setIcon(FOLDER_OPEN), setShortCut("Ctrl+Shift+O"), true, false),
-	M_RECENTS(A_RECENTS, "Open Recent", setIcon(FOLDER_OPEN), setShortCut("Ctrl+Shift+O"), true, false),
-	M_CLOSE(A_CLOSE, "Close", setIcon(FOLDER_OPEN), setShortCut("Ctrl+Shift+O"), true, false),
-	M_SAVE(A_SAVE, "Save", setIcon(SAVE), setShortCut("Ctrl+Shift+S"), true, true),
-	M_SAVE_AS(A_SAVE_AS, "Save As", setIcon(ELLIPSIS_H), setShortCut("Ctrl+Shift+A"), true, false),
-	M_SEND(A_SEND, "Send", setIcon(SEND), setShortCut("Ctrl+Shift+U"), true, true),
-	M_QUIT(A_QUIT, "Quit", setIcon(SEND), setShortCut("Ctrl+Shift+U"), true, true),
+	M_NEW(A_NEW, "New", setIcon(FOLDER_OPEN), setShortCut("Ctrl+Shift+O"), !SUBMENU, SELECTABLE, !SEPARATED),
+	M_OPEN(A_OPEN, "Open", setIcon(FOLDER_OPEN), setShortCut("Ctrl+Shift+O"), !SUBMENU, SELECTABLE, !SEPARATED),
+	M_RECENTS(A_RECENTS, "Open Recent", setIcon(FOLDER_OPEN), setShortCut("Ctrl+Shift+O"), SUBMENU, SELECTABLE, !SEPARATED),
+	M_CLOSE(A_CLOSE, "Close", setIcon(FOLDER_OPEN), setShortCut("Ctrl+Shift+O"), !SUBMENU, SELECTABLE, !SEPARATED),
+	M_SAVE(A_SAVE, "Save", setIcon(SAVE), setShortCut("Ctrl+Shift+S"), !SUBMENU, SELECTABLE, SEPARATED),
+	M_SAVE_AS(A_SAVE_AS, "Save As", setIcon(ELLIPSIS_H), setShortCut("Ctrl+Shift+A"), !SUBMENU, SELECTABLE, !SEPARATED),
+	M_SEND(A_SEND, "Send", setIcon(SEND), setShortCut("Ctrl+Shift+U"), !SUBMENU, SELECTABLE, SEPARATED),
+	M_QUIT(A_QUIT, "Quit", setIcon(SEND), setShortCut("Ctrl+Shift+U"), !SUBMENU, SELECTABLE, SEPARATED),
 	;
 
 	@Getter private final MenuAction     action;
 	@Getter private final String         label;
 	@Getter private final Glyph          icon;
 	@Getter private final KeyCombination shortcut;
+	@Getter private final boolean        subMenu;
 	@Getter private final boolean        selectable;
 	@Getter private final boolean        separated;
 
-	FileMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	FileMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean subMenu, boolean selectable,
 	         boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;
 		this.shortcut   = shortcut;
+		this.subMenu    = subMenu;
 		this.selectable = selectable;
 		this.separated  = separated;
 	}

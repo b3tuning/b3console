@@ -25,22 +25,24 @@ public enum ToolsMenu implements MenuItemInterface {
 	// TOOLS TOOLS
 	// Options
 
-	M_OPTIONS(A_OPTIONS, "Options", setIcon(GEARS), setShortCut("Ctrl+Shift+O"), true, false),
+	M_OPTIONS(A_OPTIONS, "Options", setIcon(GEARS), setShortCut("Ctrl+Shift+O"), !SUBMENU, SELECTABLE, !SEPARATED),
 	;
 
 	@Getter private final MenuAction     action;
 	@Getter private final String         label;
 	@Getter private final Glyph          icon;
 	@Getter private final KeyCombination shortcut;
+	@Getter private final boolean        subMenu;
 	@Getter private final boolean        selectable;
 	@Getter private final boolean        separated;
 
-	ToolsMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	ToolsMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean subMenu, boolean selectable,
 	          boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;
 		this.shortcut   = shortcut;
+		this.subMenu    = subMenu;
 		this.selectable = selectable;
 		this.separated  = separated;
 	}

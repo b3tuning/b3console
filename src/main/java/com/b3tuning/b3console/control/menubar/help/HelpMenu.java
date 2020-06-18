@@ -26,22 +26,24 @@ public enum HelpMenu implements MenuItemInterface {
 	// HELP HELP
 	//
 
-	M_HELP(A_HELP, "Help", setIcon(QUESTION), setShortCut("Ctrl+Shift+H"), true, false),
+	M_HELP(A_HELP, "Help", setIcon(QUESTION), setShortCut("Ctrl+Shift+H"), !SUBMENU, SELECTABLE, !SEPARATED),
 	;
 
 	@Getter private final MenuAction     action;
 	@Getter private final String         label;
 	@Getter private final Glyph          icon;
 	@Getter private final KeyCombination shortcut;
+	@Getter private final boolean        subMenu;
 	@Getter private final boolean        selectable;
 	@Getter private final boolean        separated;
 
-	HelpMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	HelpMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean subMenu, boolean selectable,
 	         boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;
 		this.shortcut   = shortcut;
+		this.subMenu    = subMenu;
 		this.selectable = selectable;
 		this.separated  = separated;
 	}

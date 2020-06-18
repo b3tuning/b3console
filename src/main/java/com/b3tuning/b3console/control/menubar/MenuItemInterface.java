@@ -13,6 +13,10 @@ import org.controlsfx.glyphfont.Glyph;
  */
 public interface MenuItemInterface {
 
+	boolean SUBMENU = true;
+	boolean SELECTABLE = true;
+	boolean SEPARATED = true;
+
 	MenuAction getAction();
 
 	String getLabel();
@@ -20,6 +24,8 @@ public interface MenuItemInterface {
 	Glyph getIcon();
 
 	KeyCombination getShortcut();
+
+	boolean isSubMenu();
 
 	boolean isSelectable();
 

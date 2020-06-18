@@ -33,6 +33,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -142,6 +143,11 @@ public class RootViewModel extends BaseViewModel {
 
 		// detach the help from the sidebar if requested
 		globalNotifications.subscribe(HELP_DETACHED_EVENT, (key, payload) -> detachHelp());
+		globalNotifications.subscribe("A_RECENTS", ((key, payload) -> {
+			log.error("YAY");
+			Menu item = (Menu) payload[0];
+			item.getItems().add(new MenuItem("TEST"));
+		}));
 
 		menuViewTuple     = FluentViewLoader.fxmlView(MenuView.class).load();
 //		fileMenuViewTuple = FluentViewLoader.fxmlView(FileMenuView.class).load();

@@ -60,6 +60,10 @@ public enum MainMenuBarItem implements MenuItemInterface {
 		this.items      = items;
 	}
 
+	@Override public boolean isSubMenu() {
+		return false;
+	}
+
 	@Override
 	public MainMenuBarItem findByLabel(String label) {
 		log.entry();

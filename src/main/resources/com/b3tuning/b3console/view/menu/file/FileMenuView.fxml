@@ -10,7 +10,9 @@
       text="File">
     <MenuItem text="New"/>
     <MenuItem text="Open"/>
-    <MenuItem text="Recent"/>
+    <Menu fx:id="recentFilesMenu" text="Recent">
+        <MenuItem disable="true" text="No Recently opened configs"/>
+    </Menu>
     <MenuItem text="Close"/>
     <SeparatorMenuItem/>
     <MenuItem text="Save"/>

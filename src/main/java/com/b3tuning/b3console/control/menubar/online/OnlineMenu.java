@@ -31,24 +31,26 @@ public enum OnlineMenu implements MenuItemInterface {
 	// Disconnect
 	// Monitor IO
 
-	M_CONNECT(A_CONNECT, "Connect", setIcon(EXCHANGE), setShortCut("Ctrl+Shift+L"), true, false),
-	M_DISCONNECT(A_DISCONNECT, "Disconnect", setIcon(XING), setShortCut("Ctrl+Shift+D"), true, false),
-	M_MONITOR_IO(A_MONITOR_IO, "Monitor IO", setIcon(TIMES), setShortCut("Ctrl+Shift+M"), true, true),
+	M_CONNECT(A_CONNECT, "Connect", setIcon(EXCHANGE), setShortCut("Ctrl+Shift+L"), !SUBMENU, SELECTABLE, !SEPARATED),
+	M_DISCONNECT(A_DISCONNECT, "Disconnect", setIcon(XING), setShortCut("Ctrl+Shift+D"), !SUBMENU, SELECTABLE, !SEPARATED),
+	M_MONITOR_IO(A_MONITOR_IO, "Monitor IO", setIcon(TIMES), setShortCut("Ctrl+Shift+M"), !SUBMENU, SELECTABLE, SEPARATED),
 	;
 
 	@Getter private final MenuAction     action;
 	@Getter private final String         label;
 	@Getter private final Glyph          icon;
 	@Getter private final KeyCombination shortcut;
+	@Getter private final boolean        subMenu;
 	@Getter private final boolean        selectable;
 	@Getter private final boolean        separated;
 
-	OnlineMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
-	           boolean separated) {
+	OnlineMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean subMenu,
+	           boolean selectable, boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;
 		this.shortcut   = shortcut;
+		this.subMenu    = subMenu;
 		this.selectable = selectable;
 		this.separated  = separated;
 	}

@@ -1,17 +1,15 @@
 package com.b3tuning.b3console.control.menubar;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.event.ActionEvent;
+import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.scene.Node;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.paint.Color;
-import javafx.util.Pair;
 import lombok.extern.slf4j.XSlf4j;
 
+import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -31,9 +29,12 @@ public class MainMenuBar extends Node {
 
 	private final MenuBar menuBar = new MenuBar();
 
-	private static final ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedItem = new SimpleObjectProperty<>();
+	private final NotificationCenter globalNotifications;
+//	private static final ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedItem = new SimpleObjectProperty<>();
 
-	public MainMenuBar() {
+	@Inject
+	public MainMenuBar(NotificationCenter notificationCenter) {
+		this.globalNotifications = notificationCenter;
 		this.menuBar.getMenus().addAll(Arrays.stream(MainMenuBarItem.values())
 		                                     .map(this::createMenu)
 		                                     .collect(Collectors.toList()));
@@ -46,14 +47,15 @@ public class MainMenuBar extends Node {
 		return menu;
 	}
 
-	private static void assembleMenu(final MenuItem menu, final MenuItemInterface item) {
+	private void assembleMenu(final MenuItem menu, final MenuItemInterface item) {
 		menu.setId(item.getLabel());
 		menu.setText(item.getLabel());
 		menu.setGraphic(item.getIcon().size(MENU_BAR_ICON_SIZE).color(MENU_BAR_ICON_COLOR));
 		menu.setAccelerator(item.getShortcut());
+		menu.setUserData(item.getAction());
 	}
 
-	private static void assembleSubMenus(final Menu menu, final MainMenuBarItem item) {
+	private void assembleSubMenus(final Menu menu, final MainMenuBarItem item) {
 		if (item.getItems() != null) {
 			item.getItems().forEach(m -> {
 				if (m.isSeparated()) {
@@ -64,18 +66,25 @@ public class MainMenuBar extends Node {
 		}
 	}
 
-	private static MenuItem createMenuItem(final MenuItemInterface item) {
-		MenuItem menu = new MenuItem();
+	private MenuItem createMenuItem(final MenuItemInterface item) {
+		MenuItem menu;
+		if (item.isSubMenu()) {
+			menu = new Menu();
+		} else {
+			menu = new MenuItem();
+		}
 		assembleMenu(menu, item);
 		return addAction(menu, item);
 	}
 
-	private static MenuItem addAction(final MenuItem menu, final MenuItemInterface item) {
+	private MenuItem addAction(final MenuItem menu, final MenuItemInterface item) {
 		if (item.isSelectable()) {
 			menu.setOnAction(e -> {
 				log.entry();
-				setSelectedItem(new Pair<>(item, e));
-				setSelectedItem(null);
+				globalNotifications.publish(menu.getUserData().toString(), menu);
+
+//				setSelectedItem(new Pair<>(item, e));
+//				setSelectedItem(null);
 			});
 		}
 		return menu;
@@ -85,16 +94,16 @@ public class MainMenuBar extends Node {
 		return this.menuBar;
 	}
 
-	public Pair<MenuItemInterface, ActionEvent> getSelectedItem() {
-		return selectedItem.get();
-	}
-
-	public static void setSelectedItem(Pair<MenuItemInterface, ActionEvent> value) {
-		selectedItem.set(value);
-	}
-
-	public ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedItemProperty() {
-		return selectedItem;
-	}
+//	public Pair<MenuItemInterface, ActionEvent> getSelectedItem() {
+//		return selectedItem.get();
+//	}
+//
+//	public static void setSelectedItem(Pair<MenuItemInterface, ActionEvent> value) {
+//		selectedItem.set(value);
+//	}
+//
+//	public ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedItemProperty() {
+//		return selectedItem;
+//	}
 
 }

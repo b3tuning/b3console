@@ -25,22 +25,24 @@ public enum ViewMenu implements MenuItemInterface {
 	// VIEW VIEW
 	//
 
-	M_PLACEHOLDER(A_NONE, "PlaceHolder", setIcon(MAP_MARKER), setShortCut("Ctrl+Shift+P"), true, false),
+	M_PLACEHOLDER(A_NONE, "PlaceHolder", setIcon(MAP_MARKER), setShortCut("Ctrl+Shift+P"), !SUBMENU, SELECTABLE, !SEPARATED),
 	;
 
 	@Getter private final MenuAction     action;
 	@Getter private final String         label;
 	@Getter private final Glyph          icon;
 	@Getter private final KeyCombination shortcut;
+	@Getter private final boolean        subMenu;
 	@Getter private final boolean        selectable;
 	@Getter private final boolean        separated;
 
-	ViewMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable,
+	ViewMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean subMenu, boolean selectable,
 	         boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;
 		this.shortcut   = shortcut;
+		this.subMenu    = subMenu;
 		this.selectable = selectable;
 		this.separated  = separated;
 	}

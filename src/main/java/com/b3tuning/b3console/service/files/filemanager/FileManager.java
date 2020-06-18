@@ -24,6 +24,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import lombok.extern.slf4j.XSlf4j;
+import org.apache.commons.io.FilenameUtils;
 
 import javax.inject.Inject;
 import java.io.File;

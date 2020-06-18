@@ -12,8 +12,11 @@
 package com.b3tuning.b3console.view.menu.file;
 
 import com.b3tuning.b3console.service.files.filemanager.FileManager;
+import com.b3tuning.b3console.service.files.filemanager.RecentFile;
 import com.b3tuning.b3console.view.BaseViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
+import javafx.beans.property.ObjectProperty;
+import javafx.collections.ObservableList;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -29,5 +32,9 @@ public class FileMenuViewModel extends BaseViewModel {
 		log.entry();
 		this.globalNotifications = notificationCenter;
 		this.fileManager = manager;
+	}
+
+	public ObjectProperty<ObservableList<RecentFile>> getRecents() {
+		return fileManager.recentFilesProperty();
 	}
 }

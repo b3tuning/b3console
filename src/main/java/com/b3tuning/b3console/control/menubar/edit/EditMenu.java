@@ -37,25 +37,28 @@ public enum EditMenu implements MenuItemInterface {
 	// Copy
 	// Delete
 
-	M_UNDO(A_UNDO, "Undo", setIcon(UNDO), setShortCut("Ctrl+Z"), true, false),
-	M_REDO(A_REDO, "Redo", setIcon(BACKWARD), setShortCut("Ctrl+Shift+Z"), true, false),
-	M_CUT(A_CUT, "Cut", setIcon(CUT), setShortCut("Ctrl+Shift+X"), true, false),
-	M_COPY(A_COPY, "Copy", setIcon(COPY), setShortCut("Ctrl+Shift+C"), true, false),
-	M_DELETE(A_DELETE, "Delete", setIcon(REMOVE), setShortCut("Ctrl+Shift+D"), true, false),
+	M_UNDO(A_UNDO, "Undo", setIcon(UNDO), setShortCut("Ctrl+Z"), !SUBMENU, SELECTABLE, !SEPARATED),
+	M_REDO(A_REDO, "Redo", setIcon(BACKWARD), setShortCut("Ctrl+Shift+Z"), !SUBMENU, SELECTABLE, !SEPARATED),
+	M_CUT(A_CUT, "Cut", setIcon(CUT), setShortCut("Ctrl+Shift+X"), !SUBMENU, SELECTABLE, !SEPARATED),
+	M_COPY(A_COPY, "Copy", setIcon(COPY), setShortCut("Ctrl+Shift+C"), !SUBMENU, SELECTABLE, !SEPARATED),
+	M_DELETE(A_DELETE, "Delete", setIcon(REMOVE), setShortCut("Ctrl+Shift+D"), !SUBMENU, SELECTABLE, !SEPARATED),
 	;
 
 	@Getter private final MenuAction     action;
 	@Getter private final String         label;
 	@Getter private final Glyph          icon;
 	@Getter private final KeyCombination shortcut;
+	@Getter private final boolean        subMenu;
 	@Getter private final boolean        selectable;
 	@Getter private final boolean        separated;
 
-	EditMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean selectable, boolean separated) {
+	EditMenu(MenuAction action, String label, Glyph icon, KeyCombination shortcut, boolean subMenu, boolean selectable,
+	         boolean separated) {
 		this.action     = action;
 		this.label      = label;
 		this.icon       = icon;
 		this.shortcut   = shortcut;
+		this.subMenu    = subMenu;
 		this.selectable = selectable;
 		this.separated  = separated;
 	}

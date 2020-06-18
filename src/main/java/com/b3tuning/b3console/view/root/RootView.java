@@ -133,7 +133,7 @@ public class RootView extends BaseView<RootViewModel> {
 
 	private void constructMainMenu() {
 		// construct the menu
-		mainMenuBar = new MainMenuBar();
+		mainMenuBar = new MainMenuBar(globalNotifications);
 //
 //		viewModel.selectedMenuBarItemProperty().bind(mainMenuBar.selectedItemProperty());
 //
