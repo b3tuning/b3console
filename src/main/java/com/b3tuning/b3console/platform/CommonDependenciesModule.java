@@ -5,6 +5,7 @@ import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.properties.PropertyLoader;
 import com.b3tuning.b3console.service.EntityPatcher;
 import com.b3tuning.b3console.service.comms.SerialComms;
+import com.b3tuning.b3console.service.edit.EditManager;
 import com.b3tuning.b3console.service.files.FileAssembler;
 import com.b3tuning.b3console.service.files.filemanager.FileManager;
 import com.b3tuning.b3console.service.module.door.DoorConfigAssembler;
@@ -92,6 +93,12 @@ public class CommonDependenciesModule {
 	@Singleton
 	FileManager provideFileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser) {
 		return new FileManager(preferences, notifications, chooser);
+	}
+
+	@Provides
+	@Singleton
+	EditManager provideEditManager(NotificationCenter notificationCenter, UserPreferences preferences) {
+		return new EditManager(notificationCenter, preferences);
 	}
 
 	/******************

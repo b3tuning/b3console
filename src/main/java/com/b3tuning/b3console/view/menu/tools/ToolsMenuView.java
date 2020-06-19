@@ -14,6 +14,7 @@ package com.b3tuning.b3console.view.menu.tools;
 import com.b3tuning.b3console.view.BaseView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Menu;
 import lombok.extern.slf4j.XSlf4j;
@@ -40,4 +41,8 @@ public class ToolsMenuView extends BaseView<ToolsMenuViewModel> {
 
 	}
 
+	@FXML
+	private void optionsAction(ActionEvent event) {
+		log.entry();
+	}
 }

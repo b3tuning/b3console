@@ -2,6 +2,7 @@ package com.b3tuning.b3console.platform;
 
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.properties.AppProperties;
+import com.b3tuning.b3console.service.edit.EditManager;
 import com.b3tuning.b3console.service.files.filemanager.FileManager;
 import com.b3tuning.b3console.service.settings.SettingsService;
 import com.b3tuning.b3console.view.availablefiles.AvailableFilesViewModel;
@@ -74,6 +75,10 @@ public interface ApplicationComponents {
 	void inject(FileChooser chooser);
 
 	FileChooser provideFileChooser();
+
+	void inject(EditManager editManager);
+
+	EditManager provideEditManager();
 
 	/*  ROOT  */
 	void inject(RootView view);
@@ -199,7 +204,6 @@ public interface ApplicationComponents {
 	void inject(LiveMenuViewModel viewModel);
 
 	LiveMenuViewModel provideLiveMenuViewModel();
-
 
 	/* SETTINGS */
 	void inject(SettingsMenuView view);

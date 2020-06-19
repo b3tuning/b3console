@@ -8,8 +8,8 @@
       fx:controller="com.b3tuning.b3console.view.menu.online.OnlineMenuView"
       fx:id="onlineMenu"
       text="Online">
-    <MenuItem text="Connect"/>
-    <MenuItem text="Disconnect"/>
+    <MenuItem onAction="#connectAction" text="Connect"/>
+    <MenuItem onAction="#disconnectAction" text="Disconnect"/>
     <SeparatorMenuItem/>
-    <MenuItem text="Monitor"/>
+    <MenuItem onAction="#monitorAction" text="Monitor"/>
 </Menu>

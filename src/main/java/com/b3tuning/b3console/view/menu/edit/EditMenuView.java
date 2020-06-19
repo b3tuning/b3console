@@ -14,6 +14,7 @@ package com.b3tuning.b3console.view.menu.edit;
 import com.b3tuning.b3console.view.BaseView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Menu;
 import lombok.extern.slf4j.XSlf4j;
@@ -40,4 +41,33 @@ public class EditMenuView extends BaseView<EditMenuViewModel> {
 
 	}
 
+	@FXML
+	private void undoAction(ActionEvent event) {
+		log.entry();
+	}
+
+	@FXML
+	private void redoAction(ActionEvent event) {
+		log.entry();
+	}
+
+	@FXML
+	private void cutAction(ActionEvent event) {
+		log.entry();
+	}
+
+	@FXML
+	private void copyAction(ActionEvent event) {
+		log.entry();
+	}
+
+	@FXML
+	private void pasteAction(ActionEvent event) {
+		log.entry();
+	}
+
+	@FXML
+	private void deleteAction(ActionEvent event) {
+		log.entry();
+	}
 }

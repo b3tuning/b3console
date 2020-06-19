@@ -47,9 +47,4 @@
             <!-- the help pane is added here dynamically -->
         </SplitPane>
     </center>
-    <bottom>
-        <AnchorPane fx:id="bottomPane" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" styleClass="top-menu-background" BorderPane.alignment="BOTTOM_LEFT">
-
-        </AnchorPane>
-    </bottom>
 </BorderPane>

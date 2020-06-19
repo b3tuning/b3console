@@ -30,8 +30,9 @@ public class FileMenuView extends BaseView<FileMenuViewModel> {
 	@FXML private Menu fileMenu;
 	@FXML private Menu recentFilesMenu;
 
-	private final            NotificationCenter globalNotifications;
-	@InjectViewModel private FileMenuViewModel  viewModel;
+	private final NotificationCenter globalNotifications;
+
+	@InjectViewModel private FileMenuViewModel viewModel;
 
 	@Inject
 	public FileMenuView(NotificationCenter notificationCenter) {
@@ -41,30 +42,65 @@ public class FileMenuView extends BaseView<FileMenuViewModel> {
 
 	public void initialize() {
 		log.entry();
-
-		constructFileMenu();
-
 		constructRecentFilesMenu();
 	}
 
 	private void constructRecentFilesMenu() {
+		log.entry();
 		ObservableList<RecentFile> files = viewModel.getRecents().get();
 		if (files.isEmpty()) {
+			log.entry("NO RECENT FILES");
 			return;
 		}
 		recentFilesMenu.getItems().clear();
 		for (RecentFile r : files) {
 			MenuItem item = new MenuItem(r.getName());
 			item.setUserData(r.getPath());
-			item.addEventHandler(ActionEvent.ACTION, event -> {
+			item.setOnAction(event -> {
 				log.entry();
-				globalNotifications.publish("LOAD_FILE", item.getUserData());
+				openFileAction(item, event);
 			});
+			recentFilesMenu.getItems().add(item);
 		}
 	}
 
-	private void constructFileMenu() {
-		fileMenu.getItems().add(new MenuItem("TESTING"));
+	@FXML
+	private void newFileAction(ActionEvent event) {
+		log.entry();
 	}
 
+	@FXML
+	private void openFileAction(MenuItem item, ActionEvent event) {
+		log.entry();
+	}
+
+	@FXML
+	private void openFileAction(ActionEvent event) {
+		log.entry();
+	}
+
+	@FXML
+	private void closeFileAction(ActionEvent event) {
+		log.entry();
+	}
+
+	@FXML
+	private void saveFileAction(ActionEvent event) {
+		log.entry();
+	}
+
+	@FXML
+	private void saveAsFileAction(ActionEvent event) {
+		log.entry();
+	}
+
+	@FXML
+	private void sendFileAction(ActionEvent event) {
+		log.entry();
+	}
+
+	@FXML
+	private void exitAction(ActionEvent event) {
+		log.entry();
+	}
 }

@@ -6,7 +6,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.b3tuning.b3console.view.menu.MenuView"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="30.0" prefWidth="600.0">
     <HBox>
         <MenuBar fx:id="menuBar">
             <fx:include source="file/FileMenuView.fxml"/>

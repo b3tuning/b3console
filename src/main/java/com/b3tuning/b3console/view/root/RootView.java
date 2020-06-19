@@ -31,7 +31,6 @@ public class RootView extends BaseView<RootViewModel> {
 	@FXML AnchorPane leftPane;
 	@FXML StackPane  centerPane;
 	@FXML AnchorPane topPane;
-	@FXML AnchorPane bottomPane;
 	@FXML SplitPane  centerSplitPane;
 
 	private Node helpView;
@@ -40,7 +39,7 @@ public class RootView extends BaseView<RootViewModel> {
 
 	private final NotificationCenter globalNotifications;
 
-	private MainMenuBar mainMenuBar;
+//	private MainMenuBar mainMenuBar;
 
 	@Inject
 	public RootView(NotificationCenter notificationCenter) {
@@ -58,15 +57,7 @@ public class RootView extends BaseView<RootViewModel> {
 		topPane.visibleProperty().bind(leftPane.visibleProperty());
 		topPane.managedProperty().bind(topPane.visibleProperty());
 
-		constructMainMenu();
-
-//		// listen for any menu changes requested
-//		viewModel.subscribe(MENU_ACTION_EVENT, (key, payload) -> {
-//			log.entry(payload);
-//			MainMenuItemAction action = (MainMenuItemAction) payload[0];
-//			mainMenu.selectAction(action);
-//		});
-//
+		loadMenuView();
 		initializeHelp();
 
 //		initializeNotifications();
@@ -131,9 +122,8 @@ public class RootView extends BaseView<RootViewModel> {
 		}
 	}
 
-	private void constructMainMenu() {
-		// construct the menu
-		mainMenuBar = new MainMenuBar(globalNotifications);
+	private void loadMenuView() {
+//		mainMenuBar = new MainMenuBar(globalNotifications);
 //
 //		viewModel.selectedMenuBarItemProperty().bind(mainMenuBar.selectedItemProperty());
 //

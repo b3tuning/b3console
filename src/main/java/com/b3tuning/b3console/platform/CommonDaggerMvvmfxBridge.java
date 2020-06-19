@@ -2,6 +2,7 @@ package com.b3tuning.b3console.platform;
 
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.properties.AppProperties;
+import com.b3tuning.b3console.service.edit.EditManager;
 import com.b3tuning.b3console.service.files.filemanager.FileManager;
 import com.b3tuning.b3console.view.config.ConfigMenuView;
 import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
@@ -15,12 +16,12 @@ import com.b3tuning.b3console.view.help.HelpView;
 import com.b3tuning.b3console.view.help.HelpViewModel;
 import com.b3tuning.b3console.view.live.LiveMenuView;
 import com.b3tuning.b3console.view.live.LiveMenuViewModel;
+import com.b3tuning.b3console.view.menu.MenuView;
+import com.b3tuning.b3console.view.menu.MenuViewModel;
 import com.b3tuning.b3console.view.menu.edit.EditMenuView;
 import com.b3tuning.b3console.view.menu.edit.EditMenuViewModel;
 import com.b3tuning.b3console.view.menu.file.FileMenuView;
 import com.b3tuning.b3console.view.menu.file.FileMenuViewModel;
-import com.b3tuning.b3console.view.menu.MenuView;
-import com.b3tuning.b3console.view.menu.MenuViewModel;
 import com.b3tuning.b3console.view.menu.help.HelpMenuView;
 import com.b3tuning.b3console.view.menu.help.HelpMenuViewModel;
 import com.b3tuning.b3console.view.menu.online.OnlineMenuView;
@@ -79,6 +80,10 @@ public abstract class CommonDaggerMvvmfxBridge implements DaggerMvvmfxBridge {
 
 		if (FileChooser.class.equals(type)) {
 			return (T) getApplicationComponents().provideFileChooser();
+		}
+
+		if (EditManager.class.equals(type)) {
+			return (T) getApplicationComponents().provideEditManager();
 		}
 
 		if (RootView.class.equals(type)) {

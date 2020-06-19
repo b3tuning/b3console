@@ -8,17 +8,17 @@
       fx:controller="com.b3tuning.b3console.view.menu.file.FileMenuView"
       fx:id="fileMenu"
       text="File">
-    <MenuItem text="New"/>
-    <MenuItem text="Open"/>
+    <MenuItem onAction="#newFileAction" text="New"/>
+    <MenuItem onAction="#openFileAction" text="Open"/>
     <Menu fx:id="recentFilesMenu" text="Recent">
         <MenuItem disable="true" text="No Recently opened configs"/>
     </Menu>
-    <MenuItem text="Close"/>
+    <MenuItem onAction="#closeFileAction" text="Close"/>
     <SeparatorMenuItem/>
-    <MenuItem text="Save"/>
-    <MenuItem text="Save As"/>
+    <MenuItem onAction="#saveFileAction" text="Save"/>
+    <MenuItem onAction="#saveAsFileAction" text="Save As"/>
     <SeparatorMenuItem/>
-    <MenuItem text="Send"/>
+    <MenuItem onAction="#sendFileAction" text="Send"/>
     <SeparatorMenuItem/>
-    <MenuItem text="Exit"/>
+    <MenuItem onAction="#exitAction" text="Exit"/>
 </Menu>
