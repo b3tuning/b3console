@@ -18,7 +18,7 @@ import javax.inject.Inject;
 @XSlf4j
 public class ShifterConfigView extends BaseView<ShifterConfigViewModel> {
 
-	private ControlsFxVisualizer validationVisualizer = new ControlsFxVisualizer();
+	private final ControlsFxVisualizer validationVisualizer = new ControlsFxVisualizer();
 
 	@InjectViewModel private ShifterConfigViewModel viewModel;
 

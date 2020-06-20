@@ -13,10 +13,8 @@ package com.b3tuning.b3console.view.menu.tools;
 
 import com.b3tuning.b3console.view.BaseView;
 import de.saxsys.mvvmfx.InjectViewModel;
-import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Menu;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -24,16 +22,11 @@ import javax.inject.Inject;
 @XSlf4j
 public class ToolsMenuView extends BaseView<ToolsMenuViewModel> {
 
-	@FXML private Menu toolsMenu;
-
-	private final NotificationCenter globalNotifications;
-
 	@InjectViewModel private ToolsMenuViewModel viewModel;
 
 	@Inject
-	public ToolsMenuView(NotificationCenter notifications) {
+	public ToolsMenuView() {
 		log.entry();
-		this.globalNotifications = notifications;
 	}
 
 	public void initialize() {
@@ -43,6 +36,7 @@ public class ToolsMenuView extends BaseView<ToolsMenuViewModel> {
 
 	@FXML
 	private void optionsAction(ActionEvent event) {
-		log.entry();
+		log.entry(event);
+		viewModel.optionsAction();
 	}
 }

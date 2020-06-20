@@ -9,9 +9,8 @@
  *  Copyright (C) 2020 B3Tuning, LLC.
  */
 
-package com.b3tuning.b3console.control.menubar.file.subs;
+package com.b3tuning.b3console.service.filemanager;
 
-import com.b3tuning.b3console.service.files.filemanager.FileManager;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;

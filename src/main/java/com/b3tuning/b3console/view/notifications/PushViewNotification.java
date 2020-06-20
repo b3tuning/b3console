@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.view.notifications;
 
-import com.b3tuning.b3console.control.menubar.MenuAction;
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.ViewModel;
 import de.saxsys.mvvmfx.ViewTuple;
@@ -21,10 +20,9 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class PushViewNotification {
 
-	private final String                                                key;
-	private final ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple;
+	private final String key;
 
-	private final MenuAction appArea;
+	private final ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple;
 
 	/**
 	 * We may want to close some views (such as detail views) as soon as they lose focus

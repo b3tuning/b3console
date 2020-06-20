@@ -29,21 +29,17 @@ public class HelpViewModel extends BaseViewModel {
 	private static final String HELP_LOCATION_TEMPLATE = "/help/%s.html";
 	private static final String NO_HELP_AVAILABLE      = "/help/404.html";
 
-	private UserPreferences    preferences;
-	private NotificationCenter globalNotifications;
+	private final UserPreferences    preferences;
+	private final NotificationCenter globalNotifications;
 
-	private StringProperty             helpFile = new SimpleStringProperty();
-	private BooleanProperty            detached = new SimpleBooleanProperty(false);
-//	private ObjectProperty<ModuleType> module   = new SimpleObjectProperty<>();
+	private final StringProperty  helpFile = new SimpleStringProperty();
+	private final BooleanProperty detached = new SimpleBooleanProperty(false);
 
 	@Inject
 	public HelpViewModel(UserPreferences prefs, NotificationCenter notificationCenter) {
 		log.entry();
 		this.preferences         = prefs;
 		this.globalNotifications = notificationCenter;
-
-//		module.set(ModuleType.valueOf(preferences.getModule()));
-//		globalNotifications.subscribe(MODULE_EVENT, (key, payload) -> module.set((ModuleType) (payload[0])));
 
 		globalNotifications.subscribe(PageContextChangedNotification.class.getName(),
 		                              (key, payload) -> {

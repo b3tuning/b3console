@@ -1,8 +1,7 @@
 package com.b3tuning.b3console.view.config;
 
-import com.b3tuning.b3console.control.menubar.MenuAction;
 import com.b3tuning.b3console.prefs.UserPreferences;
-import com.b3tuning.b3console.service.files.filemanager.RecentFile;
+import com.b3tuning.b3console.service.filemanager.RecentFile;
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.notifications.ClickButtonNotification;
 import com.b3tuning.b3console.view.root.FontAwesome;
@@ -65,13 +64,10 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 	public void initialize() {
 		log.entry();
 
-		doorButton.setUserData(MenuAction.A_NONE);
 		manage(eventsOf(doorButton, ActionEvent.ACTION).subscribe(e -> viewModel.onDoorClicked()));
 
-		shifterButton.setUserData(MenuAction.A_NONE);
 		manage(eventsOf(shifterButton, ActionEvent.ACTION).subscribe(e -> viewModel.onShifterClicked()));
 
-		transButton.setUserData(MenuAction.A_NONE);
 		manage(eventsOf(transButton, ActionEvent.ACTION).subscribe(e -> viewModel.onTransClicked()));
 
 		createButton.setText(FontAwesome.PLUS);
@@ -118,8 +114,8 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 
 		globalNotifications.subscribe(ClickButtonNotification.class.getName(), (key, payload) -> {
 			ClickButtonNotification n = ((ClickButtonNotification) payload[0]);
-			log.entry(n.getMenuAction(), n.getButtonId());
-			if (MenuAction.A_NONE.equals(n.getMenuAction()) && n.getButtonId() != null) {
+			log.entry(n.getButtonId());
+			if (n.getButtonId() != null) {
 				moduleGroup.selectToggle(null);
 				ToggleButton btn = null;
 				if ("doorButton".equals(n.getButtonId())) {
@@ -129,6 +125,7 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 				} else if ("transButton".equals(n.getButtonId())) {
 					btn = transButton;
 				}
+				assert btn != null;
 				btn.fire();
 				if (!btn.isSelected()) {
 					moduleGroup.selectToggle(btn);

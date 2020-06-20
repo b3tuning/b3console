@@ -4,14 +4,16 @@
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.web.WebView?>
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.b3tuning.b3console.view.help.HelpView">
 
-<AnchorPane fx:id="helpPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.b3tuning.b3console.view.help.HelpView">
-
-		<WebView fx:id="webView" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0" />
-		<Button fx:id="detachHelpButton" mnemonicParsing="false" styleClass="awesome-button" AnchorPane.topAnchor="15.0" AnchorPane.rightAnchor="15.0">
-			<tooltip>
-				<Tooltip text="Detach the help, displaying it in a separate window." />
-			</tooltip>
-		</Button>
+    <WebView fx:id="webView" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.rightAnchor="0.0"
+             AnchorPane.bottomAnchor="0.0"/>
+    <Button fx:id="detachHelpButton" mnemonicParsing="false" styleClass="awesome-button" AnchorPane.topAnchor="15.0"
+            AnchorPane.rightAnchor="15.0">
+        <tooltip>
+            <Tooltip text="Detach the help, displaying it in a separate window."/>
+        </tooltip>
+    </Button>
 
 </AnchorPane>

@@ -5,7 +5,6 @@
 <Menu xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.b3tuning.b3console.view.menu.tools.ToolsMenuView"
-      fx:id="toolsMenu"
       text="Tools">
     <MenuItem onAction="#optionsAction" text="Options"/>
 </Menu>

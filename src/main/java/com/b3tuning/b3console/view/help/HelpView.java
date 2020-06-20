@@ -5,7 +5,6 @@ import de.saxsys.mvvmfx.InjectViewModel;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebView;
 import lombok.extern.slf4j.XSlf4j;
 
@@ -27,14 +26,14 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class HelpView extends BaseView<HelpViewModel> {
 
-	@FXML WebView    webView;
-	@FXML AnchorPane helpPane;
-	@FXML Button     detachHelpButton;
+	@FXML private WebView webView;
+	@FXML private Button  detachHelpButton;
 
 	@InjectViewModel HelpViewModel viewModel;
 
 	@Inject
 	public HelpView() {
+		log.entry();
 	}
 
 	public void initialize() {
@@ -48,8 +47,6 @@ public class HelpView extends BaseView<HelpViewModel> {
 		detachHelpButton.setText(HELP);
 		detachHelpButton.visibleProperty().bind(viewModel.detachedProperty().not());
 		detachHelpButton.managedProperty().bind(detachHelpButton.visibleProperty());
-		manage(eventsOf(detachHelpButton, ACTION).subscribe(v -> {
-			viewModel.detachHelp();
-		}));
+		manage(eventsOf(detachHelpButton, ACTION).subscribe(v -> viewModel.detachHelp()));
 	}
 }

@@ -3,7 +3,7 @@ package com.b3tuning.b3console.platform;
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.service.edit.EditManager;
-import com.b3tuning.b3console.service.files.filemanager.FileManager;
+import com.b3tuning.b3console.service.filemanager.FileManager;
 import com.b3tuning.b3console.view.config.ConfigMenuView;
 import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
 import com.b3tuning.b3console.view.config.door.DoorConfigView;
@@ -14,8 +14,6 @@ import com.b3tuning.b3console.view.config.trans.TransConfigView;
 import com.b3tuning.b3console.view.config.trans.TransConfigViewModel;
 import com.b3tuning.b3console.view.help.HelpView;
 import com.b3tuning.b3console.view.help.HelpViewModel;
-import com.b3tuning.b3console.view.live.LiveMenuView;
-import com.b3tuning.b3console.view.live.LiveMenuViewModel;
 import com.b3tuning.b3console.view.menu.MenuView;
 import com.b3tuning.b3console.view.menu.MenuViewModel;
 import com.b3tuning.b3console.view.menu.edit.EditMenuView;
@@ -34,8 +32,6 @@ import com.b3tuning.b3console.view.root.RootView;
 import com.b3tuning.b3console.view.root.RootViewModel;
 import com.b3tuning.b3console.view.settings.SettingsMenuView;
 import com.b3tuning.b3console.view.settings.SettingsMenuViewModel;
-import com.b3tuning.b3console.view.transfer.TransferMenuView;
-import com.b3tuning.b3console.view.transfer.TransferMenuViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.stage.FileChooser;
 import lombok.Getter;
@@ -186,22 +182,6 @@ public abstract class CommonDaggerMvvmfxBridge implements DaggerMvvmfxBridge {
 
 		if (TransConfigViewModel.class.equals(type)) {
 			return (T) getApplicationComponents().provideTransConfigViewModel();
-		}
-
-		if (TransferMenuView.class.equals(type)) {
-			return (T) getApplicationComponents().provideTransferMenuView();
-		}
-
-		if (TransferMenuViewModel.class.equals(type)) {
-			return (T) getApplicationComponents().provideTransferMenuViewModel();
-		}
-
-		if (LiveMenuView.class.equals(type)) {
-			return (T) getApplicationComponents().provideLiveMenuView();
-		}
-
-		if (LiveMenuViewModel.class.equals(type)) {
-			return (T) getApplicationComponents().provideLiveMenuViewModel();
 		}
 
 		if (SettingsMenuView.class.equals(type)) {

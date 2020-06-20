@@ -13,7 +13,6 @@ package com.b3tuning.b3console.view.menu.edit;
 
 import com.b3tuning.b3console.service.edit.EditManager;
 import com.b3tuning.b3console.view.BaseViewModel;
-import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import lombok.extern.slf4j.XSlf4j;
@@ -23,19 +22,17 @@ import javax.inject.Inject;
 @XSlf4j
 public class EditMenuViewModel extends BaseViewModel {
 
-	private final NotificationCenter globalNotifications;
-	private final EditManager        editManager;
+	private final EditManager editManager;
 
-	private BooleanProperty hasUndo = new SimpleBooleanProperty();
-	private BooleanProperty hasRedo = new SimpleBooleanProperty();
+	private final BooleanProperty hasUndo          = new SimpleBooleanProperty();
+	private final BooleanProperty hasRedo          = new SimpleBooleanProperty();
+	private final BooleanProperty selected         = new SimpleBooleanProperty();
+	private final BooleanProperty clipBoardContent = new SimpleBooleanProperty();
 
 	@Inject
-	public EditMenuViewModel(NotificationCenter notifications, EditManager editManager) {
+	public EditMenuViewModel(EditManager editManager) {
 		log.entry();
-		this.globalNotifications = notifications;
-		this.editManager         = editManager;
-
-
+		this.editManager = editManager;
 	}
 
 	public BooleanProperty getHasUndo() {
@@ -44,5 +41,43 @@ public class EditMenuViewModel extends BaseViewModel {
 
 	public BooleanProperty getHasRedo() {
 		return hasRedo;
+	}
+
+	public BooleanProperty isSelected() {
+		return selected;
+	}
+
+	public BooleanProperty hasClipBoardContent() {
+		return clipBoardContent;
+	}
+
+	void undoAction() {
+		log.entry();
+		editManager.undoAction();
+	}
+
+	void redoAction() {
+		log.entry();
+		editManager.redoAction();
+	}
+
+	void cutAction() {
+		log.entry();
+		editManager.cutAction();
+	}
+
+	void copyAction() {
+		log.entry();
+		editManager.copyAction();
+	}
+
+	void pasteAction() {
+		log.entry();
+		editManager.pasteAction();
+	}
+
+	void deleteAction() {
+		log.entry();
+		editManager.deleteAction();
 	}
 }

@@ -114,4 +114,28 @@ public class EditManager {
 	public ObjectProperty<Deque<ConfigBase>> redoProperty() {
 		return redo;
 	}
+
+	public void undoAction() {
+		log.entry();
+	}
+
+	public void redoAction() {
+		log.entry();
+	}
+
+	public void cutAction() {
+		log.entry();
+	}
+
+	public void copyAction() {
+		log.entry();
+	}
+
+	public void pasteAction() {
+		log.entry();
+	}
+
+	public void deleteAction() {
+		log.entry();
+	}
 }

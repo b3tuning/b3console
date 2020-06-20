@@ -3,9 +3,7 @@ package com.b3tuning.b3console.platform;
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.service.edit.EditManager;
-import com.b3tuning.b3console.service.files.filemanager.FileManager;
-import com.b3tuning.b3console.service.settings.SettingsService;
-import com.b3tuning.b3console.view.availablefiles.AvailableFilesViewModel;
+import com.b3tuning.b3console.service.filemanager.FileManager;
 import com.b3tuning.b3console.view.config.ConfigMenuView;
 import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
 import com.b3tuning.b3console.view.config.door.DoorConfigView;
@@ -16,14 +14,12 @@ import com.b3tuning.b3console.view.config.trans.TransConfigView;
 import com.b3tuning.b3console.view.config.trans.TransConfigViewModel;
 import com.b3tuning.b3console.view.help.HelpView;
 import com.b3tuning.b3console.view.help.HelpViewModel;
-import com.b3tuning.b3console.view.live.LiveMenuView;
-import com.b3tuning.b3console.view.live.LiveMenuViewModel;
+import com.b3tuning.b3console.view.menu.MenuView;
+import com.b3tuning.b3console.view.menu.MenuViewModel;
 import com.b3tuning.b3console.view.menu.edit.EditMenuView;
 import com.b3tuning.b3console.view.menu.edit.EditMenuViewModel;
 import com.b3tuning.b3console.view.menu.file.FileMenuView;
 import com.b3tuning.b3console.view.menu.file.FileMenuViewModel;
-import com.b3tuning.b3console.view.menu.MenuView;
-import com.b3tuning.b3console.view.menu.MenuViewModel;
 import com.b3tuning.b3console.view.menu.help.HelpMenuView;
 import com.b3tuning.b3console.view.menu.help.HelpMenuViewModel;
 import com.b3tuning.b3console.view.menu.online.OnlineMenuView;
@@ -36,8 +32,6 @@ import com.b3tuning.b3console.view.root.RootView;
 import com.b3tuning.b3console.view.root.RootViewModel;
 import com.b3tuning.b3console.view.settings.SettingsMenuView;
 import com.b3tuning.b3console.view.settings.SettingsMenuViewModel;
-import com.b3tuning.b3console.view.transfer.TransferMenuView;
-import com.b3tuning.b3console.view.transfer.TransferMenuViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.stage.FileChooser;
 
@@ -149,11 +143,6 @@ public interface ApplicationComponents {
 
 	//////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////
-
-	void inject(AvailableFilesViewModel viewModel);
-
-	AvailableFilesViewModel provideAvailableFilesViewModel();
-
 	/*  CONFIG  */
 	void inject(ConfigMenuView view);
 
@@ -187,24 +176,6 @@ public interface ApplicationComponents {
 
 	TransConfigViewModel provideTransConfigViewModel();
 
-	/*  TRANSFER  */
-	void inject(TransferMenuView view);
-
-	TransferMenuView provideTransferMenuView();
-
-	void inject(TransferMenuViewModel viewModel);
-
-	TransferMenuViewModel provideTransferMenuViewModel();
-
-	/*  LIVE  */
-	void inject(LiveMenuView view);
-
-	LiveMenuView provideLiveMenuView();
-
-	void inject(LiveMenuViewModel viewModel);
-
-	LiveMenuViewModel provideLiveMenuViewModel();
-
 	/* SETTINGS */
 	void inject(SettingsMenuView view);
 
@@ -213,10 +184,6 @@ public interface ApplicationComponents {
 	void inject(SettingsMenuViewModel viewModel);
 
 	SettingsMenuViewModel provideSettingsMenuViewModel();
-
-	void inject(SettingsService settingsService);
-
-	SettingsService provideSettingsService();
 
 	/*  HELP  */
 	void inject(HelpView view);

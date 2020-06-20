@@ -28,4 +28,7 @@ public class ToolsMenuViewModel extends BaseViewModel {
 		this.globalNotifications = notifications;
 	}
 
+	void optionsAction() {
+		log.entry();
+	}
 }

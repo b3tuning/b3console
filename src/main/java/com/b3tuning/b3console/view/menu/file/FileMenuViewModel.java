@@ -11,8 +11,8 @@
 
 package com.b3tuning.b3console.view.menu.file;
 
-import com.b3tuning.b3console.service.files.filemanager.FileManager;
-import com.b3tuning.b3console.service.files.filemanager.RecentFile;
+import com.b3tuning.b3console.service.filemanager.FileManager;
+import com.b3tuning.b3console.service.filemanager.RecentFile;
 import com.b3tuning.b3console.view.BaseViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.beans.property.ObjectProperty;

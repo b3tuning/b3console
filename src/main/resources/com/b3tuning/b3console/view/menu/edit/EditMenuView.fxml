@@ -6,14 +6,13 @@
 <Menu xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.b3tuning.b3console.view.menu.edit.EditMenuView"
-      fx:id="editMenu"
       text="Edit">
-    <MenuItem onAction="#undoAction" text="Undo"/>
-    <MenuItem onAction="#redoAction" text="Redo"/>
+    <MenuItem fx:id="undo" onAction="#undoAction" text="Undo"/>
+    <MenuItem fx:id="redo" onAction="#redoAction" text="Redo"/>
     <SeparatorMenuItem/>
-    <MenuItem onAction="#cutAction" text="Cut"/>
-    <MenuItem onAction="#copyAction" text="Copy"/>
-    <MenuItem onAction="#pasteAction" text="Paste"/>
+    <MenuItem fx:id="cut" onAction="#cutAction" text="Cut"/>
+    <MenuItem fx:id="copy" onAction="#copyAction" text="Copy"/>
+    <MenuItem fx:id="paste" onAction="#pasteAction" text="Paste"/>
     <SeparatorMenuItem/>
-    <MenuItem onAction="#deleteAction" text="Delete"/>
+    <MenuItem fx:id="delete" onAction="#deleteAction" text="Delete"/>
 </Menu>

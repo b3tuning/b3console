@@ -13,10 +13,8 @@ package com.b3tuning.b3console.view.menu.online;
 
 import com.b3tuning.b3console.view.BaseView;
 import de.saxsys.mvvmfx.InjectViewModel;
-import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Menu;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -24,16 +22,11 @@ import javax.inject.Inject;
 @XSlf4j
 public class OnlineMenuView extends BaseView<OnlineMenuViewModel> {
 
-	@FXML private Menu onlineMenu;
-
-	private final NotificationCenter globalNotifications;
-
 	@InjectViewModel private OnlineMenuViewModel viewModel;
 
 	@Inject
-	public OnlineMenuView(NotificationCenter notifications) {
+	public OnlineMenuView() {
 		log.entry();
-		this.globalNotifications = notifications;
 	}
 
 	public void initialize() {
@@ -43,16 +36,19 @@ public class OnlineMenuView extends BaseView<OnlineMenuViewModel> {
 
 	@FXML
 	private void connectAction(ActionEvent event) {
-		log.entry();
+		log.entry(event);
+		viewModel.connectAction();
 	}
 
 	@FXML
 	private void disconnectAction(ActionEvent event) {
-		log.entry();
+		log.entry(event);
+		viewModel.disconnectAction();
 	}
 
 	@FXML
 	private void monitorAction(ActionEvent event) {
-		log.entry();
+		log.entry(event);
+		viewModel.monitorAction();
 	}
 }

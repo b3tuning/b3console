@@ -1,6 +1,6 @@
 package com.b3tuning.b3console.prefs;
 
-import com.b3tuning.b3console.service.files.filemanager.RecentFile;
+import com.b3tuning.b3console.service.filemanager.RecentFile;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -33,7 +33,6 @@ public class UserPreferences {
 
 	private static final String RECENT_FILES        = "RECENT_FILES";
 	private static final String RECENT_FILE_DEFAULT = "";
-//	private static final String RECENT_FILE_DEFAULT = "[{\"name\":\"No recent files to display...\",\"path\":null,\"type\":null,\"lastAccessed\":0}]";
 
 	private final Preferences  preferences;
 	private final ObjectMapper mapper;

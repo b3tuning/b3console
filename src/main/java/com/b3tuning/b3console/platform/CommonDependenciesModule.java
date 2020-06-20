@@ -6,13 +6,11 @@ import com.b3tuning.b3console.properties.PropertyLoader;
 import com.b3tuning.b3console.service.EntityPatcher;
 import com.b3tuning.b3console.service.comms.SerialComms;
 import com.b3tuning.b3console.service.edit.EditManager;
-import com.b3tuning.b3console.service.files.FileAssembler;
-import com.b3tuning.b3console.service.files.filemanager.FileManager;
+import com.b3tuning.b3console.service.filemanager.FileManager;
 import com.b3tuning.b3console.service.module.door.DoorConfigAssembler;
 import com.b3tuning.b3console.service.module.door.DoorModuleService;
 import com.b3tuning.b3console.service.module.shifter.ShifterAssembler;
 import com.b3tuning.b3console.service.module.trans.TransConfigAssembler;
-import com.b3tuning.b3console.service.settings.SettingsService;
 import com.b3tuning.b3console.view.loader.ViewManager;
 import com.b3tuning.b3console.view.loader.ViewManagerImpl;
 import com.b3tuning.b3console.view.utils.ScrollBarHelper;
@@ -41,11 +39,13 @@ import javax.inject.Singleton;
 public class CommonDependenciesModule {
 
 	@Provides
+	@Singleton
 	NotificationCenter provideNotificationCenter() {
 		return MvvmFX.getNotificationCenter();
 	}
 
 	@Provides
+	@Singleton
 	ViewManager provideViewManager(NotificationCenter notifications) {
 		return new ViewManagerImpl(notifications);
 	}
@@ -57,12 +57,6 @@ public class CommonDependenciesModule {
 	@Singleton
 	EntityPatcher provideEntityPatcher() {
 		return new EntityPatcher();
-	}
-
-	@Provides
-	@Singleton
-	SettingsService provideSettingsService(UserPreferences preferences) {
-		return new SettingsService(preferences);
 	}
 
 	@Provides
@@ -104,12 +98,6 @@ public class CommonDependenciesModule {
 	/******************
 	 * * ASSEMBLERS * *
 	 ******************/
-	@Provides
-	@Singleton
-	FileAssembler provideFileAssembler() {
-		return new FileAssembler();
-	}
-
 	@Provides
 	@Singleton
 	DoorConfigAssembler provideDoorConfigAssembler() {

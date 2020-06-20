@@ -68,9 +68,8 @@ import java.util.ServiceLoader;
 @XSlf4j
 public class App extends Application {
 
-	public static final String DEFAULT_CSS = "app.css";
-
-	private static final String APP_NAME = "B3Tuning Module ConfigTool";
+	public static final  String DEFAULT_CSS = "app.css";
+	private static final String APP_NAME    = "B3Tuning Module ConfigTool";
 
 	private static final double DEFAULT_FONT_SIZE = 12;
 
@@ -274,7 +273,7 @@ public class App extends Application {
 	}
 
 	@Override
-	public void stop() throws Exception {
+	public void stop() {
 		log.entry();
 	}
 

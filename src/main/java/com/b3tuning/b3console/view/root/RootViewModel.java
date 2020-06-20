@@ -27,8 +27,6 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -111,8 +109,7 @@ public class RootViewModel extends BaseViewModel {
 				log.entry(key, payload);
 				PushViewNotification notification = (PushViewNotification) payload[0];
 				viewManager.push(notification.getKey(), notification.getViewTuple(), childViewPane.get(),
-				                 notification.getAppArea(), notification.isCloseOnLostFocus(),
-				                 notification.isIgnoreDirty());
+				                 notification.isCloseOnLostFocus(), notification.isIgnoreDirty());
 			});
 
 			globalNotifications.subscribe(PopViewNotification.class.getName(), (key, payload) -> {
@@ -124,11 +121,6 @@ public class RootViewModel extends BaseViewModel {
 
 		// detach the help from the sidebar if requested
 		globalNotifications.subscribe(HELP_DETACHED_EVENT, (key, payload) -> detachHelp());
-		globalNotifications.subscribe("A_RECENTS", ((key, payload) -> {
-			log.error("YAY");
-			Menu item = (Menu) payload[0];
-			item.getItems().add(new MenuItem("TEST"));
-		}));
 
 		menuViewTuple = FluentViewLoader.fxmlView(MenuView.class).load();
 	}

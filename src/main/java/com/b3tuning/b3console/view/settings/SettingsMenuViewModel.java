@@ -2,10 +2,8 @@ package com.b3tuning.b3console.view.settings;
 
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.properties.AppProperties;
-import com.b3tuning.b3console.service.settings.SettingsService;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.fazecast.jSerialComm.SerialPort;
-import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import lombok.extern.slf4j.XSlf4j;
@@ -26,26 +24,18 @@ import static org.reactfx.EventStreams.changesOf;
 @XSlf4j
 public class SettingsMenuViewModel extends BaseViewModel {
 
-//	public static final String MODULE_EVENT = "module";
-
 	// injected dependencies
 	@SuppressWarnings("unused")
-	private final SettingsService    configService;
-	private final UserPreferences    preferences;
-	private final NotificationCenter globalNotifications;
+	private final UserPreferences preferences;
 
 	// exposed properties
-	private final StringProperty             downloadPath  = new SimpleStringProperty();
-	private final StringProperty             versionString = new SimpleStringProperty();
-//	private final ObjectProperty<ModuleType> module        = new SimpleObjectProperty<>();
+	private final StringProperty downloadPath  = new SimpleStringProperty();
+	private final StringProperty versionString = new SimpleStringProperty();
 
 	@Inject
-	public SettingsMenuViewModel(SettingsService configService, UserPreferences prefs,
-	                             AppProperties appProperties, NotificationCenter notificationCenter) {
+	public SettingsMenuViewModel(UserPreferences prefs, AppProperties appProperties) {
 		log.entry();
-		this.configService       = configService;
-		this.preferences         = prefs;
-		this.globalNotifications = notificationCenter;
+		this.preferences = prefs;
 
 		SerialPort[] ports = SerialPort.getCommPorts();
 		if (ports.length == 0) {
@@ -59,21 +49,10 @@ public class SettingsMenuViewModel extends BaseViewModel {
 		// populate initial values
 		downloadPath.set(preferences.getDownloadPath());
 		versionStringProperty().set(appProperties.getVersion());
-//		module.set(ModuleType.valueOf(preferences.getModule()));
 
 		// wire up updates
 		manage(changesOf(downloadPath).subscribe(v -> preferences.setDownloadPath(v.getNewValue())));
-
-//		manage(changesOf(module).subscribe(m -> {
-//			preferences.setModule(m.getNewValue());
-//			globalNotifications.publish(MODULE_EVENT, module.get());
-//		}));
 	}
-
-//	void onButtonAction(ModuleType action) {
-//		log.entry(action);
-//		module.set(action);
-//	}
 
 	public void checkPort(SerialPort port) {
 		log.entry(port);
@@ -93,12 +72,7 @@ public class SettingsMenuViewModel extends BaseViewModel {
 		return downloadPath;
 	}
 
-//	public ObjectProperty<ModuleType> moduleProperty() {
-//		return module;
-//	}
-
 	public StringProperty versionStringProperty() {
 		return versionString;
 	}
-
 }

@@ -5,7 +5,6 @@
 <Menu xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.b3tuning.b3console.view.menu.view.ViewMenuView"
-      fx:id="viewMenu"
       text="View">
     <MenuItem text="PlaceHolder"/>
 </Menu>

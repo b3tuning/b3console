@@ -6,7 +6,6 @@
 <Menu xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.b3tuning.b3console.view.menu.online.OnlineMenuView"
-      fx:id="onlineMenu"
       text="Online">
     <MenuItem onAction="#connectAction" text="Connect"/>
     <MenuItem onAction="#disconnectAction" text="Disconnect"/>

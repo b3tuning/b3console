@@ -19,19 +19,20 @@ import javafx.beans.property.SimpleObjectProperty;
  */
 public abstract class SpecializedConfigViewModel extends BaseViewModel {
 
-	private ObjectProperty<DetailMode>         mode          = new SimpleObjectProperty<>();
-	private ObjectProperty<CompositeValidator> formValidator = new SimpleObjectProperty<>();
-	private BooleanProperty                    readonly      = new SimpleBooleanProperty();
+	private final ObjectProperty<DetailMode>         mode          = new SimpleObjectProperty<>();
+	private final ObjectProperty<CompositeValidator> formValidator = new SimpleObjectProperty<>();
+	private final BooleanProperty                    readonly      = new SimpleBooleanProperty();
 
 	protected SpecializedConfigViewModel() {
 		super();
-
 	}
+
 	protected abstract void initializeValidation();
 
 	public ObjectProperty<DetailMode> modeProperty() {
 		return mode;
 	}
+
 	public BooleanProperty readOnlyProperty() {
 		return readonly;
 	}

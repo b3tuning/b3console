@@ -28,4 +28,15 @@ public class OnlineMenuViewModel extends BaseViewModel {
 		this.globalNotifications = notifications;
 	}
 
+	void connectAction() {
+		log.entry();
+	}
+
+	void disconnectAction() {
+		log.entry();
+	}
+
+	void monitorAction() {
+		log.entry();
+	}
 }

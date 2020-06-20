@@ -11,7 +11,7 @@
 
 package com.b3tuning.b3console.view.menu.file;
 
-import com.b3tuning.b3console.service.files.filemanager.RecentFile;
+import com.b3tuning.b3console.service.filemanager.RecentFile;
 import com.b3tuning.b3console.view.BaseView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import javafx.collections.ObservableList;

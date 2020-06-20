@@ -7,9 +7,8 @@
  *
  * Copyright (C) 2020 B3Tuning, LLC.
  */
-package com.b3tuning.b3console.service.files.filemanager;
+package com.b3tuning.b3console.service.filemanager;
 
-import com.b3tuning.b3console.control.menubar.file.subs.NewConfigDialog;
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.ConfigBaseAssembler;

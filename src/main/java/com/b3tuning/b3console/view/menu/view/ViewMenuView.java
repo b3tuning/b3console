@@ -13,9 +13,6 @@ package com.b3tuning.b3console.view.menu.view;
 
 import com.b3tuning.b3console.view.BaseView;
 import de.saxsys.mvvmfx.InjectViewModel;
-import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
-import javafx.fxml.FXML;
-import javafx.scene.control.Menu;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -23,16 +20,11 @@ import javax.inject.Inject;
 @XSlf4j
 public class ViewMenuView extends BaseView<ViewMenuViewModel> {
 
-	@FXML private Menu viewMenu;
-
-	private final NotificationCenter globalNotifications;
-
 	@InjectViewModel private ViewMenuViewModel viewModel;
 
 	@Inject
-	public ViewMenuView(NotificationCenter notifications) {
+	public ViewMenuView() {
 		log.entry();
-		this.globalNotifications = notifications;
 	}
 
 	public void initialize() {

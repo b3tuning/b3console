@@ -24,7 +24,7 @@ import static com.b3tuning.b3console.view.root.RootViewModel.CONFIG_LOADED;
 @XSlf4j
 public class MenuViewModel extends BaseViewModel {
 
-	private final BooleanProperty    configLoaded = new SimpleBooleanProperty(false);
+	private final BooleanProperty configLoaded = new SimpleBooleanProperty(false);
 
 	private final NotificationCenter globalNotifications;
 

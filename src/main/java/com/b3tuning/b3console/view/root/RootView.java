@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.view.root;
 
-import com.b3tuning.b3console.control.menubar.MainMenuBar;
 import com.b3tuning.b3console.view.BaseView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
@@ -38,8 +37,6 @@ public class RootView extends BaseView<RootViewModel> {
 	@InjectViewModel private RootViewModel viewModel;
 
 	private final NotificationCenter globalNotifications;
-
-//	private MainMenuBar mainMenuBar;
 
 	@Inject
 	public RootView(NotificationCenter notificationCenter) {
@@ -123,13 +120,6 @@ public class RootView extends BaseView<RootViewModel> {
 	}
 
 	private void loadMenuView() {
-//		mainMenuBar = new MainMenuBar(globalNotifications);
-//
-//		viewModel.selectedMenuBarItemProperty().bind(mainMenuBar.selectedItemProperty());
-//
-//		topPane.getChildren().add(mainMenuBar.getMenuBar());
-//		bottomPane.getChildren().add(mainMenuBar.getMenuBar());
-//		mainMenuBar.getMenuBar().getMenus().add(viewModel.getFileMenuView().getFileMenuSep());
 		topPane.getChildren().add(viewModel.getMenuView());
 	}
 }

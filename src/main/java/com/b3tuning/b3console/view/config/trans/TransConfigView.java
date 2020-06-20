@@ -18,7 +18,7 @@ import javax.inject.Inject;
 @XSlf4j
 public class TransConfigView extends BaseView<TransConfigViewModel> {
 
-	private ControlsFxVisualizer validationVisualizer = new ControlsFxVisualizer();
+	private final ControlsFxVisualizer validationVisualizer = new ControlsFxVisualizer();
 
 	@InjectViewModel private TransConfigViewModel viewModel;
 

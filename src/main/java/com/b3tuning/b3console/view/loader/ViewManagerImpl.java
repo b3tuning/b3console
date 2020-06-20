@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.view.loader;
 
-import com.b3tuning.b3console.control.menubar.MenuAction;
 import com.b3tuning.b3console.view.Disposable;
 import com.b3tuning.b3console.view.EditableViewModel;
 import com.b3tuning.b3console.view.Refreshable;
@@ -46,12 +45,12 @@ public class ViewManagerImpl implements ViewManager {
 	 * Holds a reference to all instances so that dirty views can be searched
 	 * for amongst all view managers
 	 */
-	private static List<ViewManager> viewManagers = new ArrayList<>();
+	private static final List<ViewManager> viewManagers = new ArrayList<>();
 
-	private PageContextChangedNotification lastContextChange;
-	private NotificationCenter             notifications;
-	private Map<String, ViewInfo>          views;
-	private SuspendableNo                  handlingDirtyIndicator = new SuspendableNo();
+	private       PageContextChangedNotification lastContextChange;
+	private final NotificationCenter             notifications;
+	private final Map<String, ViewInfo>          views;
+	private final SuspendableNo                  handlingDirtyIndicator = new SuspendableNo();
 
 	@Inject
 	public ViewManagerImpl(NotificationCenter notifications) {
@@ -62,25 +61,24 @@ public class ViewManagerImpl implements ViewManager {
 	}
 
 	/**
-	 * Loads a new view by pushing to a stackpane. If the current view being
+	 * Loads a new view by pushing to a stackPane. If the current view being
 	 * displayed is dirty, the push is cancelled. If the requested view is
 	 * already loaded, it is reused and pushed to the front.
 	 */
 	@Override
-	public void push(String key, ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple, StackPane pane,
-	                 MenuAction appArea) {
-		push(key, viewTuple, pane, appArea, false, false);
+	public void push(String key, ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple, StackPane pane) {
+		push(key, viewTuple, pane, false, false);
 	}
 
 	@Override
 	public void push(String key, ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple, StackPane pane,
-	                 MenuAction appArea, boolean closeOnLostFocus) {
-		push(key, viewTuple, pane, appArea, closeOnLostFocus, false);
+	                 boolean closeOnLostFocus) {
+		push(key, viewTuple, pane, closeOnLostFocus, false);
 	}
 
 	@Override
 	public void push(String key, ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple, StackPane pane,
-	                 MenuAction appArea, boolean closeOnLostFocus, boolean ignoreDirty) {
+	                 boolean closeOnLostFocus, boolean ignoreDirty) {
 		checkArgument(pane != null, "Pane cannot be null!");
 
 		log.entry(key, viewTuple.getCodeBehind().getClass().getName(), viewTuple.getViewModel().getClass().getName(),
@@ -95,7 +93,7 @@ public class ViewManagerImpl implements ViewManager {
 			toFront(key);
 		} else {
 
-			ViewInfo info = new ViewInfo(viewTuple, pane, appArea, closeOnLostFocus);
+			ViewInfo info = new ViewInfo(viewTuple, pane, closeOnLostFocus);
 			views.put(key, info);
 
 			if (!viewTuple.getView().managedProperty().isBound()) {
@@ -107,13 +105,11 @@ public class ViewManagerImpl implements ViewManager {
 				hideOthers(info);
 			});
 		}
-
 		publishPageContextChanged(key);
 	}
 
 	private void publishPageContextChanged(String key) {
 		log.entry(key);
-
 		lastContextChange = new PageContextChangedNotification(key);
 		notifications.publish(PageContextChangedNotification.class.getName(), lastContextChange);
 	}
@@ -130,15 +126,14 @@ public class ViewManagerImpl implements ViewManager {
 			log.error("info.getViewTuple() is null!");
 			return;
 		}
-		Node               view    = info.getViewTuple().getView();
-		MenuAction appArea = info.getAppArea();
-		StackPane          pane    = info.getPane();
+		Node      view = info.getViewTuple().getView();
+		StackPane pane = info.getPane();
 
 		List<ViewInfo> toRemove = new ArrayList<>();
-		views.entrySet().stream().map(Entry::getValue).filter(vi -> pane.equals(vi.getPane()))
+		views.values().stream().filter(vi -> pane.equals(vi.getPane()))
 		     .filter(vi -> vi.getViewTuple().getView().isVisible() && !view.equals(vi.getViewTuple().getView()))
 		     .forEach(vi -> {
-			     if (!appArea.equals(vi.getAppArea()) || vi.isCloseOnLostFocus()) {
+			     if (vi.isCloseOnLostFocus()) {
 				     log.trace("Closing {} on lost focus", vi.viewTuple.getCodeBehind().getClass().getName());
 				     toRemove.add(vi);
 			     } else {
@@ -151,7 +146,7 @@ public class ViewManagerImpl implements ViewManager {
 			// lookup the corresponding entry
 			Optional<Entry<String, ViewInfo>> entry = views.entrySet().stream().filter(e -> vi.equals(e.getValue()))
 			                                               .findFirst();
-			if (!entry.isPresent()) {
+			if (entry.isEmpty()) {
 				log.error("Unable to find view entry for {}", vi.getViewTuple().getCodeBehind().getClass().getName());
 				continue;
 			}
@@ -185,17 +180,16 @@ public class ViewManagerImpl implements ViewManager {
 	public boolean handledDirty(String requestedKey) {
 		log.entry(requestedKey, handlingDirtyIndicator.get());
 
-		boolean handled = false;
 		if (handlingDirtyIndicator.get()) {
 			// when handling dirty, we need to make sure that we dont get caught
 			// in a loop
 			log.trace("Already being handled.");
-			return handled;
+			return false;
 		}
 
-		handled = handlingDirtyIndicator.suspendWhile(() -> {
-			Optional<Entry<String, ViewInfo>> dirty = viewManagers.stream().filter(vm -> vm.hasDirty())
-			                                                      .map(vm -> vm.getDirty()).findFirst();
+		return handlingDirtyIndicator.suspendWhile(() -> {
+			Optional<Entry<String, ViewInfo>> dirty = viewManagers.stream().filter(ViewManager::hasDirty)
+			                                                      .map(ViewManager::getDirty).findFirst();
 
 			if (dirty.isPresent()) {
 				String   key   = dirty.get().getKey();
@@ -220,11 +214,8 @@ public class ViewManagerImpl implements ViewManager {
 
 				return false;
 			}
-
 			return true;
 		});
-
-		return handled;
 	}
 
 	/**
@@ -244,11 +235,9 @@ public class ViewManagerImpl implements ViewManager {
 			Node nextView = pane.getChildren().get(size - 2);
 
 			// find the corresponding viewTuple for the view
-			Entry<String, ViewInfo>           topViewInfo  = null;
-			Entry<String, ViewInfo>           nextViewInfo = null;
-			Iterator<Entry<String, ViewInfo>> iter         = views.entrySet().iterator();
-			while (iter.hasNext()) {
-				Entry<String, ViewInfo> checking = (Entry<String, ViewInfo>) iter.next();
+			Entry<String, ViewInfo> topViewInfo  = null;
+			Entry<String, ViewInfo> nextViewInfo = null;
+			for (Entry<String, ViewInfo> checking : views.entrySet()) {
 				if (topView.equals(checking.getValue().viewTuple.getView())) {
 					topViewInfo = checking;
 				} else if (nextView.equals(checking.getValue().viewTuple.getView())) {
@@ -291,7 +280,6 @@ public class ViewManagerImpl implements ViewManager {
 					((Refreshable) nextViewInfo.getValue().getViewTuple().getViewModel()).refresh();
 				}
 			}
-
 			// finally dispose of the popped one
 			disposeOf(topViewInfo.getKey(), topViewInfo.getValue());
 		});
@@ -307,11 +295,9 @@ public class ViewManagerImpl implements ViewManager {
 		// get the top most view that we're peeking at
 		Node topView = pane.getChildren().get(pane.getChildren().size() - 1);
 
-		// find the corresponding viewinfo for the view
-		Entry<String, ViewInfo>           topViewInfo = null;
-		Iterator<Entry<String, ViewInfo>> iter        = views.entrySet().iterator();
-		while (iter.hasNext()) {
-			Entry<String, ViewInfo> checking = (Entry<String, ViewInfo>) iter.next();
+		// find the corresponding viewInfo for the view
+		Entry<String, ViewInfo> topViewInfo = null;
+		for (Entry<String, ViewInfo> checking : views.entrySet()) {
 			if (topView.equals(checking.getValue().viewTuple.getView())) {
 				topViewInfo = checking;
 				break;
@@ -357,11 +343,10 @@ public class ViewManagerImpl implements ViewManager {
 	@Data
 	@AllArgsConstructor
 	public static class ViewInfo {
-
 		private ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple;
-		private StackPane                                             pane;
-		private MenuAction                                    appArea;
-		private boolean                                               closeOnLostFocus;
+
+		private StackPane pane;
+		private boolean   closeOnLostFocus;
 	}
 
 	@Override
@@ -381,24 +366,23 @@ public class ViewManagerImpl implements ViewManager {
 
 		Iterator<Entry<String, ViewInfo>> iter = views.entrySet().iterator();
 		while (iter.hasNext()) {
-			Entry<String, ViewInfo> current = (Entry<String, ViewInfo>) iter.next();
+			Entry<String, ViewInfo> current = iter.next();
 			if (pane.equals(current.getValue().getPane())) {
 				iter.remove();
 				disposeOf(current.getKey(), current.getValue());
 			}
 		}
-
 		clearChildren(pane);
 	}
 
 	@Override
 	public void destroyAllBut(String key, StackPane pane) {
 		log.entry(key, pane.getId());
+		ViewInfo soleSurvivor = null;
 
-		ViewInfo                          soleSurvivor = null;
-		Iterator<Entry<String, ViewInfo>> iter         = views.entrySet().iterator();
+		Iterator<Entry<String, ViewInfo>> iter = views.entrySet().iterator();
 		while (iter.hasNext()) {
-			Entry<String, ViewInfo> current = (Entry<String, ViewInfo>) iter.next();
+			Entry<String, ViewInfo> current = iter.next();
 			if (pane.equals(current.getValue().getPane())) {
 				if (key.equals(current.getKey())) {
 					soleSurvivor = current.getValue();
@@ -423,20 +407,20 @@ public class ViewManagerImpl implements ViewManager {
 	}
 
 	private void disposeOf(String key, ViewInfo info) {
-		Platform.runLater(() -> {
-			views.remove(key);
-
-			if (info.getViewTuple() != null && info.getPane().getChildren().contains(info.getViewTuple().getView())) {
+		if (info.getViewTuple() != null) {
+			Platform.runLater(() -> {
+				views.remove(key);
 				info.getPane().getChildren().remove(info.getViewTuple().getView());
-			}
-			if (info.getViewTuple().getViewModel() instanceof Disposable) {
-				((Disposable) info.getViewTuple().getViewModel()).dispose();
-			}
-			if (info.getViewTuple().getCodeBehind() instanceof Disposable) {
-				((Disposable) info.getViewTuple().getCodeBehind()).dispose();
-			}
-			info.setViewTuple(null);
-		});
+
+				if (info.getViewTuple().getViewModel() instanceof Disposable) {
+					((Disposable) info.getViewTuple().getViewModel()).dispose();
+				}
+				if (info.getViewTuple().getCodeBehind() instanceof Disposable) {
+					((Disposable) info.getViewTuple().getCodeBehind()).dispose();
+				}
+				info.setViewTuple(null);
+			});
+		}
 	}
 
 	@Override

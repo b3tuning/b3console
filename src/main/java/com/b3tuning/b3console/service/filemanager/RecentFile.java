@@ -1,4 +1,4 @@
-package com.b3tuning.b3console.service.files.filemanager;
+package com.b3tuning.b3console.service.filemanager;
 
 import com.b3tuning.b3console.service.module.ModuleType;
 import lombok.AllArgsConstructor;
