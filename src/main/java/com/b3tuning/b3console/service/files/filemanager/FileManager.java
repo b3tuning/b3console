@@ -23,8 +23,8 @@ import javafx.collections.ObservableList;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import lombok.NonNull;
 import lombok.extern.slf4j.XSlf4j;
-import org.apache.commons.io.FilenameUtils;
 
 import javax.inject.Inject;
 import java.io.File;
@@ -82,6 +82,10 @@ public class FileManager {
 		updateRecentFiles();
 	}
 
+	public void newFileAction() {
+		log.entry();
+	}
+
 	public static Optional<ConfigBase> createNewConfigDialog() {
 		return NewConfigDialog.createNewConfigDialog();
 	}
@@ -91,22 +95,30 @@ public class FileManager {
 		return new ConfigBase(type);
 	}
 
+	public void openFileAction(Window window) {
+		log.entry();
+		File selected = chooser.showOpenDialog(window);
+		if (null != selected) {
+			openFile(selected.getAbsolutePath());
+		}
+	}
+
 	public ConfigBase openFile(RecentFile recentFile) {
 		return openFile(recentFile.getPath());
 	}
 
-	public ConfigBase openFile(Window stage) {
-		log.entry();
-
-		ConfigBase config   = null;
-		File       selected = chooser.showOpenDialog(stage);
-		if (selected != null) {
-			config = openFile(selected.getAbsolutePath());
-		}
-		return config;
-	}
-
-	public ConfigBase openFile(String path) {
+	//	public ConfigBase openFile(Window stage) {
+//		log.entry();
+//
+//		ConfigBase config   = null;
+//		File       selected = chooser.showOpenDialog(stage);
+//		if (selected != null) {
+//			config = openFile(selected.getAbsolutePath());
+//		}
+//		return config;
+//	}
+//
+	public ConfigBase openFile(@NonNull String path) {
 		log.entry(path);
 		ConfigBase config = null;
 		try (InputStream in = new FileInputStream(path);
@@ -174,5 +186,30 @@ public class FileManager {
 
 	public ObjectProperty<ObservableList<RecentFile>> recentFilesProperty() {
 		return recentFiles;
+	}
+
+	public void newFileAction(Window window) {
+		log.entry();
+
+	}
+
+	public void closeFileAction() {
+		log.entry();
+		// TODO: impl
+	}
+
+	public void saveFileAction() {
+		log.entry();
+		// TODO: impl
+	}
+
+	public void saveAsFileAction() {
+		log.entry();
+		// TODO: impl
+	}
+
+	public void sendFileAction() {
+		log.entry();
+		// TODO: impl
 	}
 }

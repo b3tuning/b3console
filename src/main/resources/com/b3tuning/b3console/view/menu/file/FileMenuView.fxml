@@ -6,7 +6,6 @@
 <Menu xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.b3tuning.b3console.view.menu.file.FileMenuView"
-      fx:id="fileMenu"
       text="File">
     <MenuItem onAction="#newFileAction" text="New"/>
     <MenuItem onAction="#openFileAction" text="Open"/>

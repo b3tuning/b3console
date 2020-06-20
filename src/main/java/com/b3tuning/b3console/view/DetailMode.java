@@ -9,5 +9,5 @@ package com.b3tuning.b3console.view;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 public enum DetailMode {
-	VIEW, ADD, EDIT;
+	VIEW, ADD, EDIT
 }

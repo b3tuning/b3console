@@ -52,7 +52,7 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 	@FXML private TextField driverWindowMaxCurrent;
 	@FXML private TextField passengerWindowMaxCurrent;
 
-	private ControlsFxVisualizer validationVisualizer = new ControlsFxVisualizer();
+	private final ControlsFxVisualizer validationVisualizer = new ControlsFxVisualizer();
 
 	@InjectViewModel private DoorConfigViewModel viewModel;
 

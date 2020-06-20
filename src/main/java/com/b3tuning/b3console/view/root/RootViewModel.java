@@ -1,9 +1,7 @@
 package com.b3tuning.b3console.view.root;
 
 import com.b3tuning.b3console.App;
-import com.b3tuning.b3console.control.menubar.MenuItemInterface;
 import com.b3tuning.b3console.properties.AppProperties;
-import com.b3tuning.b3console.service.files.filemanager.FileManager;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.help.HelpView;
@@ -13,8 +11,6 @@ import com.b3tuning.b3console.view.menu.MenuView;
 import com.b3tuning.b3console.view.menu.MenuViewModel;
 import com.b3tuning.b3console.view.notifications.PopViewNotification;
 import com.b3tuning.b3console.view.notifications.PushViewNotification;
-import com.b3tuning.b3console.view.settings.SettingsMenuView;
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel;
 import de.saxsys.mvvmfx.FluentViewLoader;
 import de.saxsys.mvvmfx.ViewTuple;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
@@ -28,18 +24,14 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.util.Duration;
-import javafx.util.Pair;
 import lombok.Setter;
 import lombok.extern.slf4j.XSlf4j;
 import org.reactfx.EventSource;
@@ -47,7 +39,6 @@ import org.reactfx.EventSource;
 import javax.inject.Inject;
 
 import static com.b3tuning.b3console.App.DEFAULT_CSS;
-import static com.b3tuning.b3console.control.menubar.MenuAction.A_OPTIONS;
 import static org.reactfx.EventStreams.changesOf;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 
@@ -77,11 +68,9 @@ public class RootViewModel extends BaseViewModel {
 	@SuppressWarnings("unused")
 	private final NotificationCenter globalNotifications;
 	private final ViewManager        viewManager;
-	private final FileManager        fileManager;
 
 	// exposed properties
-	private final ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedMenuBarItem = new SimpleObjectProperty<>();
-	private final ObjectProperty<StackPane>                            childViewPane       = new SimpleObjectProperty<>();
+	private final ObjectProperty<StackPane> childViewPane = new SimpleObjectProperty<>();
 
 	private final EventSource<Boolean>       displayHelp      = new EventSource<>();
 	private final BooleanProperty            helpPaneVisible  = new SimpleBooleanProperty(false);
@@ -90,18 +79,15 @@ public class RootViewModel extends BaseViewModel {
 	private final BooleanProperty            initialized      = new SimpleBooleanProperty(false);
 	private       ObjectProperty<ConfigBase> config           = new SimpleObjectProperty<>(null);
 
-	private final ViewTuple<MenuView, MenuViewModel>         menuViewTuple;
-//	private final ViewTuple<FileMenuView, FileMenuViewModel> fileMenuViewTuple;
+	private final ViewTuple<MenuView, MenuViewModel> menuViewTuple;
 
 	@Inject
-	public RootViewModel(AppProperties appProperties, NotificationCenter globalNotifications, ViewManager viewManager,
-	                     FileManager manager) {
+	public RootViewModel(AppProperties appProperties, NotificationCenter globalNotifications, ViewManager viewManager) {
 		log.entry();
 
 		this.appProperties       = appProperties;
 		this.globalNotifications = globalNotifications;
 		this.viewManager         = viewManager;
-		this.fileManager         = manager;
 
 		if (appProperties.getLogLevel().isEmpty()) {
 			config = new SimpleObjectProperty<>(new ConfigBase());
@@ -117,11 +103,6 @@ public class RootViewModel extends BaseViewModel {
 			viewManager.destroyAll(c);
 
 			initialized.set(true);
-
-			manage(nonNullValuesOf(selectedMenuBarItem).subscribe(e -> {
-				log.entry();
-				handleAction(e);
-			}));
 
 			// any child views that need access to their parent are handled via
 			// global notifications
@@ -149,8 +130,7 @@ public class RootViewModel extends BaseViewModel {
 			item.getItems().add(new MenuItem("TEST"));
 		}));
 
-		menuViewTuple     = FluentViewLoader.fxmlView(MenuView.class).load();
-//		fileMenuViewTuple = FluentViewLoader.fxmlView(FileMenuView.class).load();
+		menuViewTuple = FluentViewLoader.fxmlView(MenuView.class).load();
 	}
 
 	public Node helpView() {
@@ -182,85 +162,39 @@ public class RootViewModel extends BaseViewModel {
 		helpStage.show();
 	}
 
-	/**
-	 * load the relevant view depending on the menu action taken
-	 *
-	 * @param action - the selected menu item
-	 */
-	private void handleAction(Pair<MenuItemInterface, ActionEvent> action) {
-		log.entry();
-		log.debug("RECEIVED ACTION {}", action);
-		MenuItem    menuItem = (MenuItem) action.getValue().getTarget();
-		ContextMenu cm       = menuItem.getParentPopup();
-		Scene       scene    = cm.getScene();
-		Window      stage    = scene.getWindow();
-		switch (action.getKey().getAction()) {
-			// EDIT actions
-			case A_UNDO:
-			case A_REDO:
-			case A_CUT:
-			case A_COPY:
-			case A_DELETE:
-				break;
-
-			// FILE actions
-			case A_NEW:
-				showNewConfigView();
-				break;
-			case A_OPEN:
-				showOpenConfigDialog(stage);
-				break;
-			case A_RECENTS:
-			case A_CLOSE:
-				break;
-			case A_SAVE:
-				showSaveConfigDialog();
-				break;
-			case A_SAVE_AS:
-			case A_SEND:
-			case A_QUIT:
-
-				// ONLINE actions
-			case A_CONNECT:
-			case A_DISCONNECT:
-
-			case A_MONITOR_IO:
-				// TODO: load monitor view
-				break;
-
-			// HELP actions
-			case A_HELP:
-//				application.getHostServices().showDocument(appProperties.getUserHelpUrl().toString());
-				displayHelp.push(true);
-				break;
-
-			// TOOLS actions
-			case A_OPTIONS:
-//				if (viewManager.contains(ConfigMenuView.class.getName())) {
-//					viewManager.toFront(ConfigMenuView.class.getName());
+//			// HELP actions
+//			case A_HELP:
+////				application.getHostServices().showDocument(appProperties.getUserHelpUrl().toString());
+//				displayHelp.push(true);
+//				break;
+//
+//			// TOOLS actions
+//			case A_OPTIONS:
+////				if (viewManager.contains(ConfigMenuView.class.getName())) {
+////					viewManager.toFront(ConfigMenuView.class.getName());
+////				} else {
+////					ViewTuple<ConfigMenuView, ConfigMenuViewModel> tuple = FluentViewLoader
+////							.fxmlView(ConfigMenuView.class).load();
+////					viewManager.push(ConfigMenuView.class.getName(), tuple, childViewPane.get(), A_OPTIONS);
+////				}
+//				if (viewManager.contains(SettingsMenuView.class.getName())) {
+//					viewManager.toFront(SettingsMenuView.class.getName());
 //				} else {
-//					ViewTuple<ConfigMenuView, ConfigMenuViewModel> tuple = FluentViewLoader
-//							.fxmlView(ConfigMenuView.class).load();
-//					viewManager.push(ConfigMenuView.class.getName(), tuple, childViewPane.get(), A_OPTIONS);
+//					ViewTuple<SettingsMenuView, SettingsMenuViewModel> tuple = FluentViewLoader
+//							.fxmlView(SettingsMenuView.class).load();
+//					viewManager.push(SettingsMenuView.class.getName(), tuple, childViewPane.get(), A_OPTIONS);
 //				}
-				if (viewManager.contains(SettingsMenuView.class.getName())) {
-					viewManager.toFront(SettingsMenuView.class.getName());
-				} else {
-					ViewTuple<SettingsMenuView, SettingsMenuViewModel> tuple = FluentViewLoader
-							.fxmlView(SettingsMenuView.class).load();
-					viewManager.push(SettingsMenuView.class.getName(), tuple, childViewPane.get(), A_OPTIONS);
-				}
-				break;
-
-			// VIEW actions
-			// TODO: figure out view
-
-			default:
-				log.error(MENU_ITEM_ERROR, action);
-
-		}
-		globalNotifications.publish(action.toString(), action);
-	}
+//				break;
+//
+//			// VIEW actions
+//			// TODO: figure out view
+//
+//			default:
+//				log.error(MENU_ITEM_ERROR, action);
+//
+//		}
+//		globalNotifications.publish(action.toString(), action);
+//	}
 
 	/**
 	 * HELP PAGE ANIMATION
@@ -295,23 +229,6 @@ public class RootViewModel extends BaseViewModel {
 
 		Timeline timeline = new Timeline(kf1, kf2, kf3);
 		timeline.play();
-	}
-
-	private void showNewConfigView() {
-		log.entry();
-		FileManager.createNewConfigDialog().ifPresent(configBase -> config.set(configBase));
-	}
-
-	private void showOpenConfigDialog(Window stage) {
-		log.entry();
-		ConfigBase base = fileManager.openFile(stage);
-		log.warn("Opened config = {}", base);
-	}
-
-	private void showSaveConfigDialog() {
-		log.entry();
-		fileManager.saveConfig(config.get());
-		menuViewTuple.getView();
 	}
 
 	/**
@@ -361,15 +278,7 @@ public class RootViewModel extends BaseViewModel {
 		return childViewPane;
 	}
 
-	public ObjectProperty<Pair<MenuItemInterface, ActionEvent>> selectedMenuBarItemProperty() {
-		return selectedMenuBarItem;
-	}
-
 	public Parent getMenuView() {
 		return menuViewTuple.getView();
 	}
-
-//	public FileMenuView getFileMenuView() {
-//		return fileMenuViewTuple.getCodeBehind();
-//	}
 }

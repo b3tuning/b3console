@@ -26,25 +26,23 @@ public class Action {
 
 	private final Type type;
 
-	private HideActionCallback hideActionCallback;
-
+	private HideActionCallback  hideActionCallback;
 	private ViewControlCallback styleCallback;
-
 
 	public Action(Type type, HideActionCallback hideActionCallback) {
 		this(type);
 		this.hideActionCallback = hideActionCallback;
 	}
 
-	public static interface HideActionCallback {
+	public interface HideActionCallback {
 		boolean isHidden(Object hideActionArg);
 	}
 
-	public static interface ViewControlCallback {
+	public interface ViewControlCallback {
 		void apply(Object data, Control control);
 	}
 
-	public static enum Type {
+	public enum Type {
 		VIEW(INFO),
 		ADD(PLUS),
 		EDIT(MODIFY),
