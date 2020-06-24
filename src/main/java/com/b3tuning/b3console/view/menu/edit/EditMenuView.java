@@ -23,12 +23,12 @@ import javax.inject.Inject;
 @XSlf4j
 public class EditMenuView extends BaseView<EditMenuViewModel> {
 
-	@FXML private MenuItem undo;
-	@FXML private MenuItem redo;
-	@FXML private MenuItem cut;
-	@FXML private MenuItem copy;
-	@FXML private MenuItem paste;
-	@FXML private MenuItem delete;
+	@FXML private MenuItem undoMenuItem;
+	@FXML private MenuItem redoMenuItem;
+	@FXML private MenuItem cutMenuItem;
+	@FXML private MenuItem copyMenuItem;
+	@FXML private MenuItem pasteMenuItem;
+	@FXML private MenuItem deleteMenuItem;
 
 	@InjectViewModel private EditMenuViewModel viewModel;
 
@@ -40,12 +40,12 @@ public class EditMenuView extends BaseView<EditMenuViewModel> {
 	public void initialize() {
 		log.entry();
 
-		undo.disableProperty().bind(viewModel.getHasUndo().not());
-		redo.disableProperty().bind(viewModel.getHasRedo().not());
-		cut.disableProperty().bind(viewModel.isSelected().not());
-		copy.disableProperty().bind(cut.disableProperty());
-		paste.disableProperty().bind(viewModel.hasClipBoardContent().not());
-		delete.disableProperty().bind(cut.disableProperty());
+		undoMenuItem.disableProperty().bind(viewModel.getHasUndo().not());
+		redoMenuItem.disableProperty().bind(viewModel.getHasRedo().not());
+		cutMenuItem.disableProperty().bind(viewModel.isSelected().not());
+		copyMenuItem.disableProperty().bind(cutMenuItem.disableProperty());
+		pasteMenuItem.disableProperty().bind(viewModel.hasClipBoardContent().not());
+		deleteMenuItem.disableProperty().bind(cutMenuItem.disableProperty());
 	}
 
 	@FXML

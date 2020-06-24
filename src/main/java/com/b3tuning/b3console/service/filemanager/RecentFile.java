@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import lombok.extern.slf4j.XSlf4j;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -23,6 +24,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = {"name", "path", "type"})
+@XSlf4j
 public class RecentFile implements Comparable<RecentFile>, Serializable {
 
 	private static final long serialVersionUID = -8768741433061399525L;
@@ -33,14 +35,19 @@ public class RecentFile implements Comparable<RecentFile>, Serializable {
 	private Long       lastAccessed;
 
 	@Override public int compareTo(@NotNull RecentFile o) {
+		log.error("HIT compareTo");
 		if (this == o) {
+			log.error("COMPARE TO == 0");
 			return 0;
 		}
 		long d = this.lastAccessed - o.lastAccessed;
+		log.error("this.lastAccessed = {}", this.lastAccessed);
+		log.error("o.lastAccessed = {}", o.lastAccessed);
+		log.error("D = {}", d);
 		return ((d == 0)
 		        ? 0
 		        : ((d < 0)
-		           ? -1
-		           : 1));
+		           ? 1
+		           : -1));
 	}
 }

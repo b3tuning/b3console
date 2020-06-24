@@ -7,12 +7,12 @@
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.b3tuning.b3console.view.menu.edit.EditMenuView"
       text="Edit">
-    <MenuItem fx:id="undo" onAction="#undoAction" text="Undo"/>
-    <MenuItem fx:id="redo" onAction="#redoAction" text="Redo"/>
+    <MenuItem fx:id="undoMenuItem" onAction="#undoAction" text="Undo"/>
+    <MenuItem fx:id="redoMenuItem" onAction="#redoAction" text="Redo"/>
     <SeparatorMenuItem/>
-    <MenuItem fx:id="cut" onAction="#cutAction" text="Cut"/>
-    <MenuItem fx:id="copy" onAction="#copyAction" text="Copy"/>
-    <MenuItem fx:id="paste" onAction="#pasteAction" text="Paste"/>
+    <MenuItem fx:id="cutMenuItem" onAction="#cutAction" text="Cut"/>
+    <MenuItem fx:id="copyMenuItem" onAction="#copyAction" text="Copy"/>
+    <MenuItem fx:id="pasteMenuItem" onAction="#pasteAction" text="Paste"/>
     <SeparatorMenuItem/>
-    <MenuItem fx:id="delete" onAction="#deleteAction" text="Delete"/>
+    <MenuItem fx:id="deleteMenuItem" onAction="#deleteAction" text="Delete"/>
 </Menu>

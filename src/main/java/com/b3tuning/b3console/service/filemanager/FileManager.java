@@ -71,6 +71,7 @@ public class FileManager {
 	private void updateRecentFiles() {
 		log.entry();
 		preferences.setRecentFiles(recentFiles.get());
+		globalNotifications.publish("UPDATE_RECENTS");
 	}
 
 	private void updateRecentFiles(RecentFile recentFile) {
@@ -79,7 +80,11 @@ public class FileManager {
 		currentFile.setLastAccessed(System.currentTimeMillis());
 		recentFiles.get().removeAll(recentFile);
 		recentFiles.get().add(currentFile);
-		recentFiles.get().sorted();
+		log.error("UPDATING RECENT FILES WITH");
+		log.entry(recentFiles);
+		recentFiles.get().sort(RecentFile::compareTo);
+		log.error("RECENT FILES NOW SORTED");
+		log.entry(recentFiles);
 		updateRecentFiles();
 	}
 

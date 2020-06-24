@@ -24,6 +24,9 @@ import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
 
+import static org.reactfx.EventStreams.changesOf;
+import static org.reactfx.EventStreams.valuesOf;
+
 @XSlf4j
 public class FileMenuView extends BaseView<FileMenuViewModel> {
 
@@ -44,10 +47,16 @@ public class FileMenuView extends BaseView<FileMenuViewModel> {
 		log.entry();
 		constructRecentFilesMenu();
 
-		closeFileMenuItem.disableProperty().bind(viewModel.configProperty().isNull());
-		saveFileMenuItem.disableProperty().bind(viewModel.configProperty().isNull());
-		saveFileAsMenuItem.disableProperty().bind(viewModel.configProperty().isNull());
-		sendFileMenuItem.disableProperty().bind(viewModel.configProperty().isNull());
+		closeFileMenuItem.disableProperty().bind(viewModel.configLoadedProperty().not());
+		saveFileMenuItem.disableProperty().bind(viewModel.configLoadedProperty().not());
+		saveFileAsMenuItem.disableProperty().bind(viewModel.configLoadedProperty().not());
+		sendFileMenuItem.disableProperty().bind(viewModel.configLoadedProperty().not());
+
+		manage(valuesOf(viewModel.getRecents()).subscribe(r -> {
+			log.error("CHANGE IN RECENTS DETECTED");
+			constructRecentFilesMenu();
+		}));
+
 	}
 
 	private void constructRecentFilesMenu() {
@@ -59,7 +68,7 @@ public class FileMenuView extends BaseView<FileMenuViewModel> {
 		}
 		recentFilesMenu.getItems().clear();
 		for (RecentFile r : files) {
-			MenuItem item = new MenuItem(r.getName());
+			MenuItem item = new MenuItem(r.getPath());
 			item.setUserData(r.getPath());
 			item.setOnAction(event -> {
 				log.entry();

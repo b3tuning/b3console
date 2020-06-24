@@ -16,6 +16,8 @@ import com.b3tuning.b3console.service.filemanager.RecentFile;
 import com.b3tuning.b3console.view.BaseViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.stage.Window;
 import lombok.extern.slf4j.XSlf4j;
@@ -30,35 +32,42 @@ public class FileMenuViewModel extends BaseViewModel {
 	private final NotificationCenter globalNotifications;
 	private final FileManager        fileManager;
 
+	private final ObjectProperty<ObservableList<RecentFile>> recentFiles = new SimpleObjectProperty<>(FXCollections.observableArrayList());
+
 	@Inject
 	public FileMenuViewModel(NotificationCenter notificationCenter, FileManager manager) {
 		log.entry();
 		this.globalNotifications = notificationCenter;
 		this.fileManager         = manager;
+		globalNotifications.subscribe("UPDATE_RECENTS", (key, payload) -> {
+			log.error("GOT UPDATE_RECENTS notification");
+			recentFiles.set(fileManager.recentFilesProperty().get());
+		});
 	}
 
 	public ObjectProperty<ObservableList<RecentFile>> getRecents() {
-		return fileManager.recentFilesProperty();
+		return recentFiles;
 	}
 
 	void newFileAction() {
 		log.entry();
-		fileManager.newFileAction().ifPresent(result -> configProperty().set(result));
+		fileManager.newFileAction().ifPresent(this::setConfig);
 	}
 
 	void openFileAction(Window window) {
 		log.entry();
-		configProperty().set(fileManager.openFileAction(window));
+		setConfig(fileManager.openFileAction(window));
 	}
 
 	void openRecentFileAction(String path) {
 		log.entry(path);
-		fileManager.openFile(path);
+		setConfig(fileManager.openFile(path));
 	}
 
 	void closeFileAction() {
 		log.entry();
 		fileManager.closeFileAction();
+		unsetConfig();
 	}
 
 	void saveFileAction() {
