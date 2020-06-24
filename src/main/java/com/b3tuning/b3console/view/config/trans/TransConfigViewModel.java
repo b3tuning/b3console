@@ -6,9 +6,7 @@ import com.b3tuning.b3console.view.EditableViewModel;
 import com.b3tuning.b3console.view.Refreshable;
 import com.b3tuning.b3console.view.utils.AlertUtils;
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -24,8 +22,7 @@ import javax.inject.Inject;
 @XSlf4j
 public class TransConfigViewModel extends BaseViewModel implements EditableViewModel, Refreshable {
 
-	private ObjectProperty<TransConfig> config = new SimpleObjectProperty<>();
-	private TransConfig                 originalConfig;
+	private TransConfig originalConfig;
 
 	private BooleanProperty dirty = new SimpleBooleanProperty(false);
 
@@ -41,10 +38,14 @@ public class TransConfigViewModel extends BaseViewModel implements EditableViewM
 			AlertUtils.warn(saveChangesMessage());
 		} else {
 //			config.set(moduleService.getTransConfig());
-			originalConfig = config.get().copy();
-			config.get().resetTrackingChanges();
+			originalConfig = getTransConfigFromBase().copy();
+			getTransConfigFromBase().resetTrackingChanges();
 			dirty.set(false);
 		}
+	}
+
+	private TransConfig getTransConfigFromBase() {
+		return (TransConfig) configProperty().get();
 	}
 
 	@Override public BooleanProperty dirtyProperty() {

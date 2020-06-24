@@ -22,7 +22,6 @@ buildscript {
 		// dependency management:
 		classpath("com.netflix.nebula:gradle-dependency-lock-plugin:9.2.0")
 		classpath("com.netflix.nebula:gradle-git-scm-plugin:4.2.0")
-//		classpath("com.github.ben-manes:gradle-versions-plugin:0.11.1")
 
 		// auto-updating support:
 		classpath("no.tornado:fxlauncher-gradle-plugin:1.0.21.1")
@@ -48,9 +47,6 @@ apply plugin: 'application'
 // used for locking gradle dependencies
 apply plugin: 'nebula.dependency-lock'
 apply plugin: 'nebula.gradle-git-scm'
-
-// to check dependencies: ./gradlew dependencyUpdates -Drevision=release
-//apply plugin: 'com.github.ben-manes.versions'
 
 // auto-updater
 apply plugin: 'no.tornado.fxlauncher'

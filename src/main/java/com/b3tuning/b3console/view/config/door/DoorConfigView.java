@@ -1,5 +1,6 @@
 package com.b3tuning.b3console.view.config.door;
 
+import com.b3tuning.b3console.service.module.door.config.DoorConfig;
 import com.b3tuning.b3console.view.BaseView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
@@ -64,8 +65,9 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 
 		IntegerStringConverter intToString = new IntegerStringConverter();
 
-		manage(nonNullValuesOf(viewModel.configProperty()).subscribe(c -> {
+		manage(nonNullValuesOf(viewModel.configProperty()).subscribe(cb -> {
 			log.entry();
+			DoorConfig c = (DoorConfig) cb;
 			manage(nonNullValuesOf(c.getMirrorAction()).subscribe(ma -> {
 				mirrorActionDownMax.textProperty().bindBidirectional(ma.getDownMax(), intToString);
 				mirrorActionDownMin.textProperty().bindBidirectional(ma.getDownMin(), intToString);

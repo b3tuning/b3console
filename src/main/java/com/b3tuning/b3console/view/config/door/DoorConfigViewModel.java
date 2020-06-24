@@ -12,9 +12,7 @@ import com.b3tuning.b3console.view.config.SpecializedConfigViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import de.saxsys.mvvmfx.utils.validation.ObservableRuleBasedValidator;
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -38,8 +36,7 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 	private final NotificationCenter globalNotifications;
 	private final DoorModuleService  service;
 
-	private ObjectProperty<DoorConfig> config = new SimpleObjectProperty<>();
-	private DoorConfig                 originalConfig;
+	private DoorConfig originalConfig;
 
 	private BooleanProperty dirty  = new SimpleBooleanProperty(false);
 	private BooleanProperty saving = new SimpleBooleanProperty(false);
@@ -83,7 +80,7 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 		this.globalNotifications = notificationCenter;
 		this.service             = service;
 
-		manage(combine(nonNullValuesOf(super.modeProperty()), nonNullValuesOf(config),
+		manage(combine(nonNullValuesOf(super.modeProperty()), nonNullValuesOf(configProperty()),
 		               nonNullValuesOf(super.formValidatorProperty())).subscribe((t) -> {
 			log.entry(t._1, t._2, t._3);
 			if (t._1 == null || t._2 == null || t._3 == null) {
@@ -130,10 +127,11 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 		ValidationUtil.isNotNull(windowActionUpMaxValidator, getWindowAction().getUpMax(), "WinUpMax");
 		ValidationUtil.isNotNull(windowActionUpMinValidator, getWindowAction().getUpMin(), "WinUpMin");
 
-		ValidationUtil.isNotNull(driverWindowMaxCurrentValidator, config.get().getDriverWindowMaxCurrent(),
+		ValidationUtil.isNotNull(driverWindowMaxCurrentValidator, getDoorConfigFromBase().getDriverWindowMaxCurrent(),
 		                         "DriverCurrentMax");
-		ValidationUtil.isNotNull(passengerWindowMaxCurrentValidator, config.get().getPassengerWindowMaxCurrent(),
-		                         "PassCurrentMax");
+		ValidationUtil
+				.isNotNull(passengerWindowMaxCurrentValidator, getDoorConfigFromBase().getPassengerWindowMaxCurrent(),
+				           "PassCurrentMax");
 
 		getFormValidator()
 				.addValidators(mirrorActionDownMaxValidator, mirrorActionDownMinValidator, mirrorActionLeftMaxValidator,
@@ -149,19 +147,19 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 				               passengerWindowMaxCurrentValidator);
 	}
 
-	public ObjectProperty<DoorConfig> configProperty() {
-		return config;
+	private DoorConfig getDoorConfigFromBase() {
+		return (DoorConfig) configProperty().get();
 	}
 
 	public MirrorActionConfig getMirrorAction() {
-		return config.get().getMirrorAction().get();
+		return getDoorConfigFromBase().getMirrorAction().get();
 	}
 
 	public MirrorSelectConfig getMirrorSelect() {
-		return config.get().getMirrorSelect().get();
+		return getDoorConfigFromBase().getMirrorSelect().get();
 	}
 
 	public WindowActionConfig getWindowAction() {
-		return config.get().getWindowAction().get();
+		return getDoorConfigFromBase().getWindowAction().get();
 	}
 }

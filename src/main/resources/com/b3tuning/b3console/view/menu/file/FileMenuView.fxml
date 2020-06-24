@@ -12,12 +12,12 @@
     <Menu fx:id="recentFilesMenu" text="Recent">
         <MenuItem disable="true" text="No Recently opened configs"/>
     </Menu>
-    <MenuItem onAction="#closeFileAction" text="Close"/>
+    <MenuItem fx:id="closeFileMenuItem" onAction="#closeFileAction" text="Close"/>
     <SeparatorMenuItem/>
-    <MenuItem onAction="#saveFileAction" text="Save"/>
-    <MenuItem onAction="#saveAsFileAction" text="Save As"/>
+    <MenuItem fx:id="saveFileMenuItem" onAction="#saveFileAction" text="Save"/>
+    <MenuItem fx:id="saveFileAsMenuItem" onAction="#saveFileAsAction" text="Save As"/>
     <SeparatorMenuItem/>
-    <MenuItem onAction="#sendFileAction" text="Send"/>
+    <MenuItem fx:id="sendFileMenuItem" onAction="#sendFileAction" text="Send"/>
     <SeparatorMenuItem/>
     <MenuItem onAction="#exitAction" text="Exit"/>
 </Menu>

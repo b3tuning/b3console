@@ -43,12 +43,12 @@ public class FileMenuViewModel extends BaseViewModel {
 
 	void newFileAction() {
 		log.entry();
-		fileManager.newFileAction();
+		fileManager.newFileAction().ifPresent(result -> configProperty().set(result));
 	}
 
 	void openFileAction(Window window) {
 		log.entry();
-		fileManager.openFileAction(window);
+		configProperty().set(fileManager.openFileAction(window));
 	}
 
 	void openRecentFileAction(String path) {
@@ -63,12 +63,12 @@ public class FileMenuViewModel extends BaseViewModel {
 
 	void saveFileAction() {
 		log.entry();
-		fileManager.saveFileAction();
+		fileManager.saveFileAction(configProperty().get());
 	}
 
-	void saveAsFileAction() {
+	void saveFileAsAction() {
 		log.entry();
-		fileManager.saveAsFileAction();
+		fileManager.saveFileAsAction();
 	}
 
 	void sendFileAction() {

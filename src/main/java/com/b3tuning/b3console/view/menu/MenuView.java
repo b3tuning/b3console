@@ -29,6 +29,6 @@ public class MenuView extends BaseView<MenuViewModel> {
 
 	public void initialize() {
 		log.entry();
-	}
 
+	}
 }

@@ -9,12 +9,12 @@
             prefHeight="30.0" prefWidth="600.0">
     <HBox>
         <MenuBar>
-            <fx:include source="file/FileMenuView.fxml"/>
-            <fx:include source="edit/EditMenuView.fxml"/>
-            <fx:include source="view/ViewMenuView.fxml"/>
-            <fx:include source="online/OnlineMenuView.fxml"/>
-            <fx:include source="tools/ToolsMenuView.fxml"/>
-            <fx:include source="help/HelpMenuView.fxml"/>
+            <fx:include source="file/FileMenuView.fxml" fx:id="fileMenu"/>
+            <fx:include source="edit/EditMenuView.fxml" fx:id="editMenu"/>
+            <fx:include source="view/ViewMenuView.fxml" fx:id="viewMenu"/>
+            <fx:include source="online/OnlineMenuView.fxml" fx:id="onlineMenu"/>
+            <fx:include source="tools/ToolsMenuView.fxml" fx:id="toolsMenu"/>
+            <fx:include source="help/HelpMenuView.fxml" fx:id="helpMenu"/>
         </MenuBar>
     </HBox>
 </AnchorPane>

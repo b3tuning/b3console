@@ -1,7 +1,7 @@
 ext {
 	javaVersion = '14+'
 
-	daggerVersion = '2.28'
+	daggerVersion = '2.28.1'
 	bcprovVersion = '1.65.01'
 	lombokVersion = '1.18.12'
 	junitJupiterVersion = '5.7.0-M1'

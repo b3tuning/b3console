@@ -37,7 +37,6 @@ import org.reactfx.EventSource;
 import javax.inject.Inject;
 
 import static com.b3tuning.b3console.App.DEFAULT_CSS;
-import static org.reactfx.EventStreams.changesOf;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 
 /*
@@ -52,7 +51,6 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class RootViewModel extends BaseViewModel {
 
-	public static final  String CONFIG_LOADED       = "config_loaded";
 	public static final  String HELP_DETACHED_EVENT = "help_detached";
 	private static final String HELP_STAGE_TITLE    = "B3Tuning Module Help";
 	private static final String MENU_ITEM_ERROR     = "Unrecognized menu item action: '{}'";
@@ -90,10 +88,7 @@ public class RootViewModel extends BaseViewModel {
 		if (appProperties.getLogLevel().isEmpty()) {
 			config = new SimpleObjectProperty<>(new ConfigBase());
 		}
-		manage(changesOf(config).subscribe(c -> {
-			log.entry();
-			globalNotifications.publish(CONFIG_LOADED, config.isNotNull().getValue());
-		}));
+
 		manage(nonNullValuesOf(childViewPane).subscribe(c -> {
 			log.entry();
 

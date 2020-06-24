@@ -36,7 +36,7 @@ public class NewConfigDialog {
 	public static final double GRID_PADDING    = 10;
 	public static final double TEXT_PREF_WIDTH = 300.0;
 
-	public static Optional<ConfigBase> createNewConfigDialog() {
+	public Optional<ConfigBase> createNewConfigDialog() {
 		log.entry();
 
 		// Custom dialog to for new config

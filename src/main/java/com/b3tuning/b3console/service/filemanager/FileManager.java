@@ -37,10 +37,10 @@ import java.util.Optional;
 @XSlf4j
 public class FileManager {
 
-	private final UserPreferences preferences;
-	private final FileChooser     chooser;
-
+	private final UserPreferences    preferences;
 	private final NotificationCenter globalNotifications;
+	private final FileChooser        chooser;
+	private final NewConfigDialog    newConfigDialog;
 
 	private RecentFile currentFile;
 
@@ -48,13 +48,15 @@ public class FileManager {
 			FXCollections.observableArrayList());
 
 	@Inject
-	public FileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser) {
+	public FileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser,
+	                   NewConfigDialog newConfigDialog) {
 		log.entry();
-		this.preferences = preferences;
-		this.chooser     = chooser;
+		this.preferences         = preferences;
+		this.globalNotifications = notifications;
+		this.chooser             = chooser;
 		this.chooser.setInitialDirectory(new File(preferences.getBrowseLocalPath()));
 		this.chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("B3Tuning Module Config", "*.b3t"));
-		this.globalNotifications = notifications;
+		this.newConfigDialog = newConfigDialog;
 
 		loadRecentFiles();
 	}
@@ -81,12 +83,9 @@ public class FileManager {
 		updateRecentFiles();
 	}
 
-	public void newFileAction() {
+	public Optional<ConfigBase> newFileAction() {
 		log.entry();
-	}
-
-	public static Optional<ConfigBase> createNewConfigDialog() {
-		return NewConfigDialog.createNewConfigDialog();
+		return newConfigDialog.createNewConfigDialog();
 	}
 
 	public ConfigBase createNewFile(ModuleType type) {
@@ -94,12 +93,13 @@ public class FileManager {
 		return new ConfigBase(type);
 	}
 
-	public void openFileAction(Window window) {
+	public ConfigBase openFileAction(Window window) {
 		log.entry();
 		File selected = chooser.showOpenDialog(window);
 		if (null != selected) {
-			openFile(selected.getAbsolutePath());
+			return openFile(selected.getAbsolutePath());
 		}
+		return null;
 	}
 
 	public ConfigBase openFile(RecentFile recentFile) {
@@ -120,8 +120,7 @@ public class FileManager {
 	public ConfigBase openFile(@NonNull String path) {
 		log.entry(path);
 		ConfigBase config = null;
-		try (InputStream in = new FileInputStream(path);
-		     ObjectInputStream ois = new ObjectInputStream(in)) {
+		try (InputStream in = new FileInputStream(path); ObjectInputStream ois = new ObjectInputStream(in)) {
 			ConfigBaseResource resource = (ConfigBaseResource) ois.readObject();
 			config = ConfigBaseAssembler.assemble(resource);
 			updateRecentFiles(recentFileFromConfig(config, path));
@@ -197,12 +196,12 @@ public class FileManager {
 		// TODO: impl
 	}
 
-	public void saveFileAction() {
+	public void saveFileAction(ConfigBase configBase) {
 		log.entry();
-		// TODO: impl
+		saveConfig(configBase);
 	}
 
-	public void saveAsFileAction() {
+	public void saveFileAsAction() {
 		log.entry();
 		// TODO: impl
 	}

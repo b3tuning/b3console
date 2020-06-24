@@ -27,7 +27,11 @@ import javax.inject.Inject;
 @XSlf4j
 public class FileMenuView extends BaseView<FileMenuViewModel> {
 
-	@FXML private Menu recentFilesMenu;
+	@FXML private Menu     recentFilesMenu;
+	@FXML private MenuItem closeFileMenuItem;
+	@FXML private MenuItem saveFileMenuItem;
+	@FXML private MenuItem saveFileAsMenuItem;
+	@FXML private MenuItem sendFileMenuItem;
 
 	@InjectViewModel private FileMenuViewModel viewModel;
 
@@ -39,6 +43,11 @@ public class FileMenuView extends BaseView<FileMenuViewModel> {
 	public void initialize() {
 		log.entry();
 		constructRecentFilesMenu();
+
+		closeFileMenuItem.disableProperty().bind(viewModel.configProperty().isNull());
+		saveFileMenuItem.disableProperty().bind(viewModel.configProperty().isNull());
+		saveFileAsMenuItem.disableProperty().bind(viewModel.configProperty().isNull());
+		sendFileMenuItem.disableProperty().bind(viewModel.configProperty().isNull());
 	}
 
 	private void constructRecentFilesMenu() {
@@ -91,9 +100,9 @@ public class FileMenuView extends BaseView<FileMenuViewModel> {
 	}
 
 	@FXML
-	private void saveAsFileAction(ActionEvent event) {
+	private void saveFileAsAction(ActionEvent event) {
 		log.entry(event);
-		viewModel.saveAsFileAction();
+		viewModel.saveFileAsAction();
 	}
 
 	@FXML

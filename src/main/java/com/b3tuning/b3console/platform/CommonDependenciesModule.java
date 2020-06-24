@@ -7,6 +7,7 @@ import com.b3tuning.b3console.service.EntityPatcher;
 import com.b3tuning.b3console.service.comms.SerialComms;
 import com.b3tuning.b3console.service.edit.EditManager;
 import com.b3tuning.b3console.service.filemanager.FileManager;
+import com.b3tuning.b3console.service.filemanager.NewConfigDialog;
 import com.b3tuning.b3console.service.module.door.DoorConfigAssembler;
 import com.b3tuning.b3console.service.module.door.DoorModuleService;
 import com.b3tuning.b3console.service.module.shifter.ShifterAssembler;
@@ -73,6 +74,12 @@ public class CommonDependenciesModule {
 
 	@Provides
 	@Singleton
+	NewConfigDialog provideNewConfigDialog() {
+		return new NewConfigDialog();
+	}
+
+	@Provides
+	@Singleton
 	ObjectMapper provideObjectMapper() {
 		return new ObjectMapper();
 	}
@@ -85,8 +92,9 @@ public class CommonDependenciesModule {
 
 	@Provides
 	@Singleton
-	FileManager provideFileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser) {
-		return new FileManager(preferences, notifications, chooser);
+	FileManager provideFileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser,
+	                               NewConfigDialog newConfigDialog) {
+		return new FileManager(preferences, notifications, chooser, newConfigDialog);
 	}
 
 	@Provides
