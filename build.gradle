@@ -168,6 +168,8 @@ dependencies {
 	implementation("com.vinumeris:crashfx-client:1.2")
 	implementation("com.vinumeris:updatefx:1.5")
 	implementation("org.fxmisc.undo:undofx:$undoFxVersion")
+	implementation("io.reactivex.rxjava3:rxjava:$rxJavaVersion")
+
 
 	implementation files("libs/ScenicView.jar")
 

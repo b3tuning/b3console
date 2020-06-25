@@ -40,14 +40,11 @@ public class RecentFile implements Comparable<RecentFile>, Serializable {
 			log.error("COMPARE TO == 0");
 			return 0;
 		}
-		long d = this.lastAccessed - o.lastAccessed;
-		log.error("this.lastAccessed = {}", this.lastAccessed);
-		log.error("o.lastAccessed = {}", o.lastAccessed);
-		log.error("D = {}", d);
+		long d = o.lastAccessed - this.lastAccessed;
 		return ((d == 0)
 		        ? 0
 		        : ((d < 0)
-		           ? 1
-		           : -1));
+		           ? -1
+		           : 1));
 	}
 }

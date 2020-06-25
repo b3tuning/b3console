@@ -25,5 +25,6 @@ ext {
 	commons_ioVersion = '2.7'
 	tikaVersion = '1.24.1'
 	undoFxVersion = '2.1.0'
+	rxJavaVersion = '3.0.4'
 
 }
