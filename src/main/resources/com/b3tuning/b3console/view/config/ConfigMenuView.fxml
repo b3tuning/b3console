@@ -14,7 +14,7 @@
             AnchorPane.topAnchor="0.0"
             xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1">
     <top>
-        <AnchorPane fx:id="menuPane" BorderPane.alignment="TOP_LEFT">
+        <AnchorPane BorderPane.alignment="TOP_LEFT">
             <HBox spacing="10.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0"
                   AnchorPane.topAnchor="53.0"
                   styleClass="second-level-menu">

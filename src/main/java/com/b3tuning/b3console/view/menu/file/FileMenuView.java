@@ -11,10 +11,9 @@
 
 package com.b3tuning.b3console.view.menu.file;
 
-import com.b3tuning.b3console.service.filemanager.RecentFile;
 import com.b3tuning.b3console.view.BaseView;
 import de.saxsys.mvvmfx.InjectViewModel;
-import javafx.collections.ObservableList;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Menu;
@@ -23,9 +22,6 @@ import javafx.stage.Window;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
-
-import static org.reactfx.EventStreams.changesOf;
-import static org.reactfx.EventStreams.valuesOf;
 
 @XSlf4j
 public class FileMenuView extends BaseView<FileMenuViewModel> {
@@ -45,37 +41,13 @@ public class FileMenuView extends BaseView<FileMenuViewModel> {
 
 	public void initialize() {
 		log.entry();
-		constructRecentFilesMenu();
 
 		closeFileMenuItem.disableProperty().bind(viewModel.configLoadedProperty().not());
 		saveFileMenuItem.disableProperty().bind(viewModel.configLoadedProperty().not());
 		saveFileAsMenuItem.disableProperty().bind(viewModel.configLoadedProperty().not());
 		sendFileMenuItem.disableProperty().bind(viewModel.configLoadedProperty().not());
 
-		manage(valuesOf(viewModel.getRecents()).subscribe(r -> {
-			log.error("CHANGE IN RECENTS DETECTED");
-			constructRecentFilesMenu();
-		}));
-
-	}
-
-	private void constructRecentFilesMenu() {
-		log.entry();
-		ObservableList<RecentFile> files = viewModel.getRecents().get();
-		if (files.isEmpty()) {
-			log.entry("NO RECENT FILES");
-			return;
-		}
-		recentFilesMenu.getItems().clear();
-		for (RecentFile r : files) {
-			MenuItem item = new MenuItem(r.getPath());
-			item.setUserData(r.getPath());
-			item.setOnAction(event -> {
-				log.entry();
-				openRecentFileAction(item, event);
-			});
-			recentFilesMenu.getItems().add(item);
-		}
+		Bindings.bindContent(recentFilesMenu.getItems(), viewModel.recentFilesProperty());
 	}
 
 	@FXML
@@ -88,12 +60,6 @@ public class FileMenuView extends BaseView<FileMenuViewModel> {
 	private void openFileAction(ActionEvent event) {
 		log.entry(event);
 		viewModel.openFileAction(getWindow(event));
-	}
-
-	@FXML
-	private void openRecentFileAction(MenuItem item, ActionEvent event) {
-		log.entry(item, event);
-		viewModel.openRecentFileAction(item.getUserData().toString());
 	}
 
 	@FXML

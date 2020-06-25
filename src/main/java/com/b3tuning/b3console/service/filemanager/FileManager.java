@@ -13,10 +13,7 @@ import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.ConfigBaseAssembler;
 import com.b3tuning.b3console.service.module.ConfigBaseResource;
-import com.b3tuning.b3console.service.module.ModuleType;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.stage.FileChooser;
@@ -34,6 +31,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Optional;
 
+import static com.b3tuning.b3console.prefs.UserPreferences.RECENT_FILE_DEFAULT;
+
 @XSlf4j
 public class FileManager {
 
@@ -42,10 +41,7 @@ public class FileManager {
 	private final FileChooser        chooser;
 	private final NewConfigDialog    newConfigDialog;
 
-	private RecentFile currentFile;
-
-	private final ObjectProperty<ObservableList<RecentFile>> recentFiles = new SimpleObjectProperty<>(
-			FXCollections.observableArrayList());
+	private final ObservableList<String> recentFiles = FXCollections.observableArrayList();
 
 	@Inject
 	public FileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser,
@@ -63,28 +59,20 @@ public class FileManager {
 
 	private void loadRecentFiles() {
 		log.entry();
-		recentFiles.get().addAll(preferences.getRecentFiles());
-		log.info("Stored Recent Files = {}", preferences.getRecentFiles());
+		recentFiles.addAll(preferences.getRecentFiles());
 		log.info("RecentFiles loaded = {}", recentFiles);
 	}
 
 	private void updateRecentFiles() {
 		log.entry();
-		preferences.setRecentFiles(recentFiles.get());
+		preferences.setRecentFiles(recentFiles);
 		globalNotifications.publish("UPDATE_RECENTS");
 	}
 
-	private void updateRecentFiles(RecentFile recentFile) {
+	private void updateRecentFiles(String recentFile) {
 		log.entry(recentFile);
-		currentFile = recentFile;
-		currentFile.setLastAccessed(System.currentTimeMillis());
-		recentFiles.get().removeAll(recentFile);
-		recentFiles.get().add(currentFile);
-		log.error("UPDATING RECENT FILES WITH");
-		log.entry(recentFiles);
-		recentFiles.get().sort(RecentFile::compareTo);
-		log.error("RECENT FILES NOW SORTED");
-		log.entry(recentFiles);
+		recentFiles.removeAll(recentFile, RECENT_FILE_DEFAULT);
+		recentFiles.add(0, recentFile);
 		updateRecentFiles();
 	}
 
@@ -93,57 +81,24 @@ public class FileManager {
 		return newConfigDialog.createNewConfigDialog();
 	}
 
-	public ConfigBase createNewFile(ModuleType type) {
-		updateRecentFiles(new RecentFile().setType(type));
-		return new ConfigBase(type);
-	}
-
-	public ConfigBase openFileAction(Window window) {
+	public File openFileAction(Window window) {
 		log.entry();
-		File selected = chooser.showOpenDialog(window);
-		if (null != selected) {
-			return openFile(selected.getAbsolutePath());
-		}
-		return null;
+		return chooser.showOpenDialog(window);
 	}
 
-	public ConfigBase openFile(RecentFile recentFile) {
-		return openFile(recentFile.getPath());
-	}
-
-	//	public ConfigBase openFile(Window stage) {
-//		log.entry();
-//
-//		ConfigBase config   = null;
-//		File       selected = chooser.showOpenDialog(stage);
-//		if (selected != null) {
-//			config = openFile(selected.getAbsolutePath());
-//		}
-//		return config;
-//	}
-//
 	public ConfigBase openFile(@NonNull String path) {
 		log.entry(path);
 		ConfigBase config = null;
 		try (InputStream in = new FileInputStream(path); ObjectInputStream ois = new ObjectInputStream(in)) {
 			ConfigBaseResource resource = (ConfigBaseResource) ois.readObject();
 			config = ConfigBaseAssembler.assemble(resource);
-			updateRecentFiles(recentFileFromConfig(config, path));
+			updateRecentFiles(path);
 		}
 		catch (Exception ex) {
 			log.error("Unable to openFile, path: {} , ex: {}", path, ex.getMessage(), ex);
 			ex.printStackTrace();
 		}
 		return config;
-	}
-
-	public RecentFile recentFileFromConfig(ConfigBase config, String path) {
-		log.entry();
-		return new RecentFile(config.getName().get(), path, config.getType().get(), config.getUpdatedAt().get());
-	}
-
-	public RecentFile getCurrentFile() {
-		return currentFile;
 	}
 
 	public void saveConfig(ConfigBase base) {
@@ -167,33 +122,23 @@ public class FileManager {
 		}
 	}
 
-	private void saveFile(ConfigBase config) {
-		log.entry();
-		if (currentFile == null) {
-			log.error("currentFile is null!!!");
-			return;
-		}
-		try (FileOutputStream fout = new FileOutputStream(currentFile.getPath(), false);
-		     ObjectOutputStream oos = new ObjectOutputStream(fout)) {
-			oos.writeObject(config);
-		}
-		catch (Exception ex) {
-			log.error("Unable to saveFile, file: {} , ex: {}", currentFile, ex.getMessage(), ex);
-		}
-	}
+//	private void saveFile(ConfigBase config) {
+//		log.entry();
+//		if (currentFile == null) {
+//			log.error("currentFile is null!!!");
+//			return;
+//		}
+//		try (FileOutputStream fout = new FileOutputStream(currentFile.getPath(), false);
+//		     ObjectOutputStream oos = new ObjectOutputStream(fout)) {
+//			oos.writeObject(config);
+//		}
+//		catch (Exception ex) {
+//			log.error("Unable to saveFile, file: {} , ex: {}", currentFile, ex.getMessage(), ex);
+//		}
+//	}
 
-	private void closeFile(RecentFile recentFile) {
-		log.entry(recentFile);
-		currentFile = null;
-	}
-
-	public ObjectProperty<ObservableList<RecentFile>> recentFilesProperty() {
+	public ObservableList<String> recentFilesProperty() {
 		return recentFiles;
-	}
-
-	public void newFileAction(Window window) {
-		log.entry();
-
 	}
 
 	public void closeFileAction() {

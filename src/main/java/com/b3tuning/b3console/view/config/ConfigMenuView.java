@@ -1,11 +1,8 @@
 package com.b3tuning.b3console.view.config;
 
-import com.b3tuning.b3console.prefs.UserPreferences;
-import com.b3tuning.b3console.service.filemanager.RecentFile;
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.notifications.ClickButtonNotification;
 import com.b3tuning.b3console.view.root.FontAwesome;
-import com.google.common.collect.Lists;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.event.ActionEvent;
@@ -14,12 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
-import java.util.List;
 
 import static org.reactfx.EventStreams.eventsOf;
 
@@ -34,7 +29,6 @@ import static org.reactfx.EventStreams.eventsOf;
 @XSlf4j
 public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 
-	@FXML private AnchorPane menuPane;
 	@FXML private StackPane  centerPane;
 
 	@FXML private ToggleGroup  moduleGroup;
@@ -47,18 +41,15 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 	@FXML private Button saveToFile;
 	@FXML private Button getFromModule;
 	@FXML private Button sendToModule;
-	@FXML private Button cancel;
 
 	@InjectViewModel private ConfigMenuViewModel viewModel;
 
 	private final NotificationCenter globalNotifications;
-	private final UserPreferences    preferences;
 
 	@Inject
-	public ConfigMenuView(NotificationCenter globalNotifications, UserPreferences prefs) {
+	public ConfigMenuView(NotificationCenter globalNotifications) {
 		log.entry();
 		this.globalNotifications = globalNotifications;
-		this.preferences         = prefs;
 	}
 
 	public void initialize() {
@@ -98,19 +89,6 @@ public class ConfigMenuView extends BaseView<ConfigMenuViewModel> {
 
 	private void initNotifications() {
 		log.entry();
-
-		preferences.setRecentFiles(Lists.newArrayList());
-		List<RecentFile> recentFiles = preferences.getRecentFiles();
-		if (!recentFiles.isEmpty()) {
-			recentFiles.forEach(f -> {
-				log.debug("GOT A FILE !!!!!!!!!");
-				log.debug("FFFFFFFFFFFFFFFFFFFFF recent.name = {}", f.getName());
-				log.debug("FFFFFFFFFFFFFFFFFFFFF recent.path = {}", f.getPath());
-				log.debug("FFFFFFFFFFFFFFFFFFFFF recent.type = {}", f.getType());
-				log.debug("FFFFFFFFFFFFFFFFFFFFF recent.LastAccessed = {}", f.getLastAccessed());
-				log.debug("-----------------------------------------------------------------");
-			});
-		}
 
 		globalNotifications.subscribe(ClickButtonNotification.class.getName(), (key, payload) -> {
 			ClickButtonNotification n = ((ClickButtonNotification) payload[0]);
