@@ -13,9 +13,12 @@ import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.ConfigBaseAssembler;
 import com.b3tuning.b3console.service.module.ConfigBaseResource;
+import com.google.common.collect.Lists;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -29,6 +32,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.List;
 import java.util.Optional;
 
 import static com.b3tuning.b3console.prefs.UserPreferences.RECENT_FILE_DEFAULT;
@@ -36,12 +40,14 @@ import static com.b3tuning.b3console.prefs.UserPreferences.RECENT_FILE_DEFAULT;
 @XSlf4j
 public class FileManager {
 
+	public static final String MANAGE_RECENTS = "Manage Recents...";
+
 	private final UserPreferences    preferences;
 	private final NotificationCenter globalNotifications;
 	private final FileChooser        chooser;
 	private final NewConfigDialog    newConfigDialog;
 
-	private final ObservableList<String> recentFiles = FXCollections.observableArrayList();
+	private final ObservableList<MenuItem> recentFiles = FXCollections.observableArrayList();
 
 	@Inject
 	public FileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser,
@@ -57,23 +63,76 @@ public class FileManager {
 		loadRecentFiles();
 	}
 
-	private void loadRecentFiles() {
+	public void loadRecentFiles() {
 		log.entry();
-		recentFiles.addAll(preferences.getRecentFiles());
+		for (String path : preferences.getRecentFiles()) {
+			MenuItem item = assembleMenuItem(path);
+			if (RECENT_FILE_DEFAULT.equals(path)) {
+				item.setDisable(true);
+			}
+			recentFiles.add(item);
+		}
+		recentFiles.add(new SeparatorMenuItem());
+		recentFiles.add(manageRecentsMenuItem());
 		log.info("RecentFiles loaded = {}", recentFiles);
 	}
 
-	private void updateRecentFiles() {
-		log.entry();
-		preferences.setRecentFiles(recentFiles);
-		globalNotifications.publish("UPDATE_RECENTS");
+	private void setAction(MenuItem item) {
+		item.setOnAction(event -> {
+			log.entry();
+			openRecentFileAction(item.getText());
+		});
 	}
 
-	private void updateRecentFiles(String recentFile) {
-		log.entry(recentFile);
-		recentFiles.removeAll(recentFile, RECENT_FILE_DEFAULT);
-		recentFiles.add(0, recentFile);
-		updateRecentFiles();
+	private MenuItem assembleMenuItem(String path) {
+		MenuItem item = new MenuItem(path);
+		setAction(item);
+		return item;
+	}
+
+	private void openRecentFileAction(String path) {
+		log.entry(path);
+		handleOpenFile(path);
+	}
+
+	private ConfigBase handleOpenFile(String path) {
+		return openFile(path);
+	}
+
+	private void updateRecentFiles(String path) {
+		recentFiles.removeIf(item -> !(item instanceof SeparatorMenuItem) && (item.getText().equals(path) || item.getText().equals(RECENT_FILE_DEFAULT)));
+		recentFiles.add(0, assembleMenuItem(path));
+		saveRecentFiles();
+	}
+
+	private MenuItem manageRecentsMenuItem() {
+		MenuItem item = new MenuItem(MANAGE_RECENTS);
+		item.setOnAction(event -> {
+			log.entry();
+			openManageRecentsAction();
+		});
+		return item;
+	}
+
+	private void openManageRecentsAction() {
+		log.entry();
+		// TODO: open ContextMenu to remove recentFiles
+	}
+
+	private void saveRecentFiles() {
+		log.entry();
+		List<String> r = Lists.newArrayList();
+		for (MenuItem item : recentFiles) {
+			if (item instanceof SeparatorMenuItem) {
+				continue;
+			}
+			String path = item.getText();
+			if (path.equals(MANAGE_RECENTS) || path.equals(RECENT_FILE_DEFAULT)) {
+				continue;
+			}
+			r.add(path);
+		}
+		preferences.setRecentFiles(r);
 	}
 
 	public Optional<ConfigBase> newFileAction() {
@@ -81,9 +140,13 @@ public class FileManager {
 		return newConfigDialog.createNewConfigDialog();
 	}
 
-	public File openFileAction(Window window) {
+	public void openFileAction(Window window) {
 		log.entry();
-		return chooser.showOpenDialog(window);
+		File selected = chooser.showOpenDialog(window);
+		if (null != selected) {
+			String path = selected.getAbsolutePath();
+			handleOpenFile(path);
+		}
 	}
 
 	public ConfigBase openFile(@NonNull String path) {
@@ -115,6 +178,7 @@ public class FileManager {
 		try (FileOutputStream out = new FileOutputStream(file.getAbsolutePath(), false);
 		     ObjectOutputStream oos = new ObjectOutputStream(out)) {
 			oos.writeObject(resource);
+			updateRecentFiles(file.getAbsolutePath());
 		}
 		catch (Exception ex) {
 			log.error("Unable to saveFile, file: {} , ex: {}", file.getAbsolutePath(), ex.getMessage(), ex);
@@ -122,22 +186,7 @@ public class FileManager {
 		}
 	}
 
-//	private void saveFile(ConfigBase config) {
-//		log.entry();
-//		if (currentFile == null) {
-//			log.error("currentFile is null!!!");
-//			return;
-//		}
-//		try (FileOutputStream fout = new FileOutputStream(currentFile.getPath(), false);
-//		     ObjectOutputStream oos = new ObjectOutputStream(fout)) {
-//			oos.writeObject(config);
-//		}
-//		catch (Exception ex) {
-//			log.error("Unable to saveFile, file: {} , ex: {}", currentFile, ex.getMessage(), ex);
-//		}
-//	}
-
-	public ObservableList<String> recentFilesProperty() {
+	public ObservableList<MenuItem> recentFilesProperty() {
 		return recentFiles;
 	}
 

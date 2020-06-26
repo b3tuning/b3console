@@ -46,6 +46,7 @@ public class BaseViewModel implements ViewModel, Disposable {
 	}
 
 	public void setConfig(ConfigBase config) {
+		log.entry(config);
 		this.config.set(config);
 		this.configLoaded.set(true);
 	}

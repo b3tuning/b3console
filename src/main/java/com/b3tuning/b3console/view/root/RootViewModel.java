@@ -51,6 +51,7 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class RootViewModel extends BaseViewModel {
 
+	public static final  String LOAD_CONFIG         = "LOAD_CONFIG";
 	public static final  String HELP_DETACHED_EVENT = "help_detached";
 	private static final String HELP_STAGE_TITLE    = "B3Tuning Module Help";
 	private static final String MENU_ITEM_ERROR     = "Unrecognized menu item action: '{}'";
@@ -120,6 +121,11 @@ public class RootViewModel extends BaseViewModel {
 		globalNotifications.subscribe(HELP_DETACHED_EVENT, (key, payload) -> detachHelp());
 
 		menuViewTuple = FluentViewLoader.fxmlView(MenuView.class).load();
+
+		globalNotifications.subscribe(LOAD_CONFIG, (key, payload) -> {
+			log.entry(key, payload);
+			setConfig((ConfigBase) payload[0]);
+		});
 	}
 
 	public Node helpView() {
