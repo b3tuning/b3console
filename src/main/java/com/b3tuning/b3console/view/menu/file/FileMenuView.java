@@ -14,6 +14,7 @@ package com.b3tuning.b3console.view.menu.file;
 import com.b3tuning.b3console.view.BaseView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.BooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Menu;
@@ -95,5 +96,9 @@ public class FileMenuView extends BaseView<FileMenuViewModel> {
 	private static Window getWindow(ActionEvent event) {
 		MenuItem item = (MenuItem) event.getSource();
 		return item.getParentPopup().getOwnerWindow();
+	}
+
+	public BooleanProperty fileMenuConfigLoadedProperty() {
+		return viewModel.configLoadedProperty();
 	}
 }

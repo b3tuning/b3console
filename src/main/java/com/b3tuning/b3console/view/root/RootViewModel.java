@@ -1,7 +1,6 @@
 package com.b3tuning.b3console.view.root;
 
 import com.b3tuning.b3console.App;
-import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.help.HelpView;
@@ -51,10 +50,8 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class RootViewModel extends BaseViewModel {
 
-	public static final  String LOAD_CONFIG         = "LOAD_CONFIG";
 	public static final  String HELP_DETACHED_EVENT = "help_detached";
 	private static final String HELP_STAGE_TITLE    = "B3Tuning Module Help";
-	private static final String MENU_ITEM_ERROR     = "Unrecognized menu item action: '{}'";
 
 	private static final double HELP_WIDTH = 0.3f;
 
@@ -62,8 +59,6 @@ public class RootViewModel extends BaseViewModel {
 	@Setter
 	@SuppressWarnings("unused")
 	private       Application        application;
-	@SuppressWarnings("unused")
-	private final AppProperties      appProperties;
 	@SuppressWarnings("unused")
 	private final NotificationCenter globalNotifications;
 	private final ViewManager        viewManager;
@@ -76,28 +71,29 @@ public class RootViewModel extends BaseViewModel {
 	private final DoubleProperty             helpPaneLocation = new SimpleDoubleProperty();
 	private final DoubleProperty             helpPaneOpacity  = new SimpleDoubleProperty();
 	private final BooleanProperty            initialized      = new SimpleBooleanProperty(false);
-	private       ObjectProperty<ConfigBase> config           = new SimpleObjectProperty<>(null);
+	private final ObjectProperty<ConfigBase> config           = new SimpleObjectProperty<>(null);
 
 	private final ViewTuple<MenuView, MenuViewModel> menuViewTuple;
 
 	@Inject
-	public RootViewModel(AppProperties appProperties, NotificationCenter globalNotifications, ViewManager viewManager) {
+	public RootViewModel(NotificationCenter globalNotifications, ViewManager viewManager) {
 		log.entry();
 
-		this.appProperties       = appProperties;
 		this.globalNotifications = globalNotifications;
 		this.viewManager         = viewManager;
 
-		if (appProperties.getLogLevel().isEmpty()) {
-			config = new SimpleObjectProperty<>(new ConfigBase());
-		}
+		menuViewTuple = FluentViewLoader.fxmlView(MenuView.class).load();
+		configLoadedProperty().bind(menuViewTuple.getViewModel().configLoadedProperty());
 
+		initNotifications();
+	}
+
+	private void initNotifications() {
 		manage(nonNullValuesOf(childViewPane).subscribe(c -> {
 			log.entry();
 
 			// dispose of any loaded views that we may have
 			viewManager.destroyAll(c);
-
 			initialized.set(true);
 
 			// any child views that need access to their parent are handled via
@@ -114,18 +110,10 @@ public class RootViewModel extends BaseViewModel {
 				log.entry(key, payload);
 				viewManager.pop(childViewPane.get(), ((PopViewNotification) payload[0]).isReloadPage());
 			});
-
 		}));
 
 		// detach the help from the sidebar if requested
 		globalNotifications.subscribe(HELP_DETACHED_EVENT, (key, payload) -> detachHelp());
-
-		menuViewTuple = FluentViewLoader.fxmlView(MenuView.class).load();
-
-		globalNotifications.subscribe(LOAD_CONFIG, (key, payload) -> {
-			log.entry(key, payload);
-			setConfig((ConfigBase) payload[0]);
-		});
 	}
 
 	public Node helpView() {
@@ -245,10 +233,6 @@ public class RootViewModel extends BaseViewModel {
 		return helpPaneVisible;
 	}
 
-	public double getHelpPaneLocation() {
-		return helpPaneLocation.get();
-	}
-
 	public DoubleProperty helpPaneLocationProperty() {
 		return helpPaneLocation;
 	}
@@ -257,20 +241,12 @@ public class RootViewModel extends BaseViewModel {
 		helpPaneLocation.set(value);
 	}
 
-	public double getHelpPaneOpacity() {
-		return helpPaneOpacity.get();
-	}
-
 	public DoubleProperty helpPaneOpacityProperty() {
 		return helpPaneOpacity;
 	}
 
 	public void setChildViewPane(StackPane value) {
 		childViewPane.set(value);
-	}
-
-	public ObjectProperty<StackPane> childViewPaneProperty() {
-		return childViewPane;
 	}
 
 	public Parent getMenuView() {

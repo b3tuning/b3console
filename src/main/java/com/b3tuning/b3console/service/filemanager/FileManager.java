@@ -40,6 +40,7 @@ import static com.b3tuning.b3console.prefs.UserPreferences.RECENT_FILE_DEFAULT;
 @XSlf4j
 public class FileManager {
 
+	public static final  String LOAD_CONFIG         = "LOAD_CONFIG";
 	public static final String MANAGE_RECENTS = "Manage Recents...";
 
 	private final UserPreferences    preferences;
@@ -63,7 +64,7 @@ public class FileManager {
 		loadRecentFiles();
 	}
 
-	public void loadRecentFiles() {
+	private void loadRecentFiles() {
 		log.entry();
 		for (String path : preferences.getRecentFiles()) {
 			MenuItem item = assembleMenuItem(path);
@@ -95,14 +96,18 @@ public class FileManager {
 		handleOpenFile(path);
 	}
 
-	private ConfigBase handleOpenFile(String path) {
-		return openFile(path);
+	private void handleOpenFile(String path) {
+		setConfig(openFile(path));
 	}
 
 	private void updateRecentFiles(String path) {
 		recentFiles.removeIf(item -> !(item instanceof SeparatorMenuItem) && (item.getText().equals(path) || item.getText().equals(RECENT_FILE_DEFAULT)));
 		recentFiles.add(0, assembleMenuItem(path));
 		saveRecentFiles();
+	}
+
+	private void setConfig(ConfigBase openFile) {
+		globalNotifications.publish(LOAD_CONFIG, openFile);
 	}
 
 	private MenuItem manageRecentsMenuItem() {

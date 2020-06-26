@@ -1,6 +1,7 @@
 package com.b3tuning.b3console.view.root;
 
 import com.b3tuning.b3console.view.BaseView;
+import com.b3tuning.b3console.view.notifications.ClickButtonNotification;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.fxml.FXML;
@@ -58,21 +59,20 @@ public class RootView extends BaseView<RootViewModel> {
 		loadMenuView();
 		initializeHelp();
 
-//		initializeNotifications();
+		initializeNotifications();
 
 	}
 
-//	private void initializeNotifications() {
-//
-//		// child views/viewmodels may request that a menu item is pressed (e.g. after cancelling navigation due to having a dirty page)
-//		globalNotifications.subscribe(ClickButtonNotification.class.getName(), (key, payload) -> {
-//			ClickButtonNotification n = ((ClickButtonNotification) payload[0]);
-//			if (n.getMainMenuItemAction() != null) {
-//				log.entry(n.getMainMenuItemAction());
-//				clickMenuItem(n.getMainMenuItemAction());
-//			}
-//		});
-//	}
+	private void initializeNotifications() {
+
+		// child views/viewModels may request that a menu item is pressed (e.g. after cancelling navigation due to having a dirty page)
+		globalNotifications.subscribe(ClickButtonNotification.class.getName(), (key, payload) -> {
+			ClickButtonNotification n = ((ClickButtonNotification) payload[0]);
+			if (n.getButtonId() != null) {
+				log.entry(n.getButtonId());
+			}
+		});
+	}
 
 	private void initializeHelp() {
 		log.entry();
