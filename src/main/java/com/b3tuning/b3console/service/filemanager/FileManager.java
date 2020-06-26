@@ -40,8 +40,10 @@ import static com.b3tuning.b3console.prefs.UserPreferences.RECENT_FILE_DEFAULT;
 @XSlf4j
 public class FileManager {
 
-	public static final  String LOAD_CONFIG         = "LOAD_CONFIG";
+	public static final String LOAD_CONFIG    = "LOAD_CONFIG";
 	public static final String MANAGE_RECENTS = "Manage Recents...";
+
+	private final int MAX_RECENT;
 
 	private final UserPreferences    preferences;
 	private final NotificationCenter globalNotifications;
@@ -60,6 +62,7 @@ public class FileManager {
 		this.chooser.setInitialDirectory(new File(preferences.getBrowseLocalPath()));
 		this.chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("B3Tuning Module Config", "*.b3t"));
 		this.newConfigDialog = newConfigDialog;
+		this.MAX_RECENT      = preferences.getMaxRecentFiles();
 
 		loadRecentFiles();
 	}
@@ -101,8 +104,12 @@ public class FileManager {
 	}
 
 	private void updateRecentFiles(String path) {
-		recentFiles.removeIf(item -> !(item instanceof SeparatorMenuItem) && (item.getText().equals(path) || item.getText().equals(RECENT_FILE_DEFAULT)));
+		recentFiles.removeIf(item -> !(item instanceof SeparatorMenuItem) &&
+		                             (item.getText().equals(path) || item.getText().equals(RECENT_FILE_DEFAULT)));
 		recentFiles.add(0, assembleMenuItem(path));
+		while (recentFiles.size() > (MAX_RECENT + 2)) {
+			recentFiles.remove(MAX_RECENT - 1);
+		}
 		saveRecentFiles();
 	}
 

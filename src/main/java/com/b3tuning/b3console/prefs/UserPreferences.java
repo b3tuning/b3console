@@ -34,6 +34,9 @@ public class UserPreferences {
 	private static final String RECENT_FILES        = "RECENT_FILES";
 	public static final  String RECENT_FILE_DEFAULT = "NO RECENT FILES";
 
+	private static final String MAX_RECENT         = "MAX_RECENT";
+	private static final int    MAX_RECENT_DEFAULT = 10;
+
 	private final Preferences  preferences;
 	private final ObjectMapper mapper;
 
@@ -88,5 +91,13 @@ public class UserPreferences {
 		catch (JsonProcessingException e) {
 			log.error("ERROR in saving recent file to preferences : {}", e.getMessage(), e);
 		}
+	}
+
+	public int getMaxRecentFiles() {
+		return preferences.getInt(MAX_RECENT, MAX_RECENT_DEFAULT);
+	}
+
+	public void setMaxRecent(int value) {
+		preferences.putInt(MAX_RECENT, value);
 	}
 }
