@@ -36,6 +36,7 @@ public class RootView extends BaseView<RootViewModel> {
 
 	@InjectViewModel private RootViewModel viewModel;
 
+	@SuppressWarnings("unused")
 	private final NotificationCenter globalNotifications;
 
 	@Inject

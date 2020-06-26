@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.view.config;
 
-import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.Refreshable;
 import com.b3tuning.b3console.view.config.door.DoorConfigView;
@@ -14,7 +13,6 @@ import com.b3tuning.b3console.view.loader.ViewManagerImpl.ViewInfo;
 import de.saxsys.mvvmfx.FluentViewLoader;
 import de.saxsys.mvvmfx.ViewModel;
 import de.saxsys.mvvmfx.ViewTuple;
-import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.layout.StackPane;
@@ -33,18 +31,14 @@ import javax.inject.Inject;
 @XSlf4j
 public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 
-	private final UserPreferences    preferences;
-	private final NotificationCenter globalNotifications;
-	private       ViewManager        viewManager;
+	private ViewManager viewManager;
 
 	private final ObjectProperty<StackPane> childViewPane = new SimpleObjectProperty<>();
 
 	@Inject
-	public ConfigMenuViewModel(UserPreferences prefs, NotificationCenter notifications, ViewManager viewManager) {
+	public ConfigMenuViewModel(ViewManager viewManager) {
 		log.entry();
-		this.preferences         = prefs;
-		this.globalNotifications = notifications;
-		this.viewManager         = viewManager;
+		this.viewManager = viewManager;
 	}
 
 	private void showDoorConfigView() {

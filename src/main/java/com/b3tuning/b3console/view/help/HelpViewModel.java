@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.view.help;
 
-import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.notifications.PageContextChangedNotification;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
@@ -29,22 +28,20 @@ public class HelpViewModel extends BaseViewModel {
 	private static final String HELP_LOCATION_TEMPLATE = "/help/%s.html";
 	private static final String NO_HELP_AVAILABLE      = "/help/404.html";
 
-	private final UserPreferences    preferences;
 	private final NotificationCenter globalNotifications;
 
 	private final StringProperty  helpFile = new SimpleStringProperty();
 	private final BooleanProperty detached = new SimpleBooleanProperty(false);
 
 	@Inject
-	public HelpViewModel(UserPreferences prefs, NotificationCenter notificationCenter) {
+	public HelpViewModel(NotificationCenter notificationCenter) {
 		log.entry();
-		this.preferences         = prefs;
 		this.globalNotifications = notificationCenter;
 
 		globalNotifications.subscribe(PageContextChangedNotification.class.getName(),
 		                              (key, payload) -> {
 			                              log.entry(key, payload);
-			                              PageContextChangedNotification notification = (PageContextChangedNotification) payload[0];
+//			                              PageContextChangedNotification notification = (PageContextChangedNotification) payload[0];
 //			                              URL resource = HelpViewModel.class.getResource(String.format(HELP_LOCATION_TEMPLATE, notification.getView()));
 //			                              if (resource == null) {
 //				                              resource = HelpViewModel.class.getResource(NO_HELP_AVAILABLE);

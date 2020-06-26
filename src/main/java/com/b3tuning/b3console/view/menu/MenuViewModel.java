@@ -12,7 +12,6 @@
 package com.b3tuning.b3console.view.menu;
 
 import com.b3tuning.b3console.view.BaseViewModel;
-import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -20,13 +19,9 @@ import javax.inject.Inject;
 @XSlf4j
 public class MenuViewModel extends BaseViewModel {
 
-	private final NotificationCenter globalNotifications;
-
 	@Inject
-	public MenuViewModel(NotificationCenter notifications) {
+	public MenuViewModel() {
 		log.entry();
-
-		this.globalNotifications = notifications;
 	}
 
 }

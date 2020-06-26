@@ -14,8 +14,6 @@ public interface EditableViewModel {
 
 	/**
 	 * Indicates if the viewmodel is dirty
-	 *
-	 * @return
 	 */
 	BooleanProperty dirtyProperty();
 
@@ -23,8 +21,6 @@ public interface EditableViewModel {
 
 	/**
 	 * Message to be displayed if changes are required
-	 *
-	 * @return
 	 */
 	String saveChangesMessage();
 

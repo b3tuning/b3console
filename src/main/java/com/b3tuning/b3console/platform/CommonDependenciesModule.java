@@ -14,8 +14,6 @@ import com.b3tuning.b3console.service.module.shifter.ShifterAssembler;
 import com.b3tuning.b3console.service.module.trans.TransConfigAssembler;
 import com.b3tuning.b3console.view.loader.ViewManager;
 import com.b3tuning.b3console.view.loader.ViewManagerImpl;
-import com.b3tuning.b3console.view.utils.ScrollBarHelper;
-import com.b3tuning.b3console.view.utils.SortUtility;
 import com.b3tuning.b3console.view.utils.TableViewUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dagger.Module;
@@ -141,20 +139,8 @@ public class CommonDependenciesModule {
 
 	@Provides
 	@Singleton
-	SortUtility provideSortUtility() {
-		return new SortUtility();
-	}
-
-	@Provides
-	@Singleton
 	TableViewUtils provideTableViewUtils() {
 		return new TableViewUtils();
-	}
-
-	@Provides
-	@Singleton
-	ScrollBarHelper provideScrollBarHelper() {
-		return new ScrollBarHelper();
 	}
 
 }

@@ -59,7 +59,9 @@ public class RootViewModel extends BaseViewModel {
 
 	// injected
 	@Setter
+	@SuppressWarnings("unused")
 	private       Application        application;
+	@SuppressWarnings("unused")
 	private final AppProperties      appProperties;
 	@SuppressWarnings("unused")
 	private final NotificationCenter globalNotifications;

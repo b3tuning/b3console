@@ -77,6 +77,7 @@ public class App extends Application {
 	private static ApplicationComponents applicationComponents;
 
 	private AppProperties   props;
+	@SuppressWarnings("unused")
 	private UserPreferences prefs;
 	private StackPane       uiStack;
 	public  Scene           scene;
