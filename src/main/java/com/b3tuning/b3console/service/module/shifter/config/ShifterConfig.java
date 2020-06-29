@@ -2,6 +2,7 @@ package com.b3tuning.b3console.service.module.shifter.config;
 
 import com.b3tuning.b3console.service.module.CanBusConfig;
 import com.b3tuning.b3console.service.module.ConfigBase;
+import com.b3tuning.b3console.service.module.ModuleType;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
@@ -37,26 +38,32 @@ public class ShifterConfig extends ConfigBase implements Serializable {
 	public ListProperty<ShifterPositionConfig> shifterPositions; // 7 total items, PARK, REVERSE, NEUTRAL, DRIVE, DOWN, MANUAL, UP
 
 	public ShifterConfig() {
-		this.canBus           = new SimpleObjectProperty<>();
-		this.indicator        = new SimpleObjectProperty<>();
-		this.melexis          = new SimpleObjectProperty<>();
-		this.shifterPositions = new SimpleListProperty<>(FXCollections.observableArrayList());
+		this.canBus           = new SimpleObjectProperty<>(new CanBusConfig());
+		this.indicator        = new SimpleObjectProperty<>(new IndicatorConfig());
+		this.melexis          = new SimpleObjectProperty<>(new MelexisConfig());
+		this.shifterPositions = new SimpleListProperty<>(FXCollections.observableArrayList(new ShifterPositionConfig()));
 		super.trackProperties(this.canBus, this.melexis, this.indicator, this.shifterPositions);
 		manage(changesOf(this.shifterPositions.get()).map(v -> true).feedTo(getDirtyStream()));
 	}
 
-	public ShifterConfig(CanBusConfig canBusConfig, IndicatorConfig indicatorConfig, MelexisConfig melexisConfig,
-	                     List<ShifterPositionConfig> positions) {
+	public ShifterConfig(ModuleType type) {
+		this();
+		super.getType().set(type);
+	}
+
+	public ShifterConfig(ModuleType type, CanBusConfig canBusConfig, IndicatorConfig indicatorConfig,
+	                     MelexisConfig melexisConfig, List<ShifterPositionConfig> positions) {
 		this();
 		this.canBus.set(canBusConfig);
 		this.indicator.set(indicatorConfig);
 		this.melexis.set(melexisConfig);
 		this.shifterPositions.setAll(positions);
+		super.getType().set(type);
 	}
 
 	public ShifterConfig copy() {
-		return new ShifterConfig(this.getCanBus().get(), this.getIndicator().get(), this.getMelexis().get(),
-		                         new ArrayList<>(this.getShifterPositions().get()));
+		return new ShifterConfig(this.getType().get(), this.getCanBus().get(), this.getIndicator().get(),
+		                         this.getMelexis().get(), new ArrayList<>(this.getShifterPositions().get()));
 	}
 
 	@Override

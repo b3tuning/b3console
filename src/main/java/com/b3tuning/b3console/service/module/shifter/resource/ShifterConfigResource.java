@@ -2,6 +2,7 @@ package com.b3tuning.b3console.service.module.shifter.resource;
 
 import com.b3tuning.b3console.service.module.CanBusResource;
 import com.b3tuning.b3console.service.module.ConfigBaseResource;
+import com.b3tuning.b3console.service.module.ModuleType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -32,12 +33,10 @@ public class ShifterConfigResource extends ConfigBaseResource implements Seriali
 	private MelexisResource               melexis;
 	private List<ShifterPositionResource> shifters;
 
-//	@JsonIgnore
-//	public List<ShifterPositionResource> getShifters() {
-//		return shifters != null
-//		       ? shifters
-//		       : Collections.emptyList();
-//	}
+	public ShifterConfigResource setSuperType(ModuleType type) {
+		super.setType(type);
+		return this;
+	}
 
 	@Data
 	@NoArgsConstructor

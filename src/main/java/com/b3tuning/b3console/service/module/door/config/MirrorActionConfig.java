@@ -1,8 +1,8 @@
 package com.b3tuning.b3console.service.module.door.config;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -23,24 +23,24 @@ import java.io.Serializable;
 public class MirrorActionConfig extends EditableEntity implements Serializable {
 	private static final long serialVersionUID = -4651332825883884318L;
 
-	private ObjectProperty<Integer> downMax;
-	private ObjectProperty<Integer> downMin;
-	private ObjectProperty<Integer> leftMax;
-	private ObjectProperty<Integer> leftMin;
-	private ObjectProperty<Integer> rightMax;
-	private ObjectProperty<Integer> rightMin;
-	private ObjectProperty<Integer> upMax;
-	private ObjectProperty<Integer> upMin;
+	private IntegerProperty downMax;
+	private IntegerProperty downMin;
+	private IntegerProperty leftMax;
+	private IntegerProperty leftMin;
+	private IntegerProperty rightMax;
+	private IntegerProperty rightMin;
+	private IntegerProperty upMax;
+	private IntegerProperty upMin;
 
 	public MirrorActionConfig() {
-		this.downMax  = new SimpleObjectProperty<>();
-		this.downMin  = new SimpleObjectProperty<>();
-		this.leftMax  = new SimpleObjectProperty<>();
-		this.leftMin  = new SimpleObjectProperty<>();
-		this.rightMax = new SimpleObjectProperty<>();
-		this.rightMin = new SimpleObjectProperty<>();
-		this.upMax    = new SimpleObjectProperty<>();
-		this.upMin    = new SimpleObjectProperty<>();
+		this.downMax  = new SimpleIntegerProperty();
+		this.downMin  = new SimpleIntegerProperty();
+		this.leftMax  = new SimpleIntegerProperty();
+		this.leftMin  = new SimpleIntegerProperty();
+		this.rightMax = new SimpleIntegerProperty();
+		this.rightMin = new SimpleIntegerProperty();
+		this.upMax    = new SimpleIntegerProperty();
+		this.upMin    = new SimpleIntegerProperty();
 		super.trackProperties(this.downMax,
 		                      this.downMin,
 		                      this.leftMax,

@@ -2,6 +2,7 @@ package com.b3tuning.b3console.service.module.trans.config;
 
 import com.b3tuning.b3console.service.module.CanBusConfig;
 import com.b3tuning.b3console.service.module.ConfigBase;
+import com.b3tuning.b3console.service.module.ModuleType;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import lombok.Data;
@@ -30,23 +31,30 @@ public class TransConfig extends ConfigBase implements Serializable {
 	public ObjectProperty<PidConfig>     pid;
 
 	public TransConfig() {
-		this.canBus  = new SimpleObjectProperty<>();
-		this.ems22A  = new SimpleObjectProperty<>();
-		this.vnh5019 = new SimpleObjectProperty<>();
-		this.pid     = new SimpleObjectProperty<>();
+		this.canBus  = new SimpleObjectProperty<>(new CanBusConfig());
+		this.ems22A  = new SimpleObjectProperty<>(new Ems22AConfig());
+		this.vnh5019 = new SimpleObjectProperty<>(new Vnh5019Config());
+		this.pid     = new SimpleObjectProperty<>(new PidConfig());
 		super.trackProperties(canBus, ems22A, vnh5019, pid);
 	}
 
-	public TransConfig(CanBusConfig canBusConfig, Ems22AConfig ems22A, Vnh5019Config vnh5019, PidConfig pid) {
+	public TransConfig(ModuleType type) {
+		this();
+		super.getType().set(type);
+	}
+
+	public TransConfig(ModuleType type, CanBusConfig canBusConfig, Ems22AConfig ems22A, Vnh5019Config vnh5019,
+	                   PidConfig pid) {
 		this();
 		this.canBus.set(canBusConfig);
 		this.ems22A.set(ems22A);
 		this.vnh5019.set(vnh5019);
 		this.pid.set(pid);
+		super.getType().set(type);
 	}
 
 	public TransConfig copy() {
-		return new TransConfig(this.getCanBus().get(), this.getEms22A().get(), this.getVnh5019().get(),
-		                       this.getPid().get());
+		return new TransConfig(this.getType().get(), this.getCanBus().get(), this.getEms22A().get(),
+		                       this.getVnh5019().get(), this.getPid().get());
 	}
 }

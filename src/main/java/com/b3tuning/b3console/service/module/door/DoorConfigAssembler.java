@@ -1,13 +1,14 @@
 package com.b3tuning.b3console.service.module.door;
 
-import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource;
-import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource.MirrorActionResource;
-import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource.MirrorSelectResource;
-import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource.WindowActionResource;
+import com.b3tuning.b3console.service.module.ConfigBaseAssembler;
 import com.b3tuning.b3console.service.module.door.config.DoorConfig;
 import com.b3tuning.b3console.service.module.door.config.MirrorActionConfig;
 import com.b3tuning.b3console.service.module.door.config.MirrorSelectConfig;
 import com.b3tuning.b3console.service.module.door.config.WindowActionConfig;
+import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource;
+import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource.MirrorActionResource;
+import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource.MirrorSelectResource;
+import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource.WindowActionResource;
 
 /*
  *  Created on:  May 04, 2020
@@ -17,10 +18,11 @@ import com.b3tuning.b3console.service.module.door.config.WindowActionConfig;
  *
  * Copyright (C) 2020 B3Tuning, LLC.
  */
-public class DoorConfigAssembler {
+public class DoorConfigAssembler extends ConfigBaseAssembler {
 
-	public DoorConfig assemble(DoorConfigResource resource) {
-		return new DoorConfig(assemble(resource.getMirrorAction()),
+	public static DoorConfig assemble(DoorConfigResource resource) {
+		return new DoorConfig(resource.getType(),
+		                      assemble(resource.getMirrorAction()),
 		                      assemble(resource.getMirrorSelect()),
 		                      assemble(resource.getWindowAction()),
 		                      resource.getDriverWindowMaxCurrent(),
@@ -58,12 +60,13 @@ public class DoorConfigAssembler {
 		                              resource.getUpMin());
 	}
 
-	public DoorConfigResource assemble(DoorConfig config) {
+	public static DoorConfigResource assemble(DoorConfig config) {
 		return new DoorConfigResource(assemble(config.getMirrorAction().get()),
 		                              assemble(config.getMirrorSelect().get()),
 		                              assemble(config.getWindowAction().get()),
 		                              config.getDriverWindowMaxCurrent().get(),
-		                              config.getPassengerWindowMaxCurrent().get());
+		                              config.getPassengerWindowMaxCurrent().get())
+				.setSuperType(config.getType().get());
 	}
 
 	public static MirrorActionResource assemble(MirrorActionConfig config) {

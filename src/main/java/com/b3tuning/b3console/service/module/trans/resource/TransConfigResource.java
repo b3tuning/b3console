@@ -2,6 +2,7 @@ package com.b3tuning.b3console.service.module.trans.resource;
 
 import com.b3tuning.b3console.service.module.CanBusResource;
 import com.b3tuning.b3console.service.module.ConfigBaseResource;
+import com.b3tuning.b3console.service.module.ModuleType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,6 +31,11 @@ public class TransConfigResource extends ConfigBaseResource implements Serializa
 	private Ems22AResource  ems22A;
 	private Vnh5019Resource vnh5019;
 	private PidResource     pid;
+
+	public TransConfigResource setSuperType(ModuleType type) {
+		super.setType(type);
+		return this;
+	}
 
 	@Data
 	@NoArgsConstructor

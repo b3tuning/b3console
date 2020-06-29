@@ -1,8 +1,8 @@
 package com.b3tuning.b3console.service.module.door.config;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -23,24 +23,24 @@ import java.io.Serializable;
 public class WindowActionConfig extends EditableEntity implements Serializable {
 	private static final long serialVersionUID = -7074999213839249453L;
 
-	private ObjectProperty<Integer> autoDownMax;
-	private ObjectProperty<Integer> autoDownMin;
-	private ObjectProperty<Integer> autoUpMax;
-	private ObjectProperty<Integer> autoUpMin;
-	private ObjectProperty<Integer> downMax;
-	private ObjectProperty<Integer> downMin;
-	private ObjectProperty<Integer> upMax;
-	private ObjectProperty<Integer> upMin;
+	private IntegerProperty autoDownMax;
+	private IntegerProperty autoDownMin;
+	private IntegerProperty autoUpMax;
+	private IntegerProperty autoUpMin;
+	private IntegerProperty downMax;
+	private IntegerProperty downMin;
+	private IntegerProperty upMax;
+	private IntegerProperty upMin;
 
 	public WindowActionConfig() {
-		this.autoDownMax = new SimpleObjectProperty<>();
-		this.autoDownMin = new SimpleObjectProperty<>();
-		this.autoUpMax   = new SimpleObjectProperty<>();
-		this.autoUpMin   = new SimpleObjectProperty<>();
-		this.downMax     = new SimpleObjectProperty<>();
-		this.downMin     = new SimpleObjectProperty<>();
-		this.upMax       = new SimpleObjectProperty<>();
-		this.upMin       = new SimpleObjectProperty<>();
+		this.autoDownMax = new SimpleIntegerProperty();
+		this.autoDownMin = new SimpleIntegerProperty();
+		this.autoUpMax   = new SimpleIntegerProperty();
+		this.autoUpMin   = new SimpleIntegerProperty();
+		this.downMax     = new SimpleIntegerProperty();
+		this.downMin     = new SimpleIntegerProperty();
+		this.upMax       = new SimpleIntegerProperty();
+		this.upMin       = new SimpleIntegerProperty();
 		super.trackProperties(this.autoDownMax,
 		                      this.autoDownMin,
 		                      this.autoUpMax,

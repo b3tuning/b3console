@@ -98,39 +98,51 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 	protected void initializeValidation() {
 		log.entry();
 
-		ValidationUtil.isNotNull(mirrorActionDownMaxValidator, getMirrorAction().getDownMax(), "MirDownMax");
-		ValidationUtil.isNotNull(mirrorActionDownMinValidator, getMirrorAction().getDownMin(), "MirDownMin");
-		ValidationUtil.isNotNull(mirrorActionLeftMaxValidator, getMirrorAction().getLeftMax(), "MirLeftMax");
-		ValidationUtil.isNotNull(mirrorActionLeftMinValidator, getMirrorAction().getLeftMin(), "MirLeftMin");
-		ValidationUtil.isNotNull(mirrorActionRightMaxValidator, getMirrorAction().getRightMax(), "MirRightMax");
-		ValidationUtil.isNotNull(mirrorActionRightMinValidator, getMirrorAction().getRightMin(), "MirRightMin");
-		ValidationUtil.isNotNull(mirrorActionUpMaxValidator, getMirrorAction().getUpMax(), "MirUpMax");
-		ValidationUtil.isNotNull(mirrorActionUpMinValidator, getMirrorAction().getUpMin(), "MirUpMin");
-
-		ValidationUtil.isNotNull(mirrorSelectDriverMaxValidator, getMirrorSelect().getDriverMax(), "DriverMax");
-		ValidationUtil.isNotNull(mirrorSelectDriverMinValidator, getMirrorSelect().getDriverMin(), "DriverMin");
-		ValidationUtil.isNotNull(mirrorSelectFoldMaxValidator, getMirrorSelect().getFoldMax(), "FoldMax");
-		ValidationUtil.isNotNull(mirrorSelectFoldMinValidator, getMirrorSelect().getFoldMin(), "FoldMin");
+		ValidationUtil.isNotNull(mirrorActionDownMaxValidator, getMirrorAction().getDownMax().asObject(), "MirDownMax");
+		ValidationUtil.isNotNull(mirrorActionDownMinValidator, getMirrorAction().getDownMin().asObject(), "MirDownMin");
+		ValidationUtil.isNotNull(mirrorActionLeftMaxValidator, getMirrorAction().getLeftMax().asObject(), "MirLeftMax");
+		ValidationUtil.isNotNull(mirrorActionLeftMinValidator, getMirrorAction().getLeftMin().asObject(), "MirLeftMin");
 		ValidationUtil
-				.isNotNull(mirrorSelectPassengerMaxValidator, getMirrorSelect().getPassengerMax(), "PassMax");
+				.isNotNull(mirrorActionRightMaxValidator, getMirrorAction().getRightMax().asObject(), "MirRightMax");
 		ValidationUtil
-				.isNotNull(mirrorSelectPassengerMinValidator, getMirrorSelect().getPassengerMin(), "PassMin");
+				.isNotNull(mirrorActionRightMinValidator, getMirrorAction().getRightMin().asObject(), "MirRightMin");
+		ValidationUtil.isNotNull(mirrorActionUpMaxValidator, getMirrorAction().getUpMax().asObject(), "MirUpMax");
+		ValidationUtil.isNotNull(mirrorActionUpMinValidator, getMirrorAction().getUpMin().asObject(), "MirUpMin");
 
 		ValidationUtil
-				.isNotNull(windowActionAutoDownMaxValidator, getWindowAction().getAutoDownMax(), "WinAutoDownMax");
+				.isNotNull(mirrorSelectDriverMaxValidator, getMirrorSelect().getDriverMax().asObject(), "DriverMax");
 		ValidationUtil
-				.isNotNull(windowActionAutoDownMinValidator, getWindowAction().getAutoDownMin(), "WinAutoDownMin");
-		ValidationUtil.isNotNull(windowActionAutoUpMaxValidator, getWindowAction().getAutoUpMax(), "WinAutoUpMax");
-		ValidationUtil.isNotNull(windowActionAutoUpMinValidator, getWindowAction().getAutoUpMin(), "WinAutoUpMin");
-		ValidationUtil.isNotNull(windowActionDownMaxValidator, getWindowAction().getDownMax(), "WinDownMax");
-		ValidationUtil.isNotNull(windowActionDownMinValidator, getWindowAction().getDownMin(), "WinDownMin");
-		ValidationUtil.isNotNull(windowActionUpMaxValidator, getWindowAction().getUpMax(), "WinUpMax");
-		ValidationUtil.isNotNull(windowActionUpMinValidator, getWindowAction().getUpMin(), "WinUpMin");
+				.isNotNull(mirrorSelectDriverMinValidator, getMirrorSelect().getDriverMin().asObject(), "DriverMin");
+		ValidationUtil.isNotNull(mirrorSelectFoldMaxValidator, getMirrorSelect().getFoldMax().asObject(), "FoldMax");
+		ValidationUtil.isNotNull(mirrorSelectFoldMinValidator, getMirrorSelect().getFoldMin().asObject(), "FoldMin");
+		ValidationUtil
+				.isNotNull(mirrorSelectPassengerMaxValidator, getMirrorSelect().getPassengerMax().asObject(),
+				           "PassMax");
+		ValidationUtil
+				.isNotNull(mirrorSelectPassengerMinValidator, getMirrorSelect().getPassengerMin().asObject(),
+				           "PassMin");
 
-		ValidationUtil.isNotNull(driverWindowMaxCurrentValidator, getDoorConfigFromBase().getDriverWindowMaxCurrent(),
+		ValidationUtil
+				.isNotNull(windowActionAutoDownMaxValidator, getWindowAction().getAutoDownMax().asObject(),
+				           "WinAutoDownMax");
+		ValidationUtil
+				.isNotNull(windowActionAutoDownMinValidator, getWindowAction().getAutoDownMin().asObject(),
+				           "WinAutoDownMin");
+		ValidationUtil
+				.isNotNull(windowActionAutoUpMaxValidator, getWindowAction().getAutoUpMax().asObject(), "WinAutoUpMax");
+		ValidationUtil
+				.isNotNull(windowActionAutoUpMinValidator, getWindowAction().getAutoUpMin().asObject(), "WinAutoUpMin");
+		ValidationUtil.isNotNull(windowActionDownMaxValidator, getWindowAction().getDownMax().asObject(), "WinDownMax");
+		ValidationUtil.isNotNull(windowActionDownMinValidator, getWindowAction().getDownMin().asObject(), "WinDownMin");
+		ValidationUtil.isNotNull(windowActionUpMaxValidator, getWindowAction().getUpMax().asObject(), "WinUpMax");
+		ValidationUtil.isNotNull(windowActionUpMinValidator, getWindowAction().getUpMin().asObject(), "WinUpMin");
+
+		ValidationUtil.isNotNull(driverWindowMaxCurrentValidator,
+		                         getDoorConfigFromBase().getDriverWindowMaxCurrent().asObject(),
 		                         "DriverCurrentMax");
 		ValidationUtil
-				.isNotNull(passengerWindowMaxCurrentValidator, getDoorConfigFromBase().getPassengerWindowMaxCurrent(),
+				.isNotNull(passengerWindowMaxCurrentValidator,
+				           getDoorConfigFromBase().getPassengerWindowMaxCurrent().asObject(),
 				           "PassCurrentMax");
 
 		getFormValidator()

@@ -11,14 +11,31 @@
 
 package com.b3tuning.b3console.service.module;
 
+import com.b3tuning.b3console.service.module.door.DoorConfigAssembler;
+import com.b3tuning.b3console.service.module.door.config.DoorConfig;
+import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource;
+import com.b3tuning.b3console.service.module.shifter.ShifterAssembler;
+import com.b3tuning.b3console.service.module.shifter.config.ShifterConfig;
+import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource;
+import com.b3tuning.b3console.service.module.trans.TransConfigAssembler;
+import com.b3tuning.b3console.service.module.trans.config.TransConfig;
+import com.b3tuning.b3console.service.module.trans.resource.TransConfigResource;
+
 public class ConfigBaseAssembler {
 
 	public static ConfigBase assemble(ConfigBaseResource resource) {
-		return new ConfigBase(resource.getName(), resource.getCreatedAt(), resource.getUpdatedAt(), resource.getType());
+		return switch (resource.getType()) {
+			case DOOR -> DoorConfigAssembler.assemble((DoorConfigResource) resource);
+			case SHIFTER -> ShifterAssembler.assemble((ShifterConfigResource) resource);
+			case TRANS -> TransConfigAssembler.assemble((TransConfigResource) resource);
+		};
 	}
 
 	public static ConfigBaseResource assemble(ConfigBase config) {
-		return new ConfigBaseResource(config.getName().get(), config.getCreatedAt().get(), config.getUpdatedAt().get(),
-		                              config.getType().get());
+		return switch (config.getType().get()) {
+			case DOOR -> DoorConfigAssembler.assemble((DoorConfig) config);
+			case SHIFTER -> ShifterAssembler.assemble((ShifterConfig) config);
+			case TRANS -> TransConfigAssembler.assemble((TransConfig) config);
+		};
 	}
 }

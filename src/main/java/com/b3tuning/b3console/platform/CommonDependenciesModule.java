@@ -127,8 +127,8 @@ public class CommonDependenciesModule {
 	 ***************/
 	@Provides
 	@Singleton
-	UserPreferences provideUserPreferences(ObjectMapper mapper) {
-		return new UserPreferences(mapper);
+	UserPreferences provideUserPreferences(NotificationCenter notificationCenter, ObjectMapper mapper) {
+		return new UserPreferences(notificationCenter, mapper);
 	}
 
 	@Provides

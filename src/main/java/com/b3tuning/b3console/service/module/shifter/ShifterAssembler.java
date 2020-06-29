@@ -1,6 +1,7 @@
 package com.b3tuning.b3console.service.module.shifter;
 
 import com.b3tuning.b3console.service.module.CanBusAssembler;
+import com.b3tuning.b3console.service.module.ConfigBaseAssembler;
 import com.b3tuning.b3console.service.module.shifter.config.IndicatorConfig;
 import com.b3tuning.b3console.service.module.shifter.config.MelexisConfig;
 import com.b3tuning.b3console.service.module.shifter.config.ShifterConfig;
@@ -23,31 +24,32 @@ import java.util.stream.Collectors;
  *
  * Copyright (C) 2020 B3Tuning, LLC.
  */
-public class ShifterAssembler {
+public class ShifterAssembler extends ConfigBaseAssembler {
 
-	public ShifterConfig assemble(ShifterConfigResource resource) {
-		return new ShifterConfig(CanBusAssembler.assemble(resource.getCanBus()),
+	public static ShifterConfig assemble(ShifterConfigResource resource) {
+		return new ShifterConfig(resource.getType(),
+		                         CanBusAssembler.assemble(resource.getCanBus()),
 		                         assemble(resource.getIndicator()),
 		                         assemble(resource.getMelexis()),
 		                         assemble(resource.getShifters()));
 	}
 
-	public IndicatorConfig assemble(IndicatorResource resource) {
+	public static IndicatorConfig assemble(IndicatorResource resource) {
 		return new IndicatorConfig(resource.getBrightness(),
 		                           resource.getColor(),
 		                           resource.getWait());
 	}
 
-	public MelexisConfig assemble(MelexisResource resource) {
+	public static MelexisConfig assemble(MelexisResource resource) {
 		return new MelexisConfig(resource.getRange());
 	}
 
-	public ObservableList<ShifterPositionConfig> assemble(List<ShifterPositionResource> resources) {
-		return FXCollections.observableArrayList(resources.stream().map(this::assemble).collect(
+	public static ObservableList<ShifterPositionConfig> assemble(List<ShifterPositionResource> resources) {
+		return FXCollections.observableArrayList(resources.stream().map(ShifterAssembler::assemble).collect(
 				Collectors.toList()));
 	}
 
-	public ShifterPositionConfig assemble(ShifterPositionResource resource) {
+	public static ShifterPositionConfig assemble(ShifterPositionResource resource) {
 		return new ShifterPositionConfig(resource.getX1(),
 		                                 resource.getY1(),
 		                                 resource.getX2(),
@@ -55,28 +57,29 @@ public class ShifterAssembler {
 		                                 resource.getEnumValue());
 	}
 
-	public ShifterConfigResource assemble(ShifterConfig config) {
+	public static ShifterConfigResource assemble(ShifterConfig config) {
 		return new ShifterConfigResource(CanBusAssembler.assemble(config.getCanBus().get()),
 		                                 assemble(config.getIndicator().get()),
 		                                 assemble(config.getMelexis().get()),
-		                                 assemble(config.getShifterPositions().get()));
+		                                 assemble(config.getShifterPositions().get()))
+				.setSuperType(config.getType().get());
 	}
 
-	public IndicatorResource assemble(IndicatorConfig config) {
+	public static IndicatorResource assemble(IndicatorConfig config) {
 		return new IndicatorResource(config.getBrightness().get(),
 		                             config.getColor().get(),
 		                             config.getWait().get());
 	}
 
-	public MelexisResource assemble(MelexisConfig config) {
+	public static MelexisResource assemble(MelexisConfig config) {
 		return new MelexisResource(config.getRange().get());
 	}
 
-	public List<ShifterPositionResource> assemble(ObservableList<ShifterPositionConfig> configs) {
-		return configs.stream().map(this::assemble).collect(Collectors.toList());
+	public static List<ShifterPositionResource> assemble(ObservableList<ShifterPositionConfig> configs) {
+		return configs.stream().map(ShifterAssembler::assemble).collect(Collectors.toList());
 	}
 
-	public ShifterPositionResource assemble(ShifterPositionConfig config) {
+	public static ShifterPositionResource assemble(ShifterPositionConfig config) {
 		return new ShifterPositionResource(config.getX1().get(),
 		                                   config.getY1().get(),
 		                                   config.getX2().get(),

@@ -25,8 +25,5 @@ import java.io.Serializable;
 public class ConfigBaseResource implements Serializable {
 	private static final long serialVersionUID = 7063913951740069316L;
 
-	private String     name;
-	private long       createdAt;
-	private long       updatedAt;
 	private ModuleType type;
 }

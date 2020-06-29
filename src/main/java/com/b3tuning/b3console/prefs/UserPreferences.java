@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
+import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import lombok.extern.slf4j.XSlf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -34,15 +35,17 @@ public class UserPreferences {
 	private static final String RECENT_FILES        = "RECENT_FILES";
 	public static final  String RECENT_FILE_DEFAULT = "NO RECENT FILES";
 
-	private static final String MAX_RECENT         = "MAX_RECENT";
+	public static final  String MAX_RECENT         = "MAX_RECENT";
 	private static final int    MAX_RECENT_DEFAULT = 10;
 
-	private final Preferences  preferences;
-	private final ObjectMapper mapper;
+	private final Preferences        preferences;
+	private final NotificationCenter globalNotifications;
+	private final ObjectMapper       mapper;
 
-	public UserPreferences(ObjectMapper mapper) {
-		this.preferences = Preferences.userRoot().node(this.getClass().getName());
-		this.mapper      = mapper;
+	public UserPreferences(NotificationCenter notificationCenter, ObjectMapper mapper) {
+		this.preferences         = Preferences.userRoot().node(this.getClass().getName());
+		this.globalNotifications = notificationCenter;
+		this.mapper              = mapper;
 	}
 
 	private void set(String property, String value) {
@@ -99,5 +102,6 @@ public class UserPreferences {
 
 	public void setMaxRecent(int value) {
 		preferences.putInt(MAX_RECENT, value);
+		globalNotifications.publish(MAX_RECENT, value);
 	}
 }

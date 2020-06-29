@@ -1,8 +1,8 @@
 package com.b3tuning.b3console.service.module.door.config;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -23,20 +23,20 @@ import java.io.Serializable;
 public class MirrorSelectConfig extends EditableEntity implements Serializable {
 	private static final long serialVersionUID = -2218249870810467004L;
 
-	private ObjectProperty<Integer> driverMax;
-	private ObjectProperty<Integer> driverMin;
-	private ObjectProperty<Integer> foldMax;
-	private ObjectProperty<Integer> foldMin;
-	private ObjectProperty<Integer> passengerMax;
-	private ObjectProperty<Integer> passengerMin;
+	private IntegerProperty driverMax;
+	private IntegerProperty driverMin;
+	private IntegerProperty foldMax;
+	private IntegerProperty foldMin;
+	private IntegerProperty passengerMax;
+	private IntegerProperty passengerMin;
 
 	public MirrorSelectConfig() {
-		this.driverMax    = new SimpleObjectProperty<>();
-		this.driverMin    = new SimpleObjectProperty<>();
-		this.foldMax      = new SimpleObjectProperty<>();
-		this.foldMin      = new SimpleObjectProperty<>();
-		this.passengerMax = new SimpleObjectProperty<>();
-		this.passengerMin = new SimpleObjectProperty<>();
+		this.driverMax    = new SimpleIntegerProperty();
+		this.driverMin    = new SimpleIntegerProperty();
+		this.foldMax      = new SimpleIntegerProperty();
+		this.foldMin      = new SimpleIntegerProperty();
+		this.passengerMax = new SimpleIntegerProperty();
+		this.passengerMin = new SimpleIntegerProperty();
 		super.trackProperties(this.driverMax,
 		                      this.driverMin,
 		                      this.foldMax,

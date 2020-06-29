@@ -50,7 +50,10 @@ public class FileMenuViewModel extends BaseViewModel {
 
 	void newFileAction() {
 		log.entry();
-		fileManager.newFileAction().ifPresent(this::setConfig);
+		fileManager.newFileAction().ifPresent(base -> {
+			setConfig(base);
+			fileManager.closeFileAction();
+		});
 	}
 
 	void openFileAction(Window window) {
@@ -71,7 +74,7 @@ public class FileMenuViewModel extends BaseViewModel {
 
 	void saveFileAsAction() {
 		log.entry();
-		fileManager.saveFileAsAction();
+		fileManager.saveFileAsAction(configProperty().get());
 	}
 
 	void sendFileAction() {

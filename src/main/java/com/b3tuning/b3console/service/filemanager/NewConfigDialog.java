@@ -12,16 +12,17 @@ package com.b3tuning.b3console.service.filemanager;
 import com.b3tuning.b3console.App;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.ModuleType;
+import com.b3tuning.b3console.service.module.door.config.DoorConfig;
+import com.b3tuning.b3console.service.module.shifter.config.ShifterConfig;
+import com.b3tuning.b3console.service.module.trans.config.TransConfig;
 import javafx.application.Platform;
-import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import lombok.extern.slf4j.XSlf4j;
 
 import java.util.Optional;
@@ -31,10 +32,7 @@ import static com.b3tuning.b3console.App.DEFAULT_CSS;
 @XSlf4j
 public class NewConfigDialog {
 
-	public static final double GRID_H_GAP      = 10;
-	public static final double GRID_V_GAP      = 15;
-	public static final double GRID_PADDING    = 10;
-	public static final double TEXT_PREF_WIDTH = 300.0;
+	public static final double VBOX_PADDING = 10;
 
 	public Optional<ConfigBase> createNewConfigDialog() {
 		log.entry();
@@ -42,54 +40,42 @@ public class NewConfigDialog {
 		// Custom dialog to for new config
 		Dialog<ConfigBase> dialog = new Dialog<>();
 		dialog.setTitle("New Configuration");
-		dialog.setHeaderText("Enter a name and select a Module type to configure");
+		dialog.setHeaderText("Select a Module type to configure");
 		dialog.getDialogPane().getStylesheets().add(App.class.getResource(DEFAULT_CSS).toExternalForm());
 		dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
 
 		// Create the custom grid
-		GridPane grid = new GridPane();
-		grid.setHgap(GRID_H_GAP);
-		grid.setVgap(GRID_V_GAP);
-		grid.setPadding(new Insets(GRID_PADDING, GRID_PADDING, GRID_PADDING, GRID_PADDING));
-
-		// Create the config name text fields
-		TextField configName = new TextField();
-		configName.setPrefWidth(TEXT_PREF_WIDTH);
-		configName.minWidthProperty().bind(configName.prefWidthProperty());
-
-		// Add TextField to grid
-		grid.add(new Label("Config Name:"), 0, 0);
-		grid.add(configName, 1, 0);
+		VBox vBox = new VBox();
+		vBox.setPadding(new Insets(VBOX_PADDING, VBOX_PADDING, VBOX_PADDING, VBOX_PADDING));
 
 		// Create the module type choice box
 		ChoiceBox<ModuleType> type = new ChoiceBox<>();
 		type.getItems().setAll(ModuleType.values());
 
 		// Add ChoiceBox to grid
-		grid.add(new Label("Module Type:"), 0, 1);
-		grid.add(type, 1, 1);
+		vBox.getChildren().add(new Label("Module Type:"));
+		vBox.getChildren().add(type);
 
 		// Enable/Disable OK Button depending on whether a config name a module type are entered
 		Button okButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.OK);
-		okButton.disableProperty().bind(Bindings.isEmpty(configName.textProperty())
-		                                        .or(type.getSelectionModel().selectedItemProperty().isNull()));
+		okButton.disableProperty().bind(type.getSelectionModel().selectedItemProperty().isNull());
 
-		dialog.getDialogPane().setContent(grid);
+		dialog.getDialogPane().setContent(vBox);
 
-		// Request focus on the config TextField by default
-		Platform.runLater(configName::requestFocus);
+		// Request focus on the config choiceBox by default
+		Platform.runLater(type::requestFocus);
 
 		// Create a new ConfigBase when OK button is clicked
 		dialog.setResultConverter(dialogButton -> {
 			if (dialogButton == ButtonType.OK) {
-				ConfigBase base = new ConfigBase(configName.getText(), type.getValue());
-				base.getCreatedAt().set(System.currentTimeMillis());
-				base.getUpdatedAt().set(System.currentTimeMillis());
-				return base;
+				return switch (type.getValue()) {
+					case DOOR -> new DoorConfig(type.getValue());
+					case SHIFTER -> new ShifterConfig(type.getValue());
+					case TRANS -> new TransConfig(type.getValue());
+				};
 			}
 			return null;
 		});
-
 		return dialog.showAndWait();
 	}
 }

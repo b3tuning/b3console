@@ -1,6 +1,7 @@
 package com.b3tuning.b3console.service.module.door.resource;
 
 import com.b3tuning.b3console.service.module.ConfigBaseResource;
+import com.b3tuning.b3console.service.module.ModuleType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -31,6 +32,11 @@ public class DoorConfigResource extends ConfigBaseResource implements Serializab
 
 	private int driverWindowMaxCurrent;
 	private int passengerWindowMaxCurrent;
+
+	public DoorConfigResource setSuperType(ModuleType type) {
+		super.setType(type);
+		return this;
+	}
 
 	@Data
 	@NoArgsConstructor

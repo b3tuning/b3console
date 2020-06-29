@@ -1,7 +1,10 @@
 package com.b3tuning.b3console.service.module.door.config;
 
 import com.b3tuning.b3console.service.module.ConfigBase;
+import com.b3tuning.b3console.service.module.ModuleType;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,15 +29,15 @@ public class DoorConfig extends ConfigBase implements Serializable {
 	private ObjectProperty<MirrorActionConfig> mirrorAction;
 	private ObjectProperty<MirrorSelectConfig> mirrorSelect;
 	private ObjectProperty<WindowActionConfig> windowAction;
-	private ObjectProperty<Integer>            driverWindowMaxCurrent;
-	private ObjectProperty<Integer>            passengerWindowMaxCurrent;
+	private IntegerProperty                    driverWindowMaxCurrent;
+	private IntegerProperty                    passengerWindowMaxCurrent;
 
 	public DoorConfig() {
-		this.mirrorAction              = new SimpleObjectProperty<>();
-		this.mirrorSelect              = new SimpleObjectProperty<>();
-		this.windowAction              = new SimpleObjectProperty<>();
-		this.driverWindowMaxCurrent    = new SimpleObjectProperty<>();
-		this.passengerWindowMaxCurrent = new SimpleObjectProperty<>();
+		this.mirrorAction              = new SimpleObjectProperty<>(new MirrorActionConfig());
+		this.mirrorSelect              = new SimpleObjectProperty<>(new MirrorSelectConfig());
+		this.windowAction              = new SimpleObjectProperty<>(new WindowActionConfig());
+		this.driverWindowMaxCurrent    = new SimpleIntegerProperty();
+		this.passengerWindowMaxCurrent = new SimpleIntegerProperty();
 		super.trackProperties(this.mirrorAction,
 		                      this.mirrorSelect,
 		                      this.windowAction,
@@ -42,18 +45,24 @@ public class DoorConfig extends ConfigBase implements Serializable {
 		                      this.passengerWindowMaxCurrent);
 	}
 
-	public DoorConfig(MirrorActionConfig mirrorAction, MirrorSelectConfig mirrorSelect, WindowActionConfig windowAction,
-	                  int driverMax, int passMax) {
+	public DoorConfig(ModuleType type) {
+		this();
+		super.getType().set(type);
+	}
+
+	public DoorConfig(ModuleType type, MirrorActionConfig mirrorAction, MirrorSelectConfig mirrorSelect,
+	                  WindowActionConfig windowAction, int driverMax, int passMax) {
 		this();
 		this.mirrorAction.set(mirrorAction);
 		this.mirrorSelect.set(mirrorSelect);
 		this.windowAction.set(windowAction);
 		this.driverWindowMaxCurrent.set(driverMax);
 		this.passengerWindowMaxCurrent.set(passMax);
+		super.getType().set(type);
 	}
 
 	public DoorConfig copy() {
-		return new DoorConfig(this.getMirrorAction().get(),
+		return new DoorConfig(this.getType().get(), this.getMirrorAction().get(),
 		                      this.getMirrorSelect().get(),
 		                      this.getWindowAction().get(),
 		                      this.getDriverWindowMaxCurrent().get(),
