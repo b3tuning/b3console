@@ -44,9 +44,9 @@ public class ShifterConfigResource extends ConfigBaseResource implements Seriali
 	public static class IndicatorResource implements Serializable {
 		private static final long serialVersionUID = 3014594965266984764L;
 
-		private int brightness;
-		private int color;
-		private int wait;
+		private Integer brightness;
+		private Integer color;
+		private Integer wait;
 	}
 
 	@Data
@@ -55,7 +55,7 @@ public class ShifterConfigResource extends ConfigBaseResource implements Seriali
 	public static class MelexisResource implements Serializable {
 		private static final long serialVersionUID = 1985825176462854188L;
 
-		private int range;
+		private Integer range;
 	}
 
 	@Data
@@ -64,10 +64,10 @@ public class ShifterConfigResource extends ConfigBaseResource implements Seriali
 	public static class ShifterPositionResource implements Serializable {
 		private static final long serialVersionUID = -1118962386529865387L;
 
-		private int x1;
-		private int y1;
-		private int x2;
-		private int y2;
-		private int enumValue;
+		private Integer x1;
+		private Integer y1;
+		private Integer x2;
+		private Integer y2;
+		private Integer enumValue;
 	}
 }

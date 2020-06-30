@@ -43,8 +43,8 @@ public class TransConfigResource extends ConfigBaseResource implements Serializa
 	public static class Ems22AResource implements Serializable {
 		private static final long serialVersionUID = -7027758278002629955L;
 
-		private int encMax;
-		private int encMin;
+		private Integer encMax;
+		private Integer encMin;
 	}
 
 	@Data
@@ -53,7 +53,7 @@ public class TransConfigResource extends ConfigBaseResource implements Serializa
 	public static class Vnh5019Resource implements Serializable {
 		private static final long serialVersionUID = -7928153578540675319L;
 
-		private int maxCurrent;
+		private Integer maxCurrent;
 	}
 
 	@Data
@@ -62,11 +62,11 @@ public class TransConfigResource extends ConfigBaseResource implements Serializa
 	public static class PidResource implements Serializable {
 		private static final long serialVersionUID = -6051337241588930804L;
 
-		private double aggKd;
-		private double aggKi;
-		private double aggKp;
-		private double consKd;
-		private double consKi;
-		private double consKp;
+		private Double aggKd;
+		private Double aggKi;
+		private Double aggKp;
+		private Double consKd;
+		private Double consKi;
+		private Double consKp;
 	}
 }

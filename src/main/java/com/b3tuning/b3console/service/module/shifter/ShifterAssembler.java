@@ -10,8 +10,9 @@ import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResou
 import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.IndicatorResource;
 import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.MelexisResource;
 import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.ShifterPositionResource;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,7 +32,7 @@ public class ShifterAssembler extends ConfigBaseAssembler {
 		                         CanBusAssembler.assemble(resource.getCanBus()),
 		                         assemble(resource.getIndicator()),
 		                         assemble(resource.getMelexis()),
-		                         assemble(resource.getShifters()));
+		                         assembleList(resource.getShifters()));
 	}
 
 	public static IndicatorConfig assemble(IndicatorResource resource) {
@@ -44,9 +45,10 @@ public class ShifterAssembler extends ConfigBaseAssembler {
 		return new MelexisConfig(resource.getRange());
 	}
 
-	public static ObservableList<ShifterPositionConfig> assemble(List<ShifterPositionResource> resources) {
-		return FXCollections.observableArrayList(resources.stream().map(ShifterAssembler::assemble).collect(
-				Collectors.toList()));
+	public static ListProperty<ShifterPositionConfig> assembleList(List<ShifterPositionResource> resources) {
+		return new SimpleListProperty<>(
+				FXCollections.observableArrayList(resources.stream().map(ShifterAssembler::assemble).collect(
+						Collectors.toList())));
 	}
 
 	public static ShifterPositionConfig assemble(ShifterPositionResource resource) {
@@ -58,33 +60,33 @@ public class ShifterAssembler extends ConfigBaseAssembler {
 	}
 
 	public static ShifterConfigResource assemble(ShifterConfig config) {
-		return new ShifterConfigResource(CanBusAssembler.assemble(config.getCanBus().get()),
-		                                 assemble(config.getIndicator().get()),
-		                                 assemble(config.getMelexis().get()),
-		                                 assemble(config.getShifterPositions().get()))
-				.setSuperType(config.getType().get());
+		return new ShifterConfigResource(CanBusAssembler.assemble(config.getCanBus()),
+		                                 assemble(config.getIndicator()),
+		                                 assemble(config.getMelexis()),
+		                                 assemble(config.getShifterPositions()))
+				.setSuperType(config.getType());
 	}
 
 	public static IndicatorResource assemble(IndicatorConfig config) {
-		return new IndicatorResource(config.getBrightness().get(),
-		                             config.getColor().get(),
-		                             config.getWait().get());
+		return new IndicatorResource(config.getBrightness(),
+		                             config.getColor(),
+		                             config.getWait());
 	}
 
 	public static MelexisResource assemble(MelexisConfig config) {
-		return new MelexisResource(config.getRange().get());
+		return new MelexisResource(config.getRange());
 	}
 
-	public static List<ShifterPositionResource> assemble(ObservableList<ShifterPositionConfig> configs) {
+	public static List<ShifterPositionResource> assemble(List<ShifterPositionConfig> configs) {
 		return configs.stream().map(ShifterAssembler::assemble).collect(Collectors.toList());
 	}
 
 	public static ShifterPositionResource assemble(ShifterPositionConfig config) {
-		return new ShifterPositionResource(config.getX1().get(),
-		                                   config.getY1().get(),
-		                                   config.getX2().get(),
-		                                   config.getY2().get(),
-		                                   config.getEnumVal().get());
+		return new ShifterPositionResource(config.getX1(),
+		                                   config.getY1(),
+		                                   config.getX2(),
+		                                   config.getY2(),
+		                                   config.getEnumVal());
 	}
 }
 

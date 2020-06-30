@@ -68,42 +68,40 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 		manage(nonNullValuesOf(viewModel.configProperty()).subscribe(cb -> {
 			log.entry();
 			DoorConfig c = (DoorConfig) cb;
-			manage(nonNullValuesOf(c.getMirrorAction()).subscribe(ma -> {
-				mirrorActionDownMax.textProperty().bindBidirectional(ma.getDownMax().asObject(), intToString);
-				mirrorActionDownMin.textProperty().bindBidirectional(ma.getDownMin().asObject(), intToString);
-				mirrorActionLeftMax.textProperty().bindBidirectional(ma.getLeftMax().asObject(), intToString);
-				mirrorActionLeftMin.textProperty().bindBidirectional(ma.getLeftMin().asObject(), intToString);
-				mirrorActionRightMax.textProperty().bindBidirectional(ma.getRightMax().asObject(), intToString);
-				mirrorActionRightMin.textProperty().bindBidirectional(ma.getRightMin().asObject(), intToString);
-				mirrorActionUpMax.textProperty().bindBidirectional(ma.getUpMax().asObject(), intToString);
-				mirrorActionUpMin.textProperty().bindBidirectional(ma.getUpMin().asObject(), intToString);
+			manage(nonNullValuesOf(c.mirrorActionProperty()).subscribe(ma -> {
+				mirrorActionDownMax.textProperty().bindBidirectional(ma.downMaxProperty(), intToString);
+				mirrorActionDownMin.textProperty().bindBidirectional(ma.downMinProperty(), intToString);
+				mirrorActionLeftMax.textProperty().bindBidirectional(ma.leftMaxProperty(), intToString);
+				mirrorActionLeftMin.textProperty().bindBidirectional(ma.leftMinProperty(), intToString);
+				mirrorActionRightMax.textProperty().bindBidirectional(ma.rightMaxProperty(), intToString);
+				mirrorActionRightMin.textProperty().bindBidirectional(ma.rightMinProperty(), intToString);
+				mirrorActionUpMax.textProperty().bindBidirectional(ma.upMaxProperty(), intToString);
+				mirrorActionUpMin.textProperty().bindBidirectional(ma.upMinProperty(), intToString);
 			}));
 
-			manage(nonNullValuesOf(c.getMirrorSelect()).subscribe(ms -> {
-				mirrorSelectDriverMax.textProperty().bindBidirectional(ms.getDriverMax().asObject(), intToString);
-				mirrorSelectDriverMin.textProperty().bindBidirectional(ms.getDriverMin().asObject(), intToString);
-				mirrorSelectFoldMax.textProperty().bindBidirectional(ms.getFoldMax().asObject(), intToString);
-				mirrorSelectFoldMin.textProperty().bindBidirectional(ms.getFoldMin().asObject(), intToString);
-				mirrorSelectPassengerMax.textProperty().bindBidirectional(ms.getPassengerMax().asObject(), intToString);
-				mirrorSelectPassengerMin.textProperty().bindBidirectional(ms.getPassengerMin().asObject(), intToString);
+			manage(nonNullValuesOf(c.mirrorSelectProperty()).subscribe(ms -> {
+				mirrorSelectDriverMax.textProperty().bindBidirectional(ms.driverMaxProperty(), intToString);
+				mirrorSelectDriverMin.textProperty().bindBidirectional(ms.driverMinProperty(), intToString);
+				mirrorSelectFoldMax.textProperty().bindBidirectional(ms.foldMaxProperty(), intToString);
+				mirrorSelectFoldMin.textProperty().bindBidirectional(ms.foldMinProperty(), intToString);
+				mirrorSelectPassengerMax.textProperty().bindBidirectional(ms.passengerMaxProperty(), intToString);
+				mirrorSelectPassengerMin.textProperty().bindBidirectional(ms.passengerMinProperty(), intToString);
 			}));
 
-			manage(nonNullValuesOf(c.getWindowAction()).subscribe(wa -> {
-				windowActionAutoDownMax.textProperty().bindBidirectional(wa.getAutoDownMax().asObject(), intToString);
-				windowActionAutoDownMin.textProperty().bindBidirectional(wa.getAutoDownMin().asObject(), intToString);
-				windowActionAutoUpMax.textProperty().bindBidirectional(wa.getAutoUpMax().asObject(), intToString);
-				windowActionAutoUpMin.textProperty().bindBidirectional(wa.getAutoUpMin().asObject(), intToString);
-				mirrorActionDownMax.textProperty().bindBidirectional(wa.getDownMax().asObject(), intToString);
-				windowActionDownMin.textProperty().bindBidirectional(wa.getDownMin().asObject(), intToString);
-				windowActionUpMax.textProperty().bindBidirectional(wa.getUpMax().asObject(), intToString);
-				windowActionUpMin.textProperty().bindBidirectional(wa.getUpMin().asObject(), intToString);
+			manage(nonNullValuesOf(c.windowActionProperty()).subscribe(wa -> {
+				windowActionAutoDownMax.textProperty().bindBidirectional(wa.autoDownMaxProperty(), intToString);
+				windowActionAutoDownMin.textProperty().bindBidirectional(wa.autoDownMinProperty(), intToString);
+				windowActionAutoUpMax.textProperty().bindBidirectional(wa.autoUpMaxProperty(), intToString);
+				windowActionAutoUpMin.textProperty().bindBidirectional(wa.autoUpMinProperty(), intToString);
+				mirrorActionDownMax.textProperty().bindBidirectional(wa.downMaxProperty(), intToString);
+				windowActionDownMin.textProperty().bindBidirectional(wa.downMinProperty(), intToString);
+				windowActionUpMax.textProperty().bindBidirectional(wa.upMaxProperty(), intToString);
+				windowActionUpMin.textProperty().bindBidirectional(wa.upMinProperty(), intToString);
 			}));
 
-			driverWindowMaxCurrent.textProperty()
-			                      .bindBidirectional(c.getDriverWindowMaxCurrent().asObject(), intToString);
+			driverWindowMaxCurrent.textProperty().bindBidirectional(c.driverWindowMaxCurrentProperty(), intToString);
 			passengerWindowMaxCurrent.textProperty()
-			                         .bindBidirectional(c.getPassengerWindowMaxCurrent().asObject(), intToString);
-
+			                         .bindBidirectional(c.passengerWindowMaxCurrentProperty(), intToString);
 		}));
 	}
 

@@ -1,13 +1,10 @@
 package com.b3tuning.b3console.service.module.door.config;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import lombok.Data;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
 
 /*
  *  Created on:  May 05, 2020
@@ -17,26 +14,24 @@ import java.io.Serializable;
  *
  * Copyright (C) 2020 B3Tuning, LLC.
  */
-@Data
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = true)
-public class MirrorSelectConfig extends EditableEntity implements Serializable {
-	private static final long serialVersionUID = -2218249870810467004L;
+@EqualsAndHashCode(callSuper = false)
+public class MirrorSelectConfig extends EditableEntity {
 
-	private IntegerProperty driverMax;
-	private IntegerProperty driverMin;
-	private IntegerProperty foldMax;
-	private IntegerProperty foldMin;
-	private IntegerProperty passengerMax;
-	private IntegerProperty passengerMin;
+	private final ObjectProperty<Integer> driverMax;
+	private final ObjectProperty<Integer> driverMin;
+	private final ObjectProperty<Integer> foldMax;
+	private final ObjectProperty<Integer> foldMin;
+	private final ObjectProperty<Integer> passengerMax;
+	private final ObjectProperty<Integer> passengerMin;
 
 	public MirrorSelectConfig() {
-		this.driverMax    = new SimpleIntegerProperty();
-		this.driverMin    = new SimpleIntegerProperty();
-		this.foldMax      = new SimpleIntegerProperty();
-		this.foldMin      = new SimpleIntegerProperty();
-		this.passengerMax = new SimpleIntegerProperty();
-		this.passengerMin = new SimpleIntegerProperty();
+		this.driverMax    = new SimpleObjectProperty<>();
+		this.driverMin    = new SimpleObjectProperty<>();
+		this.foldMax      = new SimpleObjectProperty<>();
+		this.foldMin      = new SimpleObjectProperty<>();
+		this.passengerMax = new SimpleObjectProperty<>();
+		this.passengerMin = new SimpleObjectProperty<>();
 		super.trackProperties(this.driverMax,
 		                      this.driverMin,
 		                      this.foldMax,
@@ -45,8 +40,8 @@ public class MirrorSelectConfig extends EditableEntity implements Serializable {
 		                      this.passengerMin);
 	}
 
-	public MirrorSelectConfig(int driverMax, int driverMin, int foldMax, int foldMin,
-	                          int passengerMax, int passengerMin) {
+	public MirrorSelectConfig(Integer driverMax, Integer driverMin, Integer foldMax, Integer foldMin,
+	                          Integer passengerMax, Integer passengerMin) {
 		this();
 		this.driverMax.set(driverMax);
 		this.driverMin.set(driverMin);
@@ -56,12 +51,96 @@ public class MirrorSelectConfig extends EditableEntity implements Serializable {
 		this.passengerMin.set(passengerMin);
 	}
 
-	public MirrorSelectConfig copy() {
-		return new MirrorSelectConfig(this.getDriverMax().get(),
-		                              this.getDriverMin().get(),
-		                              this.getFoldMax().get(),
-		                              this.getFoldMin().get(),
-		                              this.getPassengerMax().get(),
-		                              this.getPassengerMin().get());
+	public MirrorSelectConfig clone() {
+		return new MirrorSelectConfig(this.getDriverMax(),
+		                              this.getDriverMin(),
+		                              this.getFoldMax(),
+		                              this.getFoldMin(),
+		                              this.getPassengerMax(),
+		                              this.getPassengerMin());
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX getters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public Integer getDriverMax() {
+		return this.driverMax.get();
+	}
+
+	public Integer getDriverMin() {
+		return this.driverMin.get();
+	}
+
+	public Integer getFoldMax() {
+		return this.foldMax.get();
+	}
+
+	public Integer getFoldMin() {
+		return this.foldMin.get();
+	}
+
+	public Integer getPassengerMax() {
+		return this.passengerMax.get();
+	}
+
+	public Integer getPassengerMin() {
+		return this.passengerMin.get();
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX setters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public void setDriverMax(Integer value) {
+		this.driverMax.set(value);
+	}
+
+	public void setDriverMin(Integer value) {
+		this.driverMin.set(value);
+	}
+
+	public void setFoldMax(Integer value) {
+		this.foldMax.set(value);
+	}
+
+	public void setFoldMin(Integer value) {
+		this.foldMin.set(value);
+	}
+
+	public void setPassengerMax(Integer value) {
+		this.passengerMax.set(value);
+	}
+
+	public void setPassengerMin(Integer value) {
+		this.passengerMin.set(value);
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX properties
+	/////////////////////////////////////////////////////////////////////////////
+
+	public ObjectProperty<Integer> driverMaxProperty() {
+		return driverMax;
+	}
+
+	public ObjectProperty<Integer> driverMinProperty() {
+		return driverMin;
+	}
+
+	public ObjectProperty<Integer> foldMaxProperty() {
+		return foldMax;
+	}
+
+	public ObjectProperty<Integer> foldMinProperty() {
+		return foldMin;
+	}
+
+	public ObjectProperty<Integer> passengerMaxProperty() {
+		return passengerMax;
+	}
+
+	public ObjectProperty<Integer> passengerMinProperty() {
+		return passengerMin;
 	}
 }

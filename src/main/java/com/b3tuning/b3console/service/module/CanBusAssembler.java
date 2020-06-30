@@ -25,17 +25,17 @@ public class CanBusAssembler {
 	}
 
 	public static CanBusResource assemble(CanBusConfig config) {
-		return new CanBusResource(config.getAddrTX().get(),
-		                          config.getBootRX().get(),
-		                          config.getBootTX().get(),
-		                          config.getIntvlTX().get(),
-		                          config.getMask0().get(),
-		                          config.getFilter0_0().get(),
-		                          config.getFilter0_1().get(),
-		                          config.getMask1().get(),
-		                          config.getFilter1_0().get(),
-		                          config.getFilter1_1().get(),
-		                          config.getFilter1_2().get(),
-		                          config.getFilter1_3().get());
+		return new CanBusResource(config.getAddrTX(),
+		                          config.getBootRX(),
+		                          config.getBootTX(),
+		                          config.getIntvlTX(),
+		                          config.getMask0(),
+		                          config.getFilter0_0(),
+		                          config.getFilter0_1(),
+		                          config.getMask1(),
+		                          config.getFilter1_0(),
+		                          config.getFilter1_1(),
+		                          config.getFilter1_2(),
+		                          config.getFilter1_3());
 	}
 }

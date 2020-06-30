@@ -38,7 +38,7 @@ public class ShifterConfigViewModel extends BaseViewModel implements EditableVie
 			AlertUtils.warn(saveChangesMessage());
 		} else {
 //			config.set(moduleService.getShifterConfig());
-			originalConfig = getShifterConfigFromBase().copy();
+			originalConfig = getShifterConfigFromBase().clone();
 			getShifterConfigFromBase().resetTrackingChanges();
 			dirty.set(false);
 		}

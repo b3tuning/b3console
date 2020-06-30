@@ -1,13 +1,10 @@
 package com.b3tuning.b3console.service.module.door.config;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import lombok.Data;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
 
 /*
  *  Created on:  May 05, 2020
@@ -17,30 +14,28 @@ import java.io.Serializable;
  *
  * Copyright (C) 2020 B3Tuning, LLC.
  */
-@Data
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = true)
-public class WindowActionConfig extends EditableEntity implements Serializable {
-	private static final long serialVersionUID = -7074999213839249453L;
+@EqualsAndHashCode(callSuper = false)
+public class WindowActionConfig extends EditableEntity {
 
-	private IntegerProperty autoDownMax;
-	private IntegerProperty autoDownMin;
-	private IntegerProperty autoUpMax;
-	private IntegerProperty autoUpMin;
-	private IntegerProperty downMax;
-	private IntegerProperty downMin;
-	private IntegerProperty upMax;
-	private IntegerProperty upMin;
+	private final ObjectProperty<Integer> autoDownMax;
+	private final ObjectProperty<Integer> autoDownMin;
+	private final ObjectProperty<Integer> autoUpMax;
+	private final ObjectProperty<Integer> autoUpMin;
+	private final ObjectProperty<Integer> downMax;
+	private final ObjectProperty<Integer> downMin;
+	private final ObjectProperty<Integer> upMax;
+	private final ObjectProperty<Integer> upMin;
 
 	public WindowActionConfig() {
-		this.autoDownMax = new SimpleIntegerProperty();
-		this.autoDownMin = new SimpleIntegerProperty();
-		this.autoUpMax   = new SimpleIntegerProperty();
-		this.autoUpMin   = new SimpleIntegerProperty();
-		this.downMax     = new SimpleIntegerProperty();
-		this.downMin     = new SimpleIntegerProperty();
-		this.upMax       = new SimpleIntegerProperty();
-		this.upMin       = new SimpleIntegerProperty();
+		this.autoDownMax = new SimpleObjectProperty<>();
+		this.autoDownMin = new SimpleObjectProperty<>();
+		this.autoUpMax   = new SimpleObjectProperty<>();
+		this.autoUpMin   = new SimpleObjectProperty<>();
+		this.downMax     = new SimpleObjectProperty<>();
+		this.downMin     = new SimpleObjectProperty<>();
+		this.upMax       = new SimpleObjectProperty<>();
+		this.upMin       = new SimpleObjectProperty<>();
 		super.trackProperties(this.autoDownMax,
 		                      this.autoDownMin,
 		                      this.autoUpMax,
@@ -51,8 +46,8 @@ public class WindowActionConfig extends EditableEntity implements Serializable {
 		                      this.upMin);
 	}
 
-	public WindowActionConfig(int autoDownMax, int downMin, int autoUpMax, int autoUpMin,
-	                          int downMax, int rightMin, int upMax, int upMin) {
+	public WindowActionConfig(Integer autoDownMax, Integer downMin, Integer autoUpMax, Integer autoUpMin,
+	                          Integer downMax, Integer rightMin, Integer upMax, Integer upMin) {
 		this();
 		this.autoDownMax.set(autoDownMax);
 		this.autoDownMin.set(downMin);
@@ -64,14 +59,123 @@ public class WindowActionConfig extends EditableEntity implements Serializable {
 		this.upMin.set(upMin);
 	}
 
-	public WindowActionConfig copy() {
-		return new WindowActionConfig(this.getAutoDownMax().get(),
-		                              this.getAutoDownMin().get(),
-		                              this.getAutoUpMax().get(),
-		                              this.getAutoUpMin().get(),
-		                              this.getDownMax().get(),
-		                              this.getDownMin().get(),
-		                              this.getUpMax().get(),
-		                              this.getUpMin().get());
+	public WindowActionConfig clone() {
+		return new WindowActionConfig(this.getAutoDownMax(),
+		                              this.getAutoDownMin(),
+		                              this.getAutoUpMax(),
+		                              this.getAutoUpMin(),
+		                              this.getDownMax(),
+		                              this.getDownMin(),
+		                              this.getUpMax(),
+		                              this.getUpMin());
 	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX getters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public Integer getAutoDownMax() {
+		return this.autoDownMax.get();
+	}
+
+	public Integer getAutoDownMin() {
+		return this.autoDownMin.get();
+	}
+
+	public Integer getAutoUpMax() {
+		return this.autoUpMax.get();
+	}
+
+	public Integer getAutoUpMin() {
+		return this.autoUpMin.get();
+	}
+
+	public Integer getDownMax() {
+		return this.downMax.get();
+	}
+
+	public Integer getDownMin() {
+		return this.downMin.get();
+	}
+
+	public Integer getUpMax() {
+		return this.upMax.get();
+	}
+
+	public Integer getUpMin() {
+		return this.upMin.get();
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX setters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public void setAutoDownMax(Integer value) {
+		this.autoDownMax.set(value);
+	}
+
+	public void setAutoDownMin(Integer value) {
+		this.autoDownMin.set(value);
+	}
+
+	public void setAutoUpMax(Integer value) {
+		this.autoUpMax.set(value);
+	}
+
+	public void setAutoUpMin(Integer value) {
+		this.autoUpMin.set(value);
+	}
+
+	public void setDownMax(Integer value) {
+		this.downMax.set(value);
+	}
+
+	public void setDownMin(Integer value) {
+		this.downMin.set(value);
+	}
+
+	public void setUpMax(Integer value) {
+		this.upMax.set(value);
+	}
+
+	public void setUpMin(Integer value) {
+		this.upMin.set(value);
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX properties
+	/////////////////////////////////////////////////////////////////////////////
+
+	public ObjectProperty<Integer> autoDownMaxProperty() {
+		return this.autoDownMax;
+	}
+
+	public ObjectProperty<Integer> autoDownMinProperty() {
+		return this.autoDownMin;
+	}
+
+	public ObjectProperty<Integer> autoUpMaxProperty() {
+		return this.autoUpMax;
+	}
+
+	public ObjectProperty<Integer> autoUpMinProperty() {
+		return this.autoUpMin;
+	}
+
+	public ObjectProperty<Integer> downMaxProperty() {
+		return this.downMax;
+	}
+
+	public ObjectProperty<Integer> downMinProperty() {
+		return this.downMin;
+	}
+
+	public ObjectProperty<Integer> upMaxProperty() {
+		return this.upMax;
+	}
+
+	public ObjectProperty<Integer> upMinProperty() {
+		return this.upMin;
+	}
+
 }

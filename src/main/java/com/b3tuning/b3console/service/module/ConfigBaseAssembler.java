@@ -32,7 +32,7 @@ public class ConfigBaseAssembler {
 	}
 
 	public static ConfigBaseResource assemble(ConfigBase config) {
-		return switch (config.getType().get()) {
+		return switch (config.getType()) {
 			case DOOR -> DoorConfigAssembler.assemble((DoorConfig) config);
 			case SHIFTER -> ShifterAssembler.assemble((ShifterConfig) config);
 			case TRANS -> TransConfigAssembler.assemble((TransConfig) config);

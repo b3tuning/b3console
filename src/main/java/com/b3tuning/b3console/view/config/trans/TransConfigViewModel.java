@@ -38,7 +38,7 @@ public class TransConfigViewModel extends BaseViewModel implements EditableViewM
 			AlertUtils.warn(saveChangesMessage());
 		} else {
 //			config.set(moduleService.getTransConfig());
-			originalConfig = getTransConfigFromBase().copy();
+			originalConfig = getTransConfigFromBase().clone();
 			getTransConfigFromBase().resetTrackingChanges();
 			dirty.set(false);
 		}

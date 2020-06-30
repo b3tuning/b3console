@@ -30,8 +30,8 @@ public class DoorConfigResource extends ConfigBaseResource implements Serializab
 	private MirrorSelectResource mirrorSelect;
 	private WindowActionResource windowAction;
 
-	private int driverWindowMaxCurrent;
-	private int passengerWindowMaxCurrent;
+	private Integer driverWindowMaxCurrent;
+	private Integer passengerWindowMaxCurrent;
 
 	public DoorConfigResource setSuperType(ModuleType type) {
 		super.setType(type);
@@ -44,14 +44,14 @@ public class DoorConfigResource extends ConfigBaseResource implements Serializab
 	public static class MirrorActionResource implements Serializable {
 		private static final long serialVersionUID = -3318161345152814145L;
 
-		private int downMax;
-		private int downMin;
-		private int leftMax;
-		private int leftMin;
-		private int rightMax;
-		private int rightMin;
-		private int upMax;
-		private int upMin;
+		private Integer downMax;
+		private Integer downMin;
+		private Integer leftMax;
+		private Integer leftMin;
+		private Integer rightMax;
+		private Integer rightMin;
+		private Integer upMax;
+		private Integer upMin;
 	}
 
 	@Data
@@ -60,12 +60,12 @@ public class DoorConfigResource extends ConfigBaseResource implements Serializab
 	public static class MirrorSelectResource implements Serializable {
 		private static final long serialVersionUID = 8104729977643773681L;
 
-		private int driverMax;
-		private int driverMin;
-		private int foldMax;
-		private int foldMin;
-		private int passengerMax;
-		private int passengerMin;
+		private Integer driverMax;
+		private Integer driverMin;
+		private Integer foldMax;
+		private Integer foldMin;
+		private Integer passengerMax;
+		private Integer passengerMin;
 	}
 
 	@Data
@@ -74,13 +74,13 @@ public class DoorConfigResource extends ConfigBaseResource implements Serializab
 	public static class WindowActionResource implements Serializable {
 		private static final long serialVersionUID = 4042703422862305311L;
 
-		private int autoDownMax;
-		private int autoDownMin;
-		private int autoUpMax;
-		private int autoUpMin;
-		private int downMax;
-		private int downMin;
-		private int upMax;
-		private int upMin;
+		private Integer autoDownMax;
+		private Integer autoDownMin;
+		private Integer autoUpMax;
+		private Integer autoUpMin;
+		private Integer downMax;
+		private Integer downMin;
+		private Integer upMax;
+		private Integer upMin;
 	}
 }

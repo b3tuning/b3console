@@ -12,29 +12,49 @@
 package com.b3tuning.b3console.service.module.trans.config;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import lombok.Data;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.io.Serializable;
-
-@Data
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = true)
-public class Vnh5019Config extends EditableEntity implements Serializable {
-	private static final long serialVersionUID = 4510253484722703807L;
+@EqualsAndHashCode(callSuper = false)
+public class Vnh5019Config extends EditableEntity {
 
-	private IntegerProperty maxCurrent;
+	private final ObjectProperty<Integer> maxCurrent;
 
 	public Vnh5019Config() {
-		this.maxCurrent = new SimpleIntegerProperty();
+		this.maxCurrent = new SimpleObjectProperty<>();
 		super.trackProperties(maxCurrent);
 	}
 
-	public Vnh5019Config(int max) {
+	public Vnh5019Config(Integer max) {
 		this();
 		this.maxCurrent.set(max);
 	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX getters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public Integer getMaxCurrent() {
+		return this.maxCurrent.get();
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX setters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public void setMaxCurrent(Integer value) {
+		this.maxCurrent.set(value);
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX properties
+	/////////////////////////////////////////////////////////////////////////////
+
+	public ObjectProperty<Integer> maxCurrentProperty() {
+		return this.maxCurrent;
+	}
+
 }

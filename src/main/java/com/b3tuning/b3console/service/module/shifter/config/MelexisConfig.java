@@ -12,32 +12,51 @@
 package com.b3tuning.b3console.service.module.shifter.config;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import lombok.Data;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
 
 /**
  * MelexisConfig
  */
-@Data
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = true)
-public class MelexisConfig extends EditableEntity implements Serializable {
-	private static final long serialVersionUID = -3082171139589377360L;
+@EqualsAndHashCode(callSuper = false)
+public class MelexisConfig extends EditableEntity {
 
-	private IntegerProperty range;
+	private final ObjectProperty<Integer> range;
 
 	public MelexisConfig() {
-		this.range = new SimpleIntegerProperty();
+		this.range = new SimpleObjectProperty<>();
 		super.trackProperties(range);
 	}
 
-	public MelexisConfig(int rangeValue) {
+	public MelexisConfig(Integer rangeValue) {
 		this();
 		this.range.set(rangeValue);
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX getters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public Integer getRange() {
+		return this.range.get();
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX setters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public void setRange(Integer value) {
+		this.range.set(value);
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX properties
+	/////////////////////////////////////////////////////////////////////////////
+
+	public ObjectProperty<Integer> rangeProperty() {
+		return this.range;
 	}
 }

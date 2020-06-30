@@ -61,42 +61,42 @@ public class DoorConfigAssembler extends ConfigBaseAssembler {
 	}
 
 	public static DoorConfigResource assemble(DoorConfig config) {
-		return new DoorConfigResource(assemble(config.getMirrorAction().get()),
-		                              assemble(config.getMirrorSelect().get()),
-		                              assemble(config.getWindowAction().get()),
-		                              config.getDriverWindowMaxCurrent().get(),
-		                              config.getPassengerWindowMaxCurrent().get())
-				.setSuperType(config.getType().get());
+		return new DoorConfigResource(assemble(config.getMirrorAction()),
+		                              assemble(config.getMirrorSelect()),
+		                              assemble(config.getWindowAction()),
+		                              config.getDriverWindowMaxCurrent(),
+		                              config.getPassengerWindowMaxCurrent())
+				.setSuperType(config.getType());
 	}
 
 	public static MirrorActionResource assemble(MirrorActionConfig config) {
-		return new MirrorActionResource(config.getDownMax().get(),
-		                                config.getDownMin().get(),
-		                                config.getLeftMax().get(),
-		                                config.getLeftMin().get(),
-		                                config.getRightMax().get(),
-		                                config.getRightMin().get(),
-		                                config.getUpMax().get(),
-		                                config.getUpMin().get());
+		return new MirrorActionResource(config.getDownMax(),
+		                                config.getDownMin(),
+		                                config.getLeftMax(),
+		                                config.getLeftMin(),
+		                                config.getRightMax(),
+		                                config.getRightMin(),
+		                                config.getUpMax(),
+		                                config.getUpMin());
 	}
 
 	public static MirrorSelectResource assemble(MirrorSelectConfig config) {
-		return new MirrorSelectResource(config.getDriverMax().get(),
-		                                config.getDriverMin().get(),
-		                                config.getFoldMax().get(),
-		                                config.getFoldMin().get(),
-		                                config.getPassengerMax().get(),
-		                                config.getPassengerMin().get());
+		return new MirrorSelectResource(config.getDriverMax(),
+		                                config.getDriverMin(),
+		                                config.getFoldMax(),
+		                                config.getFoldMin(),
+		                                config.getPassengerMax(),
+		                                config.getPassengerMin());
 	}
 
 	public static WindowActionResource assemble(WindowActionConfig config) {
-		return new WindowActionResource(config.getAutoDownMax().get(),
-		                                config.getAutoDownMin().get(),
-		                                config.getAutoUpMax().get(),
-		                                config.getAutoUpMin().get(),
-		                                config.getDownMax().get(),
-		                                config.getDownMin().get(),
-		                                config.getUpMax().get(),
-		                                config.getUpMin().get());
+		return new WindowActionResource(config.getAutoDownMax(),
+		                                config.getAutoDownMin(),
+		                                config.getAutoUpMax(),
+		                                config.getAutoUpMin(),
+		                                config.getDownMax(),
+		                                config.getDownMin(),
+		                                config.getUpMax(),
+		                                config.getUpMin());
 	}
 }

@@ -48,28 +48,28 @@ public class TransConfigAssembler extends ConfigBaseAssembler {
 	}
 
 	public static TransConfigResource assemble(TransConfig config) {
-		return new TransConfigResource(CanBusAssembler.assemble(config.getCanBus().get()),
-		                               assemble(config.getEms22A().get()),
-		                               assemble(config.getVnh5019().get()),
-		                               assemble(config.getPid().get()))
-				.setSuperType(config.getType().get());
+		return new TransConfigResource(CanBusAssembler.assemble(config.getCanBus()),
+		                               assemble(config.getEms22A()),
+		                               assemble(config.getVnh5019()),
+		                               assemble(config.getPid()))
+				.setSuperType(config.getType());
 	}
 
 	public static Ems22AResource assemble(Ems22AConfig config) {
-		return new Ems22AResource(config.getEncMax().get(),
-		                          config.getEncMin().get());
+		return new Ems22AResource(config.getEncMax(),
+		                          config.getEncMin());
 	}
 
 	public static Vnh5019Resource assemble(Vnh5019Config config) {
-		return new Vnh5019Resource(config.getMaxCurrent().get());
+		return new Vnh5019Resource(config.getMaxCurrent());
 	}
 
 	public static PidResource assemble(PidConfig config) {
-		return new PidResource(config.getAggKd().get(),
-		                       config.getAggKi().get(),
-		                       config.getAggKp().get(),
-		                       config.getConsKd().get(),
-		                       config.getConsKi().get(),
-		                       config.getConsKp().get());
+		return new PidResource(config.getAggKd(),
+		                       config.getAggKi(),
+		                       config.getAggKp(),
+		                       config.getConsKd(),
+		                       config.getConsKi(),
+		                       config.getConsKp());
 	}
 }

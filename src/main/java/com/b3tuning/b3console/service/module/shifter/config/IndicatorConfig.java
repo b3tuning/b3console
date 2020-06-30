@@ -12,38 +12,81 @@
 package com.b3tuning.b3console.service.module.shifter.config;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import lombok.Data;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
 
 /**
  * IndicatorConfig
  */
-@Data
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = true)
-public class IndicatorConfig extends EditableEntity implements Serializable {
-	private static final long serialVersionUID = -7837278550103560074L;
+@EqualsAndHashCode(callSuper = false)
+public class IndicatorConfig extends EditableEntity {
 
-	private IntegerProperty brightness; // uint_8t - needs mask 0x0FF?
-	private IntegerProperty color;      // uint_8t - needs mask 0xFF?
-	private IntegerProperty wait;       // uint_8t - needs mask 0xFF?
+	private final ObjectProperty<Integer> brightness; // uint_8t - needs mask 0x0FF?
+	private final ObjectProperty<Integer> color;      // uint_8t - needs mask 0xFF?
+	private final ObjectProperty<Integer> wait;       // uint_8t - needs mask 0xFF?
 
 	public IndicatorConfig() {
-		this.brightness = new SimpleIntegerProperty();
-		this.color      = new SimpleIntegerProperty();
-		this.wait       = new SimpleIntegerProperty();
+		this.brightness = new SimpleObjectProperty<>();
+		this.color      = new SimpleObjectProperty<>();
+		this.wait       = new SimpleObjectProperty<>();
 		super.trackProperties(brightness, color, wait);
 	}
 
-	public IndicatorConfig(int brightnessValue, int colorValue, int waitValue) {
+	public IndicatorConfig(Integer brightnessValue, Integer colorValue, Integer waitValue) {
 		this();
 		this.brightness.set(brightnessValue);
 		this.color.set(colorValue);
 		this.wait.set(waitValue);
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX getters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public Integer getBrightness() {
+		return this.brightness.get();
+	}
+
+	public Integer getColor() {
+		return this.color.get();
+	}
+
+	public Integer getWait() {
+		return this.wait.get();
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX setters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public void setBrightness(Integer value) {
+		this.brightness.set(value);
+	}
+
+	public void setColor(Integer value) {
+		this.color.set(value);
+	}
+
+	public void setWait(Integer value) {
+		this.wait.set(value);
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX properties
+	/////////////////////////////////////////////////////////////////////////////
+
+	public ObjectProperty<Integer> brightnessProperty() {
+		return this.brightness;
+	}
+
+	public ObjectProperty<Integer> colorProperty() {
+		return this.color;
+	}
+
+	public ObjectProperty<Integer> waitProperty() {
+		return this.wait;
 	}
 }

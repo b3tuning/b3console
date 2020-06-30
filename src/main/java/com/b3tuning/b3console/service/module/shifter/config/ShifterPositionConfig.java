@@ -12,39 +12,34 @@
 package com.b3tuning.b3console.service.module.shifter.config;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import lombok.Data;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
 
 /**
  * Shifter Position Config
  */
-@Data
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = true)
-public class ShifterPositionConfig extends EditableEntity implements Serializable {
-	private static final long serialVersionUID = -3677812416764695651L;
+@EqualsAndHashCode(callSuper = false)
+public class ShifterPositionConfig extends EditableEntity {
 
-	private IntegerProperty x1; // int16_t - needs mask?
-	private IntegerProperty x2; // int16_t - needs mask?
-	private IntegerProperty y1; // int16_t - needs mask?
-	private IntegerProperty y2; // int16_t - needs mask?
-	private IntegerProperty enumVal;
+	private final ObjectProperty<Integer> x1; // int16_t - needs mask?
+	private final ObjectProperty<Integer> x2; // int16_t - needs mask?
+	private final ObjectProperty<Integer> y1; // int16_t - needs mask?
+	private final ObjectProperty<Integer> y2; // int16_t - needs mask?
+	private final ObjectProperty<Integer> enumVal;
 
 	public ShifterPositionConfig() {
-		this.x1      = new SimpleIntegerProperty();
-		this.y1      = new SimpleIntegerProperty();
-		this.x2      = new SimpleIntegerProperty();
-		this.y2      = new SimpleIntegerProperty();
-		this.enumVal = new SimpleIntegerProperty();
+		this.x1      = new SimpleObjectProperty<>();
+		this.y1      = new SimpleObjectProperty<>();
+		this.x2      = new SimpleObjectProperty<>();
+		this.y2      = new SimpleObjectProperty<>();
+		this.enumVal = new SimpleObjectProperty<>();
 		super.trackProperties(x1, y1, x2, y2, enumVal);
 	}
 
-	public ShifterPositionConfig(int x1Value, int y1Value, int x2Value, int y2Value, int enumValue) {
+	public ShifterPositionConfig(Integer x1Value, Integer y1Value, Integer x2Value, Integer y2Value, Integer enumValue) {
 		this();
 		this.x1.set(x1Value);
 		this.y1.set(y1Value);
@@ -52,4 +47,77 @@ public class ShifterPositionConfig extends EditableEntity implements Serializabl
 		this.y2.set(y2Value);
 		this.enumVal.set(enumValue);
 	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX getters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public Integer getX1() {
+		return this.x1.get();
+	}
+
+	public Integer getX2() {
+		return this.x2.get();
+	}
+
+	public Integer getY1() {
+		return this.y1.get();
+	}
+
+	public Integer getY2() {
+		return this.y2.get();
+	}
+
+	public Integer getEnumVal() {
+		return this.enumVal.get();
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX setters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public void setX1(Integer value) {
+		this.x1.set(value);
+	}
+
+	public void setX2(Integer value) {
+		this.x2.set(value);
+	}
+
+	public void setY1(Integer value) {
+		this.y1.set(value);
+	}
+
+	public void setY2(Integer value) {
+		this.y2.set(value);
+	}
+
+	public void setEnumVal(Integer value) {
+		this.enumVal.set(value);
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX properties
+	/////////////////////////////////////////////////////////////////////////////
+
+	public ObjectProperty<Integer> x1Property() {
+		return this.x1;
+	}
+
+	public ObjectProperty<Integer> x2Property() {
+		return this.x2;
+	}
+
+	public ObjectProperty<Integer> y1Property() {
+		return this.y1;
+	}
+
+	public ObjectProperty<Integer> y2Property() {
+		return this.y2;
+	}
+
+	public ObjectProperty<Integer> enumValProperty() {
+		return this.enumVal;
+	}
+
 }

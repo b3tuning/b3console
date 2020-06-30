@@ -12,38 +12,33 @@
 package com.b3tuning.b3console.service.module.trans.config;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import lombok.Data;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.io.Serializable;
-
-@Data
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = true)
-public class PidConfig extends EditableEntity implements Serializable {
-	private static final long serialVersionUID = -2484001825137621307L;
+@EqualsAndHashCode(callSuper = false)
+public class PidConfig extends EditableEntity {
 
-	private DoubleProperty aggKd;
-	private DoubleProperty aggKi;
-	private DoubleProperty aggKp;
-	private DoubleProperty consKd;
-	private DoubleProperty consKi;
-	private DoubleProperty consKp;
+	private final ObjectProperty<Double> aggKd;
+	private final ObjectProperty<Double> aggKi;
+	private final ObjectProperty<Double> aggKp;
+	private final ObjectProperty<Double> consKd;
+	private final ObjectProperty<Double> consKi;
+	private final ObjectProperty<Double> consKp;
 
 	public PidConfig() {
-		this.aggKd  = new SimpleDoubleProperty();
-		this.aggKi  = new SimpleDoubleProperty();
-		this.aggKp  = new SimpleDoubleProperty();
-		this.consKd = new SimpleDoubleProperty();
-		this.consKi = new SimpleDoubleProperty();
-		this.consKp = new SimpleDoubleProperty();
+		this.aggKd  = new SimpleObjectProperty<>();
+		this.aggKi  = new SimpleObjectProperty<>();
+		this.aggKp  = new SimpleObjectProperty<>();
+		this.consKd = new SimpleObjectProperty<>();
+		this.consKi = new SimpleObjectProperty<>();
+		this.consKp = new SimpleObjectProperty<>();
 		super.trackProperties(this.aggKd, this.aggKi, this.aggKp, this.consKd, this.consKi, this.consKp);
 	}
 
-	public PidConfig(double aKd, double aKi, double aKp, double cKd, double cKi, double cKp) {
+	public PidConfig(Double aKd, Double aKi, Double aKp, Double cKd, Double cKi, Double cKp) {
 		this();
 		this.aggKd.set(aKd);
 		this.aggKi.set(aKi);
@@ -52,4 +47,89 @@ public class PidConfig extends EditableEntity implements Serializable {
 		this.consKi.set(cKi);
 		this.consKp.set(cKp);
 	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX getters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public Double getAggKd() {
+		return this.aggKd.get();
+	}
+
+	public Double getAggKi() {
+		return this.aggKi.get();
+	}
+
+	public Double getAggKp() {
+		return this.aggKp.get();
+	}
+
+	public Double getConsKd() {
+		return this.consKd.get();
+	}
+
+	public Double getConsKi() {
+		return this.consKi.get();
+	}
+
+	public Double getConsKp() {
+		return this.consKp.get();
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX setters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public void setAggKd(Double value) {
+		this.aggKd.set(value);
+	}
+
+	public void setAggKi(Double value) {
+		this.aggKi.set(value);
+	}
+
+	public void setAggKp(Double value) {
+		this.aggKp.set(value);
+	}
+
+	public void setConsKd(Double value) {
+		this.consKd.set(value);
+	}
+
+	public void setConsKi(Double value) {
+		this.consKi.set(value);
+	}
+
+	public void setConsKp(Double value) {
+		this.consKp.set(value);
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX properties
+	/////////////////////////////////////////////////////////////////////////////
+
+	public ObjectProperty<Double> aggKdProperty() {
+		return this.aggKd;
+	}
+
+	public ObjectProperty<Double> aggKiProperty() {
+		return this.aggKi;
+	}
+
+	public ObjectProperty<Double> aggKpProperty() {
+		return this.aggKp;
+	}
+
+	public ObjectProperty<Double> consKdProperty() {
+		return this.consKd;
+	}
+
+	public ObjectProperty<Double> consKiProperty() {
+		return this.consKi;
+	}
+
+	public ObjectProperty<Double> consKpProperty() {
+		return this.consKp;
+	}
+
 }

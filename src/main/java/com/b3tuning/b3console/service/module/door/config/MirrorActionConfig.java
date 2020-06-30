@@ -1,13 +1,10 @@
 package com.b3tuning.b3console.service.module.door.config;
 
 import com.b3tuning.b3console.service.EditableEntity;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import lombok.Data;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
 
 /*
  *  Created on:  May 05, 2020
@@ -17,30 +14,33 @@ import java.io.Serializable;
  *
  * Copyright (C) 2020 B3Tuning, LLC.
  */
-@Data
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = true)
-public class MirrorActionConfig extends EditableEntity implements Serializable {
-	private static final long serialVersionUID = -4651332825883884318L;
+@EqualsAndHashCode(callSuper = false)
+public class MirrorActionConfig extends EditableEntity {
 
-	private IntegerProperty downMax;
-	private IntegerProperty downMin;
-	private IntegerProperty leftMax;
-	private IntegerProperty leftMin;
-	private IntegerProperty rightMax;
-	private IntegerProperty rightMin;
-	private IntegerProperty upMax;
-	private IntegerProperty upMin;
+	private final ObjectProperty<Integer> downMax;
+	private final ObjectProperty<Integer> downMin;
+	private final ObjectProperty<Integer> leftMax;
+	private final ObjectProperty<Integer> leftMin;
+	private final ObjectProperty<Integer> rightMax;
+	private final ObjectProperty<Integer> rightMin;
+	private final ObjectProperty<Integer> upMax;
+	private final ObjectProperty<Integer> upMin;
 
 	public MirrorActionConfig() {
-		this.downMax  = new SimpleIntegerProperty();
-		this.downMin  = new SimpleIntegerProperty();
-		this.leftMax  = new SimpleIntegerProperty();
-		this.leftMin  = new SimpleIntegerProperty();
-		this.rightMax = new SimpleIntegerProperty();
-		this.rightMin = new SimpleIntegerProperty();
-		this.upMax    = new SimpleIntegerProperty();
-		this.upMin    = new SimpleIntegerProperty();
+		this(null, null, null, null, null, null, null, null);
+	}
+
+	public MirrorActionConfig(Integer downMax, Integer downMin, Integer leftMax, Integer leftMin,
+	                          Integer rightMax, Integer rightMin, Integer upMax, Integer upMin) {
+		this.downMax  = new SimpleObjectProperty<>(downMax);
+		this.downMin  = new SimpleObjectProperty<>(downMin);
+		this.leftMax  = new SimpleObjectProperty<>(leftMax);
+		this.leftMin  = new SimpleObjectProperty<>(leftMin);
+		this.rightMax = new SimpleObjectProperty<>(rightMax);
+		this.rightMin = new SimpleObjectProperty<>(rightMin);
+		this.upMax    = new SimpleObjectProperty<>(upMax);
+		this.upMin    = new SimpleObjectProperty<>(upMin);
 		super.trackProperties(this.downMax,
 		                      this.downMin,
 		                      this.leftMax,
@@ -51,27 +51,121 @@ public class MirrorActionConfig extends EditableEntity implements Serializable {
 		                      this.upMin);
 	}
 
-	public MirrorActionConfig(int downMax, int downMin, int leftMax, int leftMin,
-	                          int rightMax, int rightMin, int upMax, int upMin) {
-		this();
-		this.downMax.set(downMax);
-		this.downMin.set(downMin);
-		this.leftMax.set(leftMax);
-		this.leftMin.set(leftMin);
-		this.rightMax.set(rightMax);
-		this.rightMin.set(rightMin);
-		this.upMax.set(upMax);
-		this.upMin.set(upMin);
+	public MirrorActionConfig clone() {
+		return new MirrorActionConfig(this.getDownMax(),
+		                              this.getDownMin(),
+		                              this.getLeftMax(),
+		                              this.getLeftMin(),
+		                              this.getRightMax(),
+		                              this.getRightMin(),
+		                              this.getUpMax(),
+		                              this.getUpMin());
 	}
 
-	public MirrorActionConfig copy() {
-		return new MirrorActionConfig(this.getDownMax().get(),
-		                              this.getDownMin().get(),
-		                              this.getLeftMax().get(),
-		                              this.getLeftMin().get(),
-		                              this.getRightMax().get(),
-		                              this.getRightMin().get(),
-		                              this.getUpMax().get(),
-		                              this.getUpMin().get());
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX getters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public Integer getDownMax() {
+		return this.downMax.get();
+	}
+
+	public Integer getDownMin() {
+		return this.downMin.get();
+	}
+
+	public Integer getLeftMax() {
+		return this.leftMax.get();
+	}
+
+	public Integer getLeftMin() {
+		return this.leftMin.get();
+	}
+
+	public Integer getRightMax() {
+		return this.rightMax.get();
+	}
+
+	public Integer getRightMin() {
+		return this.rightMin.get();
+	}
+
+	public Integer getUpMax() {
+		return this.upMax.get();
+	}
+
+	public Integer getUpMin() {
+		return this.upMin.get();
+	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX setters
+	/////////////////////////////////////////////////////////////////////////////
+
+	public void setDownMax(Integer value) {
+		this.downMax.set(value);
+	}
+
+	public void setDownMin(Integer value) {
+		this.downMin.set(value);
+	}
+
+	public void setLeftMax(Integer value) {
+		this.leftMax.set(value);
+	}
+
+	public void setLeftMin(Integer value) {
+		this.leftMin.set(value);
+	}
+
+	public void setRightMax(Integer value) {
+		this.rightMax.set(value);
+	}
+
+	public void setRightMin(Integer value) {
+		this.rightMin.set(value);
+	}
+
+	public void setUpMax(Integer value) {
+		this.upMax.set(value);
+	}
+
+	public void setUpMin(Integer value) {
+		this.upMin.set(value);
+	}
+	/////////////////////////////////////////////////////////////////////////////
+	/// JavaFX properties
+	/////////////////////////////////////////////////////////////////////////////
+
+	public ObjectProperty<Integer> downMaxProperty() {
+		return this.downMax;
+	}
+
+	public ObjectProperty<Integer> downMinProperty() {
+		return this.downMin;
+	}
+
+	public ObjectProperty<Integer> leftMaxProperty() {
+		return this.leftMax;
+	}
+
+	public ObjectProperty<Integer> leftMinProperty() {
+		return this.leftMin;
+	}
+
+	public ObjectProperty<Integer> rightMaxProperty() {
+		return this.rightMax;
+	}
+
+	public ObjectProperty<Integer> rightMinProperty() {
+		return this.rightMin;
+	}
+
+	public ObjectProperty<Integer> upMaxProperty() {
+		return this.upMax;
+	}
+
+	public ObjectProperty<Integer> upMinProperty() {
+		return this.upMin;
 	}
 }
