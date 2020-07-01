@@ -3,6 +3,7 @@ package com.b3tuning.b3console.view.root;
 import com.b3tuning.b3console.App;
 import com.b3tuning.b3console.service.filemanager.FileManager;
 import com.b3tuning.b3console.service.module.ConfigBase;
+import com.b3tuning.b3console.service.module.door.config.DoorConfig;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.config.door.DoorConfigView;
 import com.b3tuning.b3console.view.config.door.DoorConfigViewModel;
@@ -130,6 +131,9 @@ public class RootViewModel extends BaseViewModel {
 			if (null == configBaseChange.getNewValue()) {
 				viewManager.destroyAll(childViewPane.get());
 			} else {
+				log.error("CONFIG CHANGE");
+				log.error(configBaseChange.getNewValue().getClass().descriptorString());
+				log.error(configBaseChange.getNewValue().getClass().toString());
 				switch (configBaseChange.getNewValue().getType()) {
 					case DOOR -> showDoorView();
 					case SHIFTER -> showShifterView();
@@ -147,6 +151,9 @@ public class RootViewModel extends BaseViewModel {
 			ViewTuple<DoorConfigView, DoorConfigViewModel> tuple = FluentViewLoader
 					.fxmlView(DoorConfigView.class).load();
 			viewManager.push(DoorConfigView.class.getName(), tuple, childViewPane.get());
+			tuple.getViewModel().doorConfigProperty().set((DoorConfig) config.get());
+			tuple.getViewModel().configProperty().bindBidirectional(config);
+			tuple.getViewModel().bindConfigs();
 		}
 	}
 

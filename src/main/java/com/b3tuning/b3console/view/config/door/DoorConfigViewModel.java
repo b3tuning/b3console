@@ -15,6 +15,7 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -36,6 +37,7 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 	private final DoorModuleService  service;
 
 	private final ObjectProperty<ConfigBase> config = new SimpleObjectProperty<>();
+	private final ObjectProperty<DoorConfig> doorConfig = new SimpleObjectProperty<>();
 
 	private final BooleanProperty dirty  = new SimpleBooleanProperty(false);
 	private final BooleanProperty saving = new SimpleBooleanProperty(false);
@@ -158,9 +160,9 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 //				               passengerWindowMaxCurrentValidator);
 	}
 
-//	public ObjectProperty<DoorConfig> doorConfigProperty() {
-//		return (ObjectProperty<DoorConfig>) config;
-//	}
+	public ObjectProperty<DoorConfig> doorConfigProperty() {
+		return doorConfig;
+	}
 //	public MirrorActionConfig getMirrorAction() {
 //		return config.get().getMirrorAction();
 //	}
@@ -173,6 +175,9 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 //		return config.get().getWindowAction();
 //	}
 
+	public void bindConfigs() {
+		config.bind(doorConfig);
+	}
 	public ObjectProperty<ConfigBase> configProperty() {
 		return config;
 	}
