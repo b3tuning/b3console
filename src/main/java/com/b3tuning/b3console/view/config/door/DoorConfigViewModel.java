@@ -1,6 +1,7 @@
 package com.b3tuning.b3console.view.config.door;
 
 import com.b3tuning.b3console.prefs.UserPreferences;
+import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.door.DoorModuleService;
 import com.b3tuning.b3console.service.module.door.config.DoorConfig;
 import com.b3tuning.b3console.service.module.door.config.MirrorActionConfig;
@@ -11,7 +12,9 @@ import com.b3tuning.b3console.view.config.SpecializedConfigViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import de.saxsys.mvvmfx.utils.validation.ObservableRuleBasedValidator;
 import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -31,6 +34,8 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 	private final UserPreferences    preferences;
 	private final NotificationCenter globalNotifications;
 	private final DoorModuleService  service;
+
+	private final ObjectProperty<ConfigBase> config = new SimpleObjectProperty<>();
 
 	private final BooleanProperty dirty  = new SimpleBooleanProperty(false);
 	private final BooleanProperty saving = new SimpleBooleanProperty(false);
@@ -92,76 +97,83 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 	protected void initializeValidation() {
 		log.entry();
 
-		ValidationUtil.isNotNull(mirrorActionDownMaxValidator, getMirrorAction().downMaxProperty(), "MirDownMax");
-		ValidationUtil.isNotNull(mirrorActionDownMinValidator, getMirrorAction().downMinProperty(), "MirDownMin");
-		ValidationUtil.isNotNull(mirrorActionLeftMaxValidator, getMirrorAction().leftMaxProperty(), "MirLeftMax");
-		ValidationUtil.isNotNull(mirrorActionLeftMinValidator, getMirrorAction().leftMinProperty(), "MirLeftMin");
-		ValidationUtil
-				.isNotNull(mirrorActionRightMaxValidator, getMirrorAction().rightMaxProperty(), "MirRightMax");
-		ValidationUtil
-				.isNotNull(mirrorActionRightMinValidator, getMirrorAction().rightMinProperty(), "MirRightMin");
-		ValidationUtil.isNotNull(mirrorActionUpMaxValidator, getMirrorAction().upMaxProperty(), "MirUpMax");
-		ValidationUtil.isNotNull(mirrorActionUpMinValidator, getMirrorAction().upMinProperty(), "MirUpMin");
-
-		ValidationUtil
-				.isNotNull(mirrorSelectDriverMaxValidator, getMirrorSelect().driverMaxProperty(), "DriverMax");
-		ValidationUtil
-				.isNotNull(mirrorSelectDriverMinValidator, getMirrorSelect().driverMinProperty(), "DriverMin");
-		ValidationUtil.isNotNull(mirrorSelectFoldMaxValidator, getMirrorSelect().foldMaxProperty(), "FoldMax");
-		ValidationUtil.isNotNull(mirrorSelectFoldMinValidator, getMirrorSelect().foldMinProperty(), "FoldMin");
-		ValidationUtil
-				.isNotNull(mirrorSelectPassengerMaxValidator, getMirrorSelect().passengerMaxProperty(),
-				           "PassMax");
-		ValidationUtil
-				.isNotNull(mirrorSelectPassengerMinValidator, getMirrorSelect().passengerMinProperty(),
-				           "PassMin");
-
-		ValidationUtil
-				.isNotNull(windowActionAutoDownMaxValidator, getWindowAction().autoDownMaxProperty(),
-				           "WinAutoDownMax");
-		ValidationUtil
-				.isNotNull(windowActionAutoDownMinValidator, getWindowAction().autoDownMinProperty(),
-				           "WinAutoDownMin");
-		ValidationUtil
-				.isNotNull(windowActionAutoUpMaxValidator, getWindowAction().autoUpMaxProperty(), "WinAutoUpMax");
-		ValidationUtil
-				.isNotNull(windowActionAutoUpMinValidator, getWindowAction().autoUpMinProperty(), "WinAutoUpMin");
-		ValidationUtil.isNotNull(windowActionDownMaxValidator, getWindowAction().downMaxProperty(), "WinDownMax");
-		ValidationUtil.isNotNull(windowActionDownMinValidator, getWindowAction().downMinProperty(), "WinDownMin");
-		ValidationUtil.isNotNull(windowActionUpMaxValidator, getWindowAction().upMaxProperty(), "WinUpMax");
-		ValidationUtil.isNotNull(windowActionUpMinValidator, getWindowAction().upMinProperty(), "WinUpMin");
-
-		ValidationUtil.isNotNull(driverWindowMaxCurrentValidator,
-		                         getDoorConfigFromBase().driverWindowMaxCurrentProperty(),
-		                         "DriverCurrentMax");
-		ValidationUtil
-				.isNotNull(passengerWindowMaxCurrentValidator,
-				           getDoorConfigFromBase().passengerWindowMaxCurrentProperty(),
-				           "PassCurrentMax");
-
-		getFormValidator()
-				.addValidators(mirrorActionDownMaxValidator, mirrorActionDownMinValidator, mirrorActionLeftMaxValidator,
-				               mirrorActionLeftMinValidator, mirrorActionRightMaxValidator,
-				               mirrorActionRightMinValidator, mirrorActionUpMaxValidator, mirrorActionUpMinValidator,
-				               mirrorSelectDriverMaxValidator, mirrorSelectDriverMinValidator,
-				               mirrorSelectFoldMaxValidator, mirrorSelectFoldMinValidator,
-				               mirrorSelectPassengerMaxValidator, mirrorSelectPassengerMinValidator,
-				               windowActionAutoDownMaxValidator, windowActionAutoDownMinValidator,
-				               windowActionAutoUpMaxValidator, windowActionAutoUpMinValidator,
-				               windowActionDownMaxValidator, windowActionDownMinValidator, windowActionUpMaxValidator,
-				               windowActionUpMinValidator, driverWindowMaxCurrentValidator,
-				               passengerWindowMaxCurrentValidator);
+//		ValidationUtil.isNotNull(mirrorActionDownMaxValidator, getMirrorAction().downMaxProperty(), "MirDownMax");
+//		ValidationUtil.isNotNull(mirrorActionDownMinValidator, getMirrorAction().downMinProperty(), "MirDownMin");
+//		ValidationUtil.isNotNull(mirrorActionLeftMaxValidator, getMirrorAction().leftMaxProperty(), "MirLeftMax");
+//		ValidationUtil.isNotNull(mirrorActionLeftMinValidator, getMirrorAction().leftMinProperty(), "MirLeftMin");
+//		ValidationUtil
+//				.isNotNull(mirrorActionRightMaxValidator, getMirrorAction().rightMaxProperty(), "MirRightMax");
+//		ValidationUtil
+//				.isNotNull(mirrorActionRightMinValidator, getMirrorAction().rightMinProperty(), "MirRightMin");
+//		ValidationUtil.isNotNull(mirrorActionUpMaxValidator, getMirrorAction().upMaxProperty(), "MirUpMax");
+//		ValidationUtil.isNotNull(mirrorActionUpMinValidator, getMirrorAction().upMinProperty(), "MirUpMin");
+//
+//		ValidationUtil
+//				.isNotNull(mirrorSelectDriverMaxValidator, getMirrorSelect().driverMaxProperty(), "DriverMax");
+//		ValidationUtil
+//				.isNotNull(mirrorSelectDriverMinValidator, getMirrorSelect().driverMinProperty(), "DriverMin");
+//		ValidationUtil.isNotNull(mirrorSelectFoldMaxValidator, getMirrorSelect().foldMaxProperty(), "FoldMax");
+//		ValidationUtil.isNotNull(mirrorSelectFoldMinValidator, getMirrorSelect().foldMinProperty(), "FoldMin");
+//		ValidationUtil
+//				.isNotNull(mirrorSelectPassengerMaxValidator, getMirrorSelect().passengerMaxProperty(),
+//				           "PassMax");
+//		ValidationUtil
+//				.isNotNull(mirrorSelectPassengerMinValidator, getMirrorSelect().passengerMinProperty(),
+//				           "PassMin");
+//
+//		ValidationUtil
+//				.isNotNull(windowActionAutoDownMaxValidator, getWindowAction().autoDownMaxProperty(),
+//				           "WinAutoDownMax");
+//		ValidationUtil
+//				.isNotNull(windowActionAutoDownMinValidator, getWindowAction().autoDownMinProperty(),
+//				           "WinAutoDownMin");
+//		ValidationUtil
+//				.isNotNull(windowActionAutoUpMaxValidator, getWindowAction().autoUpMaxProperty(), "WinAutoUpMax");
+//		ValidationUtil
+//				.isNotNull(windowActionAutoUpMinValidator, getWindowAction().autoUpMinProperty(), "WinAutoUpMin");
+//		ValidationUtil.isNotNull(windowActionDownMaxValidator, getWindowAction().downMaxProperty(), "WinDownMax");
+//		ValidationUtil.isNotNull(windowActionDownMinValidator, getWindowAction().downMinProperty(), "WinDownMin");
+//		ValidationUtil.isNotNull(windowActionUpMaxValidator, getWindowAction().upMaxProperty(), "WinUpMax");
+//		ValidationUtil.isNotNull(windowActionUpMinValidator, getWindowAction().upMinProperty(), "WinUpMin");
+//
+//		ValidationUtil.isNotNull(driverWindowMaxCurrentValidator,
+//		                         config.get().driverWindowMaxCurrentProperty(),
+//		                         "DriverCurrentMax");
+//		ValidationUtil
+//				.isNotNull(passengerWindowMaxCurrentValidator,
+//				           config.get().passengerWindowMaxCurrentProperty(),
+//				           "PassCurrentMax");
+//
+//		getFormValidator()
+//				.addValidators(mirrorActionDownMaxValidator, mirrorActionDownMinValidator, mirrorActionLeftMaxValidator,
+//				               mirrorActionLeftMinValidator, mirrorActionRightMaxValidator,
+//				               mirrorActionRightMinValidator, mirrorActionUpMaxValidator, mirrorActionUpMinValidator,
+//				               mirrorSelectDriverMaxValidator, mirrorSelectDriverMinValidator,
+//				               mirrorSelectFoldMaxValidator, mirrorSelectFoldMinValidator,
+//				               mirrorSelectPassengerMaxValidator, mirrorSelectPassengerMinValidator,
+//				               windowActionAutoDownMaxValidator, windowActionAutoDownMinValidator,
+//				               windowActionAutoUpMaxValidator, windowActionAutoUpMinValidator,
+//				               windowActionDownMaxValidator, windowActionDownMinValidator, windowActionUpMaxValidator,
+//				               windowActionUpMinValidator, driverWindowMaxCurrentValidator,
+//				               passengerWindowMaxCurrentValidator);
 	}
 
-	public MirrorActionConfig getMirrorAction() {
-		return getDoorConfigFromBase().getMirrorAction();
-	}
+//	public ObjectProperty<DoorConfig> doorConfigProperty() {
+//		return (ObjectProperty<DoorConfig>) config;
+//	}
+//	public MirrorActionConfig getMirrorAction() {
+//		return config.get().getMirrorAction();
+//	}
+//
+//	public MirrorSelectConfig getMirrorSelect() {
+//		return config.get().getMirrorSelect();
+//	}
+//
+//	public WindowActionConfig getWindowAction() {
+//		return config.get().getWindowAction();
+//	}
 
-	public MirrorSelectConfig getMirrorSelect() {
-		return getDoorConfigFromBase().getMirrorSelect();
-	}
-
-	public WindowActionConfig getWindowAction() {
-		return getDoorConfigFromBase().getWindowAction();
+	public ObjectProperty<ConfigBase> configProperty() {
+		return config;
 	}
 }

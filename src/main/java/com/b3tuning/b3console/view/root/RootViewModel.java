@@ -1,8 +1,15 @@
 package com.b3tuning.b3console.view.root;
 
 import com.b3tuning.b3console.App;
+import com.b3tuning.b3console.service.filemanager.FileManager;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.view.BaseViewModel;
+import com.b3tuning.b3console.view.config.door.DoorConfigView;
+import com.b3tuning.b3console.view.config.door.DoorConfigViewModel;
+import com.b3tuning.b3console.view.config.shifter.ShifterConfigView;
+import com.b3tuning.b3console.view.config.shifter.ShifterConfigViewModel;
+import com.b3tuning.b3console.view.config.trans.TransConfigView;
+import com.b3tuning.b3console.view.config.trans.TransConfigViewModel;
 import com.b3tuning.b3console.view.help.HelpView;
 import com.b3tuning.b3console.view.help.HelpViewModel;
 import com.b3tuning.b3console.view.loader.ViewManager;
@@ -36,6 +43,7 @@ import org.reactfx.EventSource;
 import javax.inject.Inject;
 
 import static com.b3tuning.b3console.App.DEFAULT_CSS;
+import static org.reactfx.EventStreams.changesOf;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 
 /*
@@ -62,6 +70,7 @@ public class RootViewModel extends BaseViewModel {
 	@SuppressWarnings("unused")
 	private final NotificationCenter globalNotifications;
 	private final ViewManager        viewManager;
+	private final FileManager        fileManager;
 
 	// exposed properties
 	private final ObjectProperty<StackPane> childViewPane = new SimpleObjectProperty<>();
@@ -76,14 +85,15 @@ public class RootViewModel extends BaseViewModel {
 	private final ViewTuple<MenuView, MenuViewModel> menuViewTuple;
 
 	@Inject
-	public RootViewModel(NotificationCenter globalNotifications, ViewManager viewManager) {
+	public RootViewModel(NotificationCenter globalNotifications, ViewManager viewManager, FileManager manager) {
 		log.entry();
 
 		this.globalNotifications = globalNotifications;
 		this.viewManager         = viewManager;
+		this.fileManager         = manager;
 
 		menuViewTuple = FluentViewLoader.fxmlView(MenuView.class).load();
-		configLoadedProperty().bind(menuViewTuple.getViewModel().configLoadedProperty());
+		config.bindBidirectional(fileManager.configProperty());
 
 		initNotifications();
 	}
@@ -114,6 +124,52 @@ public class RootViewModel extends BaseViewModel {
 
 		// detach the help from the sidebar if requested
 		globalNotifications.subscribe(HELP_DETACHED_EVENT, (key, payload) -> detachHelp());
+
+		manage(changesOf(config).subscribe(configBaseChange -> {
+			log.entry(configBaseChange);
+			if (null == configBaseChange.getNewValue()) {
+				viewManager.destroyAll(childViewPane.get());
+			} else {
+				switch (configBaseChange.getNewValue().getType()) {
+					case DOOR -> showDoorView();
+					case SHIFTER -> showShifterView();
+					case TRANS -> showTransView();
+				}
+			}
+		}));
+	}
+
+	private void showDoorView() {
+		log.entry();
+		if (viewManager.contains(DoorConfigView.class.getName())) {
+			viewManager.toFront(DoorConfigView.class.getName());
+		} else {
+			ViewTuple<DoorConfigView, DoorConfigViewModel> tuple = FluentViewLoader
+					.fxmlView(DoorConfigView.class).load();
+			viewManager.push(DoorConfigView.class.getName(), tuple, childViewPane.get());
+		}
+	}
+
+	private void showShifterView() {
+		log.entry();
+		if (viewManager.contains(ShifterConfigView.class.getName())) {
+			viewManager.toFront(ShifterConfigView.class.getName());
+		} else {
+			ViewTuple<ShifterConfigView, ShifterConfigViewModel> tuple = FluentViewLoader
+					.fxmlView(ShifterConfigView.class).load();
+			viewManager.push(ShifterConfigView.class.getName(), tuple, childViewPane.get());
+		}
+	}
+
+	private void showTransView() {
+		log.entry();
+		if (viewManager.contains(TransConfigView.class.getName())) {
+			viewManager.toFront(TransConfigView.class.getName());
+		} else {
+			ViewTuple<TransConfigView, TransConfigViewModel> tuple = FluentViewLoader
+					.fxmlView(TransConfigView.class).load();
+			viewManager.push(TransConfigView.class.getName(), tuple, childViewPane.get());
+		}
 	}
 
 	public Node helpView() {

@@ -29,6 +29,7 @@ import java.util.List;
 
 import static com.b3tuning.b3console.prefs.UserPreferences.MAX_RECENT;
 import static com.b3tuning.b3console.prefs.UserPreferences.RECENT_FILE_DEFAULT;
+import static org.reactfx.EventStreams.nonNullValuesOf;
 
 @XSlf4j
 public class FileMenuViewModel extends BaseViewModel {
@@ -52,8 +53,19 @@ public class FileMenuViewModel extends BaseViewModel {
 		this.fileManager         = manager;
 		this.CURRENT_MAX_RECENT  = preferences.getMaxRecentFiles();
 
-		globalNotifications.subscribe(MAX_RECENT, (key, payload) -> CURRENT_MAX_RECENT = (int) payload[0]);
 		loadRecentFiles();
+		limitRecentFiles();
+
+		globalNotifications.subscribe(MAX_RECENT, (key, payload) -> {
+			log.entry(key, payload);
+			CURRENT_MAX_RECENT = (int) payload[0];
+			limitRecentFiles();
+		});
+
+		manage(nonNullValuesOf(fileManager.configPathProperty()).subscribe(path -> {
+			log.entry(path);
+			updateRecentFiles(path);
+		}));
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -74,16 +86,18 @@ public class FileMenuViewModel extends BaseViewModel {
 	}
 
 	private void updateRecentFiles(String path) {
-		if (null == path || path.isEmpty()) {
-			return;
-		}
+		log.entry(path);
 		recentFiles.removeIf(item -> !(item instanceof SeparatorMenuItem) &&
 		                             (item.getText().equals(path) || item.getText().equals(RECENT_FILE_DEFAULT)));
 		recentFiles.add(0, assembleMenuItem(path));
+		limitRecentFiles();
+		saveRecentFiles();
+	}
+
+	private void limitRecentFiles() {
 		while (recentFiles.size() > (CURRENT_MAX_RECENT + 2)) {
 			recentFiles.remove(CURRENT_MAX_RECENT - 1);
 		}
-		saveRecentFiles();
 	}
 
 	private void saveRecentFiles() {
@@ -138,12 +152,12 @@ public class FileMenuViewModel extends BaseViewModel {
 
 	void openFileAction(Window window) {
 		log.entry();
-		updateRecentFiles(fileManager.openFileAction(window));
+		fileManager.openFileAction(window);
 	}
 
 	void openRecentFileAction(String path) {
 		log.entry(path);
-		updateRecentFiles(fileManager.openRecentFileAction(path));
+		fileManager.openRecentFileAction(path);
 	}
 
 	void closeFileAction() {
@@ -153,7 +167,7 @@ public class FileMenuViewModel extends BaseViewModel {
 
 	void saveFileAsAction(Window window, boolean saveAs) {
 		log.entry(saveAs);
-		updateRecentFiles(fileManager.saveFileAsAction(window, saveAs));
+		fileManager.saveFileAsAction(window, saveAs);
 	}
 
 	void sendFileAction() {

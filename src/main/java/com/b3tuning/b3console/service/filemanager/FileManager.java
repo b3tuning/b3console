@@ -75,6 +75,7 @@ public class FileManager {
 		     ObjectInputStream stream = new ObjectInputStream(in)) {
 			ConfigBaseResource resource = (ConfigBaseResource) stream.readObject();
 			setConfig(ConfigBaseAssembler.assemble(resource));
+			setConfigPath(path);
 		}
 		catch (Exception ex) {
 			log.error("Unable to openFile, path: {} , ex: {}", path, ex.getMessage(), ex);
@@ -96,11 +97,7 @@ public class FileManager {
 		}
 	}
 
-	private void handleOpenFile(String path) {
-		setConfig(openFile(path));
-	}
-
-	public void newFileAction() {
+	private void newConfig() {
 		log.entry();
 		newConfigDialog.createNewConfigDialog().ifPresent(configBase -> {
 			log.entry(configBase);
@@ -113,31 +110,15 @@ public class FileManager {
 		});
 	}
 
-	public String openFileAction(Window window) {
-		log.entry();
-		String path     = null;
-		File   selected = chooser.showOpenDialog(window);
-		if (null != selected) {
-			path = selected.getAbsolutePath();
-			handleOpenFile(path);
-		}
-		return path;
-	}
-
-	public ConfigBase openFile(@NonNull String path) {
+	private void openConfig(Window window, String path) {
 		log.entry(path);
-		ConfigBase config = null;
-		try (InputStream in = new FileInputStream(path); ObjectInputStream ois = new ObjectInputStream(in)) {
-			ConfigBaseResource resource = (ConfigBaseResource) ois.readObject();
-			log.error("OBJECT TYPE = {}", resource.getType());
-			config = ConfigBaseAssembler.assemble(resource);
+		if (null != window) {
+			File selected = chooser.showOpenDialog(window);
+			if (null != selected) {
+				path = selected.getAbsolutePath();
+			}
 		}
-		catch (Exception ex) {
-			log.error("Unable to openFile, path: {} , ex: {}", path, ex.getMessage(), ex);
-			ex.printStackTrace();
-		}
-		setConfigPath(path);
-		return config;
+		readFile(path);
 	}
 
 	private void saveConfig(Window window, boolean saveAs) {
@@ -152,8 +133,19 @@ public class FileManager {
 		writeFile(configLoadedPath.get(), config.get());
 	}
 
-	public String openRecentFileAction(String path) {
-		return null;
+	public void newFileAction() {
+		log.entry();
+		newConfig();
+	}
+
+	public void openFileAction(Window window) {
+		log.entry();
+		openConfig(window, null);
+	}
+
+	public void openRecentFileAction(String path) {
+		log.entry(path);
+		openConfig(null, path);
 	}
 
 	public void closeFileAction() {
@@ -162,10 +154,9 @@ public class FileManager {
 		setConfigPath(null);
 	}
 
-	public String saveFileAsAction(Window window, boolean saveAs) {
+	public void saveFileAsAction(Window window, boolean saveAs) {
 		log.entry(saveAs);
 		saveConfig(window, saveAs);
-		return configLoadedPath.get();
 	}
 
 	public void sendFileAction() {
@@ -173,7 +164,15 @@ public class FileManager {
 		// TODO: impl
 	}
 
+	public ObjectProperty<ConfigBase> configProperty() {
+		return config;
+	}
+
 	public BooleanProperty configLoadedProperty() {
 		return configLoaded;
+	}
+
+	public StringProperty configPathProperty() {
+		return configLoadedPath;
 	}
 }
