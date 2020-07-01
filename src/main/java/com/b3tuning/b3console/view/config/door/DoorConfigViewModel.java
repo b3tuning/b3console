@@ -7,7 +7,6 @@ import com.b3tuning.b3console.service.module.door.config.MirrorActionConfig;
 import com.b3tuning.b3console.service.module.door.config.MirrorSelectConfig;
 import com.b3tuning.b3console.service.module.door.config.WindowActionConfig;
 import com.b3tuning.b3console.validation.ValidationUtil;
-import com.b3tuning.b3console.view.DetailMode;
 import com.b3tuning.b3console.view.config.SpecializedConfigViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import de.saxsys.mvvmfx.utils.validation.ObservableRuleBasedValidator;
@@ -16,9 +15,6 @@ import javafx.beans.property.SimpleBooleanProperty;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
-
-import static org.reactfx.EventStreams.combine;
-import static org.reactfx.EventStreams.nonNullValuesOf;
 
 /*
  *  Created on:  May 04, 2020
@@ -36,10 +32,8 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 	private final NotificationCenter globalNotifications;
 	private final DoorModuleService  service;
 
-	private DoorConfig originalConfig;
-
-	private BooleanProperty dirty  = new SimpleBooleanProperty(false);
-	private BooleanProperty saving = new SimpleBooleanProperty(false);
+	private final BooleanProperty dirty  = new SimpleBooleanProperty(false);
+	private final BooleanProperty saving = new SimpleBooleanProperty(false);
 
 	// validation properties
 	private ObservableRuleBasedValidator mirrorActionDownMaxValidator  = new ObservableRuleBasedValidator();
@@ -80,18 +74,18 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 		this.globalNotifications = notificationCenter;
 		this.service             = service;
 
-		manage(combine(nonNullValuesOf(super.modeProperty()), nonNullValuesOf(configProperty()),
-		               nonNullValuesOf(super.formValidatorProperty())).subscribe((t) -> {
-			log.entry(t._1, t._2, t._3);
-			if (t._1 == null || t._2 == null || t._3 == null) {
-				return;
-			}
-			super.readOnlyProperty().set(DetailMode.VIEW.equals(t._1));
-
-			if (!DetailMode.VIEW.equals(t._1)) {
-				initializeValidation();
-			}
-		}));
+//		manage(combine(nonNullValuesOf(super.modeProperty()), nonNullValuesOf(configProperty()),
+//		               nonNullValuesOf(super.formValidatorProperty())).subscribe((t) -> {
+//			log.entry(t._1, t._2, t._3);
+//			if (t._1 == null || t._2 == null || t._3 == null) {
+//				return;
+//			}
+//			super.readOnlyProperty().set(DetailMode.VIEW.equals(t._1));
+//
+//			if (!DetailMode.VIEW.equals(t._1)) {
+//				initializeValidation();
+//			}
+//		}));
 	}
 
 	@Override
@@ -157,10 +151,6 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 				               windowActionDownMaxValidator, windowActionDownMinValidator, windowActionUpMaxValidator,
 				               windowActionUpMinValidator, driverWindowMaxCurrentValidator,
 				               passengerWindowMaxCurrentValidator);
-	}
-
-	private DoorConfig getDoorConfigFromBase() {
-		return (DoorConfig) configProperty().get();
 	}
 
 	public MirrorActionConfig getMirrorAction() {

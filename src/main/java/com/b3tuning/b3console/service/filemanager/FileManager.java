@@ -13,14 +13,14 @@ import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.ConfigBaseAssembler;
 import com.b3tuning.b3console.service.module.ConfigBaseResource;
-import com.google.common.collect.Lists;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import javafx.stage.Window;
 import lombok.NonNull;
 import lombok.extern.slf4j.XSlf4j;
@@ -32,28 +32,20 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.List;
-import java.util.Optional;
 
 import static com.b3tuning.b3console.App.APP_NAME;
-import static com.b3tuning.b3console.prefs.UserPreferences.MAX_RECENT;
-import static com.b3tuning.b3console.prefs.UserPreferences.RECENT_FILE_DEFAULT;
 
 @XSlf4j
 public class FileManager {
-
-	public static final String LOAD_CONFIG    = "LOAD_CONFIG";
-	public static final String MANAGE_RECENTS = "Manage Recents...";
-
-	private int CURRENT_MAX_RECENT;
 
 	private final UserPreferences    preferences;
 	private final NotificationCenter globalNotifications;
 	private final FileChooser        chooser;
 	private final NewConfigDialog    newConfigDialog;
 
-	private final ObservableList<MenuItem> recentFiles  = FXCollections.observableArrayList();
-	private       String                   loadedConfig = "";
+	private final ObjectProperty<ConfigBase> config           = new SimpleObjectProperty<>(null);
+	private final BooleanProperty            configLoaded     = new SimpleBooleanProperty(false);
+	private final StringProperty             configLoadedPath = new SimpleStringProperty(null);
 
 	@Inject
 	public FileManager(UserPreferences preferences, NotificationCenter notifications, FileChooser chooser,
@@ -64,105 +56,72 @@ public class FileManager {
 		this.chooser             = chooser;
 		this.chooser.setInitialDirectory(new File(preferences.getBrowseLocalPath()));
 		this.chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(APP_NAME, "*.b3t"));
-		this.newConfigDialog    = newConfigDialog;
-		this.CURRENT_MAX_RECENT = preferences.getMaxRecentFiles();
+		this.newConfigDialog = newConfigDialog;
 
-		loadRecentFiles();
-
-		globalNotifications.subscribe(MAX_RECENT, (key, payload) -> CURRENT_MAX_RECENT = (int) payload[0]);
+		configLoaded.bind(config.isNotNull());
 	}
 
-	private void loadRecentFiles() {
-		log.entry();
-		for (String path : preferences.getRecentFiles()) {
-			MenuItem item = assembleMenuItem(path);
-			if (RECENT_FILE_DEFAULT.equals(path)) {
-				item.setDisable(true);
-			}
-			recentFiles.add(item);
-		}
-		recentFiles.add(new SeparatorMenuItem());
-		recentFiles.add(manageRecentsMenuItem());
-		log.info("RecentFiles loaded = {}", recentFiles);
+	private void setConfig(ConfigBase openFile) {
+		config.set(openFile);
 	}
 
-	private MenuItem setAction(MenuItem item) {
-		item.setOnAction(event -> {
-			log.entry();
-			openRecentFileAction(item.getText());
-		});
-		return item;
+	private void setConfigPath(String path) {
+		configLoadedPath.set(path);
 	}
 
-	private MenuItem assembleMenuItem(String path) {
-		return setAction(new MenuItem(path));
-	}
-
-	private void openRecentFileAction(String path) {
+	private void readFile(@NonNull String path) {
 		log.entry(path);
-		handleOpenFile(path);
+		try (InputStream in = new FileInputStream(path);
+		     ObjectInputStream stream = new ObjectInputStream(in)) {
+			ConfigBaseResource resource = (ConfigBaseResource) stream.readObject();
+			setConfig(ConfigBaseAssembler.assemble(resource));
+		}
+		catch (Exception ex) {
+			log.error("Unable to openFile, path: {} , ex: {}", path, ex.getMessage(), ex);
+			ex.printStackTrace();
+		}
+	}
+
+	private void writeFile(@NonNull String path, @NonNull ConfigBase base) {
+		log.entry(path);
+		ConfigBaseResource resource = ConfigBaseAssembler.assemble(base);
+		try (FileOutputStream out = new FileOutputStream(path, false);
+		     ObjectOutputStream stream = new ObjectOutputStream(out)) {
+			stream.writeObject(resource);
+			setConfigPath(path);
+		}
+		catch (Exception ex) {
+			log.error("Unable to saveFile, file: {} , ex: {}", path, ex.getMessage(), ex);
+			ex.printStackTrace();
+		}
 	}
 
 	private void handleOpenFile(String path) {
 		setConfig(openFile(path));
 	}
 
-	private void updateRecentFiles(String path) {
-		recentFiles.removeIf(item -> !(item instanceof SeparatorMenuItem) &&
-		                             (item.getText().equals(path) || item.getText().equals(RECENT_FILE_DEFAULT)));
-		recentFiles.add(0, assembleMenuItem(path));
-		while (recentFiles.size() > (CURRENT_MAX_RECENT + 2)) {
-			recentFiles.remove(CURRENT_MAX_RECENT - 1);
-		}
-		saveRecentFiles();
-	}
-
-	private void setConfig(ConfigBase openFile) {
-		globalNotifications.publish(LOAD_CONFIG, openFile);
-	}
-
-	private MenuItem manageRecentsMenuItem() {
-		MenuItem item = new MenuItem(MANAGE_RECENTS);
-		item.setOnAction(event -> {
-			log.entry();
-			openManageRecentsAction();
+	public void newFileAction() {
+		log.entry();
+		newConfigDialog.createNewConfigDialog().ifPresent(configBase -> {
+			log.entry(configBase);
+			// TODO::::::::
+			if (configLoadedPath.isNotNull().get()) {
+				log.error("configLoadedPath is NOT NULL");
+				setConfigPath(null);
+			}
+			setConfig(configBase);
 		});
-		return item;
 	}
 
-	private void openManageRecentsAction() {
+	public String openFileAction(Window window) {
 		log.entry();
-		// TODO: open ContextMenu to remove recentFiles
-	}
-
-	private void saveRecentFiles() {
-		log.entry();
-		List<String> r = Lists.newArrayList();
-		for (MenuItem item : recentFiles) {
-			if (item instanceof SeparatorMenuItem) {
-				continue;
-			}
-			String path = item.getText();
-			if (path.equals(MANAGE_RECENTS) || path.equals(RECENT_FILE_DEFAULT)) {
-				continue;
-			}
-			r.add(path);
-		}
-		preferences.setRecentFiles(r);
-	}
-
-	public Optional<ConfigBase> newFileAction() {
-		log.entry();
-		return newConfigDialog.createNewConfigDialog();
-	}
-
-	public void openFileAction(Window window) {
-		log.entry();
-		File selected = chooser.showOpenDialog(window);
+		String path     = null;
+		File   selected = chooser.showOpenDialog(window);
 		if (null != selected) {
-			String path = selected.getAbsolutePath();
+			path = selected.getAbsolutePath();
 			handleOpenFile(path);
 		}
+		return path;
 	}
 
 	public ConfigBase openFile(@NonNull String path) {
@@ -172,71 +131,49 @@ public class FileManager {
 			ConfigBaseResource resource = (ConfigBaseResource) ois.readObject();
 			log.error("OBJECT TYPE = {}", resource.getType());
 			config = ConfigBaseAssembler.assemble(resource);
-			updateRecentFiles(path);
 		}
 		catch (Exception ex) {
 			log.error("Unable to openFile, path: {} , ex: {}", path, ex.getMessage(), ex);
 			ex.printStackTrace();
 		}
-		loadedConfig = path;
+		setConfigPath(path);
 		return config;
 	}
 
-	public void saveConfig(ConfigBase base) {
-		log.entry();
-		if (loadedConfig.isEmpty()) {
-			log.error("LOADED CONFIG = {}", loadedConfig);
-			saveAsConfig(base);
-		} else {
-			saveConfig(base, loadedConfig);
+	private void saveConfig(Window window, boolean saveAs) {
+		log.entry(saveAs);
+		if (saveAs || configLoadedPath.isNull().get()) {
+			File file = chooser.showSaveDialog(window);
+			if (null == file) {
+				return;
+			}
+			setConfigPath(file.getAbsolutePath());
 		}
+		writeFile(configLoadedPath.get(), config.get());
 	}
 
-	public void saveAsConfig(ConfigBase base) {
-		log.entry();
-		File file = chooser.showSaveDialog(new Stage());
-		if (file != null) {
-			saveConfig(base, file.getAbsolutePath());
-		}
-	}
-
-	private void saveConfig(ConfigBase base, String path) {
-		log.entry();
-		ConfigBaseResource resource = ConfigBaseAssembler.assemble(base);
-		try (FileOutputStream out = new FileOutputStream(path, false);
-		     ObjectOutputStream oos = new ObjectOutputStream(out)) {
-			oos.writeObject(resource);
-			updateRecentFiles(path);
-		}
-		catch (Exception ex) {
-			log.error("Unable to saveFile, file: {} , ex: {}", path, ex.getMessage(), ex);
-			ex.printStackTrace();
-		}
-		loadedConfig = path;
-	}
-
-	public ObservableList<MenuItem> recentFilesProperty() {
-		return recentFiles;
+	public String openRecentFileAction(String path) {
+		return null;
 	}
 
 	public void closeFileAction() {
 		log.entry();
-		loadedConfig = "";
-		// TODO: impl
+		setConfig(null);
+		setConfigPath(null);
 	}
 
-	public void saveFileAction(ConfigBase configBase) {
-		log.entry();
-		saveConfig(configBase);
-	}
-
-	public void saveFileAsAction(ConfigBase configBase) {
-		log.entry();
-		saveAsConfig(configBase);
+	public String saveFileAsAction(Window window, boolean saveAs) {
+		log.entry(saveAs);
+		saveConfig(window, saveAs);
+		return configLoadedPath.get();
 	}
 
 	public void sendFileAction() {
 		log.entry();
 		// TODO: impl
+	}
+
+	public BooleanProperty configLoadedProperty() {
+		return configLoaded;
 	}
 }

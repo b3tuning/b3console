@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.view.config.shifter;
 
-import com.b3tuning.b3console.service.module.shifter.config.ShifterConfig;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.EditableViewModel;
 import com.b3tuning.b3console.view.Refreshable;
@@ -22,9 +21,7 @@ import javax.inject.Inject;
 @XSlf4j
 public class ShifterConfigViewModel extends BaseViewModel implements EditableViewModel, Refreshable {
 
-	private ShifterConfig originalConfig;
-
-	private BooleanProperty dirty = new SimpleBooleanProperty(false);
+	private final BooleanProperty dirty = new SimpleBooleanProperty(false);
 
 	@Inject
 	public ShifterConfigViewModel() {
@@ -36,16 +33,12 @@ public class ShifterConfigViewModel extends BaseViewModel implements EditableVie
 		log.entry();
 		if (dirty.get()) {
 			AlertUtils.warn(saveChangesMessage());
-		} else {
-//			config.set(moduleService.getShifterConfig());
-			originalConfig = getShifterConfigFromBase().clone();
-			getShifterConfigFromBase().resetTrackingChanges();
-			dirty.set(false);
+//		} else {
+////			config.set(moduleService.getShifterConfig());
+//			originalConfig = getShifterConfigFromBase().clone();
+//			getShifterConfigFromBase().resetTrackingChanges();
+//			dirty.set(false);
 		}
-	}
-
-	private ShifterConfig getShifterConfigFromBase() {
-		return (ShifterConfig) configProperty().get();
 	}
 
 	@Override public BooleanProperty dirtyProperty() {

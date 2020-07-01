@@ -9,7 +9,7 @@
             prefHeight="30.0" prefWidth="600.0">
     <HBox>
         <MenuBar>
-            <fx:include fx:id="fileMenu" source="file/FileMenuView.fxml"/>
+            <fx:include source="file/FileMenuView.fxml"/>
             <fx:include source="edit/EditMenuView.fxml"/>
             <fx:include source="view/ViewMenuView.fxml"/>
             <fx:include source="online/OnlineMenuView.fxml"/>
