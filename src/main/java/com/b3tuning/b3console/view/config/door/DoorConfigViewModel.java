@@ -4,10 +4,6 @@ import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.door.DoorModuleService;
 import com.b3tuning.b3console.service.module.door.config.DoorConfig;
-import com.b3tuning.b3console.service.module.door.config.MirrorActionConfig;
-import com.b3tuning.b3console.service.module.door.config.MirrorSelectConfig;
-import com.b3tuning.b3console.service.module.door.config.WindowActionConfig;
-import com.b3tuning.b3console.validation.ValidationUtil;
 import com.b3tuning.b3console.view.config.SpecializedConfigViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import de.saxsys.mvvmfx.utils.validation.ObservableRuleBasedValidator;
@@ -15,7 +11,6 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ObservableValue;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -36,7 +31,7 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 	private final NotificationCenter globalNotifications;
 	private final DoorModuleService  service;
 
-	private final ObjectProperty<ConfigBase> config = new SimpleObjectProperty<>();
+	private final ObjectProperty<ConfigBase> config     = new SimpleObjectProperty<>();
 	private final ObjectProperty<DoorConfig> doorConfig = new SimpleObjectProperty<>();
 
 	private final BooleanProperty dirty  = new SimpleBooleanProperty(false);
@@ -175,10 +170,11 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 //		return config.get().getWindowAction();
 //	}
 
-	public void bindConfigs() {
-		config.bind(doorConfig);
-	}
-	public ObjectProperty<ConfigBase> configProperty() {
-		return config;
+	@Override
+	public void dispose() {
+		log.entry();
+		super.dispose();
+		config.unbind();
+		doorConfig.unbind();
 	}
 }

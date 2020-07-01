@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.view.config.door;
 
-import com.b3tuning.b3console.service.module.door.config.DoorConfig;
 import com.b3tuning.b3console.view.BaseView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
@@ -108,5 +107,11 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 		log.entry();
 		validationVisualizer.setDecoration(new StyleClassValidationDecoration());
 
+	}
+
+	@Override
+	public void dispose() {
+		log.entry();
+		super.dispose();
 	}
 }
