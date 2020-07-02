@@ -28,19 +28,27 @@ public class MirrorActionConfig extends EditableEntity {
 	private final ObjectProperty<Integer> upMin;
 
 	public MirrorActionConfig() {
-		this(null, null, null, null, null, null, null, null);
+		this.downMax  = new SimpleObjectProperty<>();
+		this.downMin  = new SimpleObjectProperty<>();
+		this.leftMax  = new SimpleObjectProperty<>();
+		this.leftMin  = new SimpleObjectProperty<>();
+		this.rightMax = new SimpleObjectProperty<>();
+		this.rightMin = new SimpleObjectProperty<>();
+		this.upMax    = new SimpleObjectProperty<>();
+		this.upMin    = new SimpleObjectProperty<>();
 	}
 
 	public MirrorActionConfig(Integer downMax, Integer downMin, Integer leftMax, Integer leftMin,
 	                          Integer rightMax, Integer rightMin, Integer upMax, Integer upMin) {
-		this.downMax  = new SimpleObjectProperty<>(downMax);
-		this.downMin  = new SimpleObjectProperty<>(downMin);
-		this.leftMax  = new SimpleObjectProperty<>(leftMax);
-		this.leftMin  = new SimpleObjectProperty<>(leftMin);
-		this.rightMax = new SimpleObjectProperty<>(rightMax);
-		this.rightMin = new SimpleObjectProperty<>(rightMin);
-		this.upMax    = new SimpleObjectProperty<>(upMax);
-		this.upMin    = new SimpleObjectProperty<>(upMin);
+		this();
+		setDownMax(downMax);
+		setDownMin(downMin);
+		setLeftMax(leftMax);
+		setLeftMin(leftMin);
+		setRightMax(rightMax);
+		setRightMin(rightMin);
+		setUpMax(upMax);
+		setUpMin(upMin);
 		super.trackProperties(this.downMax,
 		                      this.downMin,
 		                      this.leftMax,
@@ -133,6 +141,7 @@ public class MirrorActionConfig extends EditableEntity {
 	public void setUpMin(Integer value) {
 		this.upMin.set(value);
 	}
+
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX properties
 	/////////////////////////////////////////////////////////////////////////////
