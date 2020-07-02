@@ -1,14 +1,8 @@
 package com.b3tuning.b3console.view.config.door;
 
-import com.b3tuning.b3console.prefs.UserPreferences;
-import com.b3tuning.b3console.service.module.door.DoorModuleService;
 import com.b3tuning.b3console.service.module.door.config.DoorConfig;
 import com.b3tuning.b3console.view.config.SpecializedConfigViewModel;
-import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
-import de.saxsys.mvvmfx.utils.validation.ObservableRuleBasedValidator;
-import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import lombok.extern.slf4j.XSlf4j;
 
@@ -25,54 +19,46 @@ import javax.inject.Inject;
 @XSlf4j
 public class DoorConfigViewModel extends SpecializedConfigViewModel {
 
-	// injected dependencies
-	private final UserPreferences    preferences;
-	private final NotificationCenter globalNotifications;
-	private final DoorModuleService  service;
-
 	private final ObjectProperty<DoorConfig> doorConfig = new SimpleObjectProperty<>();
 
-	private final BooleanProperty dirty  = new SimpleBooleanProperty(false);
-	private final BooleanProperty saving = new SimpleBooleanProperty(false);
+//	private final BooleanProperty dirty  = new SimpleBooleanProperty(false);
+//	private final BooleanProperty saving = new SimpleBooleanProperty(false);
 
 	// validation properties
-	private ObservableRuleBasedValidator mirrorActionDownMaxValidator  = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator mirrorActionDownMinValidator  = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator mirrorActionLeftMaxValidator  = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator mirrorActionLeftMinValidator  = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator mirrorActionRightMaxValidator = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator mirrorActionRightMinValidator = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator mirrorActionUpMaxValidator    = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator mirrorActionUpMinValidator    = new ObservableRuleBasedValidator();
-
-	private ObservableRuleBasedValidator mirrorSelectDriverMaxValidator    = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator mirrorSelectDriverMinValidator    = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator mirrorSelectFoldMaxValidator      = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator mirrorSelectFoldMinValidator      = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator mirrorSelectPassengerMaxValidator = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator mirrorSelectPassengerMinValidator = new ObservableRuleBasedValidator();
-
-	private ObservableRuleBasedValidator windowActionAutoDownMaxValidator = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator windowActionAutoDownMinValidator = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator windowActionAutoUpMaxValidator   = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator windowActionAutoUpMinValidator   = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator windowActionDownMaxValidator     = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator windowActionDownMinValidator     = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator windowActionUpMaxValidator       = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator windowActionUpMinValidator       = new ObservableRuleBasedValidator();
-
-	private ObservableRuleBasedValidator driverWindowMaxCurrentValidator    = new ObservableRuleBasedValidator();
-	private ObservableRuleBasedValidator passengerWindowMaxCurrentValidator = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator mirrorActionDownMaxValidator  = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator mirrorActionDownMinValidator  = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator mirrorActionLeftMaxValidator  = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator mirrorActionLeftMinValidator  = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator mirrorActionRightMaxValidator = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator mirrorActionRightMinValidator = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator mirrorActionUpMaxValidator    = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator mirrorActionUpMinValidator    = new ObservableRuleBasedValidator();
+//
+//	private ObservableRuleBasedValidator mirrorSelectDriverMaxValidator    = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator mirrorSelectDriverMinValidator    = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator mirrorSelectFoldMaxValidator      = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator mirrorSelectFoldMinValidator      = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator mirrorSelectPassengerMaxValidator = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator mirrorSelectPassengerMinValidator = new ObservableRuleBasedValidator();
+//
+//	private ObservableRuleBasedValidator windowActionAutoDownMaxValidator = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator windowActionAutoDownMinValidator = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator windowActionAutoUpMaxValidator   = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator windowActionAutoUpMinValidator   = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator windowActionDownMaxValidator     = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator windowActionDownMinValidator     = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator windowActionUpMaxValidator       = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator windowActionUpMinValidator       = new ObservableRuleBasedValidator();
+//
+//	private ObservableRuleBasedValidator driverWindowMaxCurrentValidator    = new ObservableRuleBasedValidator();
+//	private ObservableRuleBasedValidator passengerWindowMaxCurrentValidator = new ObservableRuleBasedValidator();
 
 //	private ObjectProperty<CompositeValidator> formValidator = new SimpleObjectProperty<>();
 
 	@Inject
-	public DoorConfigViewModel(UserPreferences preferences, NotificationCenter notificationCenter,
-	                           DoorModuleService service) {
+	public DoorConfigViewModel() {
 		log.entry();
-		this.preferences         = preferences;
-		this.globalNotifications = notificationCenter;
-		this.service             = service;
+		// injected dependencies
 
 //		manage(combine(nonNullValuesOf(super.modeProperty()), nonNullValuesOf(configProperty()),
 //		               nonNullValuesOf(super.formValidatorProperty())).subscribe((t) -> {

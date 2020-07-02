@@ -3,12 +3,10 @@ package com.b3tuning.b3console.view.config.door;
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.utils.IntegerTextFormatter;
 import de.saxsys.mvvmfx.InjectViewModel;
-import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.util.converter.IntegerStringConverter;
 import lombok.extern.slf4j.XSlf4j;
-import org.controlsfx.validation.decoration.StyleClassValidationDecoration;
 
 import javax.inject.Inject;
 
@@ -34,12 +32,12 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 	@FXML private TextField mirrorActionUpMax;
 	@FXML private TextField mirrorActionUpMin;
 
-	@FXML private TextField mirrorSelectDriverMax;
-	@FXML private TextField mirrorSelectDriverMin;
-	@FXML private TextField mirrorSelectFoldMax;
-	@FXML private TextField mirrorSelectFoldMin;
-	@FXML private TextField mirrorSelectPassengerMax;
-	@FXML private TextField mirrorSelectPassengerMin;
+//	@FXML private TextField mirrorSelectDriverMax;
+//	@FXML private TextField mirrorSelectDriverMin;
+//	@FXML private TextField mirrorSelectFoldMax;
+//	@FXML private TextField mirrorSelectFoldMin;
+//	@FXML private TextField mirrorSelectPassengerMax;
+//	@FXML private TextField mirrorSelectPassengerMin;
 
 	@FXML private TextField windowActionAutoDownMax;
 	@FXML private TextField windowActionAutoDownMin;
@@ -50,10 +48,10 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 	@FXML private TextField windowActionUpMax;
 	@FXML private TextField windowActionUpMin;
 
-	@FXML private TextField driverWindowMaxCurrent;
-	@FXML private TextField passengerWindowMaxCurrent;
+//	@FXML private TextField driverWindowMaxCurrent;
+//	@FXML private TextField passengerWindowMaxCurrent;
 
-	private final ControlsFxVisualizer validationVisualizer = new ControlsFxVisualizer();
+//	private final ControlsFxVisualizer validationVisualizer = new ControlsFxVisualizer();
 
 	@InjectViewModel private DoorConfigViewModel viewModel;
 
@@ -65,28 +63,28 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 
 		IntegerStringConverter intToString = new IntegerStringConverter();
 
-		mirrorActionDownMax.setTextFormatter(new IntegerTextFormatter());
-		mirrorActionDownMin.setTextFormatter(new IntegerTextFormatter());
-		mirrorActionLeftMax.setTextFormatter(new IntegerTextFormatter());
-		mirrorActionLeftMin.setTextFormatter(new IntegerTextFormatter());
-		mirrorActionRightMax.setTextFormatter(new IntegerTextFormatter());
-		mirrorActionRightMin.setTextFormatter(new IntegerTextFormatter());
-		mirrorActionUpMax.setTextFormatter(new IntegerTextFormatter());
-		mirrorActionUpMin.setTextFormatter(new IntegerTextFormatter());
-//		mirrorSelectDriverMax.setTextFormatter(new IntegerTextFormatter());
-//		mirrorSelectDriverMin.setTextFormatter(new IntegerTextFormatter());
-//		mirrorSelectFoldMax.setTextFormatter(new IntegerTextFormatter());
-//		mirrorSelectFoldMin.setTextFormatter(new IntegerTextFormatter());
-//		mirrorSelectPassengerMax.setTextFormatter(new IntegerTextFormatter());
-//		mirrorSelectPassengerMin.setTextFormatter(new IntegerTextFormatter());
-//		windowActionAutoDownMax.setTextFormatter(new IntegerTextFormatter());
-//		windowActionAutoDownMin.setTextFormatter(new IntegerTextFormatter());
-//		windowActionAutoUpMax.setTextFormatter(new IntegerTextFormatter());
-//		windowActionAutoUpMin.setTextFormatter(new IntegerTextFormatter());
-//		windowActionDownMax.setTextFormatter(new IntegerTextFormatter());
-//		windowActionDownMin.setTextFormatter(new IntegerTextFormatter());
-//		windowActionUpMax.setTextFormatter(new IntegerTextFormatter());
-//		windowActionUpMin.setTextFormatter(new IntegerTextFormatter());
+		setFormatter(mirrorActionDownMax);
+		setFormatter(mirrorActionDownMin);
+		setFormatter(mirrorActionLeftMax);
+		setFormatter(mirrorActionLeftMin);
+		setFormatter(mirrorActionRightMax);
+		setFormatter(mirrorActionRightMin);
+		setFormatter(mirrorActionUpMax);
+		setFormatter(mirrorActionUpMin);
+//		setFormatter(mirrorSelectDriverMax);
+//		setFormatter(mirrorSelectDriverMin);
+//		setFormatter(mirrorSelectFoldMax);
+//		setFormatter(mirrorSelectFoldMin);
+//		setFormatter(mirrorSelectPassengerMax);
+//		setFormatter(mirrorSelectPassengerMin);
+		setFormatter(windowActionAutoDownMax);
+		setFormatter(windowActionAutoDownMin);
+		setFormatter(windowActionAutoUpMax);
+		setFormatter(windowActionAutoUpMin);
+		setFormatter(windowActionDownMax);
+		setFormatter(windowActionDownMin);
+		setFormatter(windowActionUpMax);
+		setFormatter(windowActionUpMin);
 
 		manage(nonNullValuesOf(viewModel.doorConfigProperty()).subscribe(c -> {
 			log.entry();
@@ -110,16 +108,16 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 //				mirrorSelectPassengerMin.textProperty().bindBidirectional(ms.passengerMinProperty(), intToString);
 //			}));
 //
-//			manage(nonNullValuesOf(c.windowActionProperty()).subscribe(wa -> {
-//				windowActionAutoDownMax.textProperty().bindBidirectional(wa.autoDownMaxProperty(), intToString);
-//				windowActionAutoDownMin.textProperty().bindBidirectional(wa.autoDownMinProperty(), intToString);
-//				windowActionAutoUpMax.textProperty().bindBidirectional(wa.autoUpMaxProperty(), intToString);
-//				windowActionAutoUpMin.textProperty().bindBidirectional(wa.autoUpMinProperty(), intToString);
-//				mirrorActionDownMax.textProperty().bindBidirectional(wa.downMaxProperty(), intToString);
-//				windowActionDownMin.textProperty().bindBidirectional(wa.downMinProperty(), intToString);
-//				windowActionUpMax.textProperty().bindBidirectional(wa.upMaxProperty(), intToString);
-//				windowActionUpMin.textProperty().bindBidirectional(wa.upMinProperty(), intToString);
-//			}));
+			manage(nonNullValuesOf(c.windowActionProperty()).subscribe(wa -> {
+				windowActionAutoDownMax.textProperty().bindBidirectional(wa.autoDownMaxProperty(), intToString);
+				windowActionAutoDownMin.textProperty().bindBidirectional(wa.autoDownMinProperty(), intToString);
+				windowActionAutoUpMax.textProperty().bindBidirectional(wa.autoUpMaxProperty(), intToString);
+				windowActionAutoUpMin.textProperty().bindBidirectional(wa.autoUpMinProperty(), intToString);
+				mirrorActionDownMax.textProperty().bindBidirectional(wa.downMaxProperty(), intToString);
+				windowActionDownMin.textProperty().bindBidirectional(wa.downMinProperty(), intToString);
+				windowActionUpMax.textProperty().bindBidirectional(wa.upMaxProperty(), intToString);
+				windowActionUpMin.textProperty().bindBidirectional(wa.upMinProperty(), intToString);
+			}));
 
 //			driverWindowMaxCurrent.textProperty().bindBidirectional(c.driverWindowMaxCurrentProperty(), intToString);
 //			passengerWindowMaxCurrent.textProperty()
@@ -127,11 +125,15 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 		}));
 	}
 
-	private void initializeValidation() {
-		log.entry();
-		validationVisualizer.setDecoration(new StyleClassValidationDecoration());
-
+	private void setFormatter(TextField textField) {
+		textField.setTextFormatter(new IntegerTextFormatter());
 	}
+
+//	private void initializeValidation() {
+//		log.entry();
+//		validationVisualizer.setDecoration(new StyleClassValidationDecoration());
+//
+//	}
 
 	@Override
 	public void dispose() {
