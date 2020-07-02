@@ -1,7 +1,6 @@
 package com.b3tuning.b3console.view.config.door;
 
 import com.b3tuning.b3console.prefs.UserPreferences;
-import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.door.DoorModuleService;
 import com.b3tuning.b3console.service.module.door.config.DoorConfig;
 import com.b3tuning.b3console.view.config.SpecializedConfigViewModel;
@@ -31,7 +30,6 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 	private final NotificationCenter globalNotifications;
 	private final DoorModuleService  service;
 
-	private final ObjectProperty<ConfigBase> config     = new SimpleObjectProperty<>();
 	private final ObjectProperty<DoorConfig> doorConfig = new SimpleObjectProperty<>();
 
 	private final BooleanProperty dirty  = new SimpleBooleanProperty(false);
@@ -174,7 +172,6 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 	public void dispose() {
 		log.entry();
 		super.dispose();
-		config.unbind();
 		doorConfig.unbind();
 	}
 }

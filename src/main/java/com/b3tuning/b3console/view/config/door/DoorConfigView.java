@@ -1,6 +1,7 @@
 package com.b3tuning.b3console.view.config.door;
 
 import com.b3tuning.b3console.view.BaseView;
+import com.b3tuning.b3console.view.utils.IntegerTextFormatter;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
 import javafx.fxml.FXML;
@@ -63,6 +64,29 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 		log.entry();
 
 		IntegerStringConverter intToString = new IntegerStringConverter();
+
+		mirrorActionDownMax.setTextFormatter(new IntegerTextFormatter());
+		mirrorActionDownMin.setTextFormatter(new IntegerTextFormatter());
+		mirrorActionLeftMax.setTextFormatter(new IntegerTextFormatter());
+		mirrorActionLeftMin.setTextFormatter(new IntegerTextFormatter());
+		mirrorActionRightMax.setTextFormatter(new IntegerTextFormatter());
+		mirrorActionRightMin.setTextFormatter(new IntegerTextFormatter());
+		mirrorActionUpMax.setTextFormatter(new IntegerTextFormatter());
+		mirrorActionUpMin.setTextFormatter(new IntegerTextFormatter());
+//		mirrorSelectDriverMax.setTextFormatter(new IntegerTextFormatter());
+//		mirrorSelectDriverMin.setTextFormatter(new IntegerTextFormatter());
+//		mirrorSelectFoldMax.setTextFormatter(new IntegerTextFormatter());
+//		mirrorSelectFoldMin.setTextFormatter(new IntegerTextFormatter());
+//		mirrorSelectPassengerMax.setTextFormatter(new IntegerTextFormatter());
+//		mirrorSelectPassengerMin.setTextFormatter(new IntegerTextFormatter());
+//		windowActionAutoDownMax.setTextFormatter(new IntegerTextFormatter());
+//		windowActionAutoDownMin.setTextFormatter(new IntegerTextFormatter());
+//		windowActionAutoUpMax.setTextFormatter(new IntegerTextFormatter());
+//		windowActionAutoUpMin.setTextFormatter(new IntegerTextFormatter());
+//		windowActionDownMax.setTextFormatter(new IntegerTextFormatter());
+//		windowActionDownMin.setTextFormatter(new IntegerTextFormatter());
+//		windowActionUpMax.setTextFormatter(new IntegerTextFormatter());
+//		windowActionUpMin.setTextFormatter(new IntegerTextFormatter());
 
 		manage(nonNullValuesOf(viewModel.doorConfigProperty()).subscribe(c -> {
 			log.entry();
