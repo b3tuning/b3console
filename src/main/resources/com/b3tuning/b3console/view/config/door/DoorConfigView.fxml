@@ -1,128 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.b3tuning.b3console.view.config.door.DoorConfigView">
-    <AnchorPane styleClass="white-background-with-border" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
-        <Label styleClass="tile-text-sub" text="DoorConfig" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0" />
-        <ScrollPane>
-            <AnchorPane AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0"
+<AnchorPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
+            xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.b3tuning.b3console.view.config.door.DoorConfigView">
+    <AnchorPane styleClass="white-background-with-border" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                AnchorPane.topAnchor="30.0" AnchorPane.bottomAnchor="30.0">
+        <Label styleClass="tile-text" text="DOOR CONFIGURATION" AnchorPane.leftAnchor="30.0"
+               AnchorPane.topAnchor="15.0"/>
+        <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0"
+                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+            <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="15.0"
+                        AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0"
                         AnchorPane.topAnchor="130.0">
                 <VBox>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Mirror Select Configuration"
-                               AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
-                                <Label text="Driver  Max"/>
-                                <TextField fx:id="mirrorSelectDriverMax" prefWidth="40.0" maxWidth="40.0"/>
-                                <Label text="Driver Min"/>
-                                <TextField fx:id="mirrorSelectDriverMin" prefWidth="40.0" maxWidth="40.0"/>
-                            </VBox>
-                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
-                                <Label text="Fold Max "/>
-                                <TextField fx:id="mirrorSelectFoldMax" prefWidth="40.0" maxWidth="40.0"/>
-                                <Label text="Fold Min "/>
-                                <TextField fx:id="mirrorSelectFoldMin" prefWidth="40.0" maxWidth="40.0"/>
-                            </VBox>
-                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
-                                <Label text="Passenger Max"/>
-                                <TextField fx:id="mirrorSelectPassengerMax" prefWidth="40.0" maxWidth="40.0"/>
-                                <Label text="Passenger Min"/>
-                                <TextField fx:id="mirrorSelectPassengerMin" prefWidth="40.0" maxWidth="40.0"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Mirror Action Configuration"
-                               AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
-                                <Label text="Left Max"/>
-                                <TextField fx:id="mirrorActionLeftMax" prefWidth="40.0" maxWidth="40.0"/>
-                                <Label text="Mirror Left Min"/>
-                                <TextField fx:id="mirrorActionLeftMin" prefWidth="40.0" maxWidth="40.0"/>
-                            </VBox>
-                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
-                                <Label text="Up Max "/>
-                                <TextField fx:id="mirrorActionUpMax" prefWidth="40.0" maxWidth="40.0"/>
-                                <Label text="Mirror Up Min "/>
-                                <TextField fx:id="mirrorActionUpMin" prefWidth="40.0" maxWidth="40.0"/>
-                            </VBox>
-                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
-                                <Label text="Down Max"/>
-                                <TextField fx:id="mirrorActionDownMax" prefWidth="40.0" maxWidth="40.0"/>
-                                <Label text="Mirror Down Min"/>
-                                <TextField fx:id="mirrorActionDownMin" prefWidth="40.0" maxWidth="40.0"/>
-                            </VBox>
-                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
-                                <Label text="Right Max "/>
-                                <TextField fx:id="mirrorActionRightMax" prefWidth="40.0" maxWidth="40.0"/>
-                                <Label text="Right Min "/>
-                                <TextField fx:id="mirrorActionRightMin" prefWidth="40.0" maxWidth="40.0"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Window Action Configuration"
-                               AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
-                                <Label text="Auto Down Max"/>
-                                <TextField fx:id="windowActionAutoDownMax" prefWidth="40.0" maxWidth="40.0"/>
-                                <Label text="Auto Down Min"/>
-                                <TextField fx:id="windowActionAutoDownMin" prefWidth="40.0" maxWidth="40.0"/>
-                            </VBox>
-                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
-                                <Label text="Down Max "/>
-                                <TextField fx:id="windowActionDownMax" prefWidth="40.0" maxWidth="40.0"/>
-                                <Label text="Down Min "/>
-                                <TextField fx:id="windowActionDownMin" prefWidth="40.0" maxWidth="40.0"/>
-                            </VBox>
-                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
-                                <Label text="Up Max"/>
-                                <TextField fx:id="windowActionUpMax" prefWidth="40.0" maxWidth="40.0"/>
-                                <Label text="Up Min"/>
-                                <TextField fx:id="windowActionUpMin" prefWidth="40.0" maxWidth="40.0"/>
-                            </VBox>
-                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
-                                <Label text="Auto Up Max "/>
-                                <TextField fx:id="windowActionAutoUpMax" prefWidth="40.0" maxWidth="40.0"/>
-                                <Label text="Auto Up Min "/>
-                                <TextField fx:id="windowActionAutoUpMin" prefWidth="40.0" maxWidth="40.0"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Window Motor Max Current Configuration"
-                               AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
-                                <Label text="Driver Window Current Max"/>
-                                <TextField fx:id="driverWindowMaxCurrent" prefWidth="40.0" maxWidth="40.0"/>
-                            </VBox>
-                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
-                                <Label text="Passenger Window Current Max "/>
-                                <TextField fx:id="passengerWindowMaxCurrent" prefWidth="40.0" maxWidth="40.0"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
+                    <HBox>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Mirror Select"
+                                   AnchorPane.leftAnchor="30.0"
+                                   AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Driver  Max"/>
+                                    <TextField fx:id="mirrorSelectDriverMax" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Label text="Driver Min"/>
+                                    <TextField fx:id="mirrorSelectDriverMin" prefWidth="40.0" maxWidth="40.0"/>
+                                </VBox>
+                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Fold Max "/>
+                                    <TextField fx:id="mirrorSelectFoldMax" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Label text="Fold Min "/>
+                                    <TextField fx:id="mirrorSelectFoldMin" prefWidth="40.0" maxWidth="40.0"/>
+                                </VBox>
+                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Passenger Max"/>
+                                    <TextField fx:id="mirrorSelectPassengerMax" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Label text="Passenger Min"/>
+                                    <TextField fx:id="mirrorSelectPassengerMin" prefWidth="40.0" maxWidth="40.0"/>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Mirror Action" AnchorPane.leftAnchor="30.0"
+                                   AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Left Max"/>
+                                    <TextField fx:id="mirrorActionLeftMax" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Label text="Mirror Left Min"/>
+                                    <TextField fx:id="mirrorActionLeftMin" prefWidth="40.0" maxWidth="40.0"/>
+                                </VBox>
+                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Up Max "/>
+                                    <TextField fx:id="mirrorActionUpMax" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Label text="Mirror Up Min "/>
+                                    <TextField fx:id="mirrorActionUpMin" prefWidth="40.0" maxWidth="40.0"/>
+                                </VBox>
+                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Down Max"/>
+                                    <TextField fx:id="mirrorActionDownMax" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Label text="Mirror Down Min"/>
+                                    <TextField fx:id="mirrorActionDownMin" prefWidth="40.0" maxWidth="40.0"/>
+                                </VBox>
+                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Right Max "/>
+                                    <TextField fx:id="mirrorActionRightMax" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Label text="Right Min "/>
+                                    <TextField fx:id="mirrorActionRightMin" prefWidth="40.0" maxWidth="40.0"/>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                    </HBox>
+                    <HBox>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Window Motor Max Current"
+                                   AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Driver Window Current Max"/>
+                                    <TextField fx:id="driverWindowMaxCurrent" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Label text="Passenger Window Current Max "/>
+                                    <TextField fx:id="passengerWindowMaxCurrent" prefWidth="40.0" maxWidth="40.0"/>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Window Action" AnchorPane.leftAnchor="30.0"
+                                   AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Auto Down Max"/>
+                                    <TextField fx:id="windowActionAutoDownMax" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Label text="Auto Down Min"/>
+                                    <TextField fx:id="windowActionAutoDownMin" prefWidth="40.0" maxWidth="40.0"/>
+                                </VBox>
+                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Down Max "/>
+                                    <TextField fx:id="windowActionDownMax" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Label text="Down Min "/>
+                                    <TextField fx:id="windowActionDownMin" prefWidth="40.0" maxWidth="40.0"/>
+                                </VBox>
+                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Up Max"/>
+                                    <TextField fx:id="windowActionUpMax" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Label text="Up Min"/>
+                                    <TextField fx:id="windowActionUpMin" prefWidth="40.0" maxWidth="40.0"/>
+                                </VBox>
+                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                    <Label text="Auto Up Max "/>
+                                    <TextField fx:id="windowActionAutoUpMax" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Label text="Auto Up Min "/>
+                                    <TextField fx:id="windowActionAutoUpMin" prefWidth="40.0" maxWidth="40.0"/>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                    </HBox>
                 </VBox>
             </AnchorPane>
         </ScrollPane>
-        <Label styleClass="tile-text" text="CONFIGURATION" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="15.0" />
     </AnchorPane>
 </AnchorPane>

@@ -5,6 +5,7 @@ import com.b3tuning.b3console.view.utils.IntegerTextFormatter;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
 import javafx.fxml.FXML;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.util.converter.IntegerStringConverter;
 import lombok.extern.slf4j.XSlf4j;
@@ -25,6 +26,7 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 
+	@FXML private ScrollPane scrollPane;
 	@FXML private TextField mirrorSelectDriverMax;
 	@FXML private TextField mirrorSelectDriverMin;
 	@FXML private TextField mirrorSelectFoldMax;
