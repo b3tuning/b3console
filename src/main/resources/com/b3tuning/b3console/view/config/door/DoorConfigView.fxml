@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.Spinner?>
 <AnchorPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
             xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.b3tuning.b3console.view.config.door.DoorConfigView">
@@ -93,9 +94,9 @@
                                   AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                                 <VBox spacing="2.0" HBox.hgrow="ALWAYS">
                                     <Label text="Driver Window Current Max"/>
-                                    <TextField fx:id="driverWindowMaxCurrent" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Spinner fx:id="driverWindowMaxCurrent" prefWidth="80.0" maxWidth="80.0" editable="true"/>
                                     <Label text="Passenger Window Current Max "/>
-                                    <TextField fx:id="passengerWindowMaxCurrent" prefWidth="40.0" maxWidth="40.0"/>
+                                    <Spinner fx:id="passengerWindowMaxCurrent" prefWidth="80.0" maxWidth="80.0" editable="true"/>
                                 </VBox>
                             </HBox>
                         </AnchorPane>

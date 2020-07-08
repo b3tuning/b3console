@@ -6,6 +6,8 @@ import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.util.converter.IntegerStringConverter;
 import lombok.extern.slf4j.XSlf4j;
@@ -27,12 +29,12 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 
 	@FXML private ScrollPane scrollPane;
-	@FXML private TextField mirrorSelectDriverMax;
-	@FXML private TextField mirrorSelectDriverMin;
-	@FXML private TextField mirrorSelectFoldMax;
-	@FXML private TextField mirrorSelectFoldMin;
-	@FXML private TextField mirrorSelectPassengerMax;
-	@FXML private TextField mirrorSelectPassengerMin;
+	@FXML private TextField  mirrorSelectDriverMax;
+	@FXML private TextField  mirrorSelectDriverMin;
+	@FXML private TextField  mirrorSelectFoldMax;
+	@FXML private TextField  mirrorSelectFoldMin;
+	@FXML private TextField  mirrorSelectPassengerMax;
+	@FXML private TextField  mirrorSelectPassengerMin;
 
 	@FXML private TextField mirrorActionDownMax;
 	@FXML private TextField mirrorActionDownMin;
@@ -52,8 +54,8 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 	@FXML private TextField windowActionUpMax;
 	@FXML private TextField windowActionUpMin;
 
-	@FXML private TextField driverWindowMaxCurrent;
-	@FXML private TextField passengerWindowMaxCurrent;
+	@FXML private Spinner<Integer> driverWindowMaxCurrent;
+	@FXML private Spinner<Integer> passengerWindowMaxCurrent;
 
 	private final ControlsFxVisualizer validationVisualizer = new ControlsFxVisualizer();
 
@@ -89,8 +91,8 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 		setFormatter(windowActionDownMin);
 		setFormatter(windowActionUpMax);
 		setFormatter(windowActionUpMin);
-		setFormatter(driverWindowMaxCurrent);
-		setFormatter(passengerWindowMaxCurrent);
+		setFormatter(driverWindowMaxCurrent.getEditor());
+		setFormatter(passengerWindowMaxCurrent.getEditor());
 
 		manage(nonNullValuesOf(viewModel.doorConfigProperty()).subscribe(c -> {
 			log.entry();
@@ -125,8 +127,12 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 				windowActionUpMin.textProperty().bindBidirectional(wa.upMinProperty(), intToString);
 			}));
 
-			driverWindowMaxCurrent.textProperty().bindBidirectional(c.driverWindowMaxCurrentProperty(), intToString);
-			passengerWindowMaxCurrent.textProperty()
+			driverWindowMaxCurrent.getEditor().textProperty()
+			                      .bindBidirectional(c.driverWindowMaxCurrentProperty(), intToString);
+
+			SpinnerValueFactory.IntegerSpinnerValueFactory intFact = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1024);
+			driverWindowMaxCurrent.valueFactoryProperty().set(intFact);
+			passengerWindowMaxCurrent.getEditor().textProperty()
 			                         .bindBidirectional(c.passengerWindowMaxCurrentProperty(), intToString);
 		}));
 		initializeValidation();
@@ -147,22 +153,32 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 		validationVisualizer.initVisualization(viewModel.mirrorActionRightMinValidation(), mirrorActionRightMin, true);
 		validationVisualizer.initVisualization(viewModel.mirrorActionUpMaxValidation(), mirrorActionUpMax, true);
 		validationVisualizer.initVisualization(viewModel.mirrorActionUpMinValidation(), mirrorActionUpMin, true);
-		validationVisualizer.initVisualization(viewModel.mirrorSelectDriverMaxValidation(), mirrorSelectDriverMax, true);
-		validationVisualizer.initVisualization(viewModel.mirrorSelectDriverMinValidation(), mirrorSelectDriverMin, true);
+		validationVisualizer
+				.initVisualization(viewModel.mirrorSelectDriverMaxValidation(), mirrorSelectDriverMax, true);
+		validationVisualizer
+				.initVisualization(viewModel.mirrorSelectDriverMinValidation(), mirrorSelectDriverMin, true);
 		validationVisualizer.initVisualization(viewModel.mirrorSelectFoldMaxValidation(), mirrorSelectFoldMax, true);
 		validationVisualizer.initVisualization(viewModel.mirrorSelectFoldMinValidation(), mirrorSelectFoldMin, true);
-		validationVisualizer.initVisualization(viewModel.mirrorSelectPassengerMinValidation(), mirrorSelectPassengerMin, true);
-		validationVisualizer.initVisualization(viewModel.mirrorSelectPassengerMaxValidation(), mirrorSelectPassengerMax, true);
-		validationVisualizer.initVisualization(viewModel.windowActionAutoDownMaxValidation(), windowActionAutoDownMax, true);
-		validationVisualizer.initVisualization(viewModel.windowActionAutoDownMinValidation(), windowActionAutoDownMin, true);
-		validationVisualizer.initVisualization(viewModel.windowActionAutoUpMaxValidation(), windowActionAutoUpMax, true);
-		validationVisualizer.initVisualization(viewModel.windowActionAutoUpMinValidation(), windowActionAutoUpMin, true);
+		validationVisualizer
+				.initVisualization(viewModel.mirrorSelectPassengerMinValidation(), mirrorSelectPassengerMin, true);
+		validationVisualizer
+				.initVisualization(viewModel.mirrorSelectPassengerMaxValidation(), mirrorSelectPassengerMax, true);
+		validationVisualizer
+				.initVisualization(viewModel.windowActionAutoDownMaxValidation(), windowActionAutoDownMax, true);
+		validationVisualizer
+				.initVisualization(viewModel.windowActionAutoDownMinValidation(), windowActionAutoDownMin, true);
+		validationVisualizer
+				.initVisualization(viewModel.windowActionAutoUpMaxValidation(), windowActionAutoUpMax, true);
+		validationVisualizer
+				.initVisualization(viewModel.windowActionAutoUpMinValidation(), windowActionAutoUpMin, true);
 		validationVisualizer.initVisualization(viewModel.windowActionDownMaxValidation(), windowActionDownMax, true);
 		validationVisualizer.initVisualization(viewModel.windowActionDownMinValidation(), windowActionDownMin, true);
 		validationVisualizer.initVisualization(viewModel.windowActionUpMaxValidation(), windowActionUpMax, true);
 		validationVisualizer.initVisualization(viewModel.windowActionUpMinValidation(), windowActionUpMin, true);
-		validationVisualizer.initVisualization(viewModel.driverWindowMaxCurrentValidation(), driverWindowMaxCurrent, true);
-		validationVisualizer.initVisualization(viewModel.passengerWindowMaxCurrentValidation(), passengerWindowMaxCurrent, true);
+		validationVisualizer
+				.initVisualization(viewModel.driverWindowMaxCurrentValidation(), driverWindowMaxCurrent, true);
+		validationVisualizer
+				.initVisualization(viewModel.passengerWindowMaxCurrentValidation(), passengerWindowMaxCurrent, true);
 
 	}
 
