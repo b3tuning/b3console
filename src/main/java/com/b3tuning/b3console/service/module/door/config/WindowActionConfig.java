@@ -46,15 +46,15 @@ public class WindowActionConfig extends EditableEntity {
 		                      this.upMin);
 	}
 
-	public WindowActionConfig(Integer autoDownMax, Integer downMin, Integer autoUpMax, Integer autoUpMin,
-	                          Integer downMax, Integer rightMin, Integer upMax, Integer upMin) {
+	public WindowActionConfig(Integer autoDownMax, Integer autoDownMin, Integer autoUpMax, Integer autoUpMin,
+	                          Integer downMax, Integer downMin, Integer upMax, Integer upMin) {
 		this();
 		this.autoDownMax.set(autoDownMax);
-		this.autoDownMin.set(downMin);
+		this.autoDownMin.set(autoDownMin);
 		this.autoUpMax.set(autoUpMax);
 		this.autoUpMin.set(autoUpMin);
 		this.downMax.set(downMax);
-		this.downMin.set(rightMin);
+		this.downMin.set(downMin);
 		this.upMax.set(upMax);
 		this.upMin.set(upMin);
 	}

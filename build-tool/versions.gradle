@@ -26,5 +26,6 @@ ext {
 	tikaVersion = '1.24.1'
 	undoFxVersion = '2.1.0'
 	rxJavaVersion = '3.0.4'
+	fxForm2Version = '9.0.0'
 
 }
