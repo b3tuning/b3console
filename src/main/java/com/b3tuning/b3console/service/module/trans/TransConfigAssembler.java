@@ -22,8 +22,7 @@ import com.b3tuning.b3console.service.module.trans.resource.TransConfigResource.
 public class TransConfigAssembler extends ConfigBaseAssembler {
 
 	public static TransConfig assemble(TransConfigResource resource) {
-		return new TransConfig(resource.getType(),
-		                       CanBusAssembler.assemble(resource.getCanBus()),
+		return new TransConfig(CanBusAssembler.assemble(resource.getCanBus()),
 		                       assemble(resource.getEms22A()),
 		                       assemble(resource.getVnh5019()),
 		                       assemble(resource.getPid()));

@@ -21,8 +21,7 @@ import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource.Wi
 public class DoorConfigAssembler extends ConfigBaseAssembler {
 
 	public static DoorConfig assemble(DoorConfigResource resource) {
-		return new DoorConfig(resource.getType(),
-		                      assemble(resource.getMirrorAction()),
+		return new DoorConfig(assemble(resource.getMirrorAction()),
 		                      assemble(resource.getMirrorSelect()),
 		                      assemble(resource.getWindowAction()),
 		                      resource.getDriverWindowMaxCurrent(),

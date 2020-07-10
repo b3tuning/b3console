@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.XSlf4j;
 
+import static com.b3tuning.b3console.service.module.ModuleType.TRANS;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 
 /*
@@ -25,14 +26,12 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class TransConfig extends EditableEntity implements ConfigBase {
 
-	private final ObjectProperty<ModuleType>    type;
 	private final ObjectProperty<CanBusConfig>  canBus;
 	private final ObjectProperty<Ems22AConfig>  ems22A;
 	private final ObjectProperty<Vnh5019Config> vnh5019;
 	private final ObjectProperty<PidConfig>     pid;
 
 	public TransConfig() {
-		this.type    = new SimpleObjectProperty<>();
 		this.canBus  = new SimpleObjectProperty<>(new CanBusConfig());
 		this.ems22A  = new SimpleObjectProperty<>(new Ems22AConfig());
 		this.vnh5019 = new SimpleObjectProperty<>(new Vnh5019Config());
@@ -55,14 +54,9 @@ public class TransConfig extends EditableEntity implements ConfigBase {
 		}));
 	}
 
-	public TransConfig(ModuleType type) {
-		this();
-		this.type.set(type);
-	}
-
-	public TransConfig(ModuleType type, CanBusConfig canBusConfig, Ems22AConfig ems22A, Vnh5019Config vnh5019,
+	public TransConfig(CanBusConfig canBusConfig, Ems22AConfig ems22A, Vnh5019Config vnh5019,
 	                   PidConfig pid) {
-		this(type);
+		this();
 		this.canBus.set(canBusConfig);
 		this.ems22A.set(ems22A);
 		this.vnh5019.set(vnh5019);
@@ -70,8 +64,7 @@ public class TransConfig extends EditableEntity implements ConfigBase {
 	}
 
 	public TransConfig clone() {
-		return new TransConfig(this.getType(),
-		                       this.getCanBus(),
+		return new TransConfig(this.getCanBus(),
 		                       this.getEms22A(),
 		                       this.getVnh5019(),
 		                       this.getPid());
@@ -82,7 +75,7 @@ public class TransConfig extends EditableEntity implements ConfigBase {
 	/////////////////////////////////////////////////////////////////////////////
 
 	public ModuleType getType() {
-		return this.type.get();
+		return TRANS;
 	}
 
 	public CanBusConfig getCanBus() {
@@ -105,10 +98,6 @@ public class TransConfig extends EditableEntity implements ConfigBase {
 	/// JavaFX setters
 	/////////////////////////////////////////////////////////////////////////////
 
-	public void setType(ModuleType type) {
-		this.type.set(type);
-	}
-
 	public void setCanBus(CanBusConfig config) {
 		this.canBus.set(config);
 	}
@@ -128,10 +117,6 @@ public class TransConfig extends EditableEntity implements ConfigBase {
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX properties
 	/////////////////////////////////////////////////////////////////////////////
-
-	public ObjectProperty<ModuleType> typeProperty() {
-		return this.type;
-	}
 
 	public ObjectProperty<CanBusConfig> canBusProperty() {
 		return this.canBus;

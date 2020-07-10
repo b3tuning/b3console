@@ -16,6 +16,7 @@ import lombok.extern.slf4j.XSlf4j;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.b3tuning.b3console.service.module.ModuleType.SHIFTER;
 import static org.reactfx.EventStreams.changesOf;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 
@@ -32,14 +33,12 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class ShifterConfig extends EditableEntity implements ConfigBase {
 
-	private final ObjectProperty<ModuleType>          type;
 	private final ObjectProperty<CanBusConfig>        canBus;
 	private final ObjectProperty<IndicatorConfig>     indicator;
 	private final ObjectProperty<MelexisConfig>       melexis;
 	private final ListProperty<ShifterPositionConfig> shifterPositions; // 7 total items, PARK, REVERSE, NEUTRAL, DRIVE, DOWN, MANUAL, UP
 
 	public ShifterConfig() {
-		this.type             = new SimpleObjectProperty<>();
 		this.canBus           = new SimpleObjectProperty<>(new CanBusConfig());
 		this.indicator        = new SimpleObjectProperty<>(new IndicatorConfig());
 		this.melexis          = new SimpleObjectProperty<>(new MelexisConfig());
@@ -67,14 +66,9 @@ public class ShifterConfig extends EditableEntity implements ConfigBase {
 		}));
 	}
 
-	public ShifterConfig(ModuleType type) {
-		this();
-		this.type.set(type);
-	}
-
-	public ShifterConfig(ModuleType type, CanBusConfig canBusConfig, IndicatorConfig indicatorConfig,
+	public ShifterConfig(CanBusConfig canBusConfig, IndicatorConfig indicatorConfig,
 	                     MelexisConfig melexisConfig, List<ShifterPositionConfig> positions) {
-		this(type);
+		this();
 		this.canBus.set(canBusConfig);
 		this.indicator.set(indicatorConfig);
 		this.melexis.set(melexisConfig);
@@ -82,11 +76,10 @@ public class ShifterConfig extends EditableEntity implements ConfigBase {
 	}
 
 	public ShifterConfig clone() {
-		return new ShifterConfig(this.getType(),
-		                         this.getCanBus(),
+		return new ShifterConfig(this.getCanBus(),
 		                         this.getIndicator(),
 		                         this.getMelexis(),
-		                         new ArrayList<ShifterPositionConfig>(this.getShifterPositions()));
+		                         new ArrayList<>(this.getShifterPositions()));
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -94,7 +87,7 @@ public class ShifterConfig extends EditableEntity implements ConfigBase {
 	/////////////////////////////////////////////////////////////////////////////
 
 	public ModuleType getType() {
-		return this.type.get();
+		return SHIFTER;
 	}
 
 	public CanBusConfig getCanBus() {
@@ -117,10 +110,6 @@ public class ShifterConfig extends EditableEntity implements ConfigBase {
 	/// JavaFX setters
 	/////////////////////////////////////////////////////////////////////////////
 
-	public void setType(ModuleType type) {
-		this.type.set(type);
-	}
-
 	public void setCanBus(CanBusConfig config) {
 		this.canBus.set(config);
 	}
@@ -140,10 +129,6 @@ public class ShifterConfig extends EditableEntity implements ConfigBase {
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX properties
 	/////////////////////////////////////////////////////////////////////////////
-
-	public ObjectProperty<ModuleType> typeProperty() {
-		return this.type;
-	}
 
 	ObjectProperty<CanBusConfig> canBusProperty() {
 		return canBus;

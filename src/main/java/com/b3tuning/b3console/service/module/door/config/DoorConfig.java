@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.XSlf4j;
 
+import static com.b3tuning.b3console.service.module.ModuleType.DOOR;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 
 /*
@@ -24,7 +25,6 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class DoorConfig extends EditableEntity implements ConfigBase {
 
-	private final ObjectProperty<ModuleType>         type;
 	private final ObjectProperty<MirrorActionConfig> mirrorAction;
 	private final ObjectProperty<MirrorSelectConfig> mirrorSelect;
 	private final ObjectProperty<WindowActionConfig> windowAction;
@@ -32,7 +32,6 @@ public class DoorConfig extends EditableEntity implements ConfigBase {
 	private final ObjectProperty<Integer>            passengerWindowMaxCurrent;
 
 	public DoorConfig() {
-		this.type                      = new SimpleObjectProperty<>();
 		this.mirrorAction              = new SimpleObjectProperty<>(new MirrorActionConfig());
 		this.mirrorSelect              = new SimpleObjectProperty<>(new MirrorSelectConfig());
 		this.windowAction              = new SimpleObjectProperty<>(new WindowActionConfig());
@@ -60,14 +59,9 @@ public class DoorConfig extends EditableEntity implements ConfigBase {
 		}));
 	}
 
-	public DoorConfig(ModuleType type) {
-		this();
-		this.type.set(type);
-	}
-
-	public DoorConfig(ModuleType type, MirrorActionConfig mirrorAction, MirrorSelectConfig mirrorSelect,
+	public DoorConfig(MirrorActionConfig mirrorAction, MirrorSelectConfig mirrorSelect,
 	                  WindowActionConfig windowAction, Integer driverMax, Integer passMax) {
-		this(type);
+		this();
 		this.mirrorAction.set(mirrorAction);
 		this.mirrorSelect.set(mirrorSelect);
 		this.windowAction.set(windowAction);
@@ -76,8 +70,7 @@ public class DoorConfig extends EditableEntity implements ConfigBase {
 	}
 
 	public DoorConfig clone() {
-		return new DoorConfig(this.getType(),
-		                      this.getMirrorAction(),
+		return new DoorConfig(this.getMirrorAction(),
 		                      this.getMirrorSelect(),
 		                      this.getWindowAction(),
 		                      this.getDriverWindowMaxCurrent(),
@@ -89,7 +82,7 @@ public class DoorConfig extends EditableEntity implements ConfigBase {
 	/////////////////////////////////////////////////////////////////////////////
 
 	public ModuleType getType() {
-		return this.type.get();
+		return DOOR;
 	}
 
 	public MirrorActionConfig getMirrorAction() {
@@ -116,10 +109,6 @@ public class DoorConfig extends EditableEntity implements ConfigBase {
 	/// JavaFX setters
 	/////////////////////////////////////////////////////////////////////////////
 
-	public void setType(ModuleType type) {
-		this.type.set(type);
-	}
-
 	public void setMirrorAction(MirrorActionConfig config) {
 		this.mirrorAction.set(config);
 	}
@@ -143,10 +132,6 @@ public class DoorConfig extends EditableEntity implements ConfigBase {
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX properties
 	/////////////////////////////////////////////////////////////////////////////
-
-	public ObjectProperty<ModuleType> typeProperty() {
-		return this.type;
-	}
 
 	public ObjectProperty<MirrorActionConfig> mirrorActionProperty() {
 		return this.mirrorAction;

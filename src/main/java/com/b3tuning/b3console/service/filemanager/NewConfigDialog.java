@@ -69,9 +69,9 @@ public class NewConfigDialog {
 		dialog.setResultConverter(dialogButton -> {
 			if (dialogButton == ButtonType.OK) {
 				return switch (type.getValue()) {
-					case DOOR -> new DoorConfig(type.getValue());
-					case SHIFTER -> new ShifterConfig(type.getValue());
-					case TRANS -> new TransConfig(type.getValue());
+					case DOOR -> new DoorConfig();
+					case SHIFTER -> new ShifterConfig();
+					case TRANS -> new TransConfig();
 				};
 			}
 			return null;

@@ -28,8 +28,7 @@ import java.util.stream.Collectors;
 public class ShifterAssembler extends ConfigBaseAssembler {
 
 	public static ShifterConfig assemble(ShifterConfigResource resource) {
-		return new ShifterConfig(resource.getType(),
-		                         CanBusAssembler.assemble(resource.getCanBus()),
+		return new ShifterConfig(CanBusAssembler.assemble(resource.getCanBus()),
 		                         assemble(resource.getIndicator()),
 		                         assemble(resource.getMelexis()),
 		                         assembleList(resource.getShifters()));
