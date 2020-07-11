@@ -2,142 +2,232 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
-<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Button?>
 <AnchorPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
             xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.b3tuning.b3console.view.config.door.DoorConfigView">
-    <AnchorPane styleClass="white-background-with-border" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                AnchorPane.topAnchor="30.0" AnchorPane.bottomAnchor="30.0">
+    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
         <Label styleClass="tile-text" text="DOOR CONFIGURATION" AnchorPane.leftAnchor="30.0"
                AnchorPane.topAnchor="15.0"/>
         <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0"
                     AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
-<!--            <VBox>-->
-                <AnchorPane fx:id="form" styleClass="white-background-with-border" AnchorPane.bottomAnchor="15.0"
-                            AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0"
-                            AnchorPane.topAnchor="130.0"/>
-<!--                <HBox>-->
-<!--                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"-->
-<!--                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"-->
-<!--                                AnchorPane.topAnchor="30.0">-->
-<!--                        <Label styleClass="tile-text-sub" text="Mirror Select"-->
-<!--                               AnchorPane.leftAnchor="30.0"-->
-<!--                               AnchorPane.topAnchor="30.0"/>-->
-<!--                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"-->
-<!--                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">-->
-<!--                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">-->
-<!--                                <Label text="Driver  Max"/>-->
-<!--                                <TextField fx:id="mirrorSelectDriverMax" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                                <Label text="Driver Min"/>-->
-<!--                                <TextField fx:id="mirrorSelectDriverMin" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                            </VBox>-->
-<!--                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">-->
-<!--                                <Label text="Fold Max "/>-->
-<!--                                <TextField fx:id="mirrorSelectFoldMax" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                                <Label text="Fold Min "/>-->
-<!--                                <TextField fx:id="mirrorSelectFoldMin" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                            </VBox>-->
-<!--                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">-->
-<!--                                <Label text="Passenger Max"/>-->
-<!--                                <TextField fx:id="mirrorSelectPassengerMax" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                                <Label text="Passenger Min"/>-->
-<!--                                <TextField fx:id="mirrorSelectPassengerMin" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                            </VBox>-->
-<!--                        </HBox>-->
-<!--                    </AnchorPane>-->
-<!--                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"-->
-<!--                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"-->
-<!--                                AnchorPane.topAnchor="30.0">-->
-<!--                        <Label styleClass="tile-text-sub" text="Mirror Action" AnchorPane.leftAnchor="30.0"-->
-<!--                               AnchorPane.topAnchor="30.0"/>-->
-<!--                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"-->
-<!--                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">-->
-<!--                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">-->
-<!--                                <Label text="Left Max"/>-->
-<!--                                <TextField fx:id="mirrorActionLeftMax" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                                <Label text="Mirror Left Min"/>-->
-<!--                                <TextField fx:id="mirrorActionLeftMin" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                            </VBox>-->
-<!--                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">-->
-<!--                                <Label text="Up Max "/>-->
-<!--                                <TextField fx:id="mirrorActionUpMax" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                                <Label text="Mirror Up Min "/>-->
-<!--                                <TextField fx:id="mirrorActionUpMin" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                            </VBox>-->
-<!--                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">-->
-<!--                                <Label text="Down Max"/>-->
-<!--                                <TextField fx:id="mirrorActionDownMax" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                                <Label text="Mirror Down Min"/>-->
-<!--                                <TextField fx:id="mirrorActionDownMin" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                            </VBox>-->
-<!--                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">-->
-<!--                                <Label text="Right Max "/>-->
-<!--                                <TextField fx:id="mirrorActionRightMax" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                                <Label text="Right Min "/>-->
-<!--                                <TextField fx:id="mirrorActionRightMin" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                            </VBox>-->
-<!--                        </HBox>-->
-<!--                    </AnchorPane>-->
-<!--                </HBox>-->
-<!--                <HBox>-->
-<!--                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"-->
-<!--                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"-->
-<!--                                AnchorPane.topAnchor="30.0">-->
-<!--                        <Label styleClass="tile-text-sub" text="Window Motor Max Current"-->
-<!--                               AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>-->
-<!--                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"-->
-<!--                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">-->
-<!--                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">-->
-<!--                                <Label text="Driver Window Current Max"/>-->
-<!--                                <Spinner fx:id="driverWindowMaxCurrent" prefWidth="80.0" maxWidth="80.0"-->
-<!--                                         editable="true"/>-->
-<!--                                <Label text="Passenger Window Current Max "/>-->
-<!--                                <Spinner fx:id="passengerWindowMaxCurrent" prefWidth="80.0" maxWidth="80.0"-->
-<!--                                         editable="true"/>-->
-<!--                            </VBox>-->
-<!--                        </HBox>-->
-<!--                    </AnchorPane>-->
-<!--                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"-->
-<!--                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"-->
-<!--                                AnchorPane.topAnchor="30.0">-->
-<!--                        <Label styleClass="tile-text-sub" text="Window Action" AnchorPane.leftAnchor="30.0"-->
-<!--                               AnchorPane.topAnchor="30.0"/>-->
-<!--                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"-->
-<!--                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">-->
-<!--                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">-->
-<!--                                <Label text="Auto Down Max"/>-->
-<!--                                <TextField fx:id="windowActionAutoDownMax" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                                <Label text="Auto Down Min"/>-->
-<!--                                <TextField fx:id="windowActionAutoDownMin" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                            </VBox>-->
-<!--                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">-->
-<!--                                <Label text="Down Max "/>-->
-<!--                                <TextField fx:id="windowActionDownMax" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                                <Label text="Down Min "/>-->
-<!--                                <TextField fx:id="windowActionDownMin" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                            </VBox>-->
-<!--                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">-->
-<!--                                <Label text="Up Max"/>-->
-<!--                                <TextField fx:id="windowActionUpMax" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                                <Label text="Up Min"/>-->
-<!--                                <TextField fx:id="windowActionUpMin" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                            </VBox>-->
-<!--                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">-->
-<!--                                <Label text="Auto Up Max "/>-->
-<!--                                <TextField fx:id="windowActionAutoUpMax" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                                <Label text="Auto Up Min "/>-->
-<!--                                <TextField fx:id="windowActionAutoUpMin" prefWidth="40.0" maxWidth="40.0"/>-->
-<!--                            </VBox>-->
-<!--                        </HBox>-->
-<!--                    </AnchorPane>-->
-<!--                </HBox>-->
-<!--                &lt;!&ndash;                </AnchorPane>&ndash;&gt;-->
-<!--            </VBox>-->
+            <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="15.0"
+                        AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="130.0">
+                <VBox>
+                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                AnchorPane.topAnchor="30.0">
+                        <Label styleClass="tile-text-sub" text="Mirror Select" AnchorPane.leftAnchor="30.0"
+                               AnchorPane.topAnchor="30.0"/>
+                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                <HBox spacing="10">
+                                    <Button text="Driver Max" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorSelectDriverMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80"/>
+                                </HBox>
+                                <HBox spacing="10">
+                                    <Button text="Driver Min" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorSelectDriverMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80"/>
+                                </HBox>
+                            </VBox>
+                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                <HBox spacing="10">
+                                    <Button text="Fold Max" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorSelectFoldMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0"/>
+                                </HBox>
+                                <HBox spacing="10">
+                                    <Button text="Fold Min" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorSelectFoldMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0"/>
+                                </HBox>
+                            </VBox>
+                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                <HBox spacing="10">
+                                    <Button text="Passenger Max" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorSelectPassengerMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0"/>
+                                </HBox>
+                                <HBox spacing="10">
+                                    <Button text="Passenger Min" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorSelectPassengerMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0"/>
+                                </HBox>
+                            </VBox>
+                        </HBox>
+                    </AnchorPane>
+                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                AnchorPane.topAnchor="30.0">
+                        <Label styleClass="tile-text-sub" text="Mirror Action" AnchorPane.leftAnchor="30.0"
+                               AnchorPane.topAnchor="30.0"/>
+                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                <HBox spacing="10">
+                                    <Button text="Left Max" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorActionLeftMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0"/>
+                                </HBox>
+                                <HBox spacing="10">
+                                    <Button text="Mirror Left Min" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorActionLeftMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0"/>
+                                </HBox>
+                            </VBox>
+                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                <HBox spacing="10">
+                                    <Button text="Up Max" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorActionUpMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0"/>
+                                </HBox>
+                                <HBox spacing="10">
+                                    <Button text="Mirror Up Min" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorActionUpMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0"/>
+                                </HBox>
+                            </VBox>
+                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                <HBox spacing="10">
+                                    <Button text="Down Max" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorActionDownMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0"/>
+                                </HBox>
+                                <HBox spacing="10">
+                                    <Button text="Mirror Down Min" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorActionDownMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0"/>
+                                </HBox>
+                            </VBox>
+                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                <HBox spacing="10">
+                                    <Button text="Right Max" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorActionRightMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0"/>
+                                </HBox>
+                                <HBox spacing="10">
+                                    <Button text="Right Min" maxWidth="Infinity" prefHeight="30"
+                                           HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="mirrorActionRightMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0"/>
+                                </HBox>
+                            </VBox>
+                        </HBox>
+                    </AnchorPane>
+                    <HBox spacing="20">
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Window Motor Max Current"
+                                   AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+                                      HBox.hgrow="ALWAYS">
+                                    <HBox spacing="10">
+                                        <Button text="Driver Max" maxWidth="Infinity" prefHeight="30"
+                                               HBox.hgrow="ALWAYS"/>
+                                        <Spinner fx:id="driverWindowMaxCurrent" editable="true" minWidth="-Infinity"
+                                                 prefWidth="80"/>
+                                    </HBox>
+                                    <HBox spacing="10">
+                                        <Button text="Passenger Max" maxWidth="Infinity" prefHeight="30"
+                                               HBox.hgrow="ALWAYS"/>
+                                        <Spinner fx:id="passengerWindowMaxCurrent" editable="true" minWidth="-Infinity"
+                                                 prefWidth="80.0"/>
+                                    </HBox>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Window Action" AnchorPane.leftAnchor="30.0"
+                                   AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                    <HBox spacing="10">
+                                        <Button text="Auto Up Max" maxWidth="Infinity" prefHeight="30"
+                                               HBox.hgrow="ALWAYS"/>
+                                        <Spinner fx:id="windowActionAutoUpMax" editable="true" minWidth="-Infinity"
+                                                 prefWidth="80.0"/>
+                                    </HBox>
+                                    <HBox spacing="10">
+                                        <Button text="Auto Up Min" maxWidth="Infinity" prefHeight="30"
+                                               HBox.hgrow="ALWAYS"/>
+                                        <Spinner fx:id="windowActionAutoUpMin" editable="true" minWidth="-Infinity"
+                                                 prefWidth="80.0"/>
+                                    </HBox>
+                                    <!--                            </VBox>-->
+                                    <!--                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">-->
+                                    <HBox spacing="10">
+                                        <Button text="Up Max" maxWidth="Infinity" prefHeight="30"
+                                               HBox.hgrow="ALWAYS"/>
+                                        <Spinner fx:id="windowActionUpMax" editable="true" minWidth="-Infinity"
+                                                 prefWidth="80.0"/>
+                                    </HBox>
+                                    <HBox spacing="10">
+                                        <Button text="Up Min" maxWidth="Infinity" prefHeight="30"
+                                               HBox.hgrow="ALWAYS"/>
+                                        <Spinner fx:id="windowActionUpMin" editable="true" minWidth="-Infinity"
+                                                 prefWidth="80.0"/>
+                                    </HBox>
+                                    <!--                            </VBox>-->
+                                    <!--                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">-->
+                                    <HBox spacing="10">
+                                        <Button text="Down Max" maxWidth="Infinity" prefHeight="30"
+                                               HBox.hgrow="ALWAYS"/>
+                                        <Spinner fx:id="windowActionDownMax" editable="true" minWidth="-Infinity"
+                                                 prefWidth="80.0"/>
+                                    </HBox>
+                                    <HBox spacing="10">
+                                        <Button text="Down Min" maxWidth="Infinity" prefHeight="30"
+                                               HBox.hgrow="ALWAYS"/>
+                                        <Spinner fx:id="windowActionDownMin" editable="true" minWidth="-Infinity"
+                                                 prefWidth="80.0"/>
+                                    </HBox>
+                                    <!--                            </VBox>-->
+                                    <!--                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">-->
+                                    <HBox spacing="10">
+                                        <Button text="Auto Down Max" maxWidth="Infinity" prefHeight="30"
+                                               HBox.hgrow="ALWAYS"/>
+                                        <Spinner fx:id="windowActionAutoDownMax" editable="true" minWidth="-Infinity"
+                                                 prefWidth="80.0"/>
+                                    </HBox>
+                                    <HBox spacing="10">
+                                        <Button text="Auto Down Min" maxWidth="Infinity" prefHeight="30"
+                                               HBox.hgrow="ALWAYS"/>
+                                        <Spinner fx:id="windowActionAutoDownMin" editable="true" minWidth="-Infinity"
+                                                 prefWidth="80.0"/>
+                                    </HBox>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                    </HBox>
+                </VBox>
+            </AnchorPane>
         </ScrollPane>
     </AnchorPane>
 </AnchorPane>
