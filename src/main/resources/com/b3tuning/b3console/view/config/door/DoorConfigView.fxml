@@ -14,11 +14,12 @@
                 AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
         <Label styleClass="tile-text" text="DOOR CONFIGURATION" AnchorPane.leftAnchor="30.0"
                AnchorPane.topAnchor="15.0"/>
-        <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0"
+        <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0"
                     AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
             <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="15.0"
                         AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="130.0">
-                <VBox>
+                <!--                <VBox>-->
+                <HBox>
                     <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
                                 AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
                                 AnchorPane.topAnchor="30.0">
@@ -27,45 +28,47 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="10">
-                                    <Button text="Driver Max" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorSelectDriverMax" editable="true" minWidth="-Infinity"
-                                             prefWidth="80"/>
+                                <HBox>
+                                    <Button text="Driver Max" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="msDriverMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80" prefHeight="30"/>
                                 </HBox>
-                                <HBox spacing="10">
-                                    <Button text="Driver Min" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorSelectDriverMin" editable="true" minWidth="-Infinity"
-                                             prefWidth="80"/>
+                                <HBox>
+                                    <Button text="Driver Min" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="msDriverMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80" prefHeight="30"/>
                                 </HBox>
-                            </VBox>
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="10">
-                                    <Button text="Fold Max" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorSelectFoldMax" editable="true" minWidth="-Infinity"
-                                             prefWidth="80.0"/>
+                                <HBox>
+                                    <Button text="Fold Max" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="msFoldMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
                                 </HBox>
-                                <HBox spacing="10">
-                                    <Button text="Fold Min" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorSelectFoldMin" editable="true" minWidth="-Infinity"
-                                             prefWidth="80.0"/>
+                                <HBox>
+                                    <Button text="Fold Min" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="msFoldMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
                                 </HBox>
-                            </VBox>
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="10">
-                                    <Button text="Passenger Max" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorSelectPassengerMax" editable="true" minWidth="-Infinity"
-                                             prefWidth="80.0"/>
+                                <HBox>
+                                    <Button text="Passenger Max" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="msPassMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
                                 </HBox>
-                                <HBox spacing="10">
-                                    <Button text="Passenger Min" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorSelectPassengerMin" editable="true" minWidth="-Infinity"
-                                             prefWidth="80.0"/>
+                                <HBox>
+                                    <Button text="Passenger Min" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="msPassMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
                                 </HBox>
                             </VBox>
                         </HBox>
@@ -78,155 +81,156 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="10">
-                                    <Button text="Left Max" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorActionLeftMax" editable="true" minWidth="-Infinity"
-                                             prefWidth="80.0"/>
+                                <HBox>
+                                    <Button text="Up Max" alignment="BASELINE_LEFT" maxWidth="Infinity" prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="maUpMax" editable="true" minWidth="-Infinity" prefWidth="80.0"
+                                             prefHeight="30"/>
                                 </HBox>
-                                <HBox spacing="10">
-                                    <Button text="Mirror Left Min" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorActionLeftMin" editable="true" minWidth="-Infinity"
-                                             prefWidth="80.0"/>
+                                <HBox>
+                                    <Button text="Up Min" alignment="BASELINE_LEFT" maxWidth="Infinity" prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="maUpMin" editable="true" minWidth="-Infinity" prefWidth="80.0"
+                                             prefHeight="30"/>
                                 </HBox>
-                            </VBox>
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="10">
-                                    <Button text="Up Max" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorActionUpMax" editable="true" minWidth="-Infinity"
-                                             prefWidth="80.0"/>
+                                <HBox>
+                                    <Button text="Down Max" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="maDownMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
                                 </HBox>
-                                <HBox spacing="10">
-                                    <Button text="Mirror Up Min" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorActionUpMin" editable="true" minWidth="-Infinity"
-                                             prefWidth="80.0"/>
+                                <HBox>
+                                    <Button text="Down Min" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="maDownMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
                                 </HBox>
-                            </VBox>
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="10">
-                                    <Button text="Down Max" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorActionDownMax" editable="true" minWidth="-Infinity"
-                                             prefWidth="80.0"/>
+                                <HBox>
+                                    <Button text="Left Max" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="maLeftMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
                                 </HBox>
-                                <HBox spacing="10">
-                                    <Button text="Mirror Down Min" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorActionDownMin" editable="true" minWidth="-Infinity"
-                                             prefWidth="80.0"/>
+                                <HBox>
+                                    <Button text="Left Min" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="maLeftMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
                                 </HBox>
-                            </VBox>
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="10">
-                                    <Button text="Right Max" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorActionRightMax" editable="true" minWidth="-Infinity"
-                                             prefWidth="80.0"/>
+                                <HBox>
+                                    <Button text="Right Max" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="maRightMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
                                 </HBox>
-                                <HBox spacing="10">
-                                    <Button text="Right Min" maxWidth="Infinity" prefHeight="30"
-                                           HBox.hgrow="ALWAYS"/>
-                                    <Spinner fx:id="mirrorActionRightMin" editable="true" minWidth="-Infinity"
-                                             prefWidth="80.0"/>
+                                <HBox>
+                                    <Button text="Right Min" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="maRightMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
                                 </HBox>
                             </VBox>
                         </HBox>
                     </AnchorPane>
-                    <HBox spacing="20">
-                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                    AnchorPane.topAnchor="30.0">
-                            <Label styleClass="tile-text-sub" text="Window Motor Max Current"
-                                   AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
-                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                                <VBox spacing="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
-                                      HBox.hgrow="ALWAYS">
-                                    <HBox spacing="10">
-                                        <Button text="Driver Max" maxWidth="Infinity" prefHeight="30"
-                                               HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="driverWindowMaxCurrent" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80"/>
-                                    </HBox>
-                                    <HBox spacing="10">
-                                        <Button text="Passenger Max" maxWidth="Infinity" prefHeight="30"
-                                               HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="passengerWindowMaxCurrent" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80.0"/>
-                                    </HBox>
-                                </VBox>
-                            </HBox>
-                        </AnchorPane>
-                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                    AnchorPane.topAnchor="30.0">
-                            <Label styleClass="tile-text-sub" text="Window Action" AnchorPane.leftAnchor="30.0"
-                                   AnchorPane.topAnchor="30.0"/>
-                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                                <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                    <HBox spacing="10">
-                                        <Button text="Auto Up Max" maxWidth="Infinity" prefHeight="30"
-                                               HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="windowActionAutoUpMax" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80.0"/>
-                                    </HBox>
-                                    <HBox spacing="10">
-                                        <Button text="Auto Up Min" maxWidth="Infinity" prefHeight="30"
-                                               HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="windowActionAutoUpMin" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80.0"/>
-                                    </HBox>
-                                    <!--                            </VBox>-->
-                                    <!--                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">-->
-                                    <HBox spacing="10">
-                                        <Button text="Up Max" maxWidth="Infinity" prefHeight="30"
-                                               HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="windowActionUpMax" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80.0"/>
-                                    </HBox>
-                                    <HBox spacing="10">
-                                        <Button text="Up Min" maxWidth="Infinity" prefHeight="30"
-                                               HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="windowActionUpMin" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80.0"/>
-                                    </HBox>
-                                    <!--                            </VBox>-->
-                                    <!--                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">-->
-                                    <HBox spacing="10">
-                                        <Button text="Down Max" maxWidth="Infinity" prefHeight="30"
-                                               HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="windowActionDownMax" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80.0"/>
-                                    </HBox>
-                                    <HBox spacing="10">
-                                        <Button text="Down Min" maxWidth="Infinity" prefHeight="30"
-                                               HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="windowActionDownMin" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80.0"/>
-                                    </HBox>
-                                    <!--                            </VBox>-->
-                                    <!--                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">-->
-                                    <HBox spacing="10">
-                                        <Button text="Auto Down Max" maxWidth="Infinity" prefHeight="30"
-                                               HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="windowActionAutoDownMax" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80.0"/>
-                                    </HBox>
-                                    <HBox spacing="10">
-                                        <Button text="Auto Down Min" maxWidth="Infinity" prefHeight="30"
-                                               HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="windowActionAutoDownMin" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80.0"/>
-                                    </HBox>
-                                </VBox>
-                            </HBox>
-                        </AnchorPane>
-                    </HBox>
-                </VBox>
+                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                AnchorPane.topAnchor="30.0">
+                        <Label styleClass="tile-text-sub" text="Window Action" AnchorPane.leftAnchor="30.0"
+                               AnchorPane.topAnchor="30.0"/>
+                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                <HBox>
+                                    <Button text="Auto Up Max" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="waAutoUpMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
+                                </HBox>
+                                <HBox>
+                                    <Button text="Auto Up Min" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="waAutoUpMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
+                                </HBox>
+                                <HBox>
+                                    <Button text="Up Max" alignment="BASELINE_LEFT" maxWidth="Infinity" prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="waUpMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
+                                </HBox>
+                                <HBox>
+                                    <Button text="Up Min" alignment="BASELINE_LEFT" maxWidth="Infinity" prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="waUpMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
+                                </HBox>
+                                <HBox>
+                                    <Button text="Down Max" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="waDownMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
+                                </HBox>
+                                <HBox>
+                                    <Button text="Down Min" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="waDownMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
+                                </HBox>
+                                <HBox>
+                                    <Button text="Auto Down Max" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="waAutoDownMax" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
+                                </HBox>
+                                <HBox>
+                                    <Button text="Auto Down Min" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="waAutoDownMin" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
+                                </HBox>
+                            </VBox>
+                        </HBox>
+                    </AnchorPane>
+                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                AnchorPane.topAnchor="30.0">
+                        <Label styleClass="tile-text-sub" text="Window Motor Max Current"
+                               AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
+                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                            <VBox spacing="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+                                  HBox.hgrow="ALWAYS">
+                                <HBox>
+                                    <Button text="Driver Max" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="dMaxCurrent" editable="true" minWidth="-Infinity"
+                                             prefWidth="80" prefHeight="30"/>
+                                </HBox>
+                                <HBox>
+                                    <Button text="Passenger Max" alignment="BASELINE_LEFT" maxWidth="Infinity"
+                                            prefHeight="30"
+                                            HBox.hgrow="ALWAYS"/>
+                                    <Spinner fx:id="pMaxCurrent" editable="true" minWidth="-Infinity"
+                                             prefWidth="80.0" prefHeight="30"/>
+                                </HBox>
+                            </VBox>
+                        </HBox>
+                    </AnchorPane>
+                </HBox>
+                <!--                </VBox>-->
             </AnchorPane>
         </ScrollPane>
     </AnchorPane>
