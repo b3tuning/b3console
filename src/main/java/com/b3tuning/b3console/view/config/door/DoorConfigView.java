@@ -4,7 +4,9 @@ import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.utils.IntegerTextFormatter;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
+import javafx.beans.property.DoubleProperty;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
@@ -158,10 +160,9 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 			}));
 
 			dMaxCurrent.getEditor().textProperty().bindBidirectional(c.driverWindowMaxCurrentProperty(), intToString);
-
 			pMaxCurrent.getEditor().textProperty().bindBidirectional(c.passengerWindowMaxCurrentProperty(), intToString);
 		}));
-		initializeValidation();
+//		initializeValidation();
 	}
 
 	private void setFormatter(TextField textField) {
@@ -169,8 +170,8 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 	}
 
 	private void initSpinner(Spinner<Integer> spinner) {
-		spinner.setValueFactory(
-				new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1023));
+		spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1023));
+		spinner.getEditor().setAlignment(Pos.BASELINE_RIGHT);
 	}
 
 	private void initializeValidation() {
