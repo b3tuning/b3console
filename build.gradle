@@ -20,7 +20,7 @@ buildscript {
 	dependencies {
 
 		// dependency management:
-		classpath("com.netflix.nebula:gradle-dependency-lock-plugin:9.2.0")
+		classpath("com.netflix.nebula:gradle-dependency-lock-plugin:9.4.0")
 		classpath("com.netflix.nebula:gradle-git-scm-plugin:4.2.0")
 
 		// auto-updating support:
@@ -29,8 +29,8 @@ buildscript {
 }
 
 plugins {
-	id 'org.openjfx.javafxplugin' version '0.0.8'
-	id 'com.github.ben-manes.versions' version '0.28.0'
+	id 'org.openjfx.javafxplugin' version '0.0.9'
+	id 'com.github.ben-manes.versions' version '0.29.0'
 }
 
 ext {
@@ -164,16 +164,12 @@ dependencies {
 	implementation("org.projectlombok:lombok:$lombokVersion")
 	implementation("commons-beanutils:commons-beanutils:$beanUtilsVersion")
 	implementation("commons-io:commons-io:$commons_ioVersion")
-	implementation("org.apache.tika:tika-core:$tikaVersion")
 	implementation("com.vinumeris:crashfx-client:1.2")
 	implementation("com.vinumeris:updatefx:1.5")
 	implementation("org.fxmisc.undo:undofx:$undoFxVersion")
 	implementation("io.reactivex.rxjava3:rxjava:$rxJavaVersion")
-	implementation("com.dooapp.fxform2:core:$fxForm2Version")
-	implementation("org.hibernate:hibernate-validator:5.0.3.Final")
 
 	implementation files("libs/ScenicView.jar")
-	implementation files("libs/FXFormGenerator.jar")
 
 }
 
