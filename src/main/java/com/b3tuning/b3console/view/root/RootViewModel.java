@@ -151,7 +151,7 @@ public class RootViewModel extends BaseViewModel {
 			ViewTuple<DoorConfigView, DoorConfigViewModel> tuple = FluentViewLoader
 					.fxmlView(DoorConfigView.class).load();
 			viewManager.push(DoorConfigView.class.getName(), tuple, childViewPane.get());
-			tuple.getViewModel().doorConfigProperty().set((DoorConfig) config.get());
+			tuple.getViewModel().configProperty().set((DoorConfig) config.get());
 		}
 	}
 

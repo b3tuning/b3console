@@ -5,13 +5,11 @@ import com.b3tuning.b3console.service.module.door.config.MirrorActionConfig;
 import com.b3tuning.b3console.service.module.door.config.MirrorSelectConfig;
 import com.b3tuning.b3console.service.module.door.config.WindowActionConfig;
 import com.b3tuning.b3console.validation.ValidationUtil;
-import com.b3tuning.b3console.view.config.SpecializedConfigViewModel;
+import com.b3tuning.b3console.view.BaseViewModel;
 import de.saxsys.mvvmfx.utils.validation.CompositeValidator;
 import de.saxsys.mvvmfx.utils.validation.ObservableRuleBasedValidator;
 import de.saxsys.mvvmfx.utils.validation.ValidationStatus;
-import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import lombok.extern.slf4j.XSlf4j;
 
@@ -28,12 +26,12 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 @XSlf4j
-public class DoorConfigViewModel extends SpecializedConfigViewModel {
+public class DoorConfigViewModel extends BaseViewModel {
 
-	private final ObjectProperty<DoorConfig> doorConfig = new SimpleObjectProperty<>();
+	private final ObjectProperty<DoorConfig> config = new SimpleObjectProperty<>();
 
-	private final BooleanProperty dirty  = new SimpleBooleanProperty(false);
-	private final BooleanProperty saving = new SimpleBooleanProperty(false);
+//	private final BooleanProperty dirty  = new SimpleBooleanProperty(false);
+//	private final BooleanProperty saving = new SimpleBooleanProperty(false);
 
 	// validation properties
 	private final ObservableRuleBasedValidator mirrorActionDownMaxValidator  = new ObservableRuleBasedValidator();
@@ -64,21 +62,20 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 	private final ObservableRuleBasedValidator driverWindowMaxCurrentValidator    = new ObservableRuleBasedValidator();
 	private final ObservableRuleBasedValidator passengerWindowMaxCurrentValidator = new ObservableRuleBasedValidator();
 
-	private final CompositeValidator formValidator = new CompositeValidator();
+	private final CompositeValidator validator = new CompositeValidator();
 
 	@Inject
 	public DoorConfigViewModel() {
 		log.entry();
 		// injected dependencies
 
-		manage(nonNullValuesOf(doorConfig).subscribe(c -> {
+		manage(nonNullValuesOf(config).subscribe(c -> {
 			log.entry(c);
 			initializeValidation();
 		}));
 	}
 
-	@Override
-	protected void initializeValidation() {
+	private void initializeValidation() {
 		log.entry();
 		getMirrorAction();
 
@@ -111,13 +108,13 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 		ValidationUtil.isNotNull(windowActionUpMaxValidator, getWindowAction().upMaxProperty(), "WinUpMax");
 		ValidationUtil.isNotNull(windowActionUpMinValidator, getWindowAction().upMinProperty(), "WinUpMin");
 
-		ValidationUtil.isNotNull(driverWindowMaxCurrentValidator, doorConfig.get().driverWindowMaxCurrentProperty(),
+		ValidationUtil.isNotNull(driverWindowMaxCurrentValidator, config.get().driverWindowMaxCurrentProperty(),
 		                         "DriverCurrentMax");
 		ValidationUtil
-				.isNotNull(passengerWindowMaxCurrentValidator, doorConfig.get().passengerWindowMaxCurrentProperty(),
+				.isNotNull(passengerWindowMaxCurrentValidator, config.get().passengerWindowMaxCurrentProperty(),
 				           "PassCurrentMax");
 
-		formValidator
+		validator
 				.addValidators(mirrorActionDownMaxValidator, mirrorActionDownMinValidator, mirrorActionLeftMaxValidator,
 				               mirrorActionLeftMinValidator, mirrorActionRightMaxValidator,
 				               mirrorActionRightMinValidator, mirrorActionUpMaxValidator, mirrorActionUpMinValidator,
@@ -131,20 +128,20 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 				               passengerWindowMaxCurrentValidator);
 	}
 
-	public ObjectProperty<DoorConfig> doorConfigProperty() {
-		return doorConfig;
+	public ObjectProperty<DoorConfig> configProperty() {
+		return config;
 	}
 
 	public MirrorActionConfig getMirrorAction() {
-		return doorConfig.get().getMirrorAction();
+		return config.get().getMirrorAction();
 	}
 
 	public MirrorSelectConfig getMirrorSelect() {
-		return doorConfig.get().getMirrorSelect();
+		return config.get().getMirrorSelect();
 	}
 
 	public WindowActionConfig getWindowAction() {
-		return doorConfig.get().getWindowAction();
+		return config.get().getWindowAction();
 	}
 
 	public ValidationStatus mirrorActionDownMaxValidation() {
@@ -247,6 +244,6 @@ public class DoorConfigViewModel extends SpecializedConfigViewModel {
 	public void dispose() {
 		log.entry();
 		super.dispose();
-		doorConfig.unbind();
+		config.unbind();
 	}
 }

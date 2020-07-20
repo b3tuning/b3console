@@ -4,6 +4,8 @@ import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.service.edit.EditManager;
 import com.b3tuning.b3console.service.filemanager.FileManager;
+import com.b3tuning.b3console.view.config.CanBusConfigView;
+import com.b3tuning.b3console.view.config.CanBusConfigViewModel;
 import com.b3tuning.b3console.view.config.ConfigMenuView;
 import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
 import com.b3tuning.b3console.view.config.door.DoorConfigView;
@@ -166,6 +168,15 @@ public abstract class CommonDaggerMvvmfxBridge implements DaggerMvvmfxBridge {
 
 		if (DoorConfigViewModel.class.equals(type)) {
 			return (T) getApplicationComponents().provideDoorConfigViewModel();
+		}
+
+
+		if (CanBusConfigView.class.equals(type)) {
+			return (T) getApplicationComponents().provideCanBusConfigView();
+		}
+
+		if (CanBusConfigViewModel.class.equals(type)) {
+			return (T) getApplicationComponents().provideCanBusConfigViewModel();
 		}
 
 		if (ShifterConfigView.class.equals(type)) {

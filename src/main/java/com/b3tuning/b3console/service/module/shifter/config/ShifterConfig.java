@@ -130,19 +130,19 @@ public class ShifterConfig extends EditableEntity implements ConfigBase {
 	/// JavaFX properties
 	/////////////////////////////////////////////////////////////////////////////
 
-	ObjectProperty<CanBusConfig> canBusProperty() {
+	public ObjectProperty<CanBusConfig> canBusProperty() {
 		return canBus;
 	}
 
-	ObjectProperty<IndicatorConfig> indicatorProperty() {
+	public ObjectProperty<IndicatorConfig> indicatorProperty() {
 		return indicator;
 	}
 
-	ObjectProperty<MelexisConfig> melexisProperty() {
+	public ObjectProperty<MelexisConfig> melexisProperty() {
 		return melexis;
 	}
 
-	ListProperty<ShifterPositionConfig> shifterPositionsProperty() {
+	public ListProperty<ShifterPositionConfig> shifterPositionsProperty() {
 		return shifterPositions;
 	}
 

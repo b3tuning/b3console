@@ -22,16 +22,16 @@ import java.io.Serializable;
 public class CanBusResource implements Serializable {
 	private static final long serialVersionUID = 7773515125415957431L;
 
-	private Long    addrTX;
-	private Long    bootRX;
-	private Long    bootTX;
+	private Integer addrTX;
+	private Integer bootRX;
+	private Integer bootTX;
 	private Integer intvlTX;
-	private Long    mask0;
-	private Long    filter0_0;
-	private Long    filter0_1;
-	private Long    mask1;
-	private Long    filter1_0;
-	private Long    filter1_1;
-	private Long    filter1_2;
-	private Long    filter1_3;
+	private Integer mask0;
+	private Integer filter0_0;
+	private Integer filter0_1;
+	private Integer mask1;
+	private Integer filter1_0;
+	private Integer filter1_1;
+	private Integer filter1_2;
+	private Integer filter1_3;
 }

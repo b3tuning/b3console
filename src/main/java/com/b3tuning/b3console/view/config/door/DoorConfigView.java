@@ -124,7 +124,7 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 		setFormatter(dMaxCurrent.getEditor());
 		setFormatter(pMaxCurrent.getEditor());
 
-		manage(nonNullValuesOf(viewModel.doorConfigProperty()).subscribe(c -> {
+		manage(nonNullValuesOf(viewModel.configProperty()).subscribe(c -> {
 			log.entry();
 
 			manage(nonNullValuesOf(c.mirrorSelectProperty()).subscribe(ms -> {
@@ -161,7 +161,7 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 			dMaxCurrent.getEditor().textProperty().bindBidirectional(c.driverWindowMaxCurrentProperty(), intToString);
 			pMaxCurrent.getEditor().textProperty().bindBidirectional(c.passengerWindowMaxCurrentProperty(), intToString);
 		}));
-//		initializeValidation();
+		initializeValidation();
 	}
 
 	private void setFormatter(TextField textField) {

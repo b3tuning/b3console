@@ -1,14 +1,16 @@
 package com.b3tuning.b3console.view.config.shifter;
 
+import com.b3tuning.b3console.service.module.shifter.config.ShifterConfig;
 import com.b3tuning.b3console.view.BaseViewModel;
-import com.b3tuning.b3console.view.EditableViewModel;
-import com.b3tuning.b3console.view.Refreshable;
-import com.b3tuning.b3console.view.utils.AlertUtils;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
+import de.saxsys.mvvmfx.utils.validation.CompositeValidator;
+import de.saxsys.mvvmfx.utils.validation.ObservableRuleBasedValidator;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
+
+import static org.reactfx.EventStreams.nonNullValuesOf;
 
 /*
  *  Created on:  May 04, 2020
@@ -19,41 +21,36 @@ import javax.inject.Inject;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 @XSlf4j
-public class ShifterConfigViewModel extends BaseViewModel implements EditableViewModel, Refreshable {
+public class ShifterConfigViewModel extends BaseViewModel {
 
-	private final BooleanProperty dirty = new SimpleBooleanProperty(false);
+	private final ObjectProperty<ShifterConfig> config = new SimpleObjectProperty<>();
+
+	// validation properties
+	private final ObservableRuleBasedValidator mirrorActionDownMaxValidator = new ObservableRuleBasedValidator();
+
+	private final CompositeValidator formValidator = new CompositeValidator();
 
 	@Inject
 	public ShifterConfigViewModel() {
 		log.entry();
+		manage(nonNullValuesOf(config).subscribe(c -> {
+			log.entry(c);
+			initializeValidation();
+		}));
+	}
+
+	private void initializeValidation() {
+		log.entry();
+	}
+
+	public ObjectProperty<ShifterConfig> configProperty() {
+		return config;
 	}
 
 	@Override
-	public void refresh() {
+	public void dispose() {
 		log.entry();
-		if (dirty.get()) {
-			AlertUtils.warn(saveChangesMessage());
-//		} else {
-////			config.set(moduleService.getShifterConfig());
-//			originalConfig = getShifterConfigFromBase().clone();
-//			getShifterConfigFromBase().resetTrackingChanges();
-//			dirty.set(false);
-		}
-	}
-
-	@Override public BooleanProperty dirtyProperty() {
-		return null;
-	}
-
-	@Override public boolean isDirty() {
-		return false;
-	}
-
-	@Override public String saveChangesMessage() {
-		return null;
-	}
-
-	@Override public void navigationCancelledAction() {
-
+		super.dispose();
+		config.unbind();
 	}
 }

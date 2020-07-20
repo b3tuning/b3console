@@ -18,18 +18,18 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 public class CanBusConfig extends EditableEntity {
 
-	private final ObjectProperty<Long>    addrTX;    // unsigned long
-	private final ObjectProperty<Long>    bootRX;    // unsigned long
-	private final ObjectProperty<Long>    bootTX;    // unsigned long
+	private final ObjectProperty<Integer> addrTX;    // unsigned long
+	private final ObjectProperty<Integer> bootRX;    // unsigned long
+	private final ObjectProperty<Integer> bootTX;    // unsigned long
 	private final ObjectProperty<Integer> intvlTX;   // uint_8t - needs mask 0xFF?
-	private final ObjectProperty<Long>    mask0;     // unsigned long
-	private final ObjectProperty<Long>    filter0_0; // unsigned long
-	private final ObjectProperty<Long>    filter0_1; // unsigned long
-	private final ObjectProperty<Long>    mask1;     // unsigned long
-	private final ObjectProperty<Long>    filter1_0; // unsigned long
-	private final ObjectProperty<Long>    filter1_1; // unsigned long
-	private final ObjectProperty<Long>    filter1_2; // unsigned long
-	private final ObjectProperty<Long>    filter1_3; // unsigned long
+	private final ObjectProperty<Integer> mask0;     // unsigned long
+	private final ObjectProperty<Integer> filter0_0; // unsigned long
+	private final ObjectProperty<Integer> filter0_1; // unsigned long
+	private final ObjectProperty<Integer> mask1;     // unsigned long
+	private final ObjectProperty<Integer> filter1_0; // unsigned long
+	private final ObjectProperty<Integer> filter1_1; // unsigned long
+	private final ObjectProperty<Integer> filter1_2; // unsigned long
+	private final ObjectProperty<Integer> filter1_3; // unsigned long
 
 	public CanBusConfig() {
 		this.addrTX    = new SimpleObjectProperty<>();
@@ -58,9 +58,10 @@ public class CanBusConfig extends EditableEntity {
 		                      filter1_3);
 	}
 
-	public CanBusConfig(Long addrTX, Long bootRX, Long bootTX, Integer intvlTX, Long mask0, Long filter0_0,
-	                    Long filter0_1, Long mask1, Long filter1_0, Long filter1_1, Long filter1_2,
-	                    Long filter1_3) {
+	public CanBusConfig(Integer addrTX, Integer bootRX, Integer bootTX, Integer intvlTX, Integer mask0,
+	                    Integer filter0_0,
+	                    Integer filter0_1, Integer mask1, Integer filter1_0, Integer filter1_1, Integer filter1_2,
+	                    Integer filter1_3) {
 		this();
 		this.addrTX.set(addrTX);
 		this.bootRX.set(bootRX);
@@ -80,15 +81,15 @@ public class CanBusConfig extends EditableEntity {
 	/// JavaFX getters
 	/////////////////////////////////////////////////////////////////////////////
 
-	public Long getAddrTX() {
+	public Integer getAddrTX() {
 		return addrTX.get();
 	}
 
-	public Long getBootRX() {
+	public Integer getBootRX() {
 		return bootRX.get();
 	}
 
-	public Long getBootTX() {
+	public Integer getBootTX() {
 		return bootTX.get();
 	}
 
@@ -96,35 +97,35 @@ public class CanBusConfig extends EditableEntity {
 		return intvlTX.get();
 	}
 
-	public Long getMask0() {
+	public Integer getMask0() {
 		return mask0.get();
 	}
 
-	public Long getFilter0_0() {
+	public Integer getFilter0_0() {
 		return filter0_0.get();
 	}
 
-	public Long getFilter0_1() {
+	public Integer getFilter0_1() {
 		return filter0_1.get();
 	}
 
-	public Long getMask1() {
+	public Integer getMask1() {
 		return mask1.get();
 	}
 
-	public Long getFilter1_0() {
+	public Integer getFilter1_0() {
 		return filter1_0.get();
 	}
 
-	public Long getFilter1_1() {
+	public Integer getFilter1_1() {
 		return filter1_1.get();
 	}
 
-	public Long getFilter1_2() {
+	public Integer getFilter1_2() {
 		return filter1_2.get();
 	}
 
-	public Long getFilter1_3() {
+	public Integer getFilter1_3() {
 		return filter1_3.get();
 	}
 
@@ -132,15 +133,15 @@ public class CanBusConfig extends EditableEntity {
 	/// JavaFX setters
 	/////////////////////////////////////////////////////////////////////////////
 
-	public void setAddrTX(Long value) {
+	public void setAddrTX(Integer value) {
 		this.addrTX.set(value);
 	}
 
-	public void setBootRX(Long value) {
+	public void setBootRX(Integer value) {
 		this.bootRX.set(value);
 	}
 
-	public void setBootTX(Long value) {
+	public void setBootTX(Integer value) {
 		this.bootTX.set(value);
 	}
 
@@ -148,35 +149,35 @@ public class CanBusConfig extends EditableEntity {
 		this.intvlTX.set(value);
 	}
 
-	public void setMask0(Long value) {
+	public void setMask0(Integer value) {
 		this.mask0.set(value);
 	}
 
-	public void setFilter0_0(Long value) {
+	public void setFilter0_0(Integer value) {
 		this.filter0_0.set(value);
 	}
 
-	public void setFilter0_1(Long value) {
+	public void setFilter0_1(Integer value) {
 		this.filter0_1.set(value);
 	}
 
-	public void setMask1(Long value) {
+	public void setMask1(Integer value) {
 		this.mask1.set(value);
 	}
 
-	public void setFilter1_0(Long value) {
+	public void setFilter1_0(Integer value) {
 		this.filter1_0.set(value);
 	}
 
-	public void setFilter1_1(Long value) {
+	public void setFilter1_1(Integer value) {
 		this.filter1_1.set(value);
 	}
 
-	public void setFilter1_2(Long value) {
+	public void setFilter1_2(Integer value) {
 		this.filter1_2.set(value);
 	}
 
-	public void setFilter1_3(Long value) {
+	public void setFilter1_3(Integer value) {
 		this.filter1_3.set(value);
 	}
 
@@ -184,15 +185,15 @@ public class CanBusConfig extends EditableEntity {
 	/// JavaFX properties
 	/////////////////////////////////////////////////////////////////////////////
 
-	public ObjectProperty<Long> addrTXProperty() {
+	public ObjectProperty<Integer> addrTXProperty() {
 		return this.addrTX;
 	}
 
-	public ObjectProperty<Long> bootRXProperty() {
+	public ObjectProperty<Integer> bootRXProperty() {
 		return this.bootRX;
 	}
 
-	public ObjectProperty<Long> bootTXProperty() {
+	public ObjectProperty<Integer> bootTXProperty() {
 		return this.bootTX;
 	}
 
@@ -200,35 +201,35 @@ public class CanBusConfig extends EditableEntity {
 		return this.intvlTX;
 	}
 
-	public ObjectProperty<Long> mask0Property() {
+	public ObjectProperty<Integer> mask0Property() {
 		return this.mask0;
 	}
 
-	public ObjectProperty<Long> filter0_0Property() {
+	public ObjectProperty<Integer> filter0_0Property() {
 		return this.filter0_0;
 	}
 
-	public ObjectProperty<Long> filter0_1Property() {
+	public ObjectProperty<Integer> filter0_1Property() {
 		return this.filter0_1;
 	}
 
-	public ObjectProperty<Long> mask1Property() {
+	public ObjectProperty<Integer> mask1Property() {
 		return this.mask1;
 	}
 
-	public ObjectProperty<Long> filter1_0Property() {
+	public ObjectProperty<Integer> filter1_0Property() {
 		return this.filter1_0;
 	}
 
-	public ObjectProperty<Long> filter1_1Property() {
+	public ObjectProperty<Integer> filter1_1Property() {
 		return this.filter1_1;
 	}
 
-	public ObjectProperty<Long> filter1_2Property() {
+	public ObjectProperty<Integer> filter1_2Property() {
 		return this.filter1_2;
 	}
 
-	public ObjectProperty<Long> filter1_3Property() {
+	public ObjectProperty<Integer> filter1_3Property() {
 		return this.filter1_3;
 	}
 }

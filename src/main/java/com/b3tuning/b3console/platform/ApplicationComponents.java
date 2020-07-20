@@ -4,6 +4,8 @@ import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.service.edit.EditManager;
 import com.b3tuning.b3console.service.filemanager.FileManager;
+import com.b3tuning.b3console.view.config.CanBusConfigView;
+import com.b3tuning.b3console.view.config.CanBusConfigViewModel;
 import com.b3tuning.b3console.view.config.ConfigMenuView;
 import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
 import com.b3tuning.b3console.view.config.door.DoorConfigView;
@@ -161,6 +163,14 @@ public interface ApplicationComponents {
 	DoorConfigViewModel provideDoorConfigViewModel();
 
 	void inject(ShifterConfigView view);
+
+	void inject(CanBusConfigView view);
+
+	CanBusConfigView provideCanBusConfigView();
+
+	void inject(CanBusConfigViewModel viewModel);
+
+	CanBusConfigViewModel provideCanBusConfigViewModel();
 
 	ShifterConfigView provideShifterConfigView();
 
