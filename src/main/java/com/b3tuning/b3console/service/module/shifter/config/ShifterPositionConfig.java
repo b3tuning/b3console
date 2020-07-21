@@ -24,10 +24,10 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 public class ShifterPositionConfig extends EditableEntity {
 
-	private final ObjectProperty<Integer> x1; // int16_t - needs mask?
-	private final ObjectProperty<Integer> x2; // int16_t - needs mask?
-	private final ObjectProperty<Integer> y1; // int16_t - needs mask?
-	private final ObjectProperty<Integer> y2; // int16_t - needs mask?
+	private final ObjectProperty<Integer> x1;
+	private final ObjectProperty<Integer> x2;
+	private final ObjectProperty<Integer> y1;
+	private final ObjectProperty<Integer> y2;
 	private final ObjectProperty<Integer> enumVal;
 
 	public ShifterPositionConfig() {
@@ -37,6 +37,11 @@ public class ShifterPositionConfig extends EditableEntity {
 		this.y2      = new SimpleObjectProperty<>();
 		this.enumVal = new SimpleObjectProperty<>();
 		super.trackProperties(x1, y1, x2, y2, enumVal);
+	}
+
+	public ShifterPositionConfig(Integer enumValue) {
+		this();
+		this.enumVal.set(enumValue);
 	}
 
 	public ShifterPositionConfig(Integer x1Value, Integer y1Value, Integer x2Value, Integer y2Value, Integer enumValue) {
@@ -90,10 +95,6 @@ public class ShifterPositionConfig extends EditableEntity {
 
 	public void setY2(Integer value) {
 		this.y2.set(value);
-	}
-
-	public void setEnumVal(Integer value) {
-		this.enumVal.set(value);
 	}
 
 	/////////////////////////////////////////////////////////////////////////////

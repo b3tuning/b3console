@@ -2,7 +2,6 @@ package com.b3tuning.b3console.view.config.trans;
 
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.config.CanBusConfigView;
-import com.b3tuning.b3console.view.config.shifter.ShifterConfigViewModel;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
 import javafx.fxml.FXML;

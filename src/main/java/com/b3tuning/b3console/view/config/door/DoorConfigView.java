@@ -161,6 +161,7 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 			dMaxCurrent.getEditor().textProperty().bindBidirectional(c.driverWindowMaxCurrentProperty(), intToString);
 			pMaxCurrent.getEditor().textProperty().bindBidirectional(c.passengerWindowMaxCurrentProperty(), intToString);
 		}));
+
 		initializeValidation();
 	}
 
@@ -175,7 +176,9 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 
 	private void initializeValidation() {
 		log.entry();
+
 		visualizer.setDecoration(new StyleClassValidationDecoration());
+
 		visualizer.initVisualization(viewModel.mirrorActionDownMaxValidation(), maDownMax, true);
 		visualizer.initVisualization(viewModel.mirrorActionDownMinValidation(), maDownMin, true);
 		visualizer.initVisualization(viewModel.mirrorActionLeftMaxValidation(), maLeftMax, true);
