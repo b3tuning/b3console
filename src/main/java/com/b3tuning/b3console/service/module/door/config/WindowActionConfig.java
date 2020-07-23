@@ -49,26 +49,26 @@ public class WindowActionConfig extends EditableEntity {
 	public WindowActionConfig(Integer autoDownMax, Integer autoDownMin, Integer autoUpMax, Integer autoUpMin,
 	                          Integer downMax, Integer downMin, Integer upMax, Integer upMin) {
 		this();
-		this.autoDownMax.set(autoDownMax);
-		this.autoDownMin.set(autoDownMin);
-		this.autoUpMax.set(autoUpMax);
-		this.autoUpMin.set(autoUpMin);
-		this.downMax.set(downMax);
-		this.downMin.set(downMin);
-		this.upMax.set(upMax);
-		this.upMin.set(upMin);
+		setAutoDownMax(autoDownMax);
+		setAutoDownMin(autoDownMin);
+		setAutoUpMax(autoUpMax);
+		setAutoUpMin(autoUpMin);
+		setDownMax(downMax);
+		setDownMin(downMin);
+		setUpMax(upMax);
+		setUpMin(upMin);
 	}
 
-	public WindowActionConfig clone() {
-		return new WindowActionConfig(this.getAutoDownMax(),
-		                              this.getAutoDownMin(),
-		                              this.getAutoUpMax(),
-		                              this.getAutoUpMin(),
-		                              this.getDownMax(),
-		                              this.getDownMin(),
-		                              this.getUpMax(),
-		                              this.getUpMin());
-	}
+//	public WindowActionConfig clone() {
+//		return new WindowActionConfig(this.getAutoDownMax(),
+//		                              this.getAutoDownMin(),
+//		                              this.getAutoUpMax(),
+//		                              this.getAutoUpMin(),
+//		                              this.getDownMax(),
+//		                              this.getDownMin(),
+//		                              this.getUpMax(),
+//		                              this.getUpMin());
+//	}
 
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX getters

@@ -57,18 +57,18 @@ public class TransConfig extends EditableEntity implements ConfigBase {
 	public TransConfig(CanBusConfig canBusConfig, Ems22AConfig ems22A, Vnh5019Config vnh5019,
 	                   PidConfig pid) {
 		this();
-		this.canBus.set(canBusConfig);
-		this.ems22A.set(ems22A);
-		this.vnh5019.set(vnh5019);
-		this.pid.set(pid);
+		setCanBus(canBusConfig);
+		setEms22A(ems22A);
+		setVnh5019(vnh5019);
+		setPid(pid);
 	}
 
-	public TransConfig clone() {
-		return new TransConfig(this.getCanBus(),
-		                       this.getEms22A(),
-		                       this.getVnh5019(),
-		                       this.getPid());
-	}
+//	public TransConfig clone() {
+//		return new TransConfig(this.getCanBus(),
+//		                       this.getEms22A(),
+//		                       this.getVnh5019(),
+//		                       this.getPid());
+//	}
 
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX getters

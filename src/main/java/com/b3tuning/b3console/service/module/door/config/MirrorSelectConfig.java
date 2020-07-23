@@ -43,22 +43,22 @@ public class MirrorSelectConfig extends EditableEntity {
 	public MirrorSelectConfig(Integer driverMax, Integer driverMin, Integer foldMax, Integer foldMin,
 	                          Integer passengerMax, Integer passengerMin) {
 		this();
-		this.driverMax.set(driverMax);
-		this.driverMin.set(driverMin);
-		this.foldMax.set(foldMax);
-		this.foldMin.set(foldMin);
-		this.passengerMax.set(passengerMax);
-		this.passengerMin.set(passengerMin);
+		setDriverMax(driverMax);
+		setDriverMin(driverMin);
+		setFoldMax(foldMax);
+		setFoldMin(foldMin);
+		setPassengerMax(passengerMax);
+		setPassengerMin(passengerMin);
 	}
 
-	public MirrorSelectConfig clone() {
-		return new MirrorSelectConfig(this.getDriverMax(),
-		                              this.getDriverMin(),
-		                              this.getFoldMax(),
-		                              this.getFoldMin(),
-		                              this.getPassengerMax(),
-		                              this.getPassengerMin());
-	}
+//	public MirrorSelectConfig clone() {
+//		return new MirrorSelectConfig(this.getDriverMax(),
+//		                              this.getDriverMin(),
+//		                              this.getFoldMax(),
+//		                              this.getFoldMin(),
+//		                              this.getPassengerMax(),
+//		                              this.getPassengerMin());
+//	}
 
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX getters

@@ -32,13 +32,13 @@ public class Ems22AConfig extends EditableEntity {
 
 	public Ems22AConfig(Integer max, Integer min) {
 		this();
-		this.encMax.set(max);
-		this.encMin.set(min);
+		setEncMax(max);
+		setEncMin(min);
 	}
 
-	public Ems22AConfig clone() {
-		return new Ems22AConfig(this.getEncMax(), this.getEncMin());
-	}
+//	public Ems22AConfig clone() {
+//		return new Ems22AConfig(this.getEncMax(), this.getEncMin());
+//	}
 
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX getters

@@ -33,8 +33,12 @@ public class MelexisConfig extends EditableEntity {
 
 	public MelexisConfig(Integer rangeValue) {
 		this();
-		this.range.set(rangeValue);
+		setRange(rangeValue);
 	}
+
+//	public MelexisConfig clone() {
+//		return new MelexisConfig(getRange());
+//	}
 
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX getters

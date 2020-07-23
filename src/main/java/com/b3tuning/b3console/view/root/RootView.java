@@ -28,7 +28,7 @@ import static org.reactfx.EventStreams.valuesOf;
 @XSlf4j
 public class RootView extends BaseView<RootViewModel> {
 
-	@FXML AnchorPane leftPane;
+//	@FXML AnchorPane leftPane;
 	@FXML StackPane  centerPane;
 	@FXML AnchorPane topPane;
 	@FXML SplitPane  centerSplitPane;
@@ -51,9 +51,11 @@ public class RootView extends BaseView<RootViewModel> {
 
 		viewModel.setChildViewPane(centerPane);
 
-		leftPane.visibleProperty().setValue(true);
-		leftPane.managedProperty().bind(leftPane.visibleProperty());
-		topPane.visibleProperty().bind(leftPane.visibleProperty());
+//		leftPane.visibleProperty().setValue(true);
+//		leftPane.managedProperty().bind(leftPane.visibleProperty());
+//		topPane.visibleProperty().bind(leftPane.visibleProperty());
+//		topPane.managedProperty().bind(topPane.visibleProperty());
+		topPane.visibleProperty().setValue(true);
 		topPane.managedProperty().bind(topPane.visibleProperty());
 
 		loadMenuView();

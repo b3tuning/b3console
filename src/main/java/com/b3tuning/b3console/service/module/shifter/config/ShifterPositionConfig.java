@@ -44,14 +44,22 @@ public class ShifterPositionConfig extends EditableEntity {
 		this.enumVal.set(enumValue);
 	}
 
-	public ShifterPositionConfig(Integer x1Value, Integer y1Value, Integer x2Value, Integer y2Value, Integer enumValue) {
-		this();
-		this.x1.set(x1Value);
-		this.y1.set(y1Value);
-		this.x2.set(x2Value);
-		this.y2.set(y2Value);
-		this.enumVal.set(enumValue);
+	public ShifterPositionConfig(Integer x1Value, Integer y1Value, Integer x2Value, Integer y2Value,
+	                             Integer enumValue) {
+		this(enumValue);
+		setX1(x1Value);
+		setY1(y1Value);
+		setX2(x2Value);
+		setY2(y2Value);
 	}
+
+//	public ShifterPositionConfig clone() {
+//		return new ShifterPositionConfig(getX1(),
+//		                                 getY1(),
+//		                                 getX2(),
+//		                                 getY2(),
+//		                                 getEnumVal());
+//	}
 
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX getters

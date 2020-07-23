@@ -37,10 +37,16 @@ public class IndicatorConfig extends EditableEntity {
 
 	public IndicatorConfig(Integer brightnessValue, Integer colorValue, Integer waitValue) {
 		this();
-		this.brightness.set(brightnessValue);
-		this.color.set(colorValue);
-		this.wait.set(waitValue);
+		setBrightness(brightnessValue);
+		setColor(colorValue);
+		setWait(waitValue);
 	}
+
+//	public IndicatorConfig clone() {
+//		return new IndicatorConfig(this.getBrightness(),
+//		                           this.getColor(),
+//		                           this.getWait());
+//	}
 
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX getters

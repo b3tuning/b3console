@@ -62,20 +62,20 @@ public class DoorConfig extends EditableEntity implements ConfigBase {
 	public DoorConfig(MirrorActionConfig mirrorAction, MirrorSelectConfig mirrorSelect,
 	                  WindowActionConfig windowAction, Integer driverMax, Integer passMax) {
 		this();
-		this.mirrorAction.set(mirrorAction);
-		this.mirrorSelect.set(mirrorSelect);
-		this.windowAction.set(windowAction);
-		this.driverWindowMaxCurrent.set(driverMax);
-		this.passengerWindowMaxCurrent.set(passMax);
+		setMirrorAction(mirrorAction);
+		setMirrorSelect(mirrorSelect);
+		setWindowAction(windowAction);
+		setDriverWindowMaxCurrent(driverMax);
+		setPassengerWindowMaxCurrent(passMax);
 	}
 
-	public DoorConfig clone() {
-		return new DoorConfig(this.getMirrorAction(),
-		                      this.getMirrorSelect(),
-		                      this.getWindowAction(),
-		                      this.getDriverWindowMaxCurrent(),
-		                      this.getPassengerWindowMaxCurrent());
-	}
+//	public DoorConfig clone() {
+//		return new DoorConfig(this.getMirrorAction(),
+//		                      this.getMirrorSelect(),
+//		                      this.getWindowAction(),
+//		                      this.getDriverWindowMaxCurrent(),
+//		                      this.getPassengerWindowMaxCurrent());
+//	}
 
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX getters

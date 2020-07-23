@@ -18,18 +18,18 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 public class CanBusConfig extends EditableEntity {
 
-	private final ObjectProperty<Integer> addrTX;    // unsigned long
-	private final ObjectProperty<Integer> bootRX;    // unsigned long
-	private final ObjectProperty<Integer> bootTX;    // unsigned long
-	private final ObjectProperty<Integer> intvlTX;   // uint_8t - needs mask 0xFF?
-	private final ObjectProperty<Integer> mask0;     // unsigned long
-	private final ObjectProperty<Integer> filter0_0; // unsigned long
-	private final ObjectProperty<Integer> filter0_1; // unsigned long
-	private final ObjectProperty<Integer> mask1;     // unsigned long
-	private final ObjectProperty<Integer> filter1_0; // unsigned long
-	private final ObjectProperty<Integer> filter1_1; // unsigned long
-	private final ObjectProperty<Integer> filter1_2; // unsigned long
-	private final ObjectProperty<Integer> filter1_3; // unsigned long
+	private final ObjectProperty<Integer> addrTX;
+	private final ObjectProperty<Integer> bootRX;
+	private final ObjectProperty<Integer> bootTX;
+	private final ObjectProperty<Integer> intvlTX;
+	private final ObjectProperty<Integer> mask0;
+	private final ObjectProperty<Integer> filter0_0;
+	private final ObjectProperty<Integer> filter0_1;
+	private final ObjectProperty<Integer> mask1;
+	private final ObjectProperty<Integer> filter1_0;
+	private final ObjectProperty<Integer> filter1_1;
+	private final ObjectProperty<Integer> filter1_2;
+	private final ObjectProperty<Integer> filter1_3;
 
 	public CanBusConfig() {
 		this.addrTX    = new SimpleObjectProperty<>();
@@ -63,19 +63,34 @@ public class CanBusConfig extends EditableEntity {
 	                    Integer filter0_1, Integer mask1, Integer filter1_0, Integer filter1_1, Integer filter1_2,
 	                    Integer filter1_3) {
 		this();
-		this.addrTX.set(addrTX);
-		this.bootRX.set(bootRX);
-		this.bootTX.set(bootTX);
-		this.intvlTX.set(intvlTX);
-		this.mask0.set(mask0);
-		this.filter0_0.set(filter0_0);
-		this.filter0_1.set(filter0_1);
-		this.mask1.set(mask1);
-		this.filter1_0.set(filter1_0);
-		this.filter1_1.set(filter1_1);
-		this.filter1_2.set(filter1_2);
-		this.filter1_3.set(filter1_3);
+		setAddrTX(addrTX);
+		setBootRX(bootRX);
+		setBootTX(bootTX);
+		setIntvlTX(intvlTX);
+		setMask0(mask0);
+		setFilter0_0(filter0_0);
+		setFilter0_1(filter0_1);
+		setMask1(mask1);
+		setFilter1_0(filter1_0);
+		setFilter1_1(filter1_1);
+		setFilter1_2(filter1_2);
+		setFilter1_3(filter1_3);
 	}
+
+//	public CanBusConfig clone() {
+//		return new CanBusConfig(this.addrTX.get(),
+//		                        this.bootRX.get(),
+//		                        this.bootTX.get(),
+//		                        this.intvlTX.get(),
+//		                        this.mask0.get(),
+//		                        this.filter0_0.get(),
+//		                        this.filter0_1.get(),
+//		                        this.mask1.get(),
+//		                        this.filter1_0.get(),
+//		                        this.filter1_1.get(),
+//		                        this.filter1_2.get(),
+//		                        this.filter1_3.get());
+//	}
 
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX getters

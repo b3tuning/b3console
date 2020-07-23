@@ -5,6 +5,7 @@ import com.b3tuning.b3console.view.config.CanBusConfigView;
 import com.b3tuning.b3console.view.utils.IntegerTextFormatter;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Spinner;
@@ -103,10 +104,8 @@ public class ShifterConfigView extends BaseView<ShifterConfigViewModel> {
 			log.entry();
 			c.canBusProperty().bindBidirectional(canBusConfigController.getViewModel().configProperty());
 
-			brightness.getEditor().textProperty()
-			          .bindBidirectional(c.indicatorProperty().get().brightnessProperty(), intToString);
-			color.getEditor().textProperty()
-			     .bindBidirectional(c.indicatorProperty().get().colorProperty(), intToString);
+			brightness.getEditor().textProperty().bindBidirectional(c.indicatorProperty().get().brightnessProperty(), intToString);
+			color.getEditor().textProperty().bindBidirectional(c.indicatorProperty().get().colorProperty(), intToString);
 			delay.getEditor().textProperty().bindBidirectional(c.indicatorProperty().get().waitProperty(), intToString);
 		}));
 
@@ -120,6 +119,11 @@ public class ShifterConfigView extends BaseView<ShifterConfigViewModel> {
 	private void initSpinner(Spinner<Integer> spinner) {
 		spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1023));
 		spinner.getEditor().setAlignment(Pos.BASELINE_RIGHT);
+		spinner.focusedProperty().addListener((obs, wasFocused, isFocused) -> {
+			if (isFocused) {
+				Platform.runLater(spinner.getEditor()::selectAll);
+			}
+		});
 	}
 
 	private void initializeValidation() {

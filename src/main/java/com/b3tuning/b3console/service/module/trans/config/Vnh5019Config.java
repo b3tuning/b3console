@@ -30,8 +30,11 @@ public class Vnh5019Config extends EditableEntity {
 
 	public Vnh5019Config(Integer max) {
 		this();
-		this.maxCurrent.set(max);
+		setMaxCurrent(max);
 	}
+//	public Vnh5019Config clone() {
+//		return new Vnh5019Config(this.maxCurrent.get());
+//	}
 
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX getters

@@ -59,16 +59,16 @@ public class MirrorActionConfig extends EditableEntity {
 		                      this.upMin);
 	}
 
-	public MirrorActionConfig clone() {
-		return new MirrorActionConfig(this.getDownMax(),
-		                              this.getDownMin(),
-		                              this.getLeftMax(),
-		                              this.getLeftMin(),
-		                              this.getRightMax(),
-		                              this.getRightMin(),
-		                              this.getUpMax(),
-		                              this.getUpMin());
-	}
+//	public MirrorActionConfig clone() {
+//		return new MirrorActionConfig(this.getDownMax(),
+//		                              this.getDownMin(),
+//		                              this.getLeftMax(),
+//		                              this.getLeftMin(),
+//		                              this.getRightMax(),
+//		                              this.getRightMin(),
+//		                              this.getUpMax(),
+//		                              this.getUpMin());
+//	}
 
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX getters

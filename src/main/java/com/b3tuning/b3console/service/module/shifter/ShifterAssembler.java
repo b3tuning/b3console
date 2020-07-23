@@ -45,9 +45,9 @@ public class ShifterAssembler extends ConfigBaseAssembler {
 	}
 
 	public static ListProperty<ShifterPositionConfig> assembleList(List<ShifterPositionResource> resources) {
-		return new SimpleListProperty<>(
-				FXCollections.observableArrayList(resources.stream().map(ShifterAssembler::assemble).collect(
-						Collectors.toList())));
+		return new SimpleListProperty<>(FXCollections.observableArrayList(resources.stream()
+		                                                                           .map(ShifterAssembler::assemble)
+		                                                                           .collect(Collectors.toList())));
 	}
 
 	public static ShifterPositionConfig assemble(ShifterPositionResource resource) {

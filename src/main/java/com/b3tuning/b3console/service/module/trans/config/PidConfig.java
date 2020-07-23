@@ -40,13 +40,22 @@ public class PidConfig extends EditableEntity {
 
 	public PidConfig(Double aKd, Double aKi, Double aKp, Double cKd, Double cKi, Double cKp) {
 		this();
-		this.aggKd.set(aKd);
-		this.aggKi.set(aKi);
-		this.aggKp.set(aKp);
-		this.consKd.set(cKd);
-		this.consKi.set(cKi);
-		this.consKp.set(cKp);
+		setAggKd(aKd);
+		setAggKi(aKi);
+		setAggKp(aKp);
+		setConsKd(cKd);
+		setConsKi(cKi);
+		setConsKp(cKp);
 	}
+
+//	public PidConfig clone() {
+//		return new PidConfig(this.aggKd.get(),
+//		                     this.aggKi.get(),
+//		                     this.aggKp.get(),
+//		                     this.consKd.get(),
+//		                     this.consKi.get(),
+//		                     this.consKp.get());
+//	}
 
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX getters
