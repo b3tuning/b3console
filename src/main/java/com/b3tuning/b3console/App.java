@@ -6,7 +6,6 @@ import ch.qos.logback.core.joran.spi.JoranException;
 import com.b3tuning.b3console.platform.ApplicationComponents;
 import com.b3tuning.b3console.platform.DaggerMvvmfxBridge;
 import com.b3tuning.b3console.platform.PlatformInjector;
-import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.utils.GuiUtils;
 import com.b3tuning.b3console.view.root.RootView;
@@ -77,8 +76,6 @@ public class App extends Application {
 	private static ApplicationComponents applicationComponents;
 
 	private AppProperties   props;
-	@SuppressWarnings("unused")
-	private UserPreferences prefs;
 	private StackPane       uiStack;
 	public  Scene           scene;
 
@@ -100,11 +97,12 @@ public class App extends Application {
 		setupLogging();
 
 		log.info("****************************************************************************");
-		log.info("******    {} version {}", APP_NAME, props.getVersion());
+		log.info("******    {} ", APP_NAME);
+		log.info("******    version {}", props.getVersion());
 		log.info("******    App dir: '{}'.", AppDirectory.dir());
 		log.info("******    User data dir: '{}'.", AppDirectory.getUserDataDir(APP_NAME));
-		log.info("******    Running on: {}, with Java {}", System.getProperty("os.name"),
-		         System.getProperty("java.version"));
+		log.info("******    Running on: {}, ", System.getProperty("os.name"));
+		log.info("******    with Java {}", System.getProperty("java.version"));
 		log.info("****************************************************************************");
 
 		// configure crashfx - see https://github.com/vinumeris/crashfx
@@ -128,7 +126,7 @@ public class App extends Application {
 		// We have to load prefs before splash because we want to avoid
 		// resizing/moving the window
 		// after we display it.
-		prefs = applicationComponents.provideUserPreferences();
+		/*UserPreferences prefs = */applicationComponents.provideUserPreferences();
 
 		stage.setTitle(APP_NAME);
 
@@ -202,7 +200,7 @@ public class App extends Application {
 		vBox.setFillWidth(true);
 		vBox.setSpacing(10.0);
 		StackPane pane = new StackPane(vBox);
-		pane.setPadding(new Insets(20));
+		pane.setPadding(new Insets(20.0));
 		pane.setStyle("-fx-background-color: white");
 
 		animateSplash(image);
@@ -213,12 +211,12 @@ public class App extends Application {
 	private void animateSplash(Node splashScreen) {
 		log.entry();
 		try {
-			FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), splashScreen);
+			FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.0), splashScreen);
 			fadeIn.setFromValue(0.0f);
 			fadeIn.setToValue(1.0f);
 			fadeIn.setInterpolator(Interpolator.EASE_IN);
 
-			PauseTransition pause = new PauseTransition(Duration.seconds(1));
+			PauseTransition pause = new PauseTransition(Duration.seconds(1.0));
 			pause.setOnFinished((e) -> splashAnimationPlaying.set(false));
 
 			ScaleTransition scaleOut = new ScaleTransition(Duration.seconds(2.0), splashScreen);
@@ -251,8 +249,9 @@ public class App extends Application {
 		// set up dagger dependency
 		ServiceLoader<PlatformInjector> injectors = ServiceLoader.load(PlatformInjector.class);
 		log.trace("injectors hasNext(): {}", injectors.iterator().hasNext());
-		Iterator<PlatformInjector> iter  = injectors.iterator();
-		int                        count = 0;
+		Iterator<PlatformInjector> iter = injectors.iterator();
+
+		int count = 0;
 		while (iter.hasNext()) {
 			PlatformInjector injector = iter.next();
 			log.trace("Found module: {}", injector);
@@ -263,8 +262,7 @@ public class App extends Application {
 		}
 
 		if (count != 1) {
-			throw new IllegalStateException(
-					String.format("Expecting just 1 PlatformInjector, but discovered %s", count));
+			throw new IllegalStateException(String.format("Expecting 1 PlatformInjector, but discovered %s", count));
 		}
 
 		// initialize the dagger to mvvmfx bridge so dagger can act as DI for mvvmfx

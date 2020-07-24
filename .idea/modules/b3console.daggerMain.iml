@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="b3console:daggerMain" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="com.b3tuning" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../../build/classes/java/daggerMain" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../src/daggerMain" />
+    <content url="file://$MODULE_DIR$/../../src/main/dagger">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/dagger" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="b3console.main" />
+  </component>
+</module>

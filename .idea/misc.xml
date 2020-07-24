@@ -8,7 +8,6 @@
       <writeAnnotation name="de.saxsys.mvvmfx.InjectViewModel" />
     </writeAnnotations>
   </component>
-  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>

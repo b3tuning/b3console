@@ -19,7 +19,7 @@ ext {
 	controlsFxVersion = '11.0.2'
 	easyBindVersion = '1.0.3'
 	commonsValidatorVersion = '1.6'
-	protobufVersion = '3.12.2'
+	protobufVersion = '4.0.0-rc-2'
 	jSerialVersion = '2.6.2'
 	beanUtilsVersion = '1.9.4'
 	commons_ioVersion = '2.7'

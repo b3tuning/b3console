@@ -74,7 +74,7 @@ configurations {
 configurations.implementationDagger.extendsFrom configurations.implementation
 
 javafx {
-	version = "14.0.1"
+	version = "14.0.2.1"
 
 	/*******************************************************************************************************************
 	 *
