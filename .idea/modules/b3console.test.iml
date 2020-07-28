@@ -12,19 +12,28 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../libs/ButtonInputFIeld.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
           <root url="jar://$MODULE_DIR$/../../libs/ScenicView.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Gradle: :javafx.controls:" level="project" />
-    <orderEntry type="library" name="Gradle: :javafx.base:" level="project" />
-    <orderEntry type="library" name="Gradle: :javafx.media:" level="project" />
-    <orderEntry type="library" name="Gradle: :javafx.swing:" level="project" />
-    <orderEntry type="library" name="Gradle: :javafx.web:" level="project" />
     <orderEntry type="library" name="Gradle: :javafx.fxml:" level="project" />
+    <orderEntry type="library" name="Gradle: :javafx.web:" level="project" />
     <orderEntry type="library" name="Gradle: :javafx.graphics:" level="project" />
+    <orderEntry type="library" name="Gradle: :javafx.swing:" level="project" />
+    <orderEntry type="library" name="Gradle: :javafx.media:" level="project" />
+    <orderEntry type="library" name="Gradle: :javafx.base:" level="project" />
+    <orderEntry type="library" name="Gradle: :javafx.controls:" level="project" />
     <orderEntry type="library" name="Gradle: com.vinumeris:updatefx:1.5" level="project" />
     <orderEntry type="library" name="Gradle: org.bouncycastle:bcprov-jdk15on:1.66" level="project" />
     <orderEntry type="library" name="Gradle: org.javafxdata:datafx-core:8.0b5" level="project" />

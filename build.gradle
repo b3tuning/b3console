@@ -168,6 +168,7 @@ dependencies {
 	implementation("com.vinumeris:updatefx:1.5")
 	implementation("org.fxmisc.undo:undofx:$undoFxVersion")
 
+	implementation files("libs/ButtonInputField.jar")
 	implementation files("libs/ScenicView.jar")
 
 }
