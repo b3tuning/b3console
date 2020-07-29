@@ -6,90 +6,112 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
-<AnchorPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
-            xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.b3tuning.b3console.view.config.door.DoorConfigView">
-    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
-        <Label styleClass="tile-text" text="DOOR CONFIGURATION" AnchorPane.leftAnchor="30.0"
-               AnchorPane.topAnchor="15.0"/>
-        <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0"
-                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
-            <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="15.0"
-                        AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="130.0">
-                <HBox>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Mirror Select" AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="msDriverMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="msDriverMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="msFoldMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="msFoldMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="msPassMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="msPassMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Mirror Action" AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="maUpMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="maUpMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="maDownMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="maDownMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="maLeftMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="maLeftMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="maRightMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="maRightMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Window Action" AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="waAutoUpMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="waAutoUpMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="waUpMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="waUpMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="waDownMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="waDownMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="waAutoDownMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="waAutoDownMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Window Max Current"
-                               AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
-                                  HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="dMaxCurrent" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                                <ButtonInputField fx:id="pMaxCurrent" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                </HBox>
-            </AnchorPane>
-        </ScrollPane>
-    </AnchorPane>
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.b3tuning.b3console.view.config.door.DoorConfigView"
+            styleClass="white-background-with-border"
+            AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+    <Label styleClass="tile-text" text="DOOR CONFIGURATION"
+           AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0"/>
+    <ScrollPane fitToHeight="true" fitToWidth="true"
+                AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                AnchorPane.topAnchor="45.0">
+        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="15.0"
+                    AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="130.0">
+            <HBox>
+                <AnchorPane styleClass="white-background-with-border"
+                            AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                            AnchorPane.topAnchor="30.0">
+                    <Label styleClass="tile-text-sub" text="Mirror Select"
+                           AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
+                    <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                          AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                            <ButtonInputField fx:id="msDriverMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Driver Max"/>
+                            <ButtonInputField fx:id="msDriverMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Driver Min"/>
+                            <ButtonInputField fx:id="msFoldMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Fold Max"/>
+                            <ButtonInputField fx:id="msFoldMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Fold Min"/>
+                            <ButtonInputField fx:id="msPassMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Passenger Max"/>
+                            <ButtonInputField fx:id="msPassMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Passenger Min"/>
+                        </VBox>
+                    </HBox>
+                </AnchorPane>
+                <AnchorPane styleClass="white-background-with-border"
+                            AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                            AnchorPane.topAnchor="30.0">
+                    <Label styleClass="tile-text-sub" text="Mirror Action"
+                           AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
+                    <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                          AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                            <ButtonInputField fx:id="maUpMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Up Max"/>
+                            <ButtonInputField fx:id="maUpMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Up Min"/>
+                            <ButtonInputField fx:id="maDownMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Down Max"/>
+                            <ButtonInputField fx:id="maDownMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Down Min"/>
+                            <ButtonInputField fx:id="maLeftMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Left Max"/>
+                            <ButtonInputField fx:id="maLeftMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Left Min"/>
+                            <ButtonInputField fx:id="maRightMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Right Max"/>
+                            <ButtonInputField fx:id="maRightMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Right Min"/>
+                        </VBox>
+                    </HBox>
+                </AnchorPane>
+                <AnchorPane styleClass="white-background-with-border"
+                            AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                            AnchorPane.topAnchor="30.0">
+                    <Label styleClass="tile-text-sub" text="Window Action" AnchorPane.leftAnchor="30.0"
+                           AnchorPane.topAnchor="30.0"/>
+                    <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                          AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                            <ButtonInputField fx:id="waAutoUpMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Auto Up Max"/>
+                            <ButtonInputField fx:id="waAutoUpMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Auto Up Min"/>
+                            <ButtonInputField fx:id="waUpMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Up Max"/>
+                            <ButtonInputField fx:id="waUpMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Up Min"/>
+                            <ButtonInputField fx:id="waDownMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Down Max"/>
+                            <ButtonInputField fx:id="waDownMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Down Min"/>
+                            <ButtonInputField fx:id="waAutoDownMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Auto Down Max"/>
+                            <ButtonInputField fx:id="waAutoDownMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Auto Down Min"/>
+                        </VBox>
+                    </HBox>
+                </AnchorPane>
+                <AnchorPane styleClass="white-background-with-border"
+                            AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                            AnchorPane.topAnchor="30.0">
+                    <Label styleClass="tile-text-sub" text="Window Max Current"
+                           AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
+                    <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                          AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                        <VBox spacing="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+                              HBox.hgrow="ALWAYS">
+                            <ButtonInputField fx:id="dMaxCurrent" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Driver Max"/>
+                            <ButtonInputField fx:id="pMaxCurrent" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Passenger Max"/>
+                        </VBox>
+                    </HBox>
+                </AnchorPane>
+            </HBox>
+        </AnchorPane>
+    </ScrollPane>
 </AnchorPane>

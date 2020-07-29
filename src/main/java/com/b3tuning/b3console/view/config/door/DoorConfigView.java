@@ -65,28 +65,12 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 
 		IntegerStringConverter intToString = new IntegerStringConverter();
 
-		msDriverMax.setText("Driver Max");
-		msDriverMin.setText("Driver Min");
-		msFoldMax.setText("Fold Max");
-		msFoldMin.setText("Fold Min");
-		msPassMax.setText("Passenger Max");
-		msPassMin.setText("Passenger Min");
-
 		msDriverMax.setFormatter(new IntegerTextFormatter());
 		msDriverMin.setFormatter(new IntegerTextFormatter());
 		msFoldMax.setFormatter(new IntegerTextFormatter());
 		msFoldMin.setFormatter(new IntegerTextFormatter());
 		msPassMax.setFormatter(new IntegerTextFormatter());
 		msPassMin.setFormatter(new IntegerTextFormatter());
-
-		maUpMax.setText("Up Max");
-		maUpMin.setText("Up Min");
-		maDownMax.setText("Down Max");
-		maDownMin.setText("Down Min");
-		maLeftMax.setText("Left Max");
-		maLeftMin.setText("Left Min");
-		maRightMax.setText("Right Max");
-		maRightMin.setText("Right Min");
 
 		maUpMax.setFormatter(new IntegerTextFormatter());
 		maUpMin.setFormatter(new IntegerTextFormatter());
@@ -97,15 +81,6 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 		maRightMax.setFormatter(new IntegerTextFormatter());
 		maRightMin.setFormatter(new IntegerTextFormatter());
 
-		waAutoUpMax.setText("Auto Up Max");
-		waAutoUpMin.setText("Auto Up Min");
-		waUpMax.setText("Up Max");
-		waUpMin.setText("Up Min");
-		waDownMax.setText("Down Max");
-		waDownMin.setText("Down Min");
-		waAutoDownMax.setText("Auto Down Max");
-		waAutoDownMin.setText("Auto Down Min");
-
 		waAutoUpMax.setFormatter(new IntegerTextFormatter());
 		waAutoUpMin.setFormatter(new IntegerTextFormatter());
 		waUpMax.setFormatter(new IntegerTextFormatter());
@@ -114,9 +89,6 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 		waDownMin.setFormatter(new IntegerTextFormatter());
 		waAutoDownMax.setFormatter(new IntegerTextFormatter());
 		waAutoDownMin.setFormatter(new IntegerTextFormatter());
-
-		dMaxCurrent.setText("Driver Max");
-		pMaxCurrent.setText("Passenger Max");
 
 		dMaxCurrent.setFormatter(new IntegerTextFormatter());
 		pMaxCurrent.setFormatter(new IntegerTextFormatter());
