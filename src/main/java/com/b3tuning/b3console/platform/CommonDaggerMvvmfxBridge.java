@@ -14,8 +14,6 @@ import com.b3tuning.b3console.view.config.shifter.ShifterConfigView;
 import com.b3tuning.b3console.view.config.shifter.ShifterConfigViewModel;
 import com.b3tuning.b3console.view.config.trans.TransConfigView;
 import com.b3tuning.b3console.view.config.trans.TransConfigViewModel;
-import com.b3tuning.b3console.view.help.HelpView;
-import com.b3tuning.b3console.view.help.HelpViewModel;
 import com.b3tuning.b3console.view.menu.MenuView;
 import com.b3tuning.b3console.view.menu.MenuViewModel;
 import com.b3tuning.b3console.view.menu.edit.EditMenuView;
@@ -203,13 +201,13 @@ public abstract class CommonDaggerMvvmfxBridge implements DaggerMvvmfxBridge {
 			return (T) getApplicationComponents().provideSettingsMenuViewModel();
 		}
 
-		if (HelpView.class.equals(type)) {
-			return (T) getApplicationComponents().provideHelpView();
-		}
-
-		if (HelpViewModel.class.equals(type)) {
-			return (T) getApplicationComponents().provideHelpViewModel();
-		}
+//		if (HelpView.class.equals(type)) {
+//			return (T) getApplicationComponents().provideHelpView();
+//		}
+//
+//		if (HelpViewModel.class.equals(type)) {
+//			return (T) getApplicationComponents().provideHelpViewModel();
+//		}
 
 		return null;
 	}

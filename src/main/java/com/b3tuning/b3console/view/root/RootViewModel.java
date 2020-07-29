@@ -1,6 +1,5 @@
 package com.b3tuning.b3console.view.root;
 
-import com.b3tuning.b3console.App;
 import com.b3tuning.b3console.service.filemanager.FileManager;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.door.config.DoorConfig;
@@ -11,8 +10,6 @@ import com.b3tuning.b3console.view.config.shifter.ShifterConfigView;
 import com.b3tuning.b3console.view.config.shifter.ShifterConfigViewModel;
 import com.b3tuning.b3console.view.config.trans.TransConfigView;
 import com.b3tuning.b3console.view.config.trans.TransConfigViewModel;
-import com.b3tuning.b3console.view.help.HelpView;
-import com.b3tuning.b3console.view.help.HelpViewModel;
 import com.b3tuning.b3console.view.loader.ViewManager;
 import com.b3tuning.b3console.view.menu.MenuView;
 import com.b3tuning.b3console.view.menu.MenuViewModel;
@@ -31,11 +28,8 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import lombok.Setter;
 import lombok.extern.slf4j.XSlf4j;
@@ -43,7 +37,6 @@ import org.reactfx.EventSource;
 
 import javax.inject.Inject;
 
-import static com.b3tuning.b3console.App.DEFAULT_CSS;
 import static org.reactfx.EventStreams.changesOf;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 
@@ -60,7 +53,7 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 public class RootViewModel extends BaseViewModel {
 
 	public static final  String HELP_DETACHED_EVENT = "help_detached";
-	private static final String HELP_STAGE_TITLE    = "B3Tuning Module Help";
+//	private static final String HELP_STAGE_TITLE    = "B3Tuning Module Help";
 
 	private static final double HELP_WIDTH = 0.3f;
 
@@ -123,8 +116,8 @@ public class RootViewModel extends BaseViewModel {
 			});
 		}));
 
-		// detach the help from the sidebar if requested
-		globalNotifications.subscribe(HELP_DETACHED_EVENT, (key, payload) -> detachHelp());
+//		// detach the help from the sidebar if requested
+//		globalNotifications.subscribe(HELP_DETACHED_EVENT, (key, payload) -> detachHelp());
 
 		manage(changesOf(config).subscribe(configBaseChange -> {
 			log.entry(configBaseChange);
@@ -177,34 +170,34 @@ public class RootViewModel extends BaseViewModel {
 		}
 	}
 
-	public Node helpView() {
-		return helpViewTuple().getView();
-	}
+//	public Node helpView() {
+//		return helpViewTuple().getView();
+//	}
 
-	private ViewTuple<HelpView, HelpViewModel> helpViewTuple() {
-		return FluentViewLoader.fxmlView(HelpView.class).load();
-	}
+//	private ViewTuple<HelpView, HelpViewModel> helpViewTuple() {
+//		return FluentViewLoader.fxmlView(HelpView.class).load();
+//	}
 
-	private void detachHelp() {
-		log.entry();
-		if (helpPaneVisible.get()) {
-			slideHelpOut();
-		}
-
-		ViewTuple<HelpView, HelpViewModel> tuple = helpViewTuple();
-		tuple.getViewModel().setDetached(true);
-
-		Stage helpStage = new Stage();
-		helpStage.setTitle(HELP_STAGE_TITLE);
-
-		Scene        helpScene = new Scene(tuple.getView(), 640, 480);
-		final String uri       = App.class.getResource(DEFAULT_CSS).toExternalForm();
-		helpScene.getStylesheets().add(uri);
-		helpStage.setScene(helpScene);
-		viewManager.republishPageContextChanged();
-
-		helpStage.show();
-	}
+//	private void detachHelp() {
+//		log.entry();
+//		if (helpPaneVisible.get()) {
+//			slideHelpOut();
+//		}
+//
+//		ViewTuple<HelpView, HelpViewModel> tuple = helpViewTuple();
+//		tuple.getViewModel().setDetached(true);
+//
+//		Stage helpStage = new Stage();
+//		helpStage.setTitle(HELP_STAGE_TITLE);
+//
+//		Scene        helpScene = new Scene(tuple.getView(), 640, 480);
+//		final String uri       = App.class.getResource(DEFAULT_CSS).toExternalForm();
+//		helpScene.getStylesheets().add(uri);
+//		helpStage.setScene(helpScene);
+//		viewManager.republishPageContextChanged();
+//
+//		helpStage.show();
+//	}
 
 //			// HELP actions
 //			case A_HELP:

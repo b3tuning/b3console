@@ -14,8 +14,6 @@ import com.b3tuning.b3console.view.config.shifter.ShifterConfigView;
 import com.b3tuning.b3console.view.config.shifter.ShifterConfigViewModel;
 import com.b3tuning.b3console.view.config.trans.TransConfigView;
 import com.b3tuning.b3console.view.config.trans.TransConfigViewModel;
-import com.b3tuning.b3console.view.help.HelpView;
-import com.b3tuning.b3console.view.help.HelpViewModel;
 import com.b3tuning.b3console.view.menu.MenuView;
 import com.b3tuning.b3console.view.menu.MenuViewModel;
 import com.b3tuning.b3console.view.menu.edit.EditMenuView;
@@ -196,12 +194,12 @@ public interface ApplicationComponents {
 	SettingsMenuViewModel provideSettingsMenuViewModel();
 
 	/*  HELP  */
-	void inject(HelpView view);
-
-	HelpView provideHelpView();
-
-	void inject(HelpViewModel viewModel);
-
-	HelpViewModel provideHelpViewModel();
+//	void inject(HelpView view);
+//
+//	HelpView provideHelpView();
+//
+//	void inject(HelpViewModel viewModel);
+//
+//	HelpViewModel provideHelpViewModel();
 
 }

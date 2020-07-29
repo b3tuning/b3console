@@ -2,13 +2,10 @@ package com.b3tuning.b3console.view.config.door;
 
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.utils.IntegerTextFormatter;
+import com.b3tuning.b3console.view.utils.buttonInputField.ButtonInputField;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
 import javafx.util.converter.IntegerStringConverter;
 import lombok.extern.slf4j.XSlf4j;
 import org.controlsfx.validation.decoration.StyleClassValidationDecoration;
@@ -28,33 +25,33 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 
-	@FXML private Spinner<Integer> msDriverMax;
-	@FXML private Spinner<Integer> msDriverMin;
-	@FXML private Spinner<Integer> msFoldMax;
-	@FXML private Spinner<Integer> msFoldMin;
-	@FXML private Spinner<Integer> msPassMax;
-	@FXML private Spinner<Integer> msPassMin;
+	@FXML private ButtonInputField msDriverMax;
+	@FXML private ButtonInputField msDriverMin;
+	@FXML private ButtonInputField msFoldMax;
+	@FXML private ButtonInputField msFoldMin;
+	@FXML private ButtonInputField msPassMax;
+	@FXML private ButtonInputField msPassMin;
 
-	@FXML private Spinner<Integer> maUpMax;
-	@FXML private Spinner<Integer> maUpMin;
-	@FXML private Spinner<Integer> maDownMax;
-	@FXML private Spinner<Integer> maDownMin;
-	@FXML private Spinner<Integer> maLeftMax;
-	@FXML private Spinner<Integer> maLeftMin;
-	@FXML private Spinner<Integer> maRightMax;
-	@FXML private Spinner<Integer> maRightMin;
+	@FXML private ButtonInputField maUpMax;
+	@FXML private ButtonInputField maUpMin;
+	@FXML private ButtonInputField maDownMax;
+	@FXML private ButtonInputField maDownMin;
+	@FXML private ButtonInputField maLeftMax;
+	@FXML private ButtonInputField maLeftMin;
+	@FXML private ButtonInputField maRightMax;
+	@FXML private ButtonInputField maRightMin;
 
-	@FXML private Spinner<Integer> waAutoUpMax;
-	@FXML private Spinner<Integer> waAutoUpMin;
-	@FXML private Spinner<Integer> waUpMax;
-	@FXML private Spinner<Integer> waUpMin;
-	@FXML private Spinner<Integer> waDownMax;
-	@FXML private Spinner<Integer> waDownMin;
-	@FXML private Spinner<Integer> waAutoDownMax;
-	@FXML private Spinner<Integer> waAutoDownMin;
+	@FXML private ButtonInputField waAutoUpMax;
+	@FXML private ButtonInputField waAutoUpMin;
+	@FXML private ButtonInputField waUpMax;
+	@FXML private ButtonInputField waUpMin;
+	@FXML private ButtonInputField waDownMax;
+	@FXML private ButtonInputField waDownMin;
+	@FXML private ButtonInputField waAutoDownMax;
+	@FXML private ButtonInputField waAutoDownMin;
 
-	@FXML private Spinner<Integer> dMaxCurrent;
-	@FXML private Spinner<Integer> pMaxCurrent;
+	@FXML private ButtonInputField dMaxCurrent;
+	@FXML private ButtonInputField pMaxCurrent;
 
 	private final ControlsFxVisualizer visualizer = new ControlsFxVisualizer();
 
@@ -68,110 +65,102 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 
 		IntegerStringConverter intToString = new IntegerStringConverter();
 
-		initSpinner(msDriverMax);
-		initSpinner(msDriverMin);
-		initSpinner(msFoldMax);
-		initSpinner(msFoldMin);
-		initSpinner(msPassMax);
-		initSpinner(msPassMin);
+		msDriverMax.setText("Driver Max");
+		msDriverMin.setText("Driver Min");
+		msFoldMax.setText("Fold Max");
+		msFoldMin.setText("Fold Min");
+		msPassMax.setText("Passenger Max");
+		msPassMin.setText("Passenger Min");
 
-		initSpinner(maUpMax);
-		initSpinner(maUpMin);
-		initSpinner(maDownMax);
-		initSpinner(maDownMin);
-		initSpinner(maLeftMax);
-		initSpinner(maLeftMin);
-		initSpinner(maRightMax);
-		initSpinner(maRightMin);
+		msDriverMax.setFormatter(new IntegerTextFormatter());
+		msDriverMin.setFormatter(new IntegerTextFormatter());
+		msFoldMax.setFormatter(new IntegerTextFormatter());
+		msFoldMin.setFormatter(new IntegerTextFormatter());
+		msPassMax.setFormatter(new IntegerTextFormatter());
+		msPassMin.setFormatter(new IntegerTextFormatter());
 
-		initSpinner(waAutoUpMax);
-		initSpinner(waAutoUpMin);
-		initSpinner(waUpMax);
-		initSpinner(waUpMin);
-		initSpinner(waDownMax);
-		initSpinner(waDownMin);
-		initSpinner(waAutoDownMax);
-		initSpinner(waAutoDownMin);
+		maUpMax.setText("Up Max");
+		maUpMin.setText("Up Min");
+		maDownMax.setText("Down Max");
+		maDownMin.setText("Down Min");
+		maLeftMax.setText("Left Max");
+		maLeftMin.setText("Left Min");
+		maRightMax.setText("Right Max");
+		maRightMin.setText("Right Min");
 
-		initSpinner(dMaxCurrent);
-		initSpinner(pMaxCurrent);
+		maUpMax.setFormatter(new IntegerTextFormatter());
+		maUpMin.setFormatter(new IntegerTextFormatter());
+		maDownMax.setFormatter(new IntegerTextFormatter());
+		maDownMin.setFormatter(new IntegerTextFormatter());
+		maLeftMax.setFormatter(new IntegerTextFormatter());
+		maLeftMin.setFormatter(new IntegerTextFormatter());
+		maRightMax.setFormatter(new IntegerTextFormatter());
+		maRightMin.setFormatter(new IntegerTextFormatter());
 
-		setFormatter(msDriverMax.getEditor());
-		setFormatter(msDriverMin.getEditor());
-		setFormatter(msFoldMax.getEditor());
-		setFormatter(msFoldMin.getEditor());
-		setFormatter(msPassMax.getEditor());
-		setFormatter(msPassMin.getEditor());
+		waAutoUpMax.setText("Auto Up Max");
+		waAutoUpMin.setText("Auto Up Min");
+		waUpMax.setText("Up Max");
+		waUpMin.setText("Up Min");
+		waDownMax.setText("Down Max");
+		waDownMin.setText("Down Min");
+		waAutoDownMax.setText("Auto Down Max");
+		waAutoDownMin.setText("Auto Down Min");
 
-		setFormatter(maUpMax.getEditor());
-		setFormatter(maUpMin.getEditor());
-		setFormatter(maDownMax.getEditor());
-		setFormatter(maDownMin.getEditor());
-		setFormatter(maLeftMax.getEditor());
-		setFormatter(maLeftMin.getEditor());
-		setFormatter(maRightMax.getEditor());
-		setFormatter(maRightMin.getEditor());
+		waAutoUpMax.setFormatter(new IntegerTextFormatter());
+		waAutoUpMin.setFormatter(new IntegerTextFormatter());
+		waUpMax.setFormatter(new IntegerTextFormatter());
+		waUpMin.setFormatter(new IntegerTextFormatter());
+		waDownMax.setFormatter(new IntegerTextFormatter());
+		waDownMin.setFormatter(new IntegerTextFormatter());
+		waAutoDownMax.setFormatter(new IntegerTextFormatter());
+		waAutoDownMin.setFormatter(new IntegerTextFormatter());
 
-		setFormatter(waAutoUpMax.getEditor());
-		setFormatter(waAutoUpMin.getEditor());
-		setFormatter(waUpMax.getEditor());
-		setFormatter(waUpMin.getEditor());
-		setFormatter(waDownMax.getEditor());
-		setFormatter(waDownMin.getEditor());
-		setFormatter(waAutoDownMax.getEditor());
-		setFormatter(waAutoDownMin.getEditor());
+		dMaxCurrent.setText("Driver Max");
+		pMaxCurrent.setText("Passenger Max");
 
-		setFormatter(dMaxCurrent.getEditor());
-		setFormatter(pMaxCurrent.getEditor());
+		dMaxCurrent.setFormatter(new IntegerTextFormatter());
+		pMaxCurrent.setFormatter(new IntegerTextFormatter());
 
 		manage(nonNullValuesOf(viewModel.configProperty()).subscribe(c -> {
 			log.entry();
 
 			manage(nonNullValuesOf(c.mirrorSelectProperty()).subscribe(ms -> {
-				msDriverMax.getEditor().textProperty().bindBidirectional(ms.driverMaxProperty(), intToString);
-				msDriverMin.getEditor().textProperty().bindBidirectional(ms.driverMinProperty(), intToString);
-				msFoldMax.getEditor().textProperty().bindBidirectional(ms.foldMaxProperty(), intToString);
-				msFoldMin.getEditor().textProperty().bindBidirectional(ms.foldMinProperty(), intToString);
-				msPassMax.getEditor().textProperty().bindBidirectional(ms.passengerMaxProperty(), intToString);
-				msPassMin.getEditor().textProperty().bindBidirectional(ms.passengerMinProperty(), intToString);
+				msDriverMax.textProperty().bindBidirectional(ms.driverMaxProperty(), intToString);
+				msDriverMin.textProperty().bindBidirectional(ms.driverMinProperty(), intToString);
+				msFoldMax.textProperty().bindBidirectional(ms.foldMaxProperty(), intToString);
+				msFoldMin.textProperty().bindBidirectional(ms.foldMinProperty(), intToString);
+				msPassMax.textProperty().bindBidirectional(ms.passengerMaxProperty(), intToString);
+				msPassMin.textProperty().bindBidirectional(ms.passengerMinProperty(), intToString);
 			}));
 
 			manage(nonNullValuesOf(c.mirrorActionProperty()).subscribe(ma -> {
-				maUpMax.getEditor().textProperty().bindBidirectional(ma.upMaxProperty(), intToString);
-				maUpMin.getEditor().textProperty().bindBidirectional(ma.upMinProperty(), intToString);
-				maDownMax.getEditor().textProperty().bindBidirectional(ma.downMaxProperty(), intToString);
-				maDownMin.getEditor().textProperty().bindBidirectional(ma.downMinProperty(), intToString);
-				maLeftMax.getEditor().textProperty().bindBidirectional(ma.leftMaxProperty(), intToString);
-				maLeftMin.getEditor().textProperty().bindBidirectional(ma.leftMinProperty(), intToString);
-				maRightMax.getEditor().textProperty().bindBidirectional(ma.rightMaxProperty(), intToString);
-				maRightMin.getEditor().textProperty().bindBidirectional(ma.rightMinProperty(), intToString);
+				maUpMax.textProperty().bindBidirectional(ma.upMaxProperty(), intToString);
+				maUpMin.textProperty().bindBidirectional(ma.upMinProperty(), intToString);
+				maDownMax.textProperty().bindBidirectional(ma.downMaxProperty(), intToString);
+				maDownMin.textProperty().bindBidirectional(ma.downMinProperty(), intToString);
+				maLeftMax.textProperty().bindBidirectional(ma.leftMaxProperty(), intToString);
+				maLeftMin.textProperty().bindBidirectional(ma.leftMinProperty(), intToString);
+				maRightMax.textProperty().bindBidirectional(ma.rightMaxProperty(), intToString);
+				maRightMin.textProperty().bindBidirectional(ma.rightMinProperty(), intToString);
 			}));
 
 			manage(nonNullValuesOf(c.windowActionProperty()).subscribe(wa -> {
-				waAutoUpMax.getEditor().textProperty().bindBidirectional(wa.autoUpMaxProperty(), intToString);
-				waAutoUpMin.getEditor().textProperty().bindBidirectional(wa.autoUpMinProperty(), intToString);
-				waUpMax.getEditor().textProperty().bindBidirectional(wa.upMaxProperty(), intToString);
-				waUpMin.getEditor().textProperty().bindBidirectional(wa.upMinProperty(), intToString);
-				maDownMax.getEditor().textProperty().bindBidirectional(wa.downMaxProperty(), intToString);
-				waDownMin.getEditor().textProperty().bindBidirectional(wa.downMinProperty(), intToString);
-				waAutoDownMax.getEditor().textProperty().bindBidirectional(wa.autoDownMaxProperty(), intToString);
-				waAutoDownMin.getEditor().textProperty().bindBidirectional(wa.autoDownMinProperty(), intToString);
+				waAutoUpMax.textProperty().bindBidirectional(wa.autoUpMaxProperty(), intToString);
+				waAutoUpMin.textProperty().bindBidirectional(wa.autoUpMinProperty(), intToString);
+				waUpMax.textProperty().bindBidirectional(wa.upMaxProperty(), intToString);
+				waUpMin.textProperty().bindBidirectional(wa.upMinProperty(), intToString);
+				maDownMax.textProperty().bindBidirectional(wa.downMaxProperty(), intToString);
+				waDownMin.textProperty().bindBidirectional(wa.downMinProperty(), intToString);
+				waAutoDownMax.textProperty().bindBidirectional(wa.autoDownMaxProperty(), intToString);
+				waAutoDownMin.textProperty().bindBidirectional(wa.autoDownMinProperty(), intToString);
 			}));
 
-			dMaxCurrent.getEditor().textProperty().bindBidirectional(c.driverWindowMaxCurrentProperty(), intToString);
-			pMaxCurrent.getEditor().textProperty().bindBidirectional(c.passengerWindowMaxCurrentProperty(), intToString);
+			dMaxCurrent.textProperty().bindBidirectional(c.driverWindowMaxCurrentProperty(), intToString);
+			pMaxCurrent.textProperty().bindBidirectional(c.passengerWindowMaxCurrentProperty(), intToString);
+
 		}));
 
 		initializeValidation();
-	}
-
-	private void setFormatter(TextField textField) {
-		textField.setTextFormatter(new IntegerTextFormatter());
-	}
-
-	private void initSpinner(Spinner<Integer> spinner) {
-		spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1023));
-		spinner.getEditor().setAlignment(Pos.BASELINE_RIGHT);
 	}
 
 	private void initializeValidation() {
@@ -179,33 +168,33 @@ public class DoorConfigView extends BaseView<DoorConfigViewModel> {
 
 		visualizer.setDecoration(new StyleClassValidationDecoration());
 
-		visualizer.initVisualization(viewModel.mirrorActionDownMaxValidation(), maDownMax, true);
-		visualizer.initVisualization(viewModel.mirrorActionDownMinValidation(), maDownMin, true);
-		visualizer.initVisualization(viewModel.mirrorActionLeftMaxValidation(), maLeftMax, true);
-		visualizer.initVisualization(viewModel.mirrorActionLeftMinValidation(), maLeftMin, true);
-		visualizer.initVisualization(viewModel.mirrorActionRightMaxValidation(), maRightMax, true);
-		visualizer.initVisualization(viewModel.mirrorActionRightMinValidation(), maRightMin, true);
-		visualizer.initVisualization(viewModel.mirrorActionUpMaxValidation(), maUpMax, true);
-		visualizer.initVisualization(viewModel.mirrorActionUpMinValidation(), maUpMin, true);
+		visualizer.initVisualization(viewModel.mirrorActionDownMaxValidation(), maDownMax.getTextField(), true);
+		visualizer.initVisualization(viewModel.mirrorActionDownMinValidation(), maDownMin.getTextField(), true);
+		visualizer.initVisualization(viewModel.mirrorActionLeftMaxValidation(), maLeftMax.getTextField(), true);
+		visualizer.initVisualization(viewModel.mirrorActionLeftMinValidation(), maLeftMin.getTextField(), true);
+		visualizer.initVisualization(viewModel.mirrorActionRightMaxValidation(), maRightMax.getTextField(), true);
+		visualizer.initVisualization(viewModel.mirrorActionRightMinValidation(), maRightMin.getTextField(), true);
+		visualizer.initVisualization(viewModel.mirrorActionUpMaxValidation(), maUpMax.getTextField(), true);
+		visualizer.initVisualization(viewModel.mirrorActionUpMinValidation(), maUpMin.getTextField(), true);
 
-		visualizer.initVisualization(viewModel.mirrorSelectDriverMaxValidation(), msDriverMax, true);
-		visualizer.initVisualization(viewModel.mirrorSelectDriverMinValidation(), msDriverMin, true);
-		visualizer.initVisualization(viewModel.mirrorSelectFoldMaxValidation(), msFoldMax, true);
-		visualizer.initVisualization(viewModel.mirrorSelectFoldMinValidation(), msFoldMin, true);
-		visualizer.initVisualization(viewModel.mirrorSelectPassengerMinValidation(), msPassMin, true);
-		visualizer.initVisualization(viewModel.mirrorSelectPassengerMaxValidation(), msPassMax, true);
+		visualizer.initVisualization(viewModel.mirrorSelectDriverMaxValidation(), msDriverMax.getTextField(), true);
+		visualizer.initVisualization(viewModel.mirrorSelectDriverMinValidation(), msDriverMin.getTextField(), true);
+		visualizer.initVisualization(viewModel.mirrorSelectFoldMaxValidation(), msFoldMax.getTextField(), true);
+		visualizer.initVisualization(viewModel.mirrorSelectFoldMinValidation(), msFoldMin.getTextField(), true);
+		visualizer.initVisualization(viewModel.mirrorSelectPassengerMinValidation(), msPassMin.getTextField(), true);
+		visualizer.initVisualization(viewModel.mirrorSelectPassengerMaxValidation(), msPassMax.getTextField(), true);
 
-		visualizer.initVisualization(viewModel.windowActionAutoDownMaxValidation(), waAutoDownMax, true);
-		visualizer.initVisualization(viewModel.windowActionAutoDownMinValidation(), waAutoDownMin, true);
-		visualizer.initVisualization(viewModel.windowActionAutoUpMaxValidation(), waAutoUpMax, true);
-		visualizer.initVisualization(viewModel.windowActionAutoUpMinValidation(), waAutoUpMin, true);
-		visualizer.initVisualization(viewModel.windowActionDownMaxValidation(), waDownMax, true);
-		visualizer.initVisualization(viewModel.windowActionDownMinValidation(), waDownMin, true);
-		visualizer.initVisualization(viewModel.windowActionUpMaxValidation(), waUpMax, true);
-		visualizer.initVisualization(viewModel.windowActionUpMinValidation(), waUpMin, true);
+		visualizer.initVisualization(viewModel.windowActionAutoDownMaxValidation(), waAutoDownMax.getTextField(), true);
+		visualizer.initVisualization(viewModel.windowActionAutoDownMinValidation(), waAutoDownMin.getTextField(), true);
+		visualizer.initVisualization(viewModel.windowActionAutoUpMaxValidation(), waAutoUpMax.getTextField(), true);
+		visualizer.initVisualization(viewModel.windowActionAutoUpMinValidation(), waAutoUpMin.getTextField(), true);
+		visualizer.initVisualization(viewModel.windowActionDownMaxValidation(), waDownMax.getTextField(), true);
+		visualizer.initVisualization(viewModel.windowActionDownMinValidation(), waDownMin.getTextField(), true);
+		visualizer.initVisualization(viewModel.windowActionUpMaxValidation(), waUpMax.getTextField(), true);
+		visualizer.initVisualization(viewModel.windowActionUpMinValidation(), waUpMin.getTextField(), true);
 
-		visualizer.initVisualization(viewModel.driverWindowMaxCurrentValidation(), dMaxCurrent, true);
-		visualizer.initVisualization(viewModel.passengerWindowMaxCurrentValidation(), pMaxCurrent, true);
+		visualizer.initVisualization(viewModel.driverWindowMaxCurrentValidation(), dMaxCurrent.getTextField(), true);
+		visualizer.initVisualization(viewModel.passengerWindowMaxCurrentValidation(), pMaxCurrent.getTextField(), true);
 
 	}
 
