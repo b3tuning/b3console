@@ -95,13 +95,13 @@
 /* This is used for the main view title (top left of view) */
 .tile-text {
 	-fx-font-family: Roboto-Light;
-	-fx-font-size: 16pt;
+	-fx-font-size: 14pt;
 }
 
 /* This is used for aby sub-headings within a view */
 .tile-text-sub {
 	-fx-font-family: Roboto-Thin;
-	-fx-font-size: 14pt;
+	-fx-font-size: 12pt;
 }
 
 /* this is used for all label text */
@@ -286,7 +286,7 @@
 
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical .thumb {
-	-fx-background-color: -b3-color-black;
+	-fx-background-color: -b3-color-blue;
 	-fx-background-radius: 1em;
 	-fx-padding: 40;
 }
@@ -583,6 +583,7 @@
  *                                                                             *
  ******************************************************************************/
 .button {
+	-fx-pref-height: 25;
 	-fx-border-color: -b3-color-theme-blue;
 	-fx-border-width: 1;
 	-fx-border-radius: 1;

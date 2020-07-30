@@ -29,6 +29,7 @@ public class ButtonInputFieldController implements Initializable {
 	@Override public void initialize(URL location, ResourceBundle resources) {
 	}
 
+	@SuppressWarnings("unused")
 	public HBox getHBox() {
 		return hBox;
 	}

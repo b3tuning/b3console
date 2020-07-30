@@ -70,7 +70,7 @@ public class App extends Application {
 	public static final String DEFAULT_CSS = "app.css";
 	public static final String APP_NAME    = "B3Tuning Module Config Tool";
 
-	private static final double DEFAULT_FONT_SIZE = 12;
+	private static final double DEFAULT_FONT_SIZE = 10;
 
 	@Getter
 	private static ApplicationComponents applicationComponents;

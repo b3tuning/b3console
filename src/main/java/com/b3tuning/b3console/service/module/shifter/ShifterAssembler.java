@@ -10,9 +10,6 @@ import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResou
 import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.IndicatorResource;
 import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.MelexisResource;
 import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.ShifterPositionResource;
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleListProperty;
-import javafx.collections.FXCollections;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,7 +28,13 @@ public class ShifterAssembler extends ConfigBaseAssembler {
 		return new ShifterConfig(CanBusAssembler.assemble(resource.getCanBus()),
 		                         assemble(resource.getIndicator()),
 		                         assemble(resource.getMelexis()),
-		                         assembleList(resource.getShifters()));
+		                         assemble(resource.getPark()),
+		                         assemble(resource.getReverse()),
+		                         assemble(resource.getNeutral()),
+		                         assemble(resource.getDrive()),
+		                         assemble(resource.getManual()),
+		                         assemble(resource.getUp()),
+		                         assemble(resource.getDown()));
 	}
 
 	public static IndicatorConfig assemble(IndicatorResource resource) {
@@ -42,12 +45,6 @@ public class ShifterAssembler extends ConfigBaseAssembler {
 
 	public static MelexisConfig assemble(MelexisResource resource) {
 		return new MelexisConfig(resource.getRange());
-	}
-
-	public static ListProperty<ShifterPositionConfig> assembleList(List<ShifterPositionResource> resources) {
-		return new SimpleListProperty<>(FXCollections.observableArrayList(resources.stream()
-		                                                                           .map(ShifterAssembler::assemble)
-		                                                                           .collect(Collectors.toList())));
 	}
 
 	public static ShifterPositionConfig assemble(ShifterPositionResource resource) {
@@ -62,7 +59,13 @@ public class ShifterAssembler extends ConfigBaseAssembler {
 		return new ShifterConfigResource(CanBusAssembler.assemble(config.getCanBus()),
 		                                 assemble(config.getIndicator()),
 		                                 assemble(config.getMelexis()),
-		                                 assemble(config.getShifterPositions()))
+		                                 assemble(config.getPark()),
+		                                 assemble(config.getReverse()),
+		                                 assemble(config.getNeutral()),
+		                                 assemble(config.getDrive()),
+		                                 assemble(config.getManual()),
+		                                 assemble(config.getUp()),
+		                                 assemble(config.getDown()))
 				.setSuperType(config.getType());
 	}
 
@@ -74,10 +77,6 @@ public class ShifterAssembler extends ConfigBaseAssembler {
 
 	public static MelexisResource assemble(MelexisConfig config) {
 		return new MelexisResource(config.getRange());
-	}
-
-	public static List<ShifterPositionResource> assemble(List<ShifterPositionConfig> configs) {
-		return configs.stream().map(ShifterAssembler::assemble).collect(Collectors.toList());
 	}
 
 	public static ShifterPositionResource assemble(ShifterPositionConfig config) {

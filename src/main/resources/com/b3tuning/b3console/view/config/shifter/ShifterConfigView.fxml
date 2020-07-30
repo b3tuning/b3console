@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.b3tuning.b3console.view.utils.buttonInputField.ButtonInputField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Spinner?>
-<AnchorPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
-            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.b3tuning.b3console.view.config.shifter.ShifterConfigView">
-    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
-        <Label styleClass="tile-text" text="SHIFTER CONFIGURATION" AnchorPane.leftAnchor="30.0"
-               AnchorPane.topAnchor="15.0"/>
-        <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0"
-                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
-            <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="15.0"
-                        AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="130.0">
+<?import javafx.scene.layout.VBox?>
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.b3tuning.b3console.view.config.shifter.ShifterConfigView"
+            styleClass="white-background-with-border"
+            AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+    <Label styleClass="tile-text" text="SHIFTER CONFIGURATION"
+           AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0"/>
+    <ScrollPane fitToHeight="true" fitToWidth="true"
+                AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                AnchorPane.topAnchor="45.0">
+        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="15.0"
+                    AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="130.0">
+            <HBox>
                 <VBox>
                     <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
                                 AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
@@ -26,29 +26,30 @@
                                AnchorPane.topAnchor="30.0"/>
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <HBox>
-                                <Button text="Brightness" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="brightness" editable="true" minWidth="-Infinity"
-                                         prefWidth="80" prefHeight="30"/>
-                            </HBox>
-                            <HBox>
-                                <Button text="Color" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="color" editable="true" minWidth="-Infinity"
-                                         prefWidth="80" prefHeight="30"/>
-                            </HBox>
-                            <HBox>
-                                <Button text="Delay" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="delay" editable="true" minWidth="-Infinity"
-                                         prefWidth="80.0" prefHeight="30"/>
-                            </HBox>
+                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                <ButtonInputField fx:id="brightness" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Brightness"/>
+                                <ButtonInputField fx:id="color" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Color"/>
+                                <ButtonInputField fx:id="delay" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Delay"/>
+                            </VBox>
                         </HBox>
                     </AnchorPane>
+                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                AnchorPane.topAnchor="30.0">
+                        <Label styleClass="tile-text-sub" text="Melexis Range" AnchorPane.leftAnchor="30.0"
+                               AnchorPane.topAnchor="30.0"/>
+                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                            <ButtonInputField fx:id="range" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                              buttonText="Range"/>
+                        </HBox>
+                    </AnchorPane>
+                    <fx:include source="../CanBusConfigView.fxml" fx:id="canBusConfig"/>
+                </VBox>
+                <VBox>
                     <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
                                 AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
                                 AnchorPane.topAnchor="30.0">
@@ -57,36 +58,14 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="20.0">
-                                    <HBox>
-                                        <Button text="X1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x1Park" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y1Park" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="X2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x2Park" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y2Park" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                </HBox>
+                                <ButtonInputField fx:id="x1Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X1"/>
+                                <ButtonInputField fx:id="y1Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y1"/>
+                                <ButtonInputField fx:id="x2Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X2"/>
+                                <ButtonInputField fx:id="y2Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
@@ -98,36 +77,14 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="20.0">
-                                    <HBox>
-                                        <Button text="X1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x1Reverse" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y1Reverse" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="X2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x2Reverse" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y2Reverse" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                </HBox>
+                                <ButtonInputField fx:id="x1Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X1"/>
+                                <ButtonInputField fx:id="y1Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y1"/>
+                                <ButtonInputField fx:id="x2Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X2"/>
+                                <ButtonInputField fx:id="y2Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
@@ -139,36 +96,14 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="20.0">
-                                    <HBox>
-                                        <Button text="X1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x1Neutral" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y1Neutral" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="X2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x2Neutral" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y2Neutral" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                </HBox>
+                                <ButtonInputField fx:id="x1Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X1"/>
+                                <ButtonInputField fx:id="y1Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y1"/>
+                                <ButtonInputField fx:id="x2Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X2"/>
+                                <ButtonInputField fx:id="y2Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
@@ -180,39 +115,19 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="20.0">
-                                    <HBox>
-                                        <Button text="X1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x1Drive" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y1Drive" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="X2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x2Drive" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y2Drive" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                </HBox>
+                                <ButtonInputField fx:id="x1Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X1"/>
+                                <ButtonInputField fx:id="y1Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y1"/>
+                                <ButtonInputField fx:id="x2Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X2"/>
+                                <ButtonInputField fx:id="y2Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
+                </VBox>
+                <VBox>
                     <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
                                 AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
                                 AnchorPane.topAnchor="30.0">
@@ -221,36 +136,14 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="20.0">
-                                    <HBox>
-                                        <Button text="X1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x1Manual" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y1Manual" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="X2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x2Manual" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y2Manual" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                </HBox>
+                                <ButtonInputField fx:id="x1Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X1"/>
+                                <ButtonInputField fx:id="y1Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y1"/>
+                                <ButtonInputField fx:id="x2Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X2"/>
+                                <ButtonInputField fx:id="y2Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
@@ -262,36 +155,14 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="20.0">
-                                    <HBox>
-                                        <Button text="X1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x1Up" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y1Up" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="X2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x2Up" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y2Up" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                </HBox>
+                                <ButtonInputField fx:id="x1Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X1"/>
+                                <ButtonInputField fx:id="y1Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y1"/>
+                                <ButtonInputField fx:id="x2Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X2"/>
+                                <ButtonInputField fx:id="y2Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
@@ -303,42 +174,19 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <HBox spacing="20.0">
-                                    <HBox>
-                                        <Button text="X1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x1Down" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y1 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y1Down" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="X2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="x2Down" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                    <HBox>
-                                        <Button text="Y2 Position" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                                prefHeight="30"
-                                                HBox.hgrow="ALWAYS"/>
-                                        <Spinner fx:id="y2Down" editable="true" minWidth="-Infinity"
-                                                 prefWidth="80" prefHeight="30"/>
-                                    </HBox>
-                                </HBox>
+                                <ButtonInputField fx:id="x1Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X1"/>
+                                <ButtonInputField fx:id="y1Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y1"/>
+                                <ButtonInputField fx:id="x2Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="X2"/>
+                                <ButtonInputField fx:id="y2Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                  buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
-                    <fx:include source="../CanBusConfigView.fxml" fx:id="canBusConfig"/>
                 </VBox>
-            </AnchorPane>
-        </ScrollPane>
-    </AnchorPane>
+            </HBox>
+        </AnchorPane>
+    </ScrollPane>
 </AnchorPane>

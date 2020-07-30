@@ -2,11 +2,15 @@ package com.b3tuning.b3console.view.config.trans;
 
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.config.CanBusConfigView;
+import com.b3tuning.b3console.view.utils.IntegerTextFormatter;
+import com.b3tuning.b3console.view.utils.buttonInputField.ButtonInputField;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.converter.IntegerStringConverter;
 import lombok.extern.slf4j.XSlf4j;
+import org.controlsfx.validation.decoration.StyleClassValidationDecoration;
 
 import javax.inject.Inject;
 
@@ -23,8 +27,17 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class TransConfigView extends BaseView<TransConfigViewModel> {
 
-	@FXML private AnchorPane       canBusConfig;
-	@FXML private CanBusConfigView canBusConfigController;
+	@FXML private ButtonInputField encMax;
+	@FXML private ButtonInputField encMin;
+	@FXML private ButtonInputField maxCurrent;
+
+	@SuppressWarnings("unused")
+	@FXML
+	private AnchorPane canBusConfig;
+
+	@SuppressWarnings("unused")
+	@FXML
+	private CanBusConfigView canBusConfigController;
 
 	private final ControlsFxVisualizer visualizer = new ControlsFxVisualizer();
 
@@ -38,15 +51,31 @@ public class TransConfigView extends BaseView<TransConfigViewModel> {
 	public void initialize() {
 		log.entry();
 
+		IntegerStringConverter intToString = new IntegerStringConverter();
+
+		encMax.setFormatter(new IntegerTextFormatter());
+		encMin.setFormatter(new IntegerTextFormatter());
+		maxCurrent.setFormatter(new IntegerTextFormatter());
+
 		manage(nonNullValuesOf(viewModel.configProperty()).subscribe(c -> {
 			log.entry();
 			c.canBusProperty().bindBidirectional(canBusConfigController.getViewModel().configProperty());
+
+			encMax.textProperty().bindBidirectional(c.ems22AProperty().get().encMaxProperty(), intToString);
+			encMin.textProperty().bindBidirectional(c.ems22AProperty().get().encMinProperty(), intToString);
+			maxCurrent.textProperty().bindBidirectional(c.vnh5019Property().get().maxCurrentProperty(), intToString);
 		}));
 		initializeValidation();
 	}
 
 	private void initializeValidation() {
 		log.entry();
+
+		visualizer.setDecoration(new StyleClassValidationDecoration());
+
+		visualizer.initVisualization(viewModel.encMaxValidation(), encMax.getTextField(), true);
+		visualizer.initVisualization(viewModel.encMinValidation(), encMin.getTextField(), true);
+		visualizer.initVisualization(viewModel.currentMaxValidation(), maxCurrent.getTextField(), true);
 	}
 
 	@Override

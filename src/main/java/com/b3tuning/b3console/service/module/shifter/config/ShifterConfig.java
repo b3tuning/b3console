@@ -4,19 +4,13 @@ import com.b3tuning.b3console.service.EditableEntity;
 import com.b3tuning.b3console.service.module.CanBusConfig;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.ModuleType;
-import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.FXCollections;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.XSlf4j;
 
-import java.util.List;
-
 import static com.b3tuning.b3console.service.module.ModuleType.SHIFTER;
-import static org.reactfx.EventStreams.changesOf;
 import static org.reactfx.EventStreams.nonNullValuesOf;
 
 /*
@@ -32,27 +26,43 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class ShifterConfig extends EditableEntity implements ConfigBase {
 
-	private final ObjectProperty<CanBusConfig>        canBus;
-	private final ObjectProperty<IndicatorConfig>     indicator;
-	private final ObjectProperty<MelexisConfig>       melexis;
-	private final ListProperty<ShifterPositionConfig> shifterPositions; // 7 total items, PARK, REVERSE, NEUTRAL, DRIVE, DOWN, MANUAL, UP
+	private final ObjectProperty<CanBusConfig>          canBus;
+	private final ObjectProperty<IndicatorConfig>       indicator;
+	private final ObjectProperty<MelexisConfig>         melexis;
+	private final ObjectProperty<ShifterPositionConfig> park;
+	private final ObjectProperty<ShifterPositionConfig> reverse;
+	private final ObjectProperty<ShifterPositionConfig> neutral;
+	private final ObjectProperty<ShifterPositionConfig> drive;
+	private final ObjectProperty<ShifterPositionConfig> manual;
+	private final ObjectProperty<ShifterPositionConfig> up;
+	private final ObjectProperty<ShifterPositionConfig> down;
 
 	public ShifterConfig() {
-		this.canBus           = new SimpleObjectProperty<>(new CanBusConfig());
-		this.indicator        = new SimpleObjectProperty<>(new IndicatorConfig());
-		this.melexis          = new SimpleObjectProperty<>(new MelexisConfig());
-		this.shifterPositions = new SimpleListProperty<>(
-				FXCollections.observableArrayList(new ShifterPositionConfig()));
+		this.canBus    = new SimpleObjectProperty<>(new CanBusConfig());
+		this.indicator = new SimpleObjectProperty<>(new IndicatorConfig());
+		this.melexis   = new SimpleObjectProperty<>(new MelexisConfig());
+		this.park      = new SimpleObjectProperty<>(new ShifterPositionConfig());
+		this.reverse   = new SimpleObjectProperty<>(new ShifterPositionConfig());
+		this.neutral   = new SimpleObjectProperty<>(new ShifterPositionConfig());
+		this.drive     = new SimpleObjectProperty<>(new ShifterPositionConfig());
+		this.manual    = new SimpleObjectProperty<>(new ShifterPositionConfig());
+		this.up        = new SimpleObjectProperty<>(new ShifterPositionConfig());
+		this.down      = new SimpleObjectProperty<>(new ShifterPositionConfig());
+
 		super.trackProperties(this.canBus,
 		                      this.melexis,
 		                      this.indicator,
-		                      this.shifterPositions);
-		manage(changesOf(this.shifterPositions.get()).map(v -> true).feedTo(getDirtyStream()));
+		                      this.park,
+		                      this.reverse,
+		                      this.neutral,
+		                      this.drive,
+		                      this.manual,
+		                      this.up,
+		                      this.down);
 
 		track(canBus);
 		track(indicator);
 		track(melexis);
-//		track(shifterPositions);
 	}
 
 	private void track(ObjectProperty<? extends EditableEntity> prop) {
@@ -66,20 +76,26 @@ public class ShifterConfig extends EditableEntity implements ConfigBase {
 	}
 
 	public ShifterConfig(CanBusConfig canBusConfig, IndicatorConfig indicatorConfig,
-	                     MelexisConfig melexisConfig, List<ShifterPositionConfig> positions) {
+	                     MelexisConfig melexisConfig,
+	                     ShifterPositionConfig park,
+	                     ShifterPositionConfig reverse,
+	                     ShifterPositionConfig neutral,
+	                     ShifterPositionConfig drive,
+	                     ShifterPositionConfig manual,
+	                     ShifterPositionConfig up,
+	                     ShifterPositionConfig down) {
 		this();
 		setCanBus(canBusConfig);
 		setIndicator(indicatorConfig);
 		setMelexis(melexisConfig);
-		setShifterPositions(positions);
+		setPark(park);
+		setReverse(reverse);
+		setNeutral(neutral);
+		setDrive(drive);
+		setManual(manual);
+		setUp(up);
+		setDown(down);
 	}
-
-//	public ShifterConfig clone() {
-//		return new ShifterConfig(this.getCanBus(),
-//		                         this.getIndicator(),
-//		                         this.getMelexis(),
-//		                         new ArrayList<>(this.getShifterPositions()));
-//	}
 
 	/////////////////////////////////////////////////////////////////////////////
 	/// JavaFX getters
@@ -101,8 +117,32 @@ public class ShifterConfig extends EditableEntity implements ConfigBase {
 		return this.melexis.get();
 	}
 
-	public List<ShifterPositionConfig> getShifterPositions() {
-		return this.shifterPositions.get();
+	public ShifterPositionConfig getPark() {
+		return this.park.get();
+	}
+
+	public ShifterPositionConfig getReverse() {
+		return this.reverse.get();
+	}
+
+	public ShifterPositionConfig getNeutral() {
+		return this.neutral.get();
+	}
+
+	public ShifterPositionConfig getDrive() {
+		return this.drive.get();
+	}
+
+	public ShifterPositionConfig getManual() {
+		return this.manual.get();
+	}
+
+	public ShifterPositionConfig getUp() {
+		return this.up.get();
+	}
+
+	public ShifterPositionConfig getDown() {
+		return this.down.get();
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -121,8 +161,32 @@ public class ShifterConfig extends EditableEntity implements ConfigBase {
 		this.melexis.set(config);
 	}
 
-	public void setShifterPositions(List<ShifterPositionConfig> configs) {
-		this.shifterPositions.get().setAll(configs);
+	public void setPark(ShifterPositionConfig config) {
+		this.park.set(config);
+	}
+
+	public void setReverse(ShifterPositionConfig config) {
+		this.reverse.set(config);
+	}
+
+	public void setNeutral(ShifterPositionConfig config) {
+		this.neutral.set(config);
+	}
+
+	public void setDrive(ShifterPositionConfig config) {
+		this.drive.set(config);
+	}
+
+	public void setManual(ShifterPositionConfig config) {
+		this.manual.set(config);
+	}
+
+	public void setUp(ShifterPositionConfig config) {
+		this.up.set(config);
+	}
+
+	public void setDown(ShifterPositionConfig config) {
+		this.down.set(config);
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -141,8 +205,31 @@ public class ShifterConfig extends EditableEntity implements ConfigBase {
 		return melexis;
 	}
 
-	public ListProperty<ShifterPositionConfig> shifterPositionsProperty() {
-		return shifterPositions;
+	public ObjectProperty<ShifterPositionConfig> parkProperty() {
+		return park;
 	}
 
+	public ObjectProperty<ShifterPositionConfig> reverseProperty() {
+		return reverse;
+	}
+
+	public ObjectProperty<ShifterPositionConfig> neutralProperty() {
+		return neutral;
+	}
+
+	public ObjectProperty<ShifterPositionConfig> driveProperty() {
+		return drive;
+	}
+
+	public ObjectProperty<ShifterPositionConfig> manualProperty() {
+		return manual;
+	}
+
+	public ObjectProperty<ShifterPositionConfig> upProperty() {
+		return up;
+	}
+
+	public ObjectProperty<ShifterPositionConfig> downProperty() {
+		return down;
+	}
 }

@@ -1,132 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.b3tuning.b3console.view.utils.buttonInputField.ButtonInputField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<AnchorPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
-            xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.b3tuning.b3console.view.config.CanBusConfigView">
-    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <Label styleClass="tile-text" text="CAN BUS CONFIGURATION" AnchorPane.leftAnchor="30.0"
-               AnchorPane.topAnchor="15.0"/>
-        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="0.0"
-                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
-            <VBox>
-                <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                            AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                            AnchorPane.topAnchor="30.0">
-                    <Label styleClass="tile-text-sub" text="Can Bus Setup" AnchorPane.leftAnchor="30.0"
-                           AnchorPane.topAnchor="30.0"/>
-                    <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                          AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                            <HBox>
-                                <Button text="TX Address" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="addrTX" editable="true" minWidth="-Infinity"
-                                         prefWidth="80" prefHeight="30"/>
-                            </HBox>
-                            <HBox>
-                                <Button text="Interval" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="intvlTX" editable="true" minWidth="-Infinity"
-                                         prefWidth="80" prefHeight="30"/>
-                            </HBox>
-                        </VBox>
-                        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                            <HBox>
-                                <Button text="TX Boot" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="bootTX" editable="true" minWidth="-Infinity"
-                                         prefWidth="80" prefHeight="30"/>
-                            </HBox>
-                            <HBox>
-                                <Button text="RX Boot" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="bootRX" editable="true" minWidth="-Infinity"
-                                         prefWidth="80" prefHeight="30"/>
-                            </HBox>
-                        </VBox>
-                    </HBox>
-                </AnchorPane>
-                <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                            AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                            AnchorPane.topAnchor="30.0">
-                    <Label styleClass="tile-text-sub" text="Mask and Filter Setup" AnchorPane.leftAnchor="30.0"
-                           AnchorPane.topAnchor="30.0"/>
-                    <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                          AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                            <HBox>
-                                <Button text="Mask 0" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="mask0" editable="true" minWidth="-Infinity"
-                                         prefWidth="160" prefHeight="30"/>
-                            </HBox>
-                            <HBox>
-                                <Button text="Filter 0-0" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="filter0_0" editable="true" minWidth="-Infinity"
-                                         prefWidth="160" prefHeight="30"/>
-                            </HBox>
-                            <HBox>
-                                <Button text="Filter 0-1" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="filter0_1" editable="true" minWidth="-Infinity"
-                                         prefWidth="160" prefHeight="30"/>
-                            </HBox>
-                        </VBox>
-                        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                            <HBox>
-                                <Button text="Mask 1" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="mask1" editable="true" minWidth="-Infinity"
-                                         prefWidth="160" prefHeight="30"/>
-                            </HBox>
-                            <HBox>
-                                <Button text="Filter 1-0" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="filter1_0" editable="true" minWidth="-Infinity"
-                                         prefWidth="160" prefHeight="30"/>
-                            </HBox>
-                            <HBox>
-                                <Button text="Filter 1-1" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="filter1_1" editable="true" minWidth="-Infinity"
-                                         prefWidth="160" prefHeight="30"/>
-                            </HBox>
-                            <HBox>
-                                <Button text="Filter 1-2" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="filter1_2" editable="true" minWidth="-Infinity"
-                                         prefWidth="160" prefHeight="30"/>
-                            </HBox>
-                            <HBox>
-                                <Button text="Filter 1-3" alignment="BASELINE_LEFT" maxWidth="Infinity"
-                                        prefHeight="30"
-                                        HBox.hgrow="ALWAYS"/>
-                                <Spinner fx:id="filter1_3" editable="true" minWidth="-Infinity"
-                                         prefWidth="160" prefHeight="30"/>
-                            </HBox>
-                        </VBox>
-                    </HBox>
-                </AnchorPane>
-            </VBox>
-        </AnchorPane>
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.b3tuning.b3console.view.config.CanBusConfigView"
+            styleClass="white-background-with-border"
+            AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+    <Label styleClass="tile-text" text="CAN BUS CONFIGURATION"
+           AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0"/>
+    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="0.0"
+                AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+        <VBox>
+            <AnchorPane styleClass="white-background-with-border"
+                        AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                        AnchorPane.topAnchor="30.0">
+                <Label styleClass="tile-text-sub" text="Can Bus Setup"
+                       AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
+                <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                      AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                        <ButtonInputField fx:id="addrTX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                          buttonText="TX Address"/>
+                        <ButtonInputField fx:id="intvlTX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                          buttonText="Interval"/>
+                        <ButtonInputField fx:id="bootRX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                          buttonText="RX Boot"/>
+                        <ButtonInputField fx:id="bootTX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                          buttonText="TX Boot"/>
+                    </VBox>
+                </HBox>
+            </AnchorPane>
+            <AnchorPane styleClass="white-background-with-border"
+                        AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                        AnchorPane.topAnchor="30.0">
+                <Label styleClass="tile-text-sub" text="Mask and Filter Setup"
+                       AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
+                <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                      AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                        <ButtonInputField fx:id="mask0" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                          buttonText="Mask 0"/>
+                        <ButtonInputField fx:id="filter0_0" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                          buttonText="Filter 0-0"/>
+                        <ButtonInputField fx:id="filter0_1" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                          buttonText="Filter 0-1"/>
+                    </VBox>
+                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                        <ButtonInputField fx:id="mask1" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                          buttonText="Mask 1"/>
+                        <ButtonInputField fx:id="filter1_0" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                          buttonText="Filter 1-0"/>
+                        <ButtonInputField fx:id="filter1_1" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                          buttonText="Filter 1-1"/>
+                        <ButtonInputField fx:id="filter1_2" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                          buttonText="Filter 1-2"/>
+                        <ButtonInputField fx:id="filter1_3" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                          buttonText="Filter 1-3"/>
+                    </VBox>
+                </HBox>
+            </AnchorPane>
+        </VBox>
     </AnchorPane>
 </AnchorPane>

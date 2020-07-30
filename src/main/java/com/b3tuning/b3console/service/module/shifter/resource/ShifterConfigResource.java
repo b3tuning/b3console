@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.util.List;
 
 /*
  *  Created on:  May 01, 2020
@@ -28,10 +27,16 @@ import java.util.List;
 public class ShifterConfigResource extends ConfigBaseResource implements Serializable {
 	private static final long serialVersionUID = 9070650989030043988L;
 
-	private CanBusResource                canBus;
-	private IndicatorResource             indicator;
-	private MelexisResource               melexis;
-	private List<ShifterPositionResource> shifters;
+	private CanBusResource          canBus;
+	private IndicatorResource       indicator;
+	private MelexisResource         melexis;
+	private ShifterPositionResource park;
+	private ShifterPositionResource reverse;
+	private ShifterPositionResource neutral;
+	private ShifterPositionResource drive;
+	private ShifterPositionResource manual;
+	private ShifterPositionResource up;
+	private ShifterPositionResource down;
 
 	public ShifterConfigResource setSuperType(ModuleType type) {
 		super.setType(type);
