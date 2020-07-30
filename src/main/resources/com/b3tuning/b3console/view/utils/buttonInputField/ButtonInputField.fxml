@@ -2,7 +2,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox fx:id="hBox" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" maxWidth="Infinity" >
-    <Button fx:id="button" alignment="BASELINE_LEFT" prefHeight="28" prefWidth="120.0" HBox.hgrow="ALWAYS"/>
-    <TextField fx:id="textField" alignment="BASELINE_RIGHT" prefHeight="28" prefWidth="80.0"/>
+<HBox fx:id="hBox" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" prefHeight="25.0"
+      maxWidth="Infinity" >
+    <Button fx:id="button" alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="120.0" HBox.hgrow="ALWAYS"/>
+    <TextField fx:id="textField" alignment="BASELINE_RIGHT" prefHeight="25.0" prefWidth="80.0"/>
 </HBox>

@@ -183,8 +183,8 @@ public class App extends Application {
 		scene.getAccelerators().put(KeyCombination.valueOf("Ctrl+Shift+D"),
 		                            () -> Platform.runLater(() -> ScenicView.show(scene)));
 
-		final String uri = getClass().getResource(DEFAULT_CSS).toExternalForm();
-		scene.getStylesheets().add(uri);
+//		final String uri = getClass().getResource(DEFAULT_CSS).toExternalForm();
+//		scene.getStylesheets().add(uri);
 		primaryStage.setScene(scene);
 
 	}

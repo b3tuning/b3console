@@ -41,7 +41,7 @@ public class NewConfigDialog {
 		Dialog<ConfigBase> dialog = new Dialog<>();
 		dialog.setTitle("New Configuration");
 		dialog.setHeaderText("Select a Module type to configure");
-		dialog.getDialogPane().getStylesheets().add(App.class.getResource(DEFAULT_CSS).toExternalForm());
+//		dialog.getDialogPane().getStylesheets().add(App.class.getResource(DEFAULT_CSS).toExternalForm());
 		dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
 
 		// Create the custom grid

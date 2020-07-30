@@ -26,7 +26,7 @@
                                AnchorPane.topAnchor="30.0"/>
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
                                 <ButtonInputField fx:id="brightness" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                                   buttonText="Brightness"/>
                                 <ButtonInputField fx:id="color" maxWidth="Infinity" HBox.hgrow="ALWAYS"
@@ -57,7 +57,7 @@
                                AnchorPane.topAnchor="30.0"/>
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
                                 <ButtonInputField fx:id="x1Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                                   buttonText="X1"/>
                                 <ButtonInputField fx:id="y1Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
@@ -76,7 +76,7 @@
                                AnchorPane.topAnchor="30.0"/>
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
                                 <ButtonInputField fx:id="x1Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                                   buttonText="X1"/>
                                 <ButtonInputField fx:id="y1Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
@@ -95,7 +95,7 @@
                                AnchorPane.topAnchor="30.0"/>
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
                                 <ButtonInputField fx:id="x1Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                                   buttonText="X1"/>
                                 <ButtonInputField fx:id="y1Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
@@ -114,7 +114,7 @@
                                AnchorPane.topAnchor="30.0"/>
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
                                 <ButtonInputField fx:id="x1Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                                   buttonText="X1"/>
                                 <ButtonInputField fx:id="y1Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
@@ -135,7 +135,7 @@
                                AnchorPane.topAnchor="30.0"/>
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
                                 <ButtonInputField fx:id="x1Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                                   buttonText="X1"/>
                                 <ButtonInputField fx:id="y1Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
@@ -154,7 +154,7 @@
                                AnchorPane.topAnchor="30.0"/>
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
                                 <ButtonInputField fx:id="x1Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                                   buttonText="X1"/>
                                 <ButtonInputField fx:id="y1Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
@@ -173,7 +173,7 @@
                                AnchorPane.topAnchor="30.0"/>
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
                                 <ButtonInputField fx:id="x1Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                                   buttonText="X1"/>
                                 <ButtonInputField fx:id="y1Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"

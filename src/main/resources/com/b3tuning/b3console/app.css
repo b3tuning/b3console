@@ -924,15 +924,16 @@
  ******************************************************************************/
 
 .button {
+	-fx-min-height: 25;
 	-fx-border-color: -b3-color-theme-blue;
 	-fx-border-width: 1;
 	-fx-border-radius: 2;
 	-fx-background-radius: 2;
 	-fx-background-color: -b3-color-white;
-	-fx-font-family: Raleway-Regular;
-	-fx-font-weight: normal;
-	-fx-font-size: 10pt;
-	-fx-text-fill: -b3-color-text-grey;
+	/*-fx-font-family: Raleway-Regular;*/
+	/*-fx-font-weight: normal;*/
+	/*-fx-font-size: 10pt;*/
+	/*-fx-text-fill: -b3-color-text-grey;*/
 	/*-fx-background-insets: 0 0 0 0, 0, 1, 2;*/
 }
 
@@ -1222,6 +1223,8 @@
  *                                                                             *
  ******************************************************************************/
 .text-input {
+	-fx-min-height: 25;
+	-fx-pref-height: 25;
 	-fx-prompt-text-fill: inherit;
 	-fx-text-fill: #1E1E1E;
 	-fx-background-color: -fx-text-box-border, -fx-control-inner-background;
@@ -1315,4 +1318,16 @@
 .failed-bar {
 	-fx-accent: #DE3300;
 	-fx-opacity: 0.3;
+}
+
+/* ====   TEXT NODES IN CONTROLS   ========================================== */
+
+.text {
+	/* This adjusts text alignment within the bounds of text nodes so that
+	   the text is always vertically centered within the bounds. Based on
+	   the cap height of the text. */
+	-fx-bounds-type: logical_vertical_center;
+	/* Enable LCD text rendering */
+	-fx-font-smoothing-type: lcd;
+	-fx-font-size: 1em;
 }

@@ -8,20 +8,22 @@
 <AnchorPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.b3tuning.b3console.view.config.CanBusConfigView"
             styleClass="white-background-with-border"
-            AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
+            style="-fx-border-color: gray; -fx-border-width: 1px 1px 1px 1px">
     <Label styleClass="tile-text" text="CAN BUS CONFIGURATION"
            AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0"/>
     <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="0.0"
                 AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
         <VBox>
             <AnchorPane styleClass="white-background-with-border"
+                        style="-fx-border-color: gray; -fx-border-width: 1px 0px 1px 0px"
                         AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
                         AnchorPane.topAnchor="30.0">
                 <Label styleClass="tile-text-sub" text="Can Bus Setup"
                        AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
                 <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                       AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                    <VBox spacing="4.0" HBox.hgrow="ALWAYS">
                         <ButtonInputField fx:id="addrTX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                           buttonText="TX Address"/>
                         <ButtonInputField fx:id="intvlTX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
@@ -40,15 +42,15 @@
                        AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0"/>
                 <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                       AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                    <VBox spacing="4.0" HBox.hgrow="ALWAYS">
                         <ButtonInputField fx:id="mask0" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                           buttonText="Mask 0"/>
                         <ButtonInputField fx:id="filter0_0" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                           buttonText="Filter 0-0"/>
                         <ButtonInputField fx:id="filter0_1" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                           buttonText="Filter 0-1"/>
-                    </VBox>
-                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+<!--                    </VBox>-->
+<!--                    <VBox spacing="4.0" HBox.hgrow="ALWAYS">-->
                         <ButtonInputField fx:id="mask1" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                           buttonText="Mask 1"/>
                         <ButtonInputField fx:id="filter1_0" maxWidth="Infinity" HBox.hgrow="ALWAYS"
