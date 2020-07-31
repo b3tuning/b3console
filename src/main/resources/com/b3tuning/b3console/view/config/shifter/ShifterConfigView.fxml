@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.b3tuning.b3console.view.utils.buttonInputField.ButtonInputField?>
+<?import com.b3tuning.b3console.view.utils.buttonInputField.IntegerButtonInputField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -27,12 +27,12 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="brightness" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Brightness"/>
-                                <ButtonInputField fx:id="color" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Color"/>
-                                <ButtonInputField fx:id="delay" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Delay"/>
+                                <IntegerButtonInputField fx:id="brightness" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Brightness"/>
+                                <IntegerButtonInputField fx:id="color" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Color"/>
+                                <IntegerButtonInputField fx:id="delay" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Delay"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
@@ -43,8 +43,8 @@
                                AnchorPane.topAnchor="30.0"/>
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <ButtonInputField fx:id="range" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Range"/>
+                            <IntegerButtonInputField fx:id="range" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Range"/>
                         </HBox>
                     </AnchorPane>
                     <fx:include source="../CanBusConfigView.fxml" fx:id="canBusConfig"/>
@@ -58,14 +58,14 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="x1Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X1"/>
-                                <ButtonInputField fx:id="y1Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y1"/>
-                                <ButtonInputField fx:id="x2Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X2"/>
-                                <ButtonInputField fx:id="y2Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y2"/>
+                                <IntegerButtonInputField fx:id="x1Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X1"/>
+                                <IntegerButtonInputField fx:id="y1Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y1"/>
+                                <IntegerButtonInputField fx:id="x2Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X2"/>
+                                <IntegerButtonInputField fx:id="y2Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
@@ -77,14 +77,14 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="x1Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X1"/>
-                                <ButtonInputField fx:id="y1Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y1"/>
-                                <ButtonInputField fx:id="x2Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X2"/>
-                                <ButtonInputField fx:id="y2Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y2"/>
+                                <IntegerButtonInputField fx:id="x1Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X1"/>
+                                <IntegerButtonInputField fx:id="y1Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y1"/>
+                                <IntegerButtonInputField fx:id="x2Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X2"/>
+                                <IntegerButtonInputField fx:id="y2Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
@@ -96,14 +96,14 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="x1Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X1"/>
-                                <ButtonInputField fx:id="y1Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y1"/>
-                                <ButtonInputField fx:id="x2Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X2"/>
-                                <ButtonInputField fx:id="y2Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y2"/>
+                                <IntegerButtonInputField fx:id="x1Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X1"/>
+                                <IntegerButtonInputField fx:id="y1Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y1"/>
+                                <IntegerButtonInputField fx:id="x2Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X2"/>
+                                <IntegerButtonInputField fx:id="y2Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
@@ -115,14 +115,14 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="x1Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X1"/>
-                                <ButtonInputField fx:id="y1Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y1"/>
-                                <ButtonInputField fx:id="x2Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X2"/>
-                                <ButtonInputField fx:id="y2Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y2"/>
+                                <IntegerButtonInputField fx:id="x1Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X1"/>
+                                <IntegerButtonInputField fx:id="y1Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y1"/>
+                                <IntegerButtonInputField fx:id="x2Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X2"/>
+                                <IntegerButtonInputField fx:id="y2Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
@@ -136,14 +136,14 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="x1Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X1"/>
-                                <ButtonInputField fx:id="y1Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y1"/>
-                                <ButtonInputField fx:id="x2Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X2"/>
-                                <ButtonInputField fx:id="y2Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y2"/>
+                                <IntegerButtonInputField fx:id="x1Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X1"/>
+                                <IntegerButtonInputField fx:id="y1Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y1"/>
+                                <IntegerButtonInputField fx:id="x2Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X2"/>
+                                <IntegerButtonInputField fx:id="y2Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
@@ -155,14 +155,14 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="x1Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X1"/>
-                                <ButtonInputField fx:id="y1Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y1"/>
-                                <ButtonInputField fx:id="x2Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X2"/>
-                                <ButtonInputField fx:id="y2Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y2"/>
+                                <IntegerButtonInputField fx:id="x1Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X1"/>
+                                <IntegerButtonInputField fx:id="y1Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y1"/>
+                                <IntegerButtonInputField fx:id="x2Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X2"/>
+                                <IntegerButtonInputField fx:id="y2Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
@@ -174,14 +174,14 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="x1Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X1"/>
-                                <ButtonInputField fx:id="y1Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y1"/>
-                                <ButtonInputField fx:id="x2Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="X2"/>
-                                <ButtonInputField fx:id="y2Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Y2"/>
+                                <IntegerButtonInputField fx:id="x1Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X1"/>
+                                <IntegerButtonInputField fx:id="y1Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y1"/>
+                                <IntegerButtonInputField fx:id="x2Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="X2"/>
+                                <IntegerButtonInputField fx:id="y2Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Y2"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>

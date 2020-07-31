@@ -2,19 +2,19 @@
 
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.b3tuning.b3console.view.menu.MenuView"
-            prefHeight="30.0" prefWidth="600.0">
-    <HBox>
-        <MenuBar>
-            <fx:include source="file/FileMenuView.fxml"/>
-            <fx:include source="edit/EditMenuView.fxml"/>
-            <fx:include source="view/ViewMenuView.fxml"/>
-            <fx:include source="online/OnlineMenuView.fxml"/>
-            <fx:include source="tools/ToolsMenuView.fxml"/>
-            <fx:include source="help/HelpMenuView.fxml"/>
-        </MenuBar>
-    </HBox>
+            prefHeight="30.0"
+            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+            AnchorPane.topAnchor="0.0">
+    <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+             AnchorPane.topAnchor="0.0">
+        <fx:include source="file/FileMenuView.fxml"/>
+        <fx:include source="edit/EditMenuView.fxml"/>
+        <fx:include source="view/ViewMenuView.fxml"/>
+        <fx:include source="online/OnlineMenuView.fxml"/>
+        <fx:include source="tools/ToolsMenuView.fxml"/>
+        <fx:include source="help/HelpMenuView.fxml"/>
+    </MenuBar>
 </AnchorPane>

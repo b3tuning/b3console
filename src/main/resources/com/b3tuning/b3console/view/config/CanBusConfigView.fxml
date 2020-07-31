@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.b3tuning.b3console.view.utils.buttonInputField.ButtonInputField?>
+<?import com.b3tuning.b3console.view.utils.buttonInputField.IntegerButtonInputField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -24,14 +24,14 @@
                 <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                       AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                     <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                        <ButtonInputField fx:id="addrTX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                          buttonText="TX Address"/>
-                        <ButtonInputField fx:id="intvlTX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                          buttonText="Interval"/>
-                        <ButtonInputField fx:id="bootRX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                          buttonText="RX Boot"/>
-                        <ButtonInputField fx:id="bootTX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                          buttonText="TX Boot"/>
+                        <IntegerButtonInputField fx:id="addrTX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                 buttonText="TX Address"/>
+                        <IntegerButtonInputField fx:id="intvlTX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                 buttonText="Interval"/>
+                        <IntegerButtonInputField fx:id="bootRX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                 buttonText="RX Boot"/>
+                        <IntegerButtonInputField fx:id="bootTX" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                 buttonText="TX Boot"/>
                     </VBox>
                 </HBox>
             </AnchorPane>
@@ -43,24 +43,22 @@
                 <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                       AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                     <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                        <ButtonInputField fx:id="mask0" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                          buttonText="Mask 0"/>
-                        <ButtonInputField fx:id="filter0_0" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                          buttonText="Filter 0-0"/>
-                        <ButtonInputField fx:id="filter0_1" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                          buttonText="Filter 0-1"/>
-<!--                    </VBox>-->
-<!--                    <VBox spacing="4.0" HBox.hgrow="ALWAYS">-->
-                        <ButtonInputField fx:id="mask1" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                          buttonText="Mask 1"/>
-                        <ButtonInputField fx:id="filter1_0" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                          buttonText="Filter 1-0"/>
-                        <ButtonInputField fx:id="filter1_1" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                          buttonText="Filter 1-1"/>
-                        <ButtonInputField fx:id="filter1_2" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                          buttonText="Filter 1-2"/>
-                        <ButtonInputField fx:id="filter1_3" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                          buttonText="Filter 1-3"/>
+                        <IntegerButtonInputField fx:id="mask0" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                 buttonText="Mask 0"/>
+                        <IntegerButtonInputField fx:id="filter0_0" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                 buttonText="Filter 0-0"/>
+                        <IntegerButtonInputField fx:id="filter0_1" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                 buttonText="Filter 0-1"/>
+                        <IntegerButtonInputField fx:id="mask1" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                 buttonText="Mask 1"/>
+                        <IntegerButtonInputField fx:id="filter1_0" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                 buttonText="Filter 1-0"/>
+                        <IntegerButtonInputField fx:id="filter1_1" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                 buttonText="Filter 1-1"/>
+                        <IntegerButtonInputField fx:id="filter1_2" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                 buttonText="Filter 1-2"/>
+                        <IntegerButtonInputField fx:id="filter1_3" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                 buttonText="Filter 1-3"/>
                     </VBox>
                 </HBox>
             </AnchorPane>

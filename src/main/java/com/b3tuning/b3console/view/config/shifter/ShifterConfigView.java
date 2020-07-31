@@ -1,9 +1,10 @@
 package com.b3tuning.b3console.view.config.shifter;
 
+import com.b3tuning.b3console.service.module.shifter.config.IndicatorConfig;
+import com.b3tuning.b3console.service.module.shifter.config.ShifterPositionConfig;
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.config.CanBusConfigView;
-import com.b3tuning.b3console.view.utils.IntegerTextFormatter;
-import com.b3tuning.b3console.view.utils.buttonInputField.ButtonInputField;
+import com.b3tuning.b3console.view.utils.buttonInputField.IntegerButtonInputField;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
 import javafx.fxml.FXML;
@@ -27,46 +28,46 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class ShifterConfigView extends BaseView<ShifterConfigViewModel> {
 
-	@FXML private ButtonInputField brightness;
-	@FXML private ButtonInputField color;
-	@FXML private ButtonInputField delay;
+	@FXML private IntegerButtonInputField brightness;
+	@FXML private IntegerButtonInputField color;
+	@FXML private IntegerButtonInputField delay;
 
-	@FXML private ButtonInputField range;
+	@FXML private IntegerButtonInputField range;
 
-	@FXML private ButtonInputField x1Park;
-	@FXML private ButtonInputField y1Park;
-	@FXML private ButtonInputField x2Park;
-	@FXML private ButtonInputField y2Park;
+	@FXML private IntegerButtonInputField x1Park;
+	@FXML private IntegerButtonInputField y1Park;
+	@FXML private IntegerButtonInputField x2Park;
+	@FXML private IntegerButtonInputField y2Park;
 
-	@FXML private ButtonInputField x1Reverse;
-	@FXML private ButtonInputField y1Reverse;
-	@FXML private ButtonInputField x2Reverse;
-	@FXML private ButtonInputField y2Reverse;
+	@FXML private IntegerButtonInputField x1Reverse;
+	@FXML private IntegerButtonInputField y1Reverse;
+	@FXML private IntegerButtonInputField x2Reverse;
+	@FXML private IntegerButtonInputField y2Reverse;
 
-	@FXML private ButtonInputField x1Neutral;
-	@FXML private ButtonInputField y1Neutral;
-	@FXML private ButtonInputField x2Neutral;
-	@FXML private ButtonInputField y2Neutral;
+	@FXML private IntegerButtonInputField x1Neutral;
+	@FXML private IntegerButtonInputField y1Neutral;
+	@FXML private IntegerButtonInputField x2Neutral;
+	@FXML private IntegerButtonInputField y2Neutral;
 
-	@FXML private ButtonInputField x1Drive;
-	@FXML private ButtonInputField y1Drive;
-	@FXML private ButtonInputField x2Drive;
-	@FXML private ButtonInputField y2Drive;
+	@FXML private IntegerButtonInputField x1Drive;
+	@FXML private IntegerButtonInputField y1Drive;
+	@FXML private IntegerButtonInputField x2Drive;
+	@FXML private IntegerButtonInputField y2Drive;
 
-	@FXML private ButtonInputField x1Manual;
-	@FXML private ButtonInputField y1Manual;
-	@FXML private ButtonInputField x2Manual;
-	@FXML private ButtonInputField y2Manual;
+	@FXML private IntegerButtonInputField x1Manual;
+	@FXML private IntegerButtonInputField y1Manual;
+	@FXML private IntegerButtonInputField x2Manual;
+	@FXML private IntegerButtonInputField y2Manual;
 
-	@FXML private ButtonInputField x1Up;
-	@FXML private ButtonInputField y1Up;
-	@FXML private ButtonInputField x2Up;
-	@FXML private ButtonInputField y2Up;
+	@FXML private IntegerButtonInputField x1Up;
+	@FXML private IntegerButtonInputField y1Up;
+	@FXML private IntegerButtonInputField x2Up;
+	@FXML private IntegerButtonInputField y2Up;
 
-	@FXML private ButtonInputField x1Down;
-	@FXML private ButtonInputField y1Down;
-	@FXML private ButtonInputField x2Down;
-	@FXML private ButtonInputField y2Down;
+	@FXML private IntegerButtonInputField x1Down;
+	@FXML private IntegerButtonInputField y1Down;
+	@FXML private IntegerButtonInputField x2Down;
+	@FXML private IntegerButtonInputField y2Down;
 
 	@SuppressWarnings("unused")
 	@FXML
@@ -90,92 +91,59 @@ public class ShifterConfigView extends BaseView<ShifterConfigViewModel> {
 
 		IntegerStringConverter intToString = new IntegerStringConverter();
 
-		brightness.setFormatter(new IntegerTextFormatter());
-		color.setFormatter(new IntegerTextFormatter());
-		delay.setFormatter(new IntegerTextFormatter());
-
-		range.setFormatter(new IntegerTextFormatter());
-
-		x1Park.setFormatter(new IntegerTextFormatter());
-		y1Park.setFormatter(new IntegerTextFormatter());
-		x2Park.setFormatter(new IntegerTextFormatter());
-		y2Park.setFormatter(new IntegerTextFormatter());
-
-		x1Reverse.setFormatter(new IntegerTextFormatter());
-		y1Reverse.setFormatter(new IntegerTextFormatter());
-		x2Reverse.setFormatter(new IntegerTextFormatter());
-		y2Reverse.setFormatter(new IntegerTextFormatter());
-
-		x1Neutral.setFormatter(new IntegerTextFormatter());
-		y1Neutral.setFormatter(new IntegerTextFormatter());
-		x2Neutral.setFormatter(new IntegerTextFormatter());
-		y2Neutral.setFormatter(new IntegerTextFormatter());
-
-		x1Drive.setFormatter(new IntegerTextFormatter());
-		y1Drive.setFormatter(new IntegerTextFormatter());
-		x2Drive.setFormatter(new IntegerTextFormatter());
-		y2Drive.setFormatter(new IntegerTextFormatter());
-
-		x1Manual.setFormatter(new IntegerTextFormatter());
-		y1Manual.setFormatter(new IntegerTextFormatter());
-		x2Manual.setFormatter(new IntegerTextFormatter());
-		y2Manual.setFormatter(new IntegerTextFormatter());
-
-		x1Up.setFormatter(new IntegerTextFormatter());
-		y1Up.setFormatter(new IntegerTextFormatter());
-		x2Up.setFormatter(new IntegerTextFormatter());
-		y2Up.setFormatter(new IntegerTextFormatter());
-
-		x1Down.setFormatter(new IntegerTextFormatter());
-		y1Down.setFormatter(new IntegerTextFormatter());
-		x2Down.setFormatter(new IntegerTextFormatter());
-		y2Down.setFormatter(new IntegerTextFormatter());
-
 		manage(nonNullValuesOf(viewModel.configProperty()).subscribe(c -> {
 			log.entry();
 
 			c.canBusProperty().bindBidirectional(canBusConfigController.getViewModel().configProperty());
 
-			brightness.textProperty().bindBidirectional(c.indicatorProperty().get().brightnessProperty(), intToString);
-			color.textProperty().bindBidirectional(c.indicatorProperty().get().colorProperty(), intToString);
-			delay.textProperty().bindBidirectional(c.indicatorProperty().get().waitProperty(), intToString);
+			IndicatorConfig indicator = c.getIndicator();
+			brightness.textProperty().bindBidirectional(indicator.brightnessProperty(), intToString);
+			color.textProperty().bindBidirectional(indicator.colorProperty(), intToString);
+			delay.textProperty().bindBidirectional(indicator.waitProperty(), intToString);
 
 			range.textProperty().bindBidirectional(c.melexisProperty().get().rangeProperty(), intToString);
 
-			x1Park.textProperty().bindBidirectional(c.parkProperty().get().x1Property(), intToString);
-			y1Park.textProperty().bindBidirectional(c.parkProperty().get().y1Property(), intToString);
-			x2Park.textProperty().bindBidirectional(c.parkProperty().get().x2Property(), intToString);
-			y2Park.textProperty().bindBidirectional(c.parkProperty().get().y2Property(), intToString);
+			ShifterPositionConfig park = c.getPark();
+			x1Park.textProperty().bindBidirectional(park.x1Property(), intToString);
+			y1Park.textProperty().bindBidirectional(park.y1Property(), intToString);
+			x2Park.textProperty().bindBidirectional(park.x2Property(), intToString);
+			y2Park.textProperty().bindBidirectional(park.y2Property(), intToString);
 
-			x1Reverse.textProperty().bindBidirectional(c.reverseProperty().get().x1Property(), intToString);
-			y1Reverse.textProperty().bindBidirectional(c.reverseProperty().get().y1Property(), intToString);
-			x2Reverse.textProperty().bindBidirectional(c.reverseProperty().get().x2Property(), intToString);
-			y2Reverse.textProperty().bindBidirectional(c.reverseProperty().get().y2Property(), intToString);
+			ShifterPositionConfig reverse = c.getReverse();
+			x1Reverse.textProperty().bindBidirectional(reverse.x1Property(), intToString);
+			y1Reverse.textProperty().bindBidirectional(reverse.y1Property(), intToString);
+			x2Reverse.textProperty().bindBidirectional(reverse.x2Property(), intToString);
+			y2Reverse.textProperty().bindBidirectional(reverse.y2Property(), intToString);
 
-			x1Neutral.textProperty().bindBidirectional(c.neutralProperty().get().x1Property(), intToString);
-			y1Neutral.textProperty().bindBidirectional(c.neutralProperty().get().y1Property(), intToString);
-			x2Neutral.textProperty().bindBidirectional(c.neutralProperty().get().x2Property(), intToString);
-			y2Neutral.textProperty().bindBidirectional(c.neutralProperty().get().y2Property(), intToString);
+			ShifterPositionConfig neutral = c.getNeutral();
+			x1Neutral.textProperty().bindBidirectional(neutral.x1Property(), intToString);
+			y1Neutral.textProperty().bindBidirectional(neutral.y1Property(), intToString);
+			x2Neutral.textProperty().bindBidirectional(neutral.x2Property(), intToString);
+			y2Neutral.textProperty().bindBidirectional(neutral.y2Property(), intToString);
 
-			x1Drive.textProperty().bindBidirectional(c.driveProperty().get().x1Property(), intToString);
-			y1Drive.textProperty().bindBidirectional(c.driveProperty().get().y1Property(), intToString);
-			x2Drive.textProperty().bindBidirectional(c.driveProperty().get().x2Property(), intToString);
-			y2Drive.textProperty().bindBidirectional(c.driveProperty().get().y2Property(), intToString);
+			ShifterPositionConfig drive = c.getDrive();
+			x1Drive.textProperty().bindBidirectional(drive.x1Property(), intToString);
+			y1Drive.textProperty().bindBidirectional(drive.y1Property(), intToString);
+			x2Drive.textProperty().bindBidirectional(drive.x2Property(), intToString);
+			y2Drive.textProperty().bindBidirectional(drive.y2Property(), intToString);
 
-			x1Manual.textProperty().bindBidirectional(c.manualProperty().get().x1Property(), intToString);
-			y1Manual.textProperty().bindBidirectional(c.manualProperty().get().y1Property(), intToString);
-			x2Manual.textProperty().bindBidirectional(c.manualProperty().get().x2Property(), intToString);
-			y2Manual.textProperty().bindBidirectional(c.manualProperty().get().y2Property(), intToString);
+			ShifterPositionConfig manual = c.getManual();
+			x1Manual.textProperty().bindBidirectional(manual.x1Property(), intToString);
+			y1Manual.textProperty().bindBidirectional(manual.y1Property(), intToString);
+			x2Manual.textProperty().bindBidirectional(manual.x2Property(), intToString);
+			y2Manual.textProperty().bindBidirectional(manual.y2Property(), intToString);
 
-			x1Up.textProperty().bindBidirectional(c.upProperty().get().x1Property(), intToString);
-			y1Up.textProperty().bindBidirectional(c.upProperty().get().y1Property(), intToString);
-			x2Up.textProperty().bindBidirectional(c.upProperty().get().x2Property(), intToString);
-			y2Up.textProperty().bindBidirectional(c.upProperty().get().y2Property(), intToString);
+			ShifterPositionConfig up = c.getUp();
+			x1Up.textProperty().bindBidirectional(up.x1Property(), intToString);
+			y1Up.textProperty().bindBidirectional(up.y1Property(), intToString);
+			x2Up.textProperty().bindBidirectional(up.x2Property(), intToString);
+			y2Up.textProperty().bindBidirectional(up.y2Property(), intToString);
 
-			x1Down.textProperty().bindBidirectional(c.downProperty().get().x1Property(), intToString);
-			y1Down.textProperty().bindBidirectional(c.downProperty().get().y1Property(), intToString);
-			x2Down.textProperty().bindBidirectional(c.downProperty().get().x2Property(), intToString);
-			y2Down.textProperty().bindBidirectional(c.downProperty().get().y2Property(), intToString);
+			ShifterPositionConfig down = c.getDown();
+			x1Down.textProperty().bindBidirectional(down.x1Property(), intToString);
+			y1Down.textProperty().bindBidirectional(down.y1Property(), intToString);
+			x2Down.textProperty().bindBidirectional(down.x2Property(), intToString);
+			y2Down.textProperty().bindBidirectional(down.y2Property(), intToString);
 		}));
 
 		initializeValidation();
@@ -192,40 +160,40 @@ public class ShifterConfigView extends BaseView<ShifterConfigViewModel> {
 
 		visualizer.initVisualization(viewModel.rangeValidation(), range.getTextField(), true);
 
-		visualizer.initVisualization(viewModel.x1ParkValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y1ParkValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.x2ParkValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y2ParkValidation(), range.getTextField(), true);
+		visualizer.initVisualization(viewModel.x1ParkValidation(), x1Park.getTextField(), true);
+		visualizer.initVisualization(viewModel.y1ParkValidation(), y1Park.getTextField(), true);
+		visualizer.initVisualization(viewModel.x2ParkValidation(), x2Park.getTextField(), true);
+		visualizer.initVisualization(viewModel.y2ParkValidation(), y2Park.getTextField(), true);
 
-		visualizer.initVisualization(viewModel.x1ReverseValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y1ReverseValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.x2ReverseValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y2ReverseValidation(), range.getTextField(), true);
+		visualizer.initVisualization(viewModel.x1ReverseValidation(), x1Reverse.getTextField(), true);
+		visualizer.initVisualization(viewModel.y1ReverseValidation(), y1Reverse.getTextField(), true);
+		visualizer.initVisualization(viewModel.x2ReverseValidation(), x2Reverse.getTextField(), true);
+		visualizer.initVisualization(viewModel.y2ReverseValidation(), y2Reverse.getTextField(), true);
 
-		visualizer.initVisualization(viewModel.x1NeutralValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y1NeutralValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.x2NeutralValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y2NeutralValidation(), range.getTextField(), true);
+		visualizer.initVisualization(viewModel.x1NeutralValidation(), x1Neutral.getTextField(), true);
+		visualizer.initVisualization(viewModel.y1NeutralValidation(), y1Neutral.getTextField(), true);
+		visualizer.initVisualization(viewModel.x2NeutralValidation(), x2Neutral.getTextField(), true);
+		visualizer.initVisualization(viewModel.y2NeutralValidation(), y2Neutral.getTextField(), true);
 
-		visualizer.initVisualization(viewModel.x1DriveValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y1DriveValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.x2DriveValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y2DriveValidation(), range.getTextField(), true);
+		visualizer.initVisualization(viewModel.x1DriveValidation(), x1Drive.getTextField(), true);
+		visualizer.initVisualization(viewModel.y1DriveValidation(), y1Drive.getTextField(), true);
+		visualizer.initVisualization(viewModel.x2DriveValidation(), x2Drive.getTextField(), true);
+		visualizer.initVisualization(viewModel.y2DriveValidation(), y2Drive.getTextField(), true);
 
-		visualizer.initVisualization(viewModel.x1ManualValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y1ManualValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.x2ManualValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y2ManualValidation(), range.getTextField(), true);
+		visualizer.initVisualization(viewModel.x1ManualValidation(), x1Manual.getTextField(), true);
+		visualizer.initVisualization(viewModel.y1ManualValidation(), y1Manual.getTextField(), true);
+		visualizer.initVisualization(viewModel.x2ManualValidation(), x2Manual.getTextField(), true);
+		visualizer.initVisualization(viewModel.y2ManualValidation(), y2Manual.getTextField(), true);
 
-		visualizer.initVisualization(viewModel.x1UpValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y1UpValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.x2UpValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y2UpValidation(), range.getTextField(), true);
+		visualizer.initVisualization(viewModel.x1UpValidation(), x1Up.getTextField(), true);
+		visualizer.initVisualization(viewModel.y1UpValidation(), y1Up.getTextField(), true);
+		visualizer.initVisualization(viewModel.x2UpValidation(), x2Up.getTextField(), true);
+		visualizer.initVisualization(viewModel.y2UpValidation(), y2Up.getTextField(), true);
 
-		visualizer.initVisualization(viewModel.x1DownValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y1DownValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.x2DownValidation(), range.getTextField(), true);
-		visualizer.initVisualization(viewModel.y2DownValidation(), range.getTextField(), true);
+		visualizer.initVisualization(viewModel.x1DownValidation(), x1Down.getTextField(), true);
+		visualizer.initVisualization(viewModel.y1DownValidation(), y1Down.getTextField(), true);
+		visualizer.initVisualization(viewModel.x2DownValidation(), x2Down.getTextField(), true);
+		visualizer.initVisualization(viewModel.y2DownValidation(), y2Down.getTextField(), true);
 
 	}
 

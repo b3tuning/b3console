@@ -12,8 +12,7 @@
 package com.b3tuning.b3console.view.config;
 
 import com.b3tuning.b3console.view.BaseView;
-import com.b3tuning.b3console.view.utils.IntegerTextFormatter;
-import com.b3tuning.b3console.view.utils.buttonInputField.ButtonInputField;
+import com.b3tuning.b3console.view.utils.buttonInputField.IntegerButtonInputField;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
 import javafx.fxml.FXML;
@@ -28,18 +27,18 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class CanBusConfigView extends BaseView<CanBusConfigViewModel> {
 
-	@FXML private ButtonInputField addrTX;
-	@FXML private ButtonInputField intvlTX;
-	@FXML private ButtonInputField bootTX;
-	@FXML private ButtonInputField bootRX;
-	@FXML private ButtonInputField mask0;
-	@FXML private ButtonInputField filter0_0;
-	@FXML private ButtonInputField filter0_1;
-	@FXML private ButtonInputField mask1;
-	@FXML private ButtonInputField filter1_0;
-	@FXML private ButtonInputField filter1_1;
-	@FXML private ButtonInputField filter1_2;
-	@FXML private ButtonInputField filter1_3;
+	@FXML private IntegerButtonInputField addrTX;
+	@FXML private IntegerButtonInputField intvlTX;
+	@FXML private IntegerButtonInputField bootTX;
+	@FXML private IntegerButtonInputField bootRX;
+	@FXML private IntegerButtonInputField mask0;
+	@FXML private IntegerButtonInputField filter0_0;
+	@FXML private IntegerButtonInputField filter0_1;
+	@FXML private IntegerButtonInputField mask1;
+	@FXML private IntegerButtonInputField filter1_0;
+	@FXML private IntegerButtonInputField filter1_1;
+	@FXML private IntegerButtonInputField filter1_2;
+	@FXML private IntegerButtonInputField filter1_3;
 
 	private final ControlsFxVisualizer visualizer = new ControlsFxVisualizer();
 
@@ -52,19 +51,6 @@ public class CanBusConfigView extends BaseView<CanBusConfigViewModel> {
 		log.entry();
 
 		IntegerStringConverter intToString = new IntegerStringConverter();
-
-		addrTX.setFormatter(new IntegerTextFormatter());
-		intvlTX.setFormatter(new IntegerTextFormatter());
-		bootTX.setFormatter(new IntegerTextFormatter());
-		bootRX.setFormatter(new IntegerTextFormatter());
-		mask0.setFormatter(new IntegerTextFormatter());
-		filter0_0.setFormatter(new IntegerTextFormatter());
-		filter0_1.setFormatter(new IntegerTextFormatter());
-		mask1.setFormatter(new IntegerTextFormatter());
-		filter1_0.setFormatter(new IntegerTextFormatter());
-		filter1_1.setFormatter(new IntegerTextFormatter());
-		filter1_2.setFormatter(new IntegerTextFormatter());
-		filter1_3.setFormatter(new IntegerTextFormatter());
 
 		manage(nonNullValuesOf(viewModel.configProperty()).subscribe(c -> {
 			log.entry();

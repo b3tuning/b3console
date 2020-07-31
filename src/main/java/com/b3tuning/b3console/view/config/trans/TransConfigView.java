@@ -2,8 +2,7 @@ package com.b3tuning.b3console.view.config.trans;
 
 import com.b3tuning.b3console.view.BaseView;
 import com.b3tuning.b3console.view.config.CanBusConfigView;
-import com.b3tuning.b3console.view.utils.IntegerTextFormatter;
-import com.b3tuning.b3console.view.utils.buttonInputField.ButtonInputField;
+import com.b3tuning.b3console.view.utils.buttonInputField.IntegerButtonInputField;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
 import javafx.fxml.FXML;
@@ -27,9 +26,9 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class TransConfigView extends BaseView<TransConfigViewModel> {
 
-	@FXML private ButtonInputField encMax;
-	@FXML private ButtonInputField encMin;
-	@FXML private ButtonInputField maxCurrent;
+	@FXML private IntegerButtonInputField encMax;
+	@FXML private IntegerButtonInputField encMin;
+	@FXML private IntegerButtonInputField maxCurrent;
 
 	@SuppressWarnings("unused")
 	@FXML
@@ -52,10 +51,6 @@ public class TransConfigView extends BaseView<TransConfigViewModel> {
 		log.entry();
 
 		IntegerStringConverter intToString = new IntegerStringConverter();
-
-		encMax.setFormatter(new IntegerTextFormatter());
-		encMin.setFormatter(new IntegerTextFormatter());
-		maxCurrent.setFormatter(new IntegerTextFormatter());
 
 		manage(nonNullValuesOf(viewModel.configProperty()).subscribe(c -> {
 			log.entry();

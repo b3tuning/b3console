@@ -11,29 +11,19 @@ import com.b3tuning.b3console.view.config.shifter.ShifterConfigViewModel;
 import com.b3tuning.b3console.view.config.trans.TransConfigView;
 import com.b3tuning.b3console.view.config.trans.TransConfigViewModel;
 import com.b3tuning.b3console.view.loader.ViewManager;
-import com.b3tuning.b3console.view.menu.MenuView;
-import com.b3tuning.b3console.view.menu.MenuViewModel;
 import com.b3tuning.b3console.view.notifications.PopViewNotification;
 import com.b3tuning.b3console.view.notifications.PushViewNotification;
 import de.saxsys.mvvmfx.FluentViewLoader;
 import de.saxsys.mvvmfx.ViewTuple;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
 import lombok.Setter;
 import lombok.extern.slf4j.XSlf4j;
-import org.reactfx.EventSource;
 
 import javax.inject.Inject;
 
@@ -52,10 +42,7 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
 @XSlf4j
 public class RootViewModel extends BaseViewModel {
 
-	public static final  String HELP_DETACHED_EVENT = "help_detached";
-//	private static final String HELP_STAGE_TITLE    = "B3Tuning Module Help";
-
-	private static final double HELP_WIDTH = 0.3f;
+	public static final String HELP_DETACHED_EVENT = "help_detached";
 
 	// injected
 	@Setter
@@ -69,14 +56,8 @@ public class RootViewModel extends BaseViewModel {
 	// exposed properties
 	private final ObjectProperty<StackPane> childViewPane = new SimpleObjectProperty<>();
 
-	private final EventSource<Boolean>       displayHelp      = new EventSource<>();
-	private final BooleanProperty            helpPaneVisible  = new SimpleBooleanProperty(false);
-	private final DoubleProperty             helpPaneLocation = new SimpleDoubleProperty();
-	private final DoubleProperty             helpPaneOpacity  = new SimpleDoubleProperty();
-	private final BooleanProperty            initialized      = new SimpleBooleanProperty(false);
-	private final ObjectProperty<ConfigBase> config           = new SimpleObjectProperty<>(null);
-
-	private final ViewTuple<MenuView, MenuViewModel> menuViewTuple;
+	private final BooleanProperty            initialized = new SimpleBooleanProperty(false);
+	private final ObjectProperty<ConfigBase> config      = new SimpleObjectProperty<>(null);
 
 	@Inject
 	public RootViewModel(NotificationCenter globalNotifications, ViewManager viewManager, FileManager manager) {
@@ -86,7 +67,6 @@ public class RootViewModel extends BaseViewModel {
 		this.viewManager         = viewManager;
 		this.fileManager         = manager;
 
-		menuViewTuple = FluentViewLoader.fxmlView(MenuView.class).load();
 		config.bindBidirectional(fileManager.configProperty());
 
 		initNotifications();
@@ -115,9 +95,6 @@ public class RootViewModel extends BaseViewModel {
 				viewManager.pop(childViewPane.get(), ((PopViewNotification) payload[0]).isReloadPage());
 			});
 		}));
-
-//		// detach the help from the sidebar if requested
-//		globalNotifications.subscribe(HELP_DETACHED_EVENT, (key, payload) -> detachHelp());
 
 		manage(changesOf(config).subscribe(configBaseChange -> {
 			log.entry(configBaseChange);
@@ -170,104 +147,6 @@ public class RootViewModel extends BaseViewModel {
 		}
 	}
 
-//	public Node helpView() {
-//		return helpViewTuple().getView();
-//	}
-
-//	private ViewTuple<HelpView, HelpViewModel> helpViewTuple() {
-//		return FluentViewLoader.fxmlView(HelpView.class).load();
-//	}
-
-//	private void detachHelp() {
-//		log.entry();
-//		if (helpPaneVisible.get()) {
-//			slideHelpOut();
-//		}
-//
-//		ViewTuple<HelpView, HelpViewModel> tuple = helpViewTuple();
-//		tuple.getViewModel().setDetached(true);
-//
-//		Stage helpStage = new Stage();
-//		helpStage.setTitle(HELP_STAGE_TITLE);
-//
-//		Scene        helpScene = new Scene(tuple.getView(), 640, 480);
-//		final String uri       = App.class.getResource(DEFAULT_CSS).toExternalForm();
-//		helpScene.getStylesheets().add(uri);
-//		helpStage.setScene(helpScene);
-//		viewManager.republishPageContextChanged();
-//
-//		helpStage.show();
-//	}
-
-//			// HELP actions
-//			case A_HELP:
-////				application.getHostServices().showDocument(appProperties.getUserHelpUrl().toString());
-//				displayHelp.push(true);
-//				break;
-//
-//			// TOOLS actions
-//			case A_OPTIONS:
-////				if (viewManager.contains(ConfigMenuView.class.getName())) {
-////					viewManager.toFront(ConfigMenuView.class.getName());
-////				} else {
-////					ViewTuple<ConfigMenuView, ConfigMenuViewModel> tuple = FluentViewLoader
-////							.fxmlView(ConfigMenuView.class).load();
-////					viewManager.push(ConfigMenuView.class.getName(), tuple, childViewPane.get(), A_OPTIONS);
-////				}
-//				if (viewManager.contains(SettingsMenuView.class.getName())) {
-//					viewManager.toFront(SettingsMenuView.class.getName());
-//				} else {
-//					ViewTuple<SettingsMenuView, SettingsMenuViewModel> tuple = FluentViewLoader
-//							.fxmlView(SettingsMenuView.class).load();
-//					viewManager.push(SettingsMenuView.class.getName(), tuple, childViewPane.get(), A_OPTIONS);
-//				}
-//				break;
-//
-//			// VIEW actions
-//			// TODO: figure out view
-//
-//			default:
-//				log.error(MENU_ITEM_ERROR, action);
-//
-//		}
-//		globalNotifications.publish(action.toString(), action);
-//	}
-
-	/**
-	 * HELP PAGE ANIMATION
-	 */
-
-	public void animateHelpPane() {
-		if (helpPaneVisible.get()) {
-			slideHelpOut();
-		} else {
-			slideHelpIn();
-		}
-	}
-
-	private void slideHelpIn() {
-		log.entry();
-		helpPaneVisible.set(false);
-		helpPaneLocation.set(0);
-		helpPaneOpacity.set(0);
-		KeyFrame kf1      = new KeyFrame(Duration.millis(1), new KeyValue(helpPaneVisible, true));
-		KeyFrame kf2      = new KeyFrame(Duration.millis(200), new KeyValue(helpPaneLocation, HELP_WIDTH));
-		KeyFrame kf3      = new KeyFrame(Duration.millis(200), new KeyValue(helpPaneOpacity, 0));
-		KeyFrame kf4      = new KeyFrame(Duration.millis(300), new KeyValue(helpPaneOpacity, 1));
-		Timeline timeline = new Timeline(kf1, kf2, kf3, kf4);
-		timeline.play();
-	}
-
-	private void slideHelpOut() {
-		log.entry();
-		KeyFrame kf1 = new KeyFrame(Duration.millis(50), new KeyValue(helpPaneOpacity, 0));
-		KeyFrame kf2 = new KeyFrame(Duration.millis(200), new KeyValue(helpPaneLocation, 0));
-		KeyFrame kf3 = new KeyFrame(Duration.millis(201), new KeyValue(helpPaneVisible, false));
-
-		Timeline timeline = new Timeline(kf1, kf2, kf3);
-		timeline.play();
-	}
-
 	/**
 	 * JAVAFX PROPERTIES
 	 */
@@ -279,31 +158,7 @@ public class RootViewModel extends BaseViewModel {
 		return initialized;
 	}
 
-	public EventSource<Boolean> displayHelpStream() {
-		return displayHelp;
-	}
-
-	public BooleanProperty helpPaneVisibleProperty() {
-		return helpPaneVisible;
-	}
-
-	public DoubleProperty helpPaneLocationProperty() {
-		return helpPaneLocation;
-	}
-
-	public void setHelpPaneLocation(double value) {
-		helpPaneLocation.set(value);
-	}
-
-	public DoubleProperty helpPaneOpacityProperty() {
-		return helpPaneOpacity;
-	}
-
 	public void setChildViewPane(StackPane value) {
 		childViewPane.set(value);
-	}
-
-	public Parent getMenuView() {
-		return menuViewTuple.getView();
 	}
 }

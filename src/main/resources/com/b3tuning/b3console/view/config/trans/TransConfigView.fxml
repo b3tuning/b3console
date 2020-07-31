@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.b3tuning.b3console.view.utils.buttonInputField.IntegerButtonInputField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import com.b3tuning.b3console.view.utils.buttonInputField.ButtonInputField?>
+<?import javafx.scene.layout.VBox?>
 <AnchorPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.b3tuning.b3console.view.config.trans.TransConfigView"
             styleClass="white-background-with-border"
@@ -27,10 +27,10 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="encMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Encoder Max"/>
-                                <ButtonInputField fx:id="encMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Encoder Min"/>
+                                <IntegerButtonInputField fx:id="encMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Encoder Max"/>
+                                <IntegerButtonInputField fx:id="encMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Encoder Min"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>
@@ -42,8 +42,8 @@
                         <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                               AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                             <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                                <ButtonInputField fx:id="maxCurrent" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                  buttonText="Current Max"/>
+                                <IntegerButtonInputField fx:id="maxCurrent" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Current Max"/>
                             </VBox>
                         </HBox>
                     </AnchorPane>

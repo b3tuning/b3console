@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.b3tuning.b3console.view.utils.buttonInputField.ButtonInputField?>
+<?import com.b3tuning.b3console.view.utils.buttonInputField.IntegerButtonInputField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,18 +26,18 @@
                     <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                           AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                         <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                            <ButtonInputField fx:id="msDriverMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Driver Max"/>
-                            <ButtonInputField fx:id="msDriverMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Driver Min"/>
-                            <ButtonInputField fx:id="msFoldMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Fold Max"/>
-                            <ButtonInputField fx:id="msFoldMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Fold Min"/>
-                            <ButtonInputField fx:id="msPassMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Passenger Max"/>
-                            <ButtonInputField fx:id="msPassMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Passenger Min"/>
+                            <IntegerButtonInputField fx:id="msDriverMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Driver Max"/>
+                            <IntegerButtonInputField fx:id="msDriverMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Driver Min"/>
+                            <IntegerButtonInputField fx:id="msFoldMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Fold Max"/>
+                            <IntegerButtonInputField fx:id="msFoldMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Fold Min"/>
+                            <IntegerButtonInputField fx:id="msPassMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Passenger Max"/>
+                            <IntegerButtonInputField fx:id="msPassMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Passenger Min"/>
                         </VBox>
                     </HBox>
                 </AnchorPane>
@@ -49,22 +49,22 @@
                     <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                           AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                         <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                            <ButtonInputField fx:id="maUpMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Up Max"/>
-                            <ButtonInputField fx:id="maUpMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Up Min"/>
-                            <ButtonInputField fx:id="maDownMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Down Max"/>
-                            <ButtonInputField fx:id="maDownMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Down Min"/>
-                            <ButtonInputField fx:id="maLeftMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Left Max"/>
-                            <ButtonInputField fx:id="maLeftMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Left Min"/>
-                            <ButtonInputField fx:id="maRightMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Right Max"/>
-                            <ButtonInputField fx:id="maRightMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Right Min"/>
+                            <IntegerButtonInputField fx:id="maUpMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Up Max"/>
+                            <IntegerButtonInputField fx:id="maUpMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Up Min"/>
+                            <IntegerButtonInputField fx:id="maDownMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Down Max"/>
+                            <IntegerButtonInputField fx:id="maDownMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Down Min"/>
+                            <IntegerButtonInputField fx:id="maLeftMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Left Max"/>
+                            <IntegerButtonInputField fx:id="maLeftMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Left Min"/>
+                            <IntegerButtonInputField fx:id="maRightMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Right Max"/>
+                            <IntegerButtonInputField fx:id="maRightMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Right Min"/>
                         </VBox>
                     </HBox>
                 </AnchorPane>
@@ -76,22 +76,22 @@
                     <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
                           AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                         <VBox spacing="10.0" HBox.hgrow="ALWAYS">
-                            <ButtonInputField fx:id="waAutoUpMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Auto Up Max"/>
-                            <ButtonInputField fx:id="waAutoUpMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Auto Up Min"/>
-                            <ButtonInputField fx:id="waUpMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Up Max"/>
-                            <ButtonInputField fx:id="waUpMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Up Min"/>
-                            <ButtonInputField fx:id="waDownMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Down Max"/>
-                            <ButtonInputField fx:id="waDownMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Down Min"/>
-                            <ButtonInputField fx:id="waAutoDownMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Auto Down Max"/>
-                            <ButtonInputField fx:id="waAutoDownMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Auto Down Min"/>
+                            <IntegerButtonInputField fx:id="waAutoUpMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Auto Up Max"/>
+                            <IntegerButtonInputField fx:id="waAutoUpMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Auto Up Min"/>
+                            <IntegerButtonInputField fx:id="waUpMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Up Max"/>
+                            <IntegerButtonInputField fx:id="waUpMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Up Min"/>
+                            <IntegerButtonInputField fx:id="waDownMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Down Max"/>
+                            <IntegerButtonInputField fx:id="waDownMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Down Min"/>
+                            <IntegerButtonInputField fx:id="waAutoDownMax" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Auto Down Max"/>
+                            <IntegerButtonInputField fx:id="waAutoDownMin" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Auto Down Min"/>
                         </VBox>
                     </HBox>
                 </AnchorPane>
@@ -104,10 +104,10 @@
                           AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
                         <VBox spacing="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
                               HBox.hgrow="ALWAYS">
-                            <ButtonInputField fx:id="dMaxCurrent" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Driver Max"/>
-                            <ButtonInputField fx:id="pMaxCurrent" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                              buttonText="Passenger Max"/>
+                            <IntegerButtonInputField fx:id="dMaxCurrent" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Driver Max"/>
+                            <IntegerButtonInputField fx:id="pMaxCurrent" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                     buttonText="Passenger Max"/>
                         </VBox>
                     </HBox>
                 </AnchorPane>
