@@ -37,6 +37,14 @@ public class ButtonInputField extends HBox {
 			this.getChildren().add(n);
 
 			this.controller.getButton().setText(buttonText);
+
+			this.controller.getButton().setOnMousePressed(mouseEvent -> {
+				this.controller.getTextField().requestFocus();
+				if (this.controller.getTextField().getText().equals("0")) {
+					this.controller.getTextField().setText("1");
+				}
+				this.controller.getTextField().selectAll();
+			});
 		}
 		catch (IOException e) {
 			e.printStackTrace();
