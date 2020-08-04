@@ -20,7 +20,7 @@ buildscript {
 	dependencies {
 
 		// dependency management:
-		classpath("com.netflix.nebula:gradle-dependency-lock-plugin:9.4.0")
+		classpath("com.netflix.nebula:gradle-dependency-lock-plugin:9.4.1")
 		classpath("com.netflix.nebula:gradle-git-scm-plugin:4.2.0")
 
 		// auto-updating support:
