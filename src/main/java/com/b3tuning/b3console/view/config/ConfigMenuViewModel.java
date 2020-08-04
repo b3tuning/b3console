@@ -133,10 +133,6 @@ public class ConfigMenuViewModel extends BaseViewModel implements Refreshable {
 		childViewPane.set(value);
 	}
 
-	public ObjectProperty<StackPane> childViewPaneProperty() {
-		return childViewPane;
-	}
-
 	@Override
 	public void refresh() {
 		log.entry();

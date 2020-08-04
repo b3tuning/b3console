@@ -67,6 +67,7 @@ import java.util.ServiceLoader;
 @XSlf4j
 public class App extends Application {
 
+	@SuppressWarnings("unused")
 	public static final String DEFAULT_CSS = "app.css";
 	public static final String APP_NAME    = "B3Tuning Module Config Tool";
 

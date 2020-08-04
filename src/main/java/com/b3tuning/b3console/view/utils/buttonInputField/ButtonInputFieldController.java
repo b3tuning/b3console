@@ -48,10 +48,6 @@ public class ButtonInputFieldController implements Initializable {
 		this.button = button;
 	}
 
-	public void setText(String text) {
-		this.button.setText(text);
-	}
-
 	public TextField getTextField() {
 		return textField;
 	}

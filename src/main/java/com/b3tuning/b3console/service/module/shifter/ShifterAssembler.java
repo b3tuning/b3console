@@ -11,9 +11,6 @@ import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResou
 import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.MelexisResource;
 import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.ShifterPositionResource;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 /*
  *  Created on:  May 01, 2020
  *      Author: James Hildebrand

@@ -13,7 +13,7 @@ import javafx.beans.property.BooleanProperty;
 public interface EditableViewModel {
 
 	/**
-	 * Indicates if the viewmodel is dirty
+	 * Indicates if the viewModel is dirty
 	 */
 	BooleanProperty dirtyProperty();
 

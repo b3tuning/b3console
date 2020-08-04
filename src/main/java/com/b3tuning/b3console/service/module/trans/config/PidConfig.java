@@ -14,11 +14,9 @@ package com.b3tuning.b3console.service.module.trans.config;
 import com.b3tuning.b3console.service.EditableEntity;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = false)
 public class PidConfig extends EditableEntity {
 
 	private final ObjectProperty<Double> aggKd;
@@ -117,26 +115,32 @@ public class PidConfig extends EditableEntity {
 	/// JavaFX properties
 	/////////////////////////////////////////////////////////////////////////////
 
+	@SuppressWarnings("unused")
 	public ObjectProperty<Double> aggKdProperty() {
 		return this.aggKd;
 	}
 
+	@SuppressWarnings("unused")
 	public ObjectProperty<Double> aggKiProperty() {
 		return this.aggKi;
 	}
 
+	@SuppressWarnings("unused")
 	public ObjectProperty<Double> aggKpProperty() {
 		return this.aggKp;
 	}
 
+	@SuppressWarnings("unused")
 	public ObjectProperty<Double> consKdProperty() {
 		return this.consKd;
 	}
 
+	@SuppressWarnings("unused")
 	public ObjectProperty<Double> consKiProperty() {
 		return this.consKi;
 	}
 
+	@SuppressWarnings("unused")
 	public ObjectProperty<Double> consKpProperty() {
 		return this.consKp;
 	}

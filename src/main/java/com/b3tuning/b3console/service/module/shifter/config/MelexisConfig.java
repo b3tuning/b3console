@@ -14,14 +14,12 @@ package com.b3tuning.b3console.service.module.shifter.config;
 import com.b3tuning.b3console.service.EditableEntity;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * MelexisConfig
  */
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = false)
 public class MelexisConfig extends EditableEntity {
 
 	private final ObjectProperty<Integer> range;

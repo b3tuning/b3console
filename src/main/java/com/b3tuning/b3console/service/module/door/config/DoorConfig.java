@@ -5,7 +5,6 @@ import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.ModuleType;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.XSlf4j;
 
@@ -21,7 +20,6 @@ import static org.reactfx.EventStreams.nonNullValuesOf;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = false)
 @XSlf4j
 public class DoorConfig extends EditableEntity implements ConfigBase {
 
@@ -133,14 +131,17 @@ public class DoorConfig extends EditableEntity implements ConfigBase {
 	/// JavaFX properties
 	/////////////////////////////////////////////////////////////////////////////
 
+	@SuppressWarnings("unused")
 	public ObjectProperty<MirrorActionConfig> mirrorActionProperty() {
 		return this.mirrorAction;
 	}
 
+	@SuppressWarnings("unused")
 	public ObjectProperty<MirrorSelectConfig> mirrorSelectProperty() {
 		return this.mirrorSelect;
 	}
 
+	@SuppressWarnings("unused")
 	public ObjectProperty<WindowActionConfig> windowActionProperty() {
 		return this.windowAction;
 	}

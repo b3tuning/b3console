@@ -14,11 +14,9 @@ package com.b3tuning.b3console.service.module.trans.config;
 import com.b3tuning.b3console.service.EditableEntity;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = false)
 public class Ems22AConfig extends EditableEntity {
 
 	private final ObjectProperty<Integer> encMax;

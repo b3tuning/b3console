@@ -87,7 +87,7 @@ public class DesktopLocalFilesViewModel extends BaseViewModel implements Refresh
 		List<File> filesToDrag = getFileList(files);
 		log.trace("List of files to drag: {}", filesToDrag);
 
-		/* Put the File name on a dragboard */
+		/* Put the File name on a drag board */
 		ClipboardContent content = new ClipboardContent();
 		content.putFiles(filesToDrag);
 		db.setContent(content);

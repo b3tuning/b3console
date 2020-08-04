@@ -21,6 +21,7 @@ public interface ViewManager {
 	void push(String key, ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple,
 	          StackPane pane);
 
+	@SuppressWarnings("unused")
 	void push(String key, ViewTuple<? extends FxmlView<?>, ? extends ViewModel> viewTuple,
 	          StackPane pane, boolean closeOnLostFocus);
 
@@ -35,6 +36,7 @@ public interface ViewManager {
 
 	void destroyAll(StackPane pane);
 
+	@SuppressWarnings("unused")
 	void destroyAllBut(String key, StackPane pane);
 
 	boolean contains(String key);
@@ -45,6 +47,7 @@ public interface ViewManager {
 
 	Entry<String, ViewInfo> getDirty();
 
+	@SuppressWarnings("unused")
 	void republishPageContextChanged();
 
 }

@@ -100,6 +100,7 @@ public class UserPreferences {
 		return preferences.getInt(MAX_RECENT, MAX_RECENT_DEFAULT);
 	}
 
+	@SuppressWarnings("unused")
 	public void setMaxRecent(int value) {
 		preferences.putInt(MAX_RECENT, value);
 		globalNotifications.publish(MAX_RECENT, value);

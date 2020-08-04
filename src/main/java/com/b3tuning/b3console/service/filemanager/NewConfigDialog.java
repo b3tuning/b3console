@@ -9,7 +9,6 @@
 
 package com.b3tuning.b3console.service.filemanager;
 
-import com.b3tuning.b3console.App;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.ModuleType;
 import com.b3tuning.b3console.service.module.door.config.DoorConfig;
@@ -26,8 +25,6 @@ import javafx.scene.layout.VBox;
 import lombok.extern.slf4j.XSlf4j;
 
 import java.util.Optional;
-
-import static com.b3tuning.b3console.App.DEFAULT_CSS;
 
 @XSlf4j
 public class NewConfigDialog {

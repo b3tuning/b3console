@@ -38,7 +38,7 @@ public class ReflectionUtils {
 		if (!field.getType().isAssignableFrom(Optional.class)) {
 			return false;    // not an optional
 		}
-		if (!fieldValue.isPresent()) {
+		if (fieldValue.isEmpty()) {
 			return true;    // empty optional is always assignable
 		}
 		return isAssignableParametrizedType(field, fieldValue.get().getClass());
@@ -76,7 +76,7 @@ public class ReflectionUtils {
 	 * enums are converted using Enum.name() and everything else using toString().
 	 */
 	public static Optional<String> coerceToOptionalString(Optional optional, ObjectMapper objectMapper) {
-		if (!optional.isPresent()) {
+		if (optional.isEmpty()) {
 			return Optional.empty();
 		}
 		Object value = optional.get();
@@ -97,7 +97,7 @@ public class ReflectionUtils {
 	/**
 	 * Get the parameterized type of a generic field such as:
 	 * private Optional<String> myOptional -> String
-	 * private List<Integer> myList -> Ingeger
+	 * private List<Integer> myList -> Integer
 	 */
 	public static Type getParameterizedType(Field field) {
 		Type type = field.getGenericType();

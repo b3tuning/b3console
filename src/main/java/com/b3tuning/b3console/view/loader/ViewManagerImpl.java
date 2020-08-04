@@ -196,7 +196,7 @@ public class ViewManagerImpl implements ViewManager {
 				ViewInfo value = dirty.get().getValue();
 				log.trace("View `{}` is dirty", key);
 
-				// if trying to move to the dirty view anyway, thats allowed
+				// if trying to move to the dirty view anyway, that is allowed
 				if (requestedKey.equals(key)) {
 					log.trace("Trying to push view which is the dirty view already in context, therefore allowing");
 					return true;
@@ -355,7 +355,7 @@ public class ViewManagerImpl implements ViewManager {
 	}
 
 	/**
-	 * Destroys all views/viewmodels that have been loaded in a particular pane.
+	 * Destroys all views/viewModels that have been loaded in a particular pane.
 	 * Example use is destroying everything related to viewing a specific
 	 * project (project frame, jobs list, ingest, options) when finished with
 	 * viewing project detail

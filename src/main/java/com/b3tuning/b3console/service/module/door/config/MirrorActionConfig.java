@@ -3,7 +3,6 @@ package com.b3tuning.b3console.service.module.door.config;
 import com.b3tuning.b3console.service.EditableEntity;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /*
@@ -15,7 +14,6 @@ import lombok.experimental.Accessors;
  * Copyright (C) 2020 B3Tuning, LLC.
  */
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = false)
 public class MirrorActionConfig extends EditableEntity {
 
 	private final ObjectProperty<Integer> downMax;

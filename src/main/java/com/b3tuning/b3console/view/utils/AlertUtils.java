@@ -30,10 +30,12 @@ public class AlertUtils {
 	public static final String MESSAGE_WARNING                 = "Warning";
 	public static final String MESSAGE_SERVICE_UNAVAILABLE_MSG = "Service not available, please try again later.";
 
+	@SuppressWarnings("unused")
 	public static void warnServiceUnavailable() {
 		warn(MESSAGE_SERVICE_UNAVAILABLE_MSG);
 	}
 
+	@SuppressWarnings("unused")
 	public static void validationWarn(CompositeValidator formValidator) {
 		warn(formValidator.getValidationStatus()
 		                  .getMessages()
@@ -58,6 +60,7 @@ public class AlertUtils {
 		Platform.runLater(() -> build(alertType, title, null, content).showAndWait());
 	}
 
+	@SuppressWarnings("unused")
 	public static boolean alert(AlertType alertType, String title, String header, String content,
 	                            ButtonType... buttons) {
 

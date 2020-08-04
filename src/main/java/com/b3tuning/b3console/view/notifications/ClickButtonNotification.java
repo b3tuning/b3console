@@ -18,6 +18,7 @@ public class ClickButtonNotification {
 
 	private String buttonId;
 
+	@SuppressWarnings("unused")
 	public static void fire(NotificationCenter globalNotifications) {
 		fire(globalNotifications, null);
 	}

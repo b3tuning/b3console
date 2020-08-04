@@ -14,14 +14,12 @@ package com.b3tuning.b3console.service.module.shifter.config;
 import com.b3tuning.b3console.service.EditableEntity;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * Shifter Position Config
  */
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper = false)
 public class ShifterPositionConfig extends EditableEntity {
 
 	private final ObjectProperty<Integer> x1;
@@ -125,6 +123,7 @@ public class ShifterPositionConfig extends EditableEntity {
 		return this.y2;
 	}
 
+	@SuppressWarnings("unused")
 	public ObjectProperty<Integer> enumValProperty() {
 		return this.enumVal;
 	}

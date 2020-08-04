@@ -56,6 +56,7 @@ public abstract class EditableEntity implements Disposable {
 		return (guardOfDirtyStream != null && !Guard.EMPTY_GUARD.equals(guardOfDirtyStream));
 	}
 
+	@SuppressWarnings("unused")
 	public void stopTrackingChanges() {
 		if (guardOfDirtyStream == null) {
 			guardOfDirtyStream = suspendableDirtyStream.suspend();
@@ -68,6 +69,7 @@ public abstract class EditableEntity implements Disposable {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public void resetTrackingChanges() {
 		dirtyStream.push(false);
 	}
@@ -84,6 +86,7 @@ public abstract class EditableEntity implements Disposable {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	protected EventSource<Boolean> getDirtyStream() {
 		return dirtyStream;
 	}
