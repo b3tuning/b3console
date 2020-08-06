@@ -3,7 +3,6 @@ package com.b3tuning.b3console.platform;
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.properties.AppProperties;
 import com.b3tuning.b3console.properties.PropertyLoader;
-import com.b3tuning.b3console.service.EntityPatcher;
 import com.b3tuning.b3console.service.comms.SerialComms;
 import com.b3tuning.b3console.service.edit.EditManager;
 import com.b3tuning.b3console.service.filemanager.FileManager;
@@ -14,7 +13,6 @@ import com.b3tuning.b3console.service.module.shifter.ShifterAssembler;
 import com.b3tuning.b3console.service.module.trans.TransConfigAssembler;
 import com.b3tuning.b3console.view.loader.ViewManager;
 import com.b3tuning.b3console.view.loader.ViewManagerImpl;
-import com.b3tuning.b3console.view.utils.TableViewUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dagger.Module;
 import dagger.Provides;
@@ -52,12 +50,6 @@ public class CommonDependenciesModule {
 	/****************
 	 * * SERVICES * *
 	 ****************/
-	@Provides
-	@Singleton
-	EntityPatcher provideEntityPatcher() {
-		return new EntityPatcher();
-	}
-
 	@Provides
 	@Singleton
 	DoorModuleService provideDoorModuleService(DoorConfigAssembler assembler, SerialComms comms) {
@@ -135,12 +127,6 @@ public class CommonDependenciesModule {
 	@Singleton
 	AppProperties provideAppProperties() {
 		return new PropertyLoader().initAppProperties();
-	}
-
-	@Provides
-	@Singleton
-	TableViewUtils provideTableViewUtils() {
-		return new TableViewUtils();
 	}
 
 }

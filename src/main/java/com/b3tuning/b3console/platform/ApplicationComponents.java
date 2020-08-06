@@ -6,8 +6,6 @@ import com.b3tuning.b3console.service.edit.EditManager;
 import com.b3tuning.b3console.service.filemanager.FileManager;
 import com.b3tuning.b3console.view.config.CanBusConfigView;
 import com.b3tuning.b3console.view.config.CanBusConfigViewModel;
-import com.b3tuning.b3console.view.config.ConfigMenuView;
-import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
 import com.b3tuning.b3console.view.config.door.DoorConfigView;
 import com.b3tuning.b3console.view.config.door.DoorConfigViewModel;
 import com.b3tuning.b3console.view.config.shifter.ShifterConfigView;
@@ -30,8 +28,6 @@ import com.b3tuning.b3console.view.menu.view.ViewMenuView;
 import com.b3tuning.b3console.view.menu.view.ViewMenuViewModel;
 import com.b3tuning.b3console.view.root.RootView;
 import com.b3tuning.b3console.view.root.RootViewModel;
-import com.b3tuning.b3console.view.settings.SettingsMenuView;
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.stage.FileChooser;
 
@@ -143,15 +139,6 @@ public interface ApplicationComponents {
 
 	//////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////
-	/*  CONFIG  */
-	void inject(ConfigMenuView view);
-
-	ConfigMenuView provideConfigMenuView();
-
-	void inject(ConfigMenuViewModel viewModel);
-
-	ConfigMenuViewModel provideConfigMenuViewModel();
-
 	void inject(DoorConfigView view);
 
 	DoorConfigView provideDoorConfigView();
@@ -183,23 +170,5 @@ public interface ApplicationComponents {
 	void inject(TransConfigViewModel viewModel);
 
 	TransConfigViewModel provideTransConfigViewModel();
-
-	/* SETTINGS */
-	void inject(SettingsMenuView view);
-
-	SettingsMenuView provideSettingsMenuView();
-
-	void inject(SettingsMenuViewModel viewModel);
-
-	SettingsMenuViewModel provideSettingsMenuViewModel();
-
-	/*  HELP  */
-//	void inject(HelpView view);
-//
-//	HelpView provideHelpView();
-//
-//	void inject(HelpViewModel viewModel);
-//
-//	HelpViewModel provideHelpViewModel();
 
 }

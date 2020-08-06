@@ -6,8 +6,6 @@ import com.b3tuning.b3console.service.edit.EditManager;
 import com.b3tuning.b3console.service.filemanager.FileManager;
 import com.b3tuning.b3console.view.config.CanBusConfigView;
 import com.b3tuning.b3console.view.config.CanBusConfigViewModel;
-import com.b3tuning.b3console.view.config.ConfigMenuView;
-import com.b3tuning.b3console.view.config.ConfigMenuViewModel;
 import com.b3tuning.b3console.view.config.door.DoorConfigView;
 import com.b3tuning.b3console.view.config.door.DoorConfigViewModel;
 import com.b3tuning.b3console.view.config.shifter.ShifterConfigView;
@@ -30,8 +28,6 @@ import com.b3tuning.b3console.view.menu.view.ViewMenuView;
 import com.b3tuning.b3console.view.menu.view.ViewMenuViewModel;
 import com.b3tuning.b3console.view.root.RootView;
 import com.b3tuning.b3console.view.root.RootViewModel;
-import com.b3tuning.b3console.view.settings.SettingsMenuView;
-import com.b3tuning.b3console.view.settings.SettingsMenuViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.stage.FileChooser;
 import lombok.Getter;
@@ -152,14 +148,6 @@ public abstract class CommonDaggerMvvmfxBridge implements DaggerMvvmfxBridge {
 		//////////////////////////////////////////////////////////////////
 		//////////////////////////////////////////////////////////////////
 
-		if (ConfigMenuView.class.equals(type)) {
-			return (T) getApplicationComponents().provideConfigMenuView();
-		}
-
-		if (ConfigMenuViewModel.class.equals(type)) {
-			return (T) getApplicationComponents().provideConfigMenuViewModel();
-		}
-
 		if (DoorConfigView.class.equals(type)) {
 			return (T) getApplicationComponents().provideDoorConfigView();
 		}
@@ -167,7 +155,6 @@ public abstract class CommonDaggerMvvmfxBridge implements DaggerMvvmfxBridge {
 		if (DoorConfigViewModel.class.equals(type)) {
 			return (T) getApplicationComponents().provideDoorConfigViewModel();
 		}
-
 
 		if (CanBusConfigView.class.equals(type)) {
 			return (T) getApplicationComponents().provideCanBusConfigView();
@@ -192,22 +179,6 @@ public abstract class CommonDaggerMvvmfxBridge implements DaggerMvvmfxBridge {
 		if (TransConfigViewModel.class.equals(type)) {
 			return (T) getApplicationComponents().provideTransConfigViewModel();
 		}
-
-		if (SettingsMenuView.class.equals(type)) {
-			return (T) getApplicationComponents().provideSettingsMenuView();
-		}
-
-		if (SettingsMenuViewModel.class.equals(type)) {
-			return (T) getApplicationComponents().provideSettingsMenuViewModel();
-		}
-
-//		if (HelpView.class.equals(type)) {
-//			return (T) getApplicationComponents().provideHelpView();
-//		}
-//
-//		if (HelpViewModel.class.equals(type)) {
-//			return (T) getApplicationComponents().provideHelpViewModel();
-//		}
 
 		return null;
 	}
