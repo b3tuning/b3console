@@ -3,6 +3,7 @@ package com.b3tuning.b3console.view.root;
 import com.b3tuning.b3console.service.filemanager.FileManager;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.door.config.DoorConfig;
+import com.b3tuning.b3console.service.module.shifter.config.ShifterConfig;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.config.door.DoorConfigView;
 import com.b3tuning.b3console.view.config.door.DoorConfigViewModel;
@@ -133,6 +134,8 @@ public class RootViewModel extends BaseViewModel {
 			ViewTuple<ShifterConfigView, ShifterConfigViewModel> tuple = FluentViewLoader
 					.fxmlView(ShifterConfigView.class).load();
 			viewManager.push(ShifterConfigView.class.getName(), tuple, childViewPane.get());
+			tuple.getViewModel().configProperty().set((ShifterConfig) config.get());
+
 		}
 	}
 

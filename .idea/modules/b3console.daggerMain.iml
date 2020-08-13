@@ -10,10 +10,5 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="b3console.main" />
-    <orderEntry type="library" name="Gradle: com.google.dagger:dagger:2.28.3" level="project" />
-    <orderEntry type="library" name="Gradle: de.saxsys:mvvmfx:1.8.0" level="project" />
-    <orderEntry type="library" name="Gradle: javax.inject:javax.inject:1" level="project" />
-    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.11.2" level="project" />
-    <orderEntry type="library" name="Gradle: :javafx.graphics:" level="project" />
   </component>
 </module>
