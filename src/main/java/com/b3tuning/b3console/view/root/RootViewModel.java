@@ -1,5 +1,6 @@
 package com.b3tuning.b3console.view.root;
 
+import com.b3tuning.b3console.service.comms.SerialComms;
 import com.b3tuning.b3console.service.filemanager.FileManager;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.door.config.DoorConfig;
@@ -53,6 +54,7 @@ public class RootViewModel extends BaseViewModel {
 	private final NotificationCenter globalNotifications;
 	private final ViewManager        viewManager;
 	private final FileManager        fileManager;
+	private final SerialComms        comms;
 
 	// exposed properties
 	private final ObjectProperty<StackPane> childViewPane = new SimpleObjectProperty<>();
@@ -61,12 +63,13 @@ public class RootViewModel extends BaseViewModel {
 	private final ObjectProperty<ConfigBase> config      = new SimpleObjectProperty<>(null);
 
 	@Inject
-	public RootViewModel(NotificationCenter globalNotifications, ViewManager viewManager, FileManager manager) {
+	public RootViewModel(NotificationCenter globalNotifications, ViewManager viewManager, FileManager manager, SerialComms comms) {
 		log.entry();
 
 		this.globalNotifications = globalNotifications;
 		this.viewManager         = viewManager;
 		this.fileManager         = manager;
+		this.comms               = comms;
 
 		config.bindBidirectional(fileManager.configProperty());
 
@@ -76,6 +79,8 @@ public class RootViewModel extends BaseViewModel {
 	private void initNotifications() {
 		manage(nonNullValuesOf(childViewPane).subscribe(c -> {
 			log.entry();
+
+			comms.getPort();
 
 			// dispose of any loaded views that we may have
 			viewManager.destroyAll(c);
