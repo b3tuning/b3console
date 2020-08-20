@@ -63,7 +63,8 @@ public class RootViewModel extends BaseViewModel {
 	private final ObjectProperty<ConfigBase> config      = new SimpleObjectProperty<>(null);
 
 	@Inject
-	public RootViewModel(NotificationCenter globalNotifications, ViewManager viewManager, FileManager manager, SerialComms comms) {
+	public RootViewModel(NotificationCenter globalNotifications, ViewManager viewManager, FileManager manager,
+	                     SerialComms comms) {
 		log.entry();
 
 		this.globalNotifications = globalNotifications;

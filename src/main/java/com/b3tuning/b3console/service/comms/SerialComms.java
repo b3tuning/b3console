@@ -217,8 +217,8 @@ public class SerialComms {
 		log.error("SERIAL PORT DESCRIPTION = {} ", s.getPortDescription());
 		log.error("SERIAL PORT SYSTEM NAME = {}", s.getSystemPortName());
 		return (s.getDescriptivePortName().contains(B3_USB_PORT_DESCRIPTION)
-		       && s.getDescriptivePortName().contains("cu."))
-				|| s.getPortDescription().contains(B3_USB_PORT_DESCRIPTION);
+		        && s.getDescriptivePortName().contains("cu."))
+		       || s.getPortDescription().contains(B3_USB_PORT_DESCRIPTION);
 	}
 
 	public DoorConfigResource door() {

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package b3console;
+
+option java_package = "com.b3tuning.b3console";
+option java_outer_classname = "ModuleCommands";
+
+message Command {
+  string name = 1;
+  int32 id = 2;
+  string test = 3;
+
+  enum SubCommand {
+    UPDATE = 0;
+    REBOOT = 1;
+    START = 2;
+  }
+
+}
