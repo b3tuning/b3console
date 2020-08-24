@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package b3console;
+
+option java_package = "com.b3tuning.b3console";
+option java_outer_classname = "DoorConfigMessage";
+
+message DoorConfigMessage {
+
+  message MirrorActionConfigMessage {
+    int32 down_max = 1;
+    int32 down_min = 2;
+    int32 left_max = 3;
+    int32 left_min = 4;
+    int32 right_max = 5;
+    int32 right_min = 6;
+    int32 up_max = 7;
+    int32 up_min = 8;
+  }
+
+  message MirrorSelectConfigMessage {
+    int32 driver_max = 1;
+    int32 driver_min = 2;
+    int32 fold_max = 3;
+    int32 fold_min = 4;
+    int32 passenger_max = 5;
+    int32 passenger_min = 6;
+  }
+
+  message WindowActionConfigMessage {
+    int32 auto_down_max = 1;
+    int32 auto_down_min = 2;
+    int32 auto_up_max = 3;
+    int32 auto_up_min = 4;
+    int32 down_max = 5;
+    int32 down_min = 6;
+    int32 up_max = 7;
+    int32 up_min = 8;
+  }
+
+  int32 driver_window_max_current = 1;
+  int32 passenger_window_max_current = 2;
+}
