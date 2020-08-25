@@ -5,7 +5,7 @@ package b3console;
 option java_package = "com.b3tuning.b3console";
 option java_outer_classname = "ShifterConfigMessage";
 
-message ShifterConfigMessage {
+message ShifterMessage {
 
   message CanBusConfigMessage {
     int32 addr_tx = 1;
