@@ -7,6 +7,11 @@ option java_outer_classname = "TransConfigMessage";
 
 message TransMessage {
 
+  CanBusConfigMessage can_bus_config = 1;
+  Ems22AConfigMessage ems22a_config = 2;
+  Vnh5019ConfigMessage vnh5019_config = 3;
+  PidConfigMessage pid_config = 4;
+
   message CanBusConfigMessage {
     int32 addr_tx = 1;
     int32 boot_rx = 2;

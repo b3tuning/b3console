@@ -17,6 +17,66 @@ public final class TransConfigMessage {
   public interface TransMessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:b3console.TransMessage)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * @return Whether the canBusConfig field is set.
+     */
+    boolean hasCanBusConfig();
+    /**
+     * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * @return The canBusConfig.
+     */
+    com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage getCanBusConfig();
+    /**
+     * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     */
+    com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder();
+
+    /**
+     * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+     * @return Whether the ems22aConfig field is set.
+     */
+    boolean hasEms22AConfig();
+    /**
+     * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+     * @return The ems22aConfig.
+     */
+    com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage getEms22AConfig();
+    /**
+     * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+     */
+    com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessageOrBuilder getEms22AConfigOrBuilder();
+
+    /**
+     * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+     * @return Whether the vnh5019Config field is set.
+     */
+    boolean hasVnh5019Config();
+    /**
+     * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+     * @return The vnh5019Config.
+     */
+    com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage getVnh5019Config();
+    /**
+     * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+     */
+    com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessageOrBuilder getVnh5019ConfigOrBuilder();
+
+    /**
+     * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+     * @return Whether the pidConfig field is set.
+     */
+    boolean hasPidConfig();
+    /**
+     * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+     * @return The pidConfig.
+     */
+    com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage getPidConfig();
+    /**
+     * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+     */
+    com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessageOrBuilder getPidConfigOrBuilder();
   }
   /**
    * Protobuf type {@code b3console.TransMessage}
@@ -63,6 +123,58 @@ public final class TransConfigMessage {
             case 0:
               done = true;
               break;
+            case 10: {
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage.Builder subBuilder = null;
+              if (canBusConfig_ != null) {
+                subBuilder = canBusConfig_.toBuilder();
+              }
+              canBusConfig_ = input.readMessage(com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(canBusConfig_);
+                canBusConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage.Builder subBuilder = null;
+              if (ems22AConfig_ != null) {
+                subBuilder = ems22AConfig_.toBuilder();
+              }
+              ems22AConfig_ = input.readMessage(com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(ems22AConfig_);
+                ems22AConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage.Builder subBuilder = null;
+              if (vnh5019Config_ != null) {
+                subBuilder = vnh5019Config_.toBuilder();
+              }
+              vnh5019Config_ = input.readMessage(com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(vnh5019Config_);
+                vnh5019Config_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage.Builder subBuilder = null;
+              if (pidConfig_ != null) {
+                subBuilder = pidConfig_.toBuilder();
+              }
+              pidConfig_ = input.readMessage(com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pidConfig_);
+                pidConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3237,6 +3349,110 @@ public final class TransConfigMessage {
 
     }
 
+    public static final int CAN_BUS_CONFIG_FIELD_NUMBER = 1;
+    private com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage canBusConfig_;
+    /**
+     * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * @return Whether the canBusConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasCanBusConfig() {
+      return canBusConfig_ != null;
+    }
+    /**
+     * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * @return The canBusConfig.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage getCanBusConfig() {
+      return canBusConfig_ == null ? com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
+    }
+    /**
+     * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder() {
+      return getCanBusConfig();
+    }
+
+    public static final int EMS22A_CONFIG_FIELD_NUMBER = 2;
+    private com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage ems22AConfig_;
+    /**
+     * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+     * @return Whether the ems22aConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasEms22AConfig() {
+      return ems22AConfig_ != null;
+    }
+    /**
+     * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+     * @return The ems22aConfig.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage getEms22AConfig() {
+      return ems22AConfig_ == null ? com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage.getDefaultInstance() : ems22AConfig_;
+    }
+    /**
+     * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessageOrBuilder getEms22AConfigOrBuilder() {
+      return getEms22AConfig();
+    }
+
+    public static final int VNH5019_CONFIG_FIELD_NUMBER = 3;
+    private com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage vnh5019Config_;
+    /**
+     * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+     * @return Whether the vnh5019Config field is set.
+     */
+    @java.lang.Override
+    public boolean hasVnh5019Config() {
+      return vnh5019Config_ != null;
+    }
+    /**
+     * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+     * @return The vnh5019Config.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage getVnh5019Config() {
+      return vnh5019Config_ == null ? com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage.getDefaultInstance() : vnh5019Config_;
+    }
+    /**
+     * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessageOrBuilder getVnh5019ConfigOrBuilder() {
+      return getVnh5019Config();
+    }
+
+    public static final int PID_CONFIG_FIELD_NUMBER = 4;
+    private com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage pidConfig_;
+    /**
+     * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+     * @return Whether the pidConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasPidConfig() {
+      return pidConfig_ != null;
+    }
+    /**
+     * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+     * @return The pidConfig.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage getPidConfig() {
+      return pidConfig_ == null ? com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage.getDefaultInstance() : pidConfig_;
+    }
+    /**
+     * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessageOrBuilder getPidConfigOrBuilder() {
+      return getPidConfig();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3251,6 +3467,18 @@ public final class TransConfigMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (canBusConfig_ != null) {
+        output.writeMessage(1, getCanBusConfig());
+      }
+      if (ems22AConfig_ != null) {
+        output.writeMessage(2, getEms22AConfig());
+      }
+      if (vnh5019Config_ != null) {
+        output.writeMessage(3, getVnh5019Config());
+      }
+      if (pidConfig_ != null) {
+        output.writeMessage(4, getPidConfig());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3260,6 +3488,22 @@ public final class TransConfigMessage {
       if (size != -1) return size;
 
       size = 0;
+      if (canBusConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getCanBusConfig());
+      }
+      if (ems22AConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getEms22AConfig());
+      }
+      if (vnh5019Config_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getVnh5019Config());
+      }
+      if (pidConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getPidConfig());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3275,6 +3519,26 @@ public final class TransConfigMessage {
       }
       com.b3tuning.b3console.TransConfigMessage.TransMessage other = (com.b3tuning.b3console.TransConfigMessage.TransMessage) obj;
 
+      if (hasCanBusConfig() != other.hasCanBusConfig()) return false;
+      if (hasCanBusConfig()) {
+        if (!getCanBusConfig()
+            .equals(other.getCanBusConfig())) return false;
+      }
+      if (hasEms22AConfig() != other.hasEms22AConfig()) return false;
+      if (hasEms22AConfig()) {
+        if (!getEms22AConfig()
+            .equals(other.getEms22AConfig())) return false;
+      }
+      if (hasVnh5019Config() != other.hasVnh5019Config()) return false;
+      if (hasVnh5019Config()) {
+        if (!getVnh5019Config()
+            .equals(other.getVnh5019Config())) return false;
+      }
+      if (hasPidConfig() != other.hasPidConfig()) return false;
+      if (hasPidConfig()) {
+        if (!getPidConfig()
+            .equals(other.getPidConfig())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3286,6 +3550,22 @@ public final class TransConfigMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasCanBusConfig()) {
+        hash = (37 * hash) + CAN_BUS_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getCanBusConfig().hashCode();
+      }
+      if (hasEms22AConfig()) {
+        hash = (37 * hash) + EMS22A_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getEms22AConfig().hashCode();
+      }
+      if (hasVnh5019Config()) {
+        hash = (37 * hash) + VNH5019_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getVnh5019Config().hashCode();
+      }
+      if (hasPidConfig()) {
+        hash = (37 * hash) + PID_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getPidConfig().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3419,6 +3699,30 @@ public final class TransConfigMessage {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (canBusConfigBuilder_ == null) {
+          canBusConfig_ = null;
+        } else {
+          canBusConfig_ = null;
+          canBusConfigBuilder_ = null;
+        }
+        if (ems22AConfigBuilder_ == null) {
+          ems22AConfig_ = null;
+        } else {
+          ems22AConfig_ = null;
+          ems22AConfigBuilder_ = null;
+        }
+        if (vnh5019ConfigBuilder_ == null) {
+          vnh5019Config_ = null;
+        } else {
+          vnh5019Config_ = null;
+          vnh5019ConfigBuilder_ = null;
+        }
+        if (pidConfigBuilder_ == null) {
+          pidConfig_ = null;
+        } else {
+          pidConfig_ = null;
+          pidConfigBuilder_ = null;
+        }
         return this;
       }
 
@@ -3445,6 +3749,26 @@ public final class TransConfigMessage {
       @java.lang.Override
       public com.b3tuning.b3console.TransConfigMessage.TransMessage buildPartial() {
         com.b3tuning.b3console.TransConfigMessage.TransMessage result = new com.b3tuning.b3console.TransConfigMessage.TransMessage(this);
+        if (canBusConfigBuilder_ == null) {
+          result.canBusConfig_ = canBusConfig_;
+        } else {
+          result.canBusConfig_ = canBusConfigBuilder_.build();
+        }
+        if (ems22AConfigBuilder_ == null) {
+          result.ems22AConfig_ = ems22AConfig_;
+        } else {
+          result.ems22AConfig_ = ems22AConfigBuilder_.build();
+        }
+        if (vnh5019ConfigBuilder_ == null) {
+          result.vnh5019Config_ = vnh5019Config_;
+        } else {
+          result.vnh5019Config_ = vnh5019ConfigBuilder_.build();
+        }
+        if (pidConfigBuilder_ == null) {
+          result.pidConfig_ = pidConfig_;
+        } else {
+          result.pidConfig_ = pidConfigBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -3493,6 +3817,18 @@ public final class TransConfigMessage {
 
       public Builder mergeFrom(com.b3tuning.b3console.TransConfigMessage.TransMessage other) {
         if (other == com.b3tuning.b3console.TransConfigMessage.TransMessage.getDefaultInstance()) return this;
+        if (other.hasCanBusConfig()) {
+          mergeCanBusConfig(other.getCanBusConfig());
+        }
+        if (other.hasEms22AConfig()) {
+          mergeEms22AConfig(other.getEms22AConfig());
+        }
+        if (other.hasVnh5019Config()) {
+          mergeVnh5019Config(other.getVnh5019Config());
+        }
+        if (other.hasPidConfig()) {
+          mergePidConfig(other.getPidConfig());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -3520,6 +3856,482 @@ public final class TransConfigMessage {
           }
         }
         return this;
+      }
+
+      private com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage canBusConfig_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage, com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessageOrBuilder> canBusConfigBuilder_;
+      /**
+       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * @return Whether the canBusConfig field is set.
+       */
+      public boolean hasCanBusConfig() {
+        return canBusConfigBuilder_ != null || canBusConfig_ != null;
+      }
+      /**
+       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * @return The canBusConfig.
+       */
+      public com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage getCanBusConfig() {
+        if (canBusConfigBuilder_ == null) {
+          return canBusConfig_ == null ? com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
+        } else {
+          return canBusConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      public Builder setCanBusConfig(com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage value) {
+        if (canBusConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          canBusConfig_ = value;
+          onChanged();
+        } else {
+          canBusConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      public Builder setCanBusConfig(
+          com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage.Builder builderForValue) {
+        if (canBusConfigBuilder_ == null) {
+          canBusConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          canBusConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      public Builder mergeCanBusConfig(com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage value) {
+        if (canBusConfigBuilder_ == null) {
+          if (canBusConfig_ != null) {
+            canBusConfig_ =
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage.newBuilder(canBusConfig_).mergeFrom(value).buildPartial();
+          } else {
+            canBusConfig_ = value;
+          }
+          onChanged();
+        } else {
+          canBusConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      public Builder clearCanBusConfig() {
+        if (canBusConfigBuilder_ == null) {
+          canBusConfig_ = null;
+          onChanged();
+        } else {
+          canBusConfig_ = null;
+          canBusConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      public com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage.Builder getCanBusConfigBuilder() {
+        
+        onChanged();
+        return getCanBusConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      public com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder() {
+        if (canBusConfigBuilder_ != null) {
+          return canBusConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return canBusConfig_ == null ?
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
+        }
+      }
+      /**
+       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage, com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessageOrBuilder> 
+          getCanBusConfigFieldBuilder() {
+        if (canBusConfigBuilder_ == null) {
+          canBusConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage, com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.TransConfigMessage.TransMessage.CanBusConfigMessageOrBuilder>(
+                  getCanBusConfig(),
+                  getParentForChildren(),
+                  isClean());
+          canBusConfig_ = null;
+        }
+        return canBusConfigBuilder_;
+      }
+
+      private com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage ems22AConfig_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage, com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage.Builder, com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessageOrBuilder> ems22AConfigBuilder_;
+      /**
+       * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+       * @return Whether the ems22aConfig field is set.
+       */
+      public boolean hasEms22AConfig() {
+        return ems22AConfigBuilder_ != null || ems22AConfig_ != null;
+      }
+      /**
+       * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+       * @return The ems22aConfig.
+       */
+      public com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage getEms22AConfig() {
+        if (ems22AConfigBuilder_ == null) {
+          return ems22AConfig_ == null ? com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage.getDefaultInstance() : ems22AConfig_;
+        } else {
+          return ems22AConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+       */
+      public Builder setEms22AConfig(com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage value) {
+        if (ems22AConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ems22AConfig_ = value;
+          onChanged();
+        } else {
+          ems22AConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+       */
+      public Builder setEms22AConfig(
+          com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage.Builder builderForValue) {
+        if (ems22AConfigBuilder_ == null) {
+          ems22AConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          ems22AConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+       */
+      public Builder mergeEms22AConfig(com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage value) {
+        if (ems22AConfigBuilder_ == null) {
+          if (ems22AConfig_ != null) {
+            ems22AConfig_ =
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage.newBuilder(ems22AConfig_).mergeFrom(value).buildPartial();
+          } else {
+            ems22AConfig_ = value;
+          }
+          onChanged();
+        } else {
+          ems22AConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+       */
+      public Builder clearEms22AConfig() {
+        if (ems22AConfigBuilder_ == null) {
+          ems22AConfig_ = null;
+          onChanged();
+        } else {
+          ems22AConfig_ = null;
+          ems22AConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+       */
+      public com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage.Builder getEms22AConfigBuilder() {
+        
+        onChanged();
+        return getEms22AConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+       */
+      public com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessageOrBuilder getEms22AConfigOrBuilder() {
+        if (ems22AConfigBuilder_ != null) {
+          return ems22AConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return ems22AConfig_ == null ?
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage.getDefaultInstance() : ems22AConfig_;
+        }
+      }
+      /**
+       * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage, com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage.Builder, com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessageOrBuilder> 
+          getEms22AConfigFieldBuilder() {
+        if (ems22AConfigBuilder_ == null) {
+          ems22AConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage, com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessage.Builder, com.b3tuning.b3console.TransConfigMessage.TransMessage.Ems22AConfigMessageOrBuilder>(
+                  getEms22AConfig(),
+                  getParentForChildren(),
+                  isClean());
+          ems22AConfig_ = null;
+        }
+        return ems22AConfigBuilder_;
+      }
+
+      private com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage vnh5019Config_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage, com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage.Builder, com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessageOrBuilder> vnh5019ConfigBuilder_;
+      /**
+       * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+       * @return Whether the vnh5019Config field is set.
+       */
+      public boolean hasVnh5019Config() {
+        return vnh5019ConfigBuilder_ != null || vnh5019Config_ != null;
+      }
+      /**
+       * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+       * @return The vnh5019Config.
+       */
+      public com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage getVnh5019Config() {
+        if (vnh5019ConfigBuilder_ == null) {
+          return vnh5019Config_ == null ? com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage.getDefaultInstance() : vnh5019Config_;
+        } else {
+          return vnh5019ConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+       */
+      public Builder setVnh5019Config(com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage value) {
+        if (vnh5019ConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          vnh5019Config_ = value;
+          onChanged();
+        } else {
+          vnh5019ConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+       */
+      public Builder setVnh5019Config(
+          com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage.Builder builderForValue) {
+        if (vnh5019ConfigBuilder_ == null) {
+          vnh5019Config_ = builderForValue.build();
+          onChanged();
+        } else {
+          vnh5019ConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+       */
+      public Builder mergeVnh5019Config(com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage value) {
+        if (vnh5019ConfigBuilder_ == null) {
+          if (vnh5019Config_ != null) {
+            vnh5019Config_ =
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage.newBuilder(vnh5019Config_).mergeFrom(value).buildPartial();
+          } else {
+            vnh5019Config_ = value;
+          }
+          onChanged();
+        } else {
+          vnh5019ConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+       */
+      public Builder clearVnh5019Config() {
+        if (vnh5019ConfigBuilder_ == null) {
+          vnh5019Config_ = null;
+          onChanged();
+        } else {
+          vnh5019Config_ = null;
+          vnh5019ConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+       */
+      public com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage.Builder getVnh5019ConfigBuilder() {
+        
+        onChanged();
+        return getVnh5019ConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+       */
+      public com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessageOrBuilder getVnh5019ConfigOrBuilder() {
+        if (vnh5019ConfigBuilder_ != null) {
+          return vnh5019ConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return vnh5019Config_ == null ?
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage.getDefaultInstance() : vnh5019Config_;
+        }
+      }
+      /**
+       * <code>.b3console.TransMessage.Vnh5019ConfigMessage vnh5019_config = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage, com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage.Builder, com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessageOrBuilder> 
+          getVnh5019ConfigFieldBuilder() {
+        if (vnh5019ConfigBuilder_ == null) {
+          vnh5019ConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage, com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessage.Builder, com.b3tuning.b3console.TransConfigMessage.TransMessage.Vnh5019ConfigMessageOrBuilder>(
+                  getVnh5019Config(),
+                  getParentForChildren(),
+                  isClean());
+          vnh5019Config_ = null;
+        }
+        return vnh5019ConfigBuilder_;
+      }
+
+      private com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage pidConfig_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage, com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage.Builder, com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessageOrBuilder> pidConfigBuilder_;
+      /**
+       * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+       * @return Whether the pidConfig field is set.
+       */
+      public boolean hasPidConfig() {
+        return pidConfigBuilder_ != null || pidConfig_ != null;
+      }
+      /**
+       * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+       * @return The pidConfig.
+       */
+      public com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage getPidConfig() {
+        if (pidConfigBuilder_ == null) {
+          return pidConfig_ == null ? com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage.getDefaultInstance() : pidConfig_;
+        } else {
+          return pidConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+       */
+      public Builder setPidConfig(com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage value) {
+        if (pidConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          pidConfig_ = value;
+          onChanged();
+        } else {
+          pidConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+       */
+      public Builder setPidConfig(
+          com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage.Builder builderForValue) {
+        if (pidConfigBuilder_ == null) {
+          pidConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          pidConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+       */
+      public Builder mergePidConfig(com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage value) {
+        if (pidConfigBuilder_ == null) {
+          if (pidConfig_ != null) {
+            pidConfig_ =
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage.newBuilder(pidConfig_).mergeFrom(value).buildPartial();
+          } else {
+            pidConfig_ = value;
+          }
+          onChanged();
+        } else {
+          pidConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+       */
+      public Builder clearPidConfig() {
+        if (pidConfigBuilder_ == null) {
+          pidConfig_ = null;
+          onChanged();
+        } else {
+          pidConfig_ = null;
+          pidConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+       */
+      public com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage.Builder getPidConfigBuilder() {
+        
+        onChanged();
+        return getPidConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+       */
+      public com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessageOrBuilder getPidConfigOrBuilder() {
+        if (pidConfigBuilder_ != null) {
+          return pidConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return pidConfig_ == null ?
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage.getDefaultInstance() : pidConfig_;
+        }
+      }
+      /**
+       * <code>.b3console.TransMessage.PidConfigMessage pid_config = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage, com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage.Builder, com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessageOrBuilder> 
+          getPidConfigFieldBuilder() {
+        if (pidConfigBuilder_ == null) {
+          pidConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage, com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessage.Builder, com.b3tuning.b3console.TransConfigMessage.TransMessage.PidConfigMessageOrBuilder>(
+                  getPidConfig(),
+                  getParentForChildren(),
+                  isClean());
+          pidConfig_ = null;
+        }
+        return pidConfigBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3609,20 +4421,26 @@ public final class TransConfigMessage {
   static {
     java.lang.String[] descriptorData = {
       "\n\032trans_config_message.proto\022\tb3console\"" +
-      "\330\003\n\014TransMessage\032\352\001\n\023CanBusConfigMessage" +
-      "\022\017\n\007addr_tx\030\001 \001(\005\022\017\n\007boot_rx\030\002 \001(\005\022\017\n\007bo" +
-      "ot_tx\030\003 \001(\005\022\020\n\010intvl_tx\030\004 \001(\005\022\r\n\005mask0\030\005" +
-      " \001(\005\022\021\n\tfilter0_0\030\006 \001(\005\022\021\n\tfilter0_1\030\007 \001" +
-      "(\005\022\r\n\005mask1\030\010 \001(\005\022\021\n\tfilter1_0\030\t \001(\005\022\021\n\t" +
-      "filter1_1\030\n \001(\005\022\021\n\tfilter1_2\030\013 \001(\005\022\021\n\tfi" +
-      "lter1_3\030\014 \001(\005\0327\n\023Ems22AConfigMessage\022\017\n\007" +
-      "enc_max\030\001 \001(\005\022\017\n\007enc_min\030\002 \001(\005\032+\n\024Vnh501" +
-      "9ConfigMessage\022\023\n\013max_current\030\001 \001(\005\032u\n\020P" +
-      "idConfigMessage\022\016\n\006agg_kd\030\001 \001(\005\022\016\n\006agg_k" +
-      "i\030\002 \001(\005\022\016\n\006agg_kp\030\003 \001(\005\022\017\n\007cons_kd\030\004 \001(\005" +
-      "\022\017\n\007cons_ki\030\005 \001(\005\022\017\n\007cons_kp\030\006 \001(\005B,\n\026co" +
-      "m.b3tuning.b3consoleB\022TransConfigMessage" +
-      "b\006proto3"
+      "\345\005\n\014TransMessage\022C\n\016can_bus_config\030\001 \001(\013" +
+      "2+.b3console.TransMessage.CanBusConfigMe" +
+      "ssage\022B\n\rems22a_config\030\002 \001(\0132+.b3console" +
+      ".TransMessage.Ems22AConfigMessage\022D\n\016vnh" +
+      "5019_config\030\003 \001(\0132,.b3console.TransMessa" +
+      "ge.Vnh5019ConfigMessage\022<\n\npid_config\030\004 " +
+      "\001(\0132(.b3console.TransMessage.PidConfigMe" +
+      "ssage\032\352\001\n\023CanBusConfigMessage\022\017\n\007addr_tx" +
+      "\030\001 \001(\005\022\017\n\007boot_rx\030\002 \001(\005\022\017\n\007boot_tx\030\003 \001(\005" +
+      "\022\020\n\010intvl_tx\030\004 \001(\005\022\r\n\005mask0\030\005 \001(\005\022\021\n\tfil" +
+      "ter0_0\030\006 \001(\005\022\021\n\tfilter0_1\030\007 \001(\005\022\r\n\005mask1" +
+      "\030\010 \001(\005\022\021\n\tfilter1_0\030\t \001(\005\022\021\n\tfilter1_1\030\n" +
+      " \001(\005\022\021\n\tfilter1_2\030\013 \001(\005\022\021\n\tfilter1_3\030\014 \001" +
+      "(\005\0327\n\023Ems22AConfigMessage\022\017\n\007enc_max\030\001 \001" +
+      "(\005\022\017\n\007enc_min\030\002 \001(\005\032+\n\024Vnh5019ConfigMess" +
+      "age\022\023\n\013max_current\030\001 \001(\005\032u\n\020PidConfigMes" +
+      "sage\022\016\n\006agg_kd\030\001 \001(\005\022\016\n\006agg_ki\030\002 \001(\005\022\016\n\006" +
+      "agg_kp\030\003 \001(\005\022\017\n\007cons_kd\030\004 \001(\005\022\017\n\007cons_ki" +
+      "\030\005 \001(\005\022\017\n\007cons_kp\030\006 \001(\005B,\n\026com.b3tuning." +
+      "b3consoleB\022TransConfigMessageb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3633,7 +4451,7 @@ public final class TransConfigMessage {
     internal_static_b3console_TransMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_b3console_TransMessage_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "CanBusConfig", "Ems22AConfig", "Vnh5019Config", "PidConfig", });
     internal_static_b3console_TransMessage_CanBusConfigMessage_descriptor =
       internal_static_b3console_TransMessage_descriptor.getNestedTypes().get(0);
     internal_static_b3console_TransMessage_CanBusConfigMessage_fieldAccessorTable = new

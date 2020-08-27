@@ -17,6 +17,156 @@ public final class ShifterConfigMessage {
   public interface ShifterMessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:b3console.ShifterMessage)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * @return Whether the canBusConfig field is set.
+     */
+    boolean hasCanBusConfig();
+    /**
+     * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * @return The canBusConfig.
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage getCanBusConfig();
+    /**
+     * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder();
+
+    /**
+     * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+     * @return Whether the indicatorConfig field is set.
+     */
+    boolean hasIndicatorConfig();
+    /**
+     * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+     * @return The indicatorConfig.
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage getIndicatorConfig();
+    /**
+     * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessageOrBuilder getIndicatorConfigOrBuilder();
+
+    /**
+     * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+     * @return Whether the melexisConfig field is set.
+     */
+    boolean hasMelexisConfig();
+    /**
+     * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+     * @return The melexisConfig.
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage getMelexisConfig();
+    /**
+     * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessageOrBuilder getMelexisConfigOrBuilder();
+
+    /**
+     * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+     * @return Whether the parkConfig field is set.
+     */
+    boolean hasParkConfig();
+    /**
+     * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+     * @return The parkConfig.
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage getParkConfig();
+    /**
+     * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessageOrBuilder getParkConfigOrBuilder();
+
+    /**
+     * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+     * @return Whether the reverseConfig field is set.
+     */
+    boolean hasReverseConfig();
+    /**
+     * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+     * @return The reverseConfig.
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage getReverseConfig();
+    /**
+     * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessageOrBuilder getReverseConfigOrBuilder();
+
+    /**
+     * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+     * @return Whether the neutralConfig field is set.
+     */
+    boolean hasNeutralConfig();
+    /**
+     * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+     * @return The neutralConfig.
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage getNeutralConfig();
+    /**
+     * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessageOrBuilder getNeutralConfigOrBuilder();
+
+    /**
+     * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+     * @return Whether the driveConfig field is set.
+     */
+    boolean hasDriveConfig();
+    /**
+     * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+     * @return The driveConfig.
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage getDriveConfig();
+    /**
+     * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessageOrBuilder getDriveConfigOrBuilder();
+
+    /**
+     * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+     * @return Whether the manualConfig field is set.
+     */
+    boolean hasManualConfig();
+    /**
+     * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+     * @return The manualConfig.
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage getManualConfig();
+    /**
+     * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessageOrBuilder getManualConfigOrBuilder();
+
+    /**
+     * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+     * @return Whether the upConfig field is set.
+     */
+    boolean hasUpConfig();
+    /**
+     * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+     * @return The upConfig.
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage getUpConfig();
+    /**
+     * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessageOrBuilder getUpConfigOrBuilder();
+
+    /**
+     * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+     * @return Whether the downConfig field is set.
+     */
+    boolean hasDownConfig();
+    /**
+     * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+     * @return The downConfig.
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage getDownConfig();
+    /**
+     * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+     */
+    com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessageOrBuilder getDownConfigOrBuilder();
   }
   /**
    * Protobuf type {@code b3console.ShifterMessage}
@@ -63,6 +213,136 @@ public final class ShifterConfigMessage {
             case 0:
               done = true;
               break;
+            case 10: {
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage.Builder subBuilder = null;
+              if (canBusConfig_ != null) {
+                subBuilder = canBusConfig_.toBuilder();
+              }
+              canBusConfig_ = input.readMessage(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(canBusConfig_);
+                canBusConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage.Builder subBuilder = null;
+              if (indicatorConfig_ != null) {
+                subBuilder = indicatorConfig_.toBuilder();
+              }
+              indicatorConfig_ = input.readMessage(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(indicatorConfig_);
+                indicatorConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage.Builder subBuilder = null;
+              if (melexisConfig_ != null) {
+                subBuilder = melexisConfig_.toBuilder();
+              }
+              melexisConfig_ = input.readMessage(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(melexisConfig_);
+                melexisConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder subBuilder = null;
+              if (parkConfig_ != null) {
+                subBuilder = parkConfig_.toBuilder();
+              }
+              parkConfig_ = input.readMessage(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(parkConfig_);
+                parkConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 42: {
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder subBuilder = null;
+              if (reverseConfig_ != null) {
+                subBuilder = reverseConfig_.toBuilder();
+              }
+              reverseConfig_ = input.readMessage(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(reverseConfig_);
+                reverseConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 50: {
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder subBuilder = null;
+              if (neutralConfig_ != null) {
+                subBuilder = neutralConfig_.toBuilder();
+              }
+              neutralConfig_ = input.readMessage(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(neutralConfig_);
+                neutralConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 58: {
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder subBuilder = null;
+              if (driveConfig_ != null) {
+                subBuilder = driveConfig_.toBuilder();
+              }
+              driveConfig_ = input.readMessage(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(driveConfig_);
+                driveConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 66: {
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder subBuilder = null;
+              if (manualConfig_ != null) {
+                subBuilder = manualConfig_.toBuilder();
+              }
+              manualConfig_ = input.readMessage(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(manualConfig_);
+                manualConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 74: {
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder subBuilder = null;
+              if (upConfig_ != null) {
+                subBuilder = upConfig_.toBuilder();
+              }
+              upConfig_ = input.readMessage(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(upConfig_);
+                upConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 82: {
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder subBuilder = null;
+              if (downConfig_ != null) {
+                subBuilder = downConfig_.toBuilder();
+              }
+              downConfig_ = input.readMessage(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(downConfig_);
+                downConfig_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -7845,6 +8125,266 @@ public final class ShifterConfigMessage {
 
     }
 
+    public static final int CAN_BUS_CONFIG_FIELD_NUMBER = 1;
+    private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage canBusConfig_;
+    /**
+     * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * @return Whether the canBusConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasCanBusConfig() {
+      return canBusConfig_ != null;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * @return The canBusConfig.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage getCanBusConfig() {
+      return canBusConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder() {
+      return getCanBusConfig();
+    }
+
+    public static final int INDICATOR_CONFIG_FIELD_NUMBER = 2;
+    private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage indicatorConfig_;
+    /**
+     * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+     * @return Whether the indicatorConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasIndicatorConfig() {
+      return indicatorConfig_ != null;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+     * @return The indicatorConfig.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage getIndicatorConfig() {
+      return indicatorConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage.getDefaultInstance() : indicatorConfig_;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessageOrBuilder getIndicatorConfigOrBuilder() {
+      return getIndicatorConfig();
+    }
+
+    public static final int MELEXIS_CONFIG_FIELD_NUMBER = 3;
+    private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage melexisConfig_;
+    /**
+     * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+     * @return Whether the melexisConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasMelexisConfig() {
+      return melexisConfig_ != null;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+     * @return The melexisConfig.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage getMelexisConfig() {
+      return melexisConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage.getDefaultInstance() : melexisConfig_;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessageOrBuilder getMelexisConfigOrBuilder() {
+      return getMelexisConfig();
+    }
+
+    public static final int PARK_CONFIG_FIELD_NUMBER = 4;
+    private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage parkConfig_;
+    /**
+     * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+     * @return Whether the parkConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasParkConfig() {
+      return parkConfig_ != null;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+     * @return The parkConfig.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage getParkConfig() {
+      return parkConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage.getDefaultInstance() : parkConfig_;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessageOrBuilder getParkConfigOrBuilder() {
+      return getParkConfig();
+    }
+
+    public static final int REVERSE_CONFIG_FIELD_NUMBER = 5;
+    private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage reverseConfig_;
+    /**
+     * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+     * @return Whether the reverseConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasReverseConfig() {
+      return reverseConfig_ != null;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+     * @return The reverseConfig.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage getReverseConfig() {
+      return reverseConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage.getDefaultInstance() : reverseConfig_;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessageOrBuilder getReverseConfigOrBuilder() {
+      return getReverseConfig();
+    }
+
+    public static final int NEUTRAL_CONFIG_FIELD_NUMBER = 6;
+    private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage neutralConfig_;
+    /**
+     * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+     * @return Whether the neutralConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasNeutralConfig() {
+      return neutralConfig_ != null;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+     * @return The neutralConfig.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage getNeutralConfig() {
+      return neutralConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage.getDefaultInstance() : neutralConfig_;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessageOrBuilder getNeutralConfigOrBuilder() {
+      return getNeutralConfig();
+    }
+
+    public static final int DRIVE_CONFIG_FIELD_NUMBER = 7;
+    private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage driveConfig_;
+    /**
+     * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+     * @return Whether the driveConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasDriveConfig() {
+      return driveConfig_ != null;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+     * @return The driveConfig.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage getDriveConfig() {
+      return driveConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage.getDefaultInstance() : driveConfig_;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessageOrBuilder getDriveConfigOrBuilder() {
+      return getDriveConfig();
+    }
+
+    public static final int MANUAL_CONFIG_FIELD_NUMBER = 8;
+    private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage manualConfig_;
+    /**
+     * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+     * @return Whether the manualConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasManualConfig() {
+      return manualConfig_ != null;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+     * @return The manualConfig.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage getManualConfig() {
+      return manualConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage.getDefaultInstance() : manualConfig_;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessageOrBuilder getManualConfigOrBuilder() {
+      return getManualConfig();
+    }
+
+    public static final int UP_CONFIG_FIELD_NUMBER = 9;
+    private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage upConfig_;
+    /**
+     * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+     * @return Whether the upConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasUpConfig() {
+      return upConfig_ != null;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+     * @return The upConfig.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage getUpConfig() {
+      return upConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage.getDefaultInstance() : upConfig_;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessageOrBuilder getUpConfigOrBuilder() {
+      return getUpConfig();
+    }
+
+    public static final int DOWN_CONFIG_FIELD_NUMBER = 10;
+    private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage downConfig_;
+    /**
+     * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+     * @return Whether the downConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasDownConfig() {
+      return downConfig_ != null;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+     * @return The downConfig.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage getDownConfig() {
+      return downConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage.getDefaultInstance() : downConfig_;
+    }
+    /**
+     * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessageOrBuilder getDownConfigOrBuilder() {
+      return getDownConfig();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7859,6 +8399,36 @@ public final class ShifterConfigMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (canBusConfig_ != null) {
+        output.writeMessage(1, getCanBusConfig());
+      }
+      if (indicatorConfig_ != null) {
+        output.writeMessage(2, getIndicatorConfig());
+      }
+      if (melexisConfig_ != null) {
+        output.writeMessage(3, getMelexisConfig());
+      }
+      if (parkConfig_ != null) {
+        output.writeMessage(4, getParkConfig());
+      }
+      if (reverseConfig_ != null) {
+        output.writeMessage(5, getReverseConfig());
+      }
+      if (neutralConfig_ != null) {
+        output.writeMessage(6, getNeutralConfig());
+      }
+      if (driveConfig_ != null) {
+        output.writeMessage(7, getDriveConfig());
+      }
+      if (manualConfig_ != null) {
+        output.writeMessage(8, getManualConfig());
+      }
+      if (upConfig_ != null) {
+        output.writeMessage(9, getUpConfig());
+      }
+      if (downConfig_ != null) {
+        output.writeMessage(10, getDownConfig());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7868,6 +8438,46 @@ public final class ShifterConfigMessage {
       if (size != -1) return size;
 
       size = 0;
+      if (canBusConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getCanBusConfig());
+      }
+      if (indicatorConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getIndicatorConfig());
+      }
+      if (melexisConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getMelexisConfig());
+      }
+      if (parkConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getParkConfig());
+      }
+      if (reverseConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getReverseConfig());
+      }
+      if (neutralConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getNeutralConfig());
+      }
+      if (driveConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getDriveConfig());
+      }
+      if (manualConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getManualConfig());
+      }
+      if (upConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getUpConfig());
+      }
+      if (downConfig_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, getDownConfig());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -7883,6 +8493,56 @@ public final class ShifterConfigMessage {
       }
       com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage other = (com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage) obj;
 
+      if (hasCanBusConfig() != other.hasCanBusConfig()) return false;
+      if (hasCanBusConfig()) {
+        if (!getCanBusConfig()
+            .equals(other.getCanBusConfig())) return false;
+      }
+      if (hasIndicatorConfig() != other.hasIndicatorConfig()) return false;
+      if (hasIndicatorConfig()) {
+        if (!getIndicatorConfig()
+            .equals(other.getIndicatorConfig())) return false;
+      }
+      if (hasMelexisConfig() != other.hasMelexisConfig()) return false;
+      if (hasMelexisConfig()) {
+        if (!getMelexisConfig()
+            .equals(other.getMelexisConfig())) return false;
+      }
+      if (hasParkConfig() != other.hasParkConfig()) return false;
+      if (hasParkConfig()) {
+        if (!getParkConfig()
+            .equals(other.getParkConfig())) return false;
+      }
+      if (hasReverseConfig() != other.hasReverseConfig()) return false;
+      if (hasReverseConfig()) {
+        if (!getReverseConfig()
+            .equals(other.getReverseConfig())) return false;
+      }
+      if (hasNeutralConfig() != other.hasNeutralConfig()) return false;
+      if (hasNeutralConfig()) {
+        if (!getNeutralConfig()
+            .equals(other.getNeutralConfig())) return false;
+      }
+      if (hasDriveConfig() != other.hasDriveConfig()) return false;
+      if (hasDriveConfig()) {
+        if (!getDriveConfig()
+            .equals(other.getDriveConfig())) return false;
+      }
+      if (hasManualConfig() != other.hasManualConfig()) return false;
+      if (hasManualConfig()) {
+        if (!getManualConfig()
+            .equals(other.getManualConfig())) return false;
+      }
+      if (hasUpConfig() != other.hasUpConfig()) return false;
+      if (hasUpConfig()) {
+        if (!getUpConfig()
+            .equals(other.getUpConfig())) return false;
+      }
+      if (hasDownConfig() != other.hasDownConfig()) return false;
+      if (hasDownConfig()) {
+        if (!getDownConfig()
+            .equals(other.getDownConfig())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7894,6 +8554,46 @@ public final class ShifterConfigMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasCanBusConfig()) {
+        hash = (37 * hash) + CAN_BUS_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getCanBusConfig().hashCode();
+      }
+      if (hasIndicatorConfig()) {
+        hash = (37 * hash) + INDICATOR_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getIndicatorConfig().hashCode();
+      }
+      if (hasMelexisConfig()) {
+        hash = (37 * hash) + MELEXIS_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getMelexisConfig().hashCode();
+      }
+      if (hasParkConfig()) {
+        hash = (37 * hash) + PARK_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getParkConfig().hashCode();
+      }
+      if (hasReverseConfig()) {
+        hash = (37 * hash) + REVERSE_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getReverseConfig().hashCode();
+      }
+      if (hasNeutralConfig()) {
+        hash = (37 * hash) + NEUTRAL_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getNeutralConfig().hashCode();
+      }
+      if (hasDriveConfig()) {
+        hash = (37 * hash) + DRIVE_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getDriveConfig().hashCode();
+      }
+      if (hasManualConfig()) {
+        hash = (37 * hash) + MANUAL_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getManualConfig().hashCode();
+      }
+      if (hasUpConfig()) {
+        hash = (37 * hash) + UP_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getUpConfig().hashCode();
+      }
+      if (hasDownConfig()) {
+        hash = (37 * hash) + DOWN_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getDownConfig().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8027,6 +8727,66 @@ public final class ShifterConfigMessage {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (canBusConfigBuilder_ == null) {
+          canBusConfig_ = null;
+        } else {
+          canBusConfig_ = null;
+          canBusConfigBuilder_ = null;
+        }
+        if (indicatorConfigBuilder_ == null) {
+          indicatorConfig_ = null;
+        } else {
+          indicatorConfig_ = null;
+          indicatorConfigBuilder_ = null;
+        }
+        if (melexisConfigBuilder_ == null) {
+          melexisConfig_ = null;
+        } else {
+          melexisConfig_ = null;
+          melexisConfigBuilder_ = null;
+        }
+        if (parkConfigBuilder_ == null) {
+          parkConfig_ = null;
+        } else {
+          parkConfig_ = null;
+          parkConfigBuilder_ = null;
+        }
+        if (reverseConfigBuilder_ == null) {
+          reverseConfig_ = null;
+        } else {
+          reverseConfig_ = null;
+          reverseConfigBuilder_ = null;
+        }
+        if (neutralConfigBuilder_ == null) {
+          neutralConfig_ = null;
+        } else {
+          neutralConfig_ = null;
+          neutralConfigBuilder_ = null;
+        }
+        if (driveConfigBuilder_ == null) {
+          driveConfig_ = null;
+        } else {
+          driveConfig_ = null;
+          driveConfigBuilder_ = null;
+        }
+        if (manualConfigBuilder_ == null) {
+          manualConfig_ = null;
+        } else {
+          manualConfig_ = null;
+          manualConfigBuilder_ = null;
+        }
+        if (upConfigBuilder_ == null) {
+          upConfig_ = null;
+        } else {
+          upConfig_ = null;
+          upConfigBuilder_ = null;
+        }
+        if (downConfigBuilder_ == null) {
+          downConfig_ = null;
+        } else {
+          downConfig_ = null;
+          downConfigBuilder_ = null;
+        }
         return this;
       }
 
@@ -8053,6 +8813,56 @@ public final class ShifterConfigMessage {
       @java.lang.Override
       public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage buildPartial() {
         com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage result = new com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage(this);
+        if (canBusConfigBuilder_ == null) {
+          result.canBusConfig_ = canBusConfig_;
+        } else {
+          result.canBusConfig_ = canBusConfigBuilder_.build();
+        }
+        if (indicatorConfigBuilder_ == null) {
+          result.indicatorConfig_ = indicatorConfig_;
+        } else {
+          result.indicatorConfig_ = indicatorConfigBuilder_.build();
+        }
+        if (melexisConfigBuilder_ == null) {
+          result.melexisConfig_ = melexisConfig_;
+        } else {
+          result.melexisConfig_ = melexisConfigBuilder_.build();
+        }
+        if (parkConfigBuilder_ == null) {
+          result.parkConfig_ = parkConfig_;
+        } else {
+          result.parkConfig_ = parkConfigBuilder_.build();
+        }
+        if (reverseConfigBuilder_ == null) {
+          result.reverseConfig_ = reverseConfig_;
+        } else {
+          result.reverseConfig_ = reverseConfigBuilder_.build();
+        }
+        if (neutralConfigBuilder_ == null) {
+          result.neutralConfig_ = neutralConfig_;
+        } else {
+          result.neutralConfig_ = neutralConfigBuilder_.build();
+        }
+        if (driveConfigBuilder_ == null) {
+          result.driveConfig_ = driveConfig_;
+        } else {
+          result.driveConfig_ = driveConfigBuilder_.build();
+        }
+        if (manualConfigBuilder_ == null) {
+          result.manualConfig_ = manualConfig_;
+        } else {
+          result.manualConfig_ = manualConfigBuilder_.build();
+        }
+        if (upConfigBuilder_ == null) {
+          result.upConfig_ = upConfig_;
+        } else {
+          result.upConfig_ = upConfigBuilder_.build();
+        }
+        if (downConfigBuilder_ == null) {
+          result.downConfig_ = downConfig_;
+        } else {
+          result.downConfig_ = downConfigBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -8101,6 +8911,36 @@ public final class ShifterConfigMessage {
 
       public Builder mergeFrom(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage other) {
         if (other == com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.getDefaultInstance()) return this;
+        if (other.hasCanBusConfig()) {
+          mergeCanBusConfig(other.getCanBusConfig());
+        }
+        if (other.hasIndicatorConfig()) {
+          mergeIndicatorConfig(other.getIndicatorConfig());
+        }
+        if (other.hasMelexisConfig()) {
+          mergeMelexisConfig(other.getMelexisConfig());
+        }
+        if (other.hasParkConfig()) {
+          mergeParkConfig(other.getParkConfig());
+        }
+        if (other.hasReverseConfig()) {
+          mergeReverseConfig(other.getReverseConfig());
+        }
+        if (other.hasNeutralConfig()) {
+          mergeNeutralConfig(other.getNeutralConfig());
+        }
+        if (other.hasDriveConfig()) {
+          mergeDriveConfig(other.getDriveConfig());
+        }
+        if (other.hasManualConfig()) {
+          mergeManualConfig(other.getManualConfig());
+        }
+        if (other.hasUpConfig()) {
+          mergeUpConfig(other.getUpConfig());
+        }
+        if (other.hasDownConfig()) {
+          mergeDownConfig(other.getDownConfig());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -8128,6 +8968,1196 @@ public final class ShifterConfigMessage {
           }
         }
         return this;
+      }
+
+      private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage canBusConfig_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessageOrBuilder> canBusConfigBuilder_;
+      /**
+       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * @return Whether the canBusConfig field is set.
+       */
+      public boolean hasCanBusConfig() {
+        return canBusConfigBuilder_ != null || canBusConfig_ != null;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * @return The canBusConfig.
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage getCanBusConfig() {
+        if (canBusConfigBuilder_ == null) {
+          return canBusConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
+        } else {
+          return canBusConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      public Builder setCanBusConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage value) {
+        if (canBusConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          canBusConfig_ = value;
+          onChanged();
+        } else {
+          canBusConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      public Builder setCanBusConfig(
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage.Builder builderForValue) {
+        if (canBusConfigBuilder_ == null) {
+          canBusConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          canBusConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      public Builder mergeCanBusConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage value) {
+        if (canBusConfigBuilder_ == null) {
+          if (canBusConfig_ != null) {
+            canBusConfig_ =
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage.newBuilder(canBusConfig_).mergeFrom(value).buildPartial();
+          } else {
+            canBusConfig_ = value;
+          }
+          onChanged();
+        } else {
+          canBusConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      public Builder clearCanBusConfig() {
+        if (canBusConfigBuilder_ == null) {
+          canBusConfig_ = null;
+          onChanged();
+        } else {
+          canBusConfig_ = null;
+          canBusConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage.Builder getCanBusConfigBuilder() {
+        
+        onChanged();
+        return getCanBusConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder() {
+        if (canBusConfigBuilder_ != null) {
+          return canBusConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return canBusConfig_ == null ?
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessageOrBuilder> 
+          getCanBusConfigFieldBuilder() {
+        if (canBusConfigBuilder_ == null) {
+          canBusConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.CanBusConfigMessageOrBuilder>(
+                  getCanBusConfig(),
+                  getParentForChildren(),
+                  isClean());
+          canBusConfig_ = null;
+        }
+        return canBusConfigBuilder_;
+      }
+
+      private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage indicatorConfig_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessageOrBuilder> indicatorConfigBuilder_;
+      /**
+       * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+       * @return Whether the indicatorConfig field is set.
+       */
+      public boolean hasIndicatorConfig() {
+        return indicatorConfigBuilder_ != null || indicatorConfig_ != null;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+       * @return The indicatorConfig.
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage getIndicatorConfig() {
+        if (indicatorConfigBuilder_ == null) {
+          return indicatorConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage.getDefaultInstance() : indicatorConfig_;
+        } else {
+          return indicatorConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+       */
+      public Builder setIndicatorConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage value) {
+        if (indicatorConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          indicatorConfig_ = value;
+          onChanged();
+        } else {
+          indicatorConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+       */
+      public Builder setIndicatorConfig(
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage.Builder builderForValue) {
+        if (indicatorConfigBuilder_ == null) {
+          indicatorConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          indicatorConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+       */
+      public Builder mergeIndicatorConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage value) {
+        if (indicatorConfigBuilder_ == null) {
+          if (indicatorConfig_ != null) {
+            indicatorConfig_ =
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage.newBuilder(indicatorConfig_).mergeFrom(value).buildPartial();
+          } else {
+            indicatorConfig_ = value;
+          }
+          onChanged();
+        } else {
+          indicatorConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+       */
+      public Builder clearIndicatorConfig() {
+        if (indicatorConfigBuilder_ == null) {
+          indicatorConfig_ = null;
+          onChanged();
+        } else {
+          indicatorConfig_ = null;
+          indicatorConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage.Builder getIndicatorConfigBuilder() {
+        
+        onChanged();
+        return getIndicatorConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessageOrBuilder getIndicatorConfigOrBuilder() {
+        if (indicatorConfigBuilder_ != null) {
+          return indicatorConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return indicatorConfig_ == null ?
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage.getDefaultInstance() : indicatorConfig_;
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessageOrBuilder> 
+          getIndicatorConfigFieldBuilder() {
+        if (indicatorConfigBuilder_ == null) {
+          indicatorConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.IndicatorConfigMessageOrBuilder>(
+                  getIndicatorConfig(),
+                  getParentForChildren(),
+                  isClean());
+          indicatorConfig_ = null;
+        }
+        return indicatorConfigBuilder_;
+      }
+
+      private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage melexisConfig_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessageOrBuilder> melexisConfigBuilder_;
+      /**
+       * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+       * @return Whether the melexisConfig field is set.
+       */
+      public boolean hasMelexisConfig() {
+        return melexisConfigBuilder_ != null || melexisConfig_ != null;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+       * @return The melexisConfig.
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage getMelexisConfig() {
+        if (melexisConfigBuilder_ == null) {
+          return melexisConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage.getDefaultInstance() : melexisConfig_;
+        } else {
+          return melexisConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+       */
+      public Builder setMelexisConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage value) {
+        if (melexisConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          melexisConfig_ = value;
+          onChanged();
+        } else {
+          melexisConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+       */
+      public Builder setMelexisConfig(
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage.Builder builderForValue) {
+        if (melexisConfigBuilder_ == null) {
+          melexisConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          melexisConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+       */
+      public Builder mergeMelexisConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage value) {
+        if (melexisConfigBuilder_ == null) {
+          if (melexisConfig_ != null) {
+            melexisConfig_ =
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage.newBuilder(melexisConfig_).mergeFrom(value).buildPartial();
+          } else {
+            melexisConfig_ = value;
+          }
+          onChanged();
+        } else {
+          melexisConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+       */
+      public Builder clearMelexisConfig() {
+        if (melexisConfigBuilder_ == null) {
+          melexisConfig_ = null;
+          onChanged();
+        } else {
+          melexisConfig_ = null;
+          melexisConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage.Builder getMelexisConfigBuilder() {
+        
+        onChanged();
+        return getMelexisConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessageOrBuilder getMelexisConfigOrBuilder() {
+        if (melexisConfigBuilder_ != null) {
+          return melexisConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return melexisConfig_ == null ?
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage.getDefaultInstance() : melexisConfig_;
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.MelexisConfigMessage melexis_config = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessageOrBuilder> 
+          getMelexisConfigFieldBuilder() {
+        if (melexisConfigBuilder_ == null) {
+          melexisConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.MelexisConfigMessageOrBuilder>(
+                  getMelexisConfig(),
+                  getParentForChildren(),
+                  isClean());
+          melexisConfig_ = null;
+        }
+        return melexisConfigBuilder_;
+      }
+
+      private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage parkConfig_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessageOrBuilder> parkConfigBuilder_;
+      /**
+       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       * @return Whether the parkConfig field is set.
+       */
+      public boolean hasParkConfig() {
+        return parkConfigBuilder_ != null || parkConfig_ != null;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       * @return The parkConfig.
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage getParkConfig() {
+        if (parkConfigBuilder_ == null) {
+          return parkConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage.getDefaultInstance() : parkConfig_;
+        } else {
+          return parkConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       */
+      public Builder setParkConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage value) {
+        if (parkConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          parkConfig_ = value;
+          onChanged();
+        } else {
+          parkConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       */
+      public Builder setParkConfig(
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder builderForValue) {
+        if (parkConfigBuilder_ == null) {
+          parkConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          parkConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       */
+      public Builder mergeParkConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage value) {
+        if (parkConfigBuilder_ == null) {
+          if (parkConfig_ != null) {
+            parkConfig_ =
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage.newBuilder(parkConfig_).mergeFrom(value).buildPartial();
+          } else {
+            parkConfig_ = value;
+          }
+          onChanged();
+        } else {
+          parkConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       */
+      public Builder clearParkConfig() {
+        if (parkConfigBuilder_ == null) {
+          parkConfig_ = null;
+          onChanged();
+        } else {
+          parkConfig_ = null;
+          parkConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder getParkConfigBuilder() {
+        
+        onChanged();
+        return getParkConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessageOrBuilder getParkConfigOrBuilder() {
+        if (parkConfigBuilder_ != null) {
+          return parkConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return parkConfig_ == null ?
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage.getDefaultInstance() : parkConfig_;
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessageOrBuilder> 
+          getParkConfigFieldBuilder() {
+        if (parkConfigBuilder_ == null) {
+          parkConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ParkPositionConfigMessageOrBuilder>(
+                  getParkConfig(),
+                  getParentForChildren(),
+                  isClean());
+          parkConfig_ = null;
+        }
+        return parkConfigBuilder_;
+      }
+
+      private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage reverseConfig_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessageOrBuilder> reverseConfigBuilder_;
+      /**
+       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       * @return Whether the reverseConfig field is set.
+       */
+      public boolean hasReverseConfig() {
+        return reverseConfigBuilder_ != null || reverseConfig_ != null;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       * @return The reverseConfig.
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage getReverseConfig() {
+        if (reverseConfigBuilder_ == null) {
+          return reverseConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage.getDefaultInstance() : reverseConfig_;
+        } else {
+          return reverseConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       */
+      public Builder setReverseConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage value) {
+        if (reverseConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          reverseConfig_ = value;
+          onChanged();
+        } else {
+          reverseConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       */
+      public Builder setReverseConfig(
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder builderForValue) {
+        if (reverseConfigBuilder_ == null) {
+          reverseConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          reverseConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       */
+      public Builder mergeReverseConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage value) {
+        if (reverseConfigBuilder_ == null) {
+          if (reverseConfig_ != null) {
+            reverseConfig_ =
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage.newBuilder(reverseConfig_).mergeFrom(value).buildPartial();
+          } else {
+            reverseConfig_ = value;
+          }
+          onChanged();
+        } else {
+          reverseConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       */
+      public Builder clearReverseConfig() {
+        if (reverseConfigBuilder_ == null) {
+          reverseConfig_ = null;
+          onChanged();
+        } else {
+          reverseConfig_ = null;
+          reverseConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder getReverseConfigBuilder() {
+        
+        onChanged();
+        return getReverseConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessageOrBuilder getReverseConfigOrBuilder() {
+        if (reverseConfigBuilder_ != null) {
+          return reverseConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return reverseConfig_ == null ?
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage.getDefaultInstance() : reverseConfig_;
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessageOrBuilder> 
+          getReverseConfigFieldBuilder() {
+        if (reverseConfigBuilder_ == null) {
+          reverseConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ReversePositionConfigMessageOrBuilder>(
+                  getReverseConfig(),
+                  getParentForChildren(),
+                  isClean());
+          reverseConfig_ = null;
+        }
+        return reverseConfigBuilder_;
+      }
+
+      private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage neutralConfig_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessageOrBuilder> neutralConfigBuilder_;
+      /**
+       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       * @return Whether the neutralConfig field is set.
+       */
+      public boolean hasNeutralConfig() {
+        return neutralConfigBuilder_ != null || neutralConfig_ != null;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       * @return The neutralConfig.
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage getNeutralConfig() {
+        if (neutralConfigBuilder_ == null) {
+          return neutralConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage.getDefaultInstance() : neutralConfig_;
+        } else {
+          return neutralConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       */
+      public Builder setNeutralConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage value) {
+        if (neutralConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          neutralConfig_ = value;
+          onChanged();
+        } else {
+          neutralConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       */
+      public Builder setNeutralConfig(
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder builderForValue) {
+        if (neutralConfigBuilder_ == null) {
+          neutralConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          neutralConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       */
+      public Builder mergeNeutralConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage value) {
+        if (neutralConfigBuilder_ == null) {
+          if (neutralConfig_ != null) {
+            neutralConfig_ =
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage.newBuilder(neutralConfig_).mergeFrom(value).buildPartial();
+          } else {
+            neutralConfig_ = value;
+          }
+          onChanged();
+        } else {
+          neutralConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       */
+      public Builder clearNeutralConfig() {
+        if (neutralConfigBuilder_ == null) {
+          neutralConfig_ = null;
+          onChanged();
+        } else {
+          neutralConfig_ = null;
+          neutralConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder getNeutralConfigBuilder() {
+        
+        onChanged();
+        return getNeutralConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessageOrBuilder getNeutralConfigOrBuilder() {
+        if (neutralConfigBuilder_ != null) {
+          return neutralConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return neutralConfig_ == null ?
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage.getDefaultInstance() : neutralConfig_;
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessageOrBuilder> 
+          getNeutralConfigFieldBuilder() {
+        if (neutralConfigBuilder_ == null) {
+          neutralConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.NeutralPositionConfigMessageOrBuilder>(
+                  getNeutralConfig(),
+                  getParentForChildren(),
+                  isClean());
+          neutralConfig_ = null;
+        }
+        return neutralConfigBuilder_;
+      }
+
+      private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage driveConfig_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessageOrBuilder> driveConfigBuilder_;
+      /**
+       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       * @return Whether the driveConfig field is set.
+       */
+      public boolean hasDriveConfig() {
+        return driveConfigBuilder_ != null || driveConfig_ != null;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       * @return The driveConfig.
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage getDriveConfig() {
+        if (driveConfigBuilder_ == null) {
+          return driveConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage.getDefaultInstance() : driveConfig_;
+        } else {
+          return driveConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       */
+      public Builder setDriveConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage value) {
+        if (driveConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          driveConfig_ = value;
+          onChanged();
+        } else {
+          driveConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       */
+      public Builder setDriveConfig(
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder builderForValue) {
+        if (driveConfigBuilder_ == null) {
+          driveConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          driveConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       */
+      public Builder mergeDriveConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage value) {
+        if (driveConfigBuilder_ == null) {
+          if (driveConfig_ != null) {
+            driveConfig_ =
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage.newBuilder(driveConfig_).mergeFrom(value).buildPartial();
+          } else {
+            driveConfig_ = value;
+          }
+          onChanged();
+        } else {
+          driveConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       */
+      public Builder clearDriveConfig() {
+        if (driveConfigBuilder_ == null) {
+          driveConfig_ = null;
+          onChanged();
+        } else {
+          driveConfig_ = null;
+          driveConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder getDriveConfigBuilder() {
+        
+        onChanged();
+        return getDriveConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessageOrBuilder getDriveConfigOrBuilder() {
+        if (driveConfigBuilder_ != null) {
+          return driveConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return driveConfig_ == null ?
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage.getDefaultInstance() : driveConfig_;
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessageOrBuilder> 
+          getDriveConfigFieldBuilder() {
+        if (driveConfigBuilder_ == null) {
+          driveConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DrivePositionConfigMessageOrBuilder>(
+                  getDriveConfig(),
+                  getParentForChildren(),
+                  isClean());
+          driveConfig_ = null;
+        }
+        return driveConfigBuilder_;
+      }
+
+      private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage manualConfig_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessageOrBuilder> manualConfigBuilder_;
+      /**
+       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       * @return Whether the manualConfig field is set.
+       */
+      public boolean hasManualConfig() {
+        return manualConfigBuilder_ != null || manualConfig_ != null;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       * @return The manualConfig.
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage getManualConfig() {
+        if (manualConfigBuilder_ == null) {
+          return manualConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage.getDefaultInstance() : manualConfig_;
+        } else {
+          return manualConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       */
+      public Builder setManualConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage value) {
+        if (manualConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          manualConfig_ = value;
+          onChanged();
+        } else {
+          manualConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       */
+      public Builder setManualConfig(
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder builderForValue) {
+        if (manualConfigBuilder_ == null) {
+          manualConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          manualConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       */
+      public Builder mergeManualConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage value) {
+        if (manualConfigBuilder_ == null) {
+          if (manualConfig_ != null) {
+            manualConfig_ =
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage.newBuilder(manualConfig_).mergeFrom(value).buildPartial();
+          } else {
+            manualConfig_ = value;
+          }
+          onChanged();
+        } else {
+          manualConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       */
+      public Builder clearManualConfig() {
+        if (manualConfigBuilder_ == null) {
+          manualConfig_ = null;
+          onChanged();
+        } else {
+          manualConfig_ = null;
+          manualConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder getManualConfigBuilder() {
+        
+        onChanged();
+        return getManualConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessageOrBuilder getManualConfigOrBuilder() {
+        if (manualConfigBuilder_ != null) {
+          return manualConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return manualConfig_ == null ?
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage.getDefaultInstance() : manualConfig_;
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessageOrBuilder> 
+          getManualConfigFieldBuilder() {
+        if (manualConfigBuilder_ == null) {
+          manualConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.ManualPositionConfigMessageOrBuilder>(
+                  getManualConfig(),
+                  getParentForChildren(),
+                  isClean());
+          manualConfig_ = null;
+        }
+        return manualConfigBuilder_;
+      }
+
+      private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage upConfig_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessageOrBuilder> upConfigBuilder_;
+      /**
+       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       * @return Whether the upConfig field is set.
+       */
+      public boolean hasUpConfig() {
+        return upConfigBuilder_ != null || upConfig_ != null;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       * @return The upConfig.
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage getUpConfig() {
+        if (upConfigBuilder_ == null) {
+          return upConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage.getDefaultInstance() : upConfig_;
+        } else {
+          return upConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       */
+      public Builder setUpConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage value) {
+        if (upConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          upConfig_ = value;
+          onChanged();
+        } else {
+          upConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       */
+      public Builder setUpConfig(
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder builderForValue) {
+        if (upConfigBuilder_ == null) {
+          upConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          upConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       */
+      public Builder mergeUpConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage value) {
+        if (upConfigBuilder_ == null) {
+          if (upConfig_ != null) {
+            upConfig_ =
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage.newBuilder(upConfig_).mergeFrom(value).buildPartial();
+          } else {
+            upConfig_ = value;
+          }
+          onChanged();
+        } else {
+          upConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       */
+      public Builder clearUpConfig() {
+        if (upConfigBuilder_ == null) {
+          upConfig_ = null;
+          onChanged();
+        } else {
+          upConfig_ = null;
+          upConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder getUpConfigBuilder() {
+        
+        onChanged();
+        return getUpConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessageOrBuilder getUpConfigOrBuilder() {
+        if (upConfigBuilder_ != null) {
+          return upConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return upConfig_ == null ?
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage.getDefaultInstance() : upConfig_;
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessageOrBuilder> 
+          getUpConfigFieldBuilder() {
+        if (upConfigBuilder_ == null) {
+          upConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.UpPositionConfigMessageOrBuilder>(
+                  getUpConfig(),
+                  getParentForChildren(),
+                  isClean());
+          upConfig_ = null;
+        }
+        return upConfigBuilder_;
+      }
+
+      private com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage downConfig_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessageOrBuilder> downConfigBuilder_;
+      /**
+       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       * @return Whether the downConfig field is set.
+       */
+      public boolean hasDownConfig() {
+        return downConfigBuilder_ != null || downConfig_ != null;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       * @return The downConfig.
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage getDownConfig() {
+        if (downConfigBuilder_ == null) {
+          return downConfig_ == null ? com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage.getDefaultInstance() : downConfig_;
+        } else {
+          return downConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       */
+      public Builder setDownConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage value) {
+        if (downConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          downConfig_ = value;
+          onChanged();
+        } else {
+          downConfigBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       */
+      public Builder setDownConfig(
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder builderForValue) {
+        if (downConfigBuilder_ == null) {
+          downConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          downConfigBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       */
+      public Builder mergeDownConfig(com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage value) {
+        if (downConfigBuilder_ == null) {
+          if (downConfig_ != null) {
+            downConfig_ =
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage.newBuilder(downConfig_).mergeFrom(value).buildPartial();
+          } else {
+            downConfig_ = value;
+          }
+          onChanged();
+        } else {
+          downConfigBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       */
+      public Builder clearDownConfig() {
+        if (downConfigBuilder_ == null) {
+          downConfig_ = null;
+          onChanged();
+        } else {
+          downConfig_ = null;
+          downConfigBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder getDownConfigBuilder() {
+        
+        onChanged();
+        return getDownConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       */
+      public com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessageOrBuilder getDownConfigOrBuilder() {
+        if (downConfigBuilder_ != null) {
+          return downConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return downConfig_ == null ?
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage.getDefaultInstance() : downConfig_;
+        }
+      }
+      /**
+       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessageOrBuilder> 
+          getDownConfigFieldBuilder() {
+        if (downConfigBuilder_ == null) {
+          downConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder, com.b3tuning.b3console.ShifterConfigMessage.ShifterMessage.DownPositionConfigMessageOrBuilder>(
+                  getDownConfig(),
+                  getParentForChildren(),
+                  isClean());
+          downConfig_ = null;
+        }
+        return downConfigBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -8247,34 +10277,53 @@ public final class ShifterConfigMessage {
   static {
     java.lang.String[] descriptorData = {
       "\n\034shifter_config_message.proto\022\tb3consol" +
-      "e\"\217\010\n\016ShifterMessage\032\352\001\n\023CanBusConfigMes" +
-      "sage\022\017\n\007addr_tx\030\001 \001(\005\022\017\n\007boot_rx\030\002 \001(\005\022\017" +
-      "\n\007boot_tx\030\003 \001(\005\022\020\n\010intvl_tx\030\004 \001(\005\022\r\n\005mas" +
-      "k0\030\005 \001(\005\022\021\n\tfilter0_0\030\006 \001(\005\022\021\n\tfilter0_1" +
-      "\030\007 \001(\005\022\r\n\005mask1\030\010 \001(\005\022\021\n\tfilter1_0\030\t \001(\005" +
-      "\022\021\n\tfilter1_1\030\n \001(\005\022\021\n\tfilter1_2\030\013 \001(\005\022\021" +
-      "\n\tfilter1_3\030\014 \001(\005\032I\n\026IndicatorConfigMess" +
-      "age\022\022\n\nbrightness\030\001 \001(\005\022\r\n\005color\030\002 \001(\005\022\014" +
-      "\n\004wait\030\003 \001(\005\032%\n\024MelexisConfigMessage\022\r\n\005" +
-      "range\030\001 \001(\005\032]\n\031ParkPositionConfigMessage" +
-      "\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030\003 \001(\005\022\n\n\002" +
-      "y2\030\004 \001(\005\022\020\n\010enum_val\030\005 \001(\005\032`\n\034ReversePos" +
-      "itionConfigMessage\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002 \001" +
-      "(\005\022\n\n\002x2\030\003 \001(\005\022\n\n\002y2\030\004 \001(\005\022\020\n\010enum_val\030\005" +
-      " \001(\005\032`\n\034NeutralPositionConfigMessage\022\n\n\002" +
-      "x1\030\001 \001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030\003 \001(\005\022\n\n\002y2\030\004" +
-      " \001(\005\022\020\n\010enum_val\030\005 \001(\005\032^\n\032DrivePositionC" +
-      "onfigMessage\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002" +
-      "x2\030\003 \001(\005\022\n\n\002y2\030\004 \001(\005\022\020\n\010enum_val\030\005 \001(\005\032_" +
-      "\n\033ManualPositionConfigMessage\022\n\n\002x1\030\001 \001(" +
-      "\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030\003 \001(\005\022\n\n\002y2\030\004 \001(\005\022\020\n" +
-      "\010enum_val\030\005 \001(\005\032[\n\027UpPositionConfigMessa" +
-      "ge\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030\003 \001(\005\022\n" +
-      "\n\002y2\030\004 \001(\005\022\020\n\010enum_val\030\005 \001(\005\032]\n\031DownPosi" +
-      "tionConfigMessage\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002 \001(" +
-      "\005\022\n\n\002x2\030\003 \001(\005\022\n\n\002y2\030\004 \001(\005\022\020\n\010enum_val\030\005 " +
-      "\001(\005B.\n\026com.b3tuning.b3consoleB\024ShifterCo" +
-      "nfigMessageb\006proto3"
+      "e\"\376\r\n\016ShifterMessage\022E\n\016can_bus_config\030\001" +
+      " \001(\0132-.b3console.ShifterMessage.CanBusCo" +
+      "nfigMessage\022J\n\020indicator_config\030\002 \001(\01320." +
+      "b3console.ShifterMessage.IndicatorConfig" +
+      "Message\022F\n\016melexis_config\030\003 \001(\0132..b3cons" +
+      "ole.ShifterMessage.MelexisConfigMessage\022" +
+      "H\n\013park_config\030\004 \001(\01323.b3console.Shifter" +
+      "Message.ParkPositionConfigMessage\022N\n\016rev" +
+      "erse_config\030\005 \001(\01326.b3console.ShifterMes" +
+      "sage.ReversePositionConfigMessage\022N\n\016neu" +
+      "tral_config\030\006 \001(\01326.b3console.ShifterMes" +
+      "sage.NeutralPositionConfigMessage\022J\n\014dri" +
+      "ve_config\030\007 \001(\01324.b3console.ShifterMessa" +
+      "ge.DrivePositionConfigMessage\022L\n\rmanual_" +
+      "config\030\010 \001(\01325.b3console.ShifterMessage." +
+      "ManualPositionConfigMessage\022D\n\tup_config" +
+      "\030\t \001(\01321.b3console.ShifterMessage.UpPosi" +
+      "tionConfigMessage\022H\n\013down_config\030\n \001(\01323" +
+      ".b3console.ShifterMessage.DownPositionCo" +
+      "nfigMessage\032\352\001\n\023CanBusConfigMessage\022\017\n\007a" +
+      "ddr_tx\030\001 \001(\005\022\017\n\007boot_rx\030\002 \001(\005\022\017\n\007boot_tx" +
+      "\030\003 \001(\005\022\020\n\010intvl_tx\030\004 \001(\005\022\r\n\005mask0\030\005 \001(\005\022" +
+      "\021\n\tfilter0_0\030\006 \001(\005\022\021\n\tfilter0_1\030\007 \001(\005\022\r\n" +
+      "\005mask1\030\010 \001(\005\022\021\n\tfilter1_0\030\t \001(\005\022\021\n\tfilte" +
+      "r1_1\030\n \001(\005\022\021\n\tfilter1_2\030\013 \001(\005\022\021\n\tfilter1" +
+      "_3\030\014 \001(\005\032I\n\026IndicatorConfigMessage\022\022\n\nbr" +
+      "ightness\030\001 \001(\005\022\r\n\005color\030\002 \001(\005\022\014\n\004wait\030\003 " +
+      "\001(\005\032%\n\024MelexisConfigMessage\022\r\n\005range\030\001 \001" +
+      "(\005\032]\n\031ParkPositionConfigMessage\022\n\n\002x1\030\001 " +
+      "\001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030\003 \001(\005\022\n\n\002y2\030\004 \001(\005\022" +
+      "\020\n\010enum_val\030\005 \001(\005\032`\n\034ReversePositionConf" +
+      "igMessage\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030" +
+      "\003 \001(\005\022\n\n\002y2\030\004 \001(\005\022\020\n\010enum_val\030\005 \001(\005\032`\n\034N" +
+      "eutralPositionConfigMessage\022\n\n\002x1\030\001 \001(\005\022" +
+      "\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030\003 \001(\005\022\n\n\002y2\030\004 \001(\005\022\020\n\010e" +
+      "num_val\030\005 \001(\005\032^\n\032DrivePositionConfigMess" +
+      "age\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030\003 \001(\005\022" +
+      "\n\n\002y2\030\004 \001(\005\022\020\n\010enum_val\030\005 \001(\005\032_\n\033ManualP" +
+      "ositionConfigMessage\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002" +
+      " \001(\005\022\n\n\002x2\030\003 \001(\005\022\n\n\002y2\030\004 \001(\005\022\020\n\010enum_val" +
+      "\030\005 \001(\005\032[\n\027UpPositionConfigMessage\022\n\n\002x1\030" +
+      "\001 \001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030\003 \001(\005\022\n\n\002y2\030\004 \001(" +
+      "\005\022\020\n\010enum_val\030\005 \001(\005\032]\n\031DownPositionConfi" +
+      "gMessage\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030\003" +
+      " \001(\005\022\n\n\002y2\030\004 \001(\005\022\020\n\010enum_val\030\005 \001(\005B.\n\026co" +
+      "m.b3tuning.b3consoleB\024ShifterConfigMessa" +
+      "geb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8285,7 +10334,7 @@ public final class ShifterConfigMessage {
     internal_static_b3console_ShifterMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_b3console_ShifterMessage_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "CanBusConfig", "IndicatorConfig", "MelexisConfig", "ParkConfig", "ReverseConfig", "NeutralConfig", "DriveConfig", "ManualConfig", "UpConfig", "DownConfig", });
     internal_static_b3console_ShifterMessage_CanBusConfigMessage_descriptor =
       internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(0);
     internal_static_b3console_ShifterMessage_CanBusConfigMessage_fieldAccessorTable = new

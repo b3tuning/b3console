@@ -7,6 +7,12 @@ option java_outer_classname = "DoorConfigMessage";
 
 message DoorMessage {
 
+  MirrorActionConfigMessage mirror_action = 1;
+  MirrorSelectConfigMessage mirror_select = 2;
+  WindowActionConfigMessage window_action = 3;
+  int32 driver_window_max_current = 4;
+  int32 passenger_window_max_current = 5;
+
   message MirrorActionConfigMessage {
     int32 down_max = 1;
     int32 down_min = 2;
@@ -38,6 +44,4 @@ message DoorMessage {
     int32 up_min = 8;
   }
 
-  int32 driver_window_max_current = 1;
-  int32 passenger_window_max_current = 2;
 }

@@ -7,6 +7,17 @@ option java_outer_classname = "ShifterConfigMessage";
 
 message ShifterMessage {
 
+  CanBusConfigMessage can_bus_config = 1;
+  IndicatorConfigMessage indicator_config = 2;
+  MelexisConfigMessage melexis_config = 3;
+  ParkPositionConfigMessage park_config = 4;
+  ReversePositionConfigMessage reverse_config = 5;
+  NeutralPositionConfigMessage neutral_config = 6;
+  DrivePositionConfigMessage drive_config = 7;
+  ManualPositionConfigMessage manual_config = 8;
+  UpPositionConfigMessage up_config = 9;
+  DownPositionConfigMessage down_config = 10;
+
   message CanBusConfigMessage {
     int32 addr_tx = 1;
     int32 boot_rx = 2;

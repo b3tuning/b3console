@@ -19,13 +19,58 @@ public final class DoorConfigMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 driver_window_max_current = 1;</code>
+     * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+     * @return Whether the mirrorAction field is set.
+     */
+    boolean hasMirrorAction();
+    /**
+     * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+     * @return The mirrorAction.
+     */
+    com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage getMirrorAction();
+    /**
+     * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+     */
+    com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessageOrBuilder getMirrorActionOrBuilder();
+
+    /**
+     * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+     * @return Whether the mirrorSelect field is set.
+     */
+    boolean hasMirrorSelect();
+    /**
+     * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+     * @return The mirrorSelect.
+     */
+    com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage getMirrorSelect();
+    /**
+     * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+     */
+    com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessageOrBuilder getMirrorSelectOrBuilder();
+
+    /**
+     * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+     * @return Whether the windowAction field is set.
+     */
+    boolean hasWindowAction();
+    /**
+     * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+     * @return The windowAction.
+     */
+    com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage getWindowAction();
+    /**
+     * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+     */
+    com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessageOrBuilder getWindowActionOrBuilder();
+
+    /**
+     * <code>int32 driver_window_max_current = 4;</code>
      * @return The driverWindowMaxCurrent.
      */
     int getDriverWindowMaxCurrent();
 
     /**
-     * <code>int32 passenger_window_max_current = 2;</code>
+     * <code>int32 passenger_window_max_current = 5;</code>
      * @return The passengerWindowMaxCurrent.
      */
     int getPassengerWindowMaxCurrent();
@@ -75,12 +120,51 @@ public final class DoorConfigMessage {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage.Builder subBuilder = null;
+              if (mirrorAction_ != null) {
+                subBuilder = mirrorAction_.toBuilder();
+              }
+              mirrorAction_ = input.readMessage(com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(mirrorAction_);
+                mirrorAction_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage.Builder subBuilder = null;
+              if (mirrorSelect_ != null) {
+                subBuilder = mirrorSelect_.toBuilder();
+              }
+              mirrorSelect_ = input.readMessage(com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(mirrorSelect_);
+                mirrorSelect_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage.Builder subBuilder = null;
+              if (windowAction_ != null) {
+                subBuilder = windowAction_.toBuilder();
+              }
+              windowAction_ = input.readMessage(com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(windowAction_);
+                windowAction_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 32: {
 
               driverWindowMaxCurrent_ = input.readInt32();
               break;
             }
-            case 16: {
+            case 40: {
 
               passengerWindowMaxCurrent_ = input.readInt32();
               break;
@@ -2911,10 +2995,88 @@ public final class DoorConfigMessage {
 
     }
 
-    public static final int DRIVER_WINDOW_MAX_CURRENT_FIELD_NUMBER = 1;
+    public static final int MIRROR_ACTION_FIELD_NUMBER = 1;
+    private com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage mirrorAction_;
+    /**
+     * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+     * @return Whether the mirrorAction field is set.
+     */
+    @java.lang.Override
+    public boolean hasMirrorAction() {
+      return mirrorAction_ != null;
+    }
+    /**
+     * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+     * @return The mirrorAction.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage getMirrorAction() {
+      return mirrorAction_ == null ? com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage.getDefaultInstance() : mirrorAction_;
+    }
+    /**
+     * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessageOrBuilder getMirrorActionOrBuilder() {
+      return getMirrorAction();
+    }
+
+    public static final int MIRROR_SELECT_FIELD_NUMBER = 2;
+    private com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage mirrorSelect_;
+    /**
+     * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+     * @return Whether the mirrorSelect field is set.
+     */
+    @java.lang.Override
+    public boolean hasMirrorSelect() {
+      return mirrorSelect_ != null;
+    }
+    /**
+     * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+     * @return The mirrorSelect.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage getMirrorSelect() {
+      return mirrorSelect_ == null ? com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage.getDefaultInstance() : mirrorSelect_;
+    }
+    /**
+     * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessageOrBuilder getMirrorSelectOrBuilder() {
+      return getMirrorSelect();
+    }
+
+    public static final int WINDOW_ACTION_FIELD_NUMBER = 3;
+    private com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage windowAction_;
+    /**
+     * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+     * @return Whether the windowAction field is set.
+     */
+    @java.lang.Override
+    public boolean hasWindowAction() {
+      return windowAction_ != null;
+    }
+    /**
+     * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+     * @return The windowAction.
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage getWindowAction() {
+      return windowAction_ == null ? com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage.getDefaultInstance() : windowAction_;
+    }
+    /**
+     * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+     */
+    @java.lang.Override
+    public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessageOrBuilder getWindowActionOrBuilder() {
+      return getWindowAction();
+    }
+
+    public static final int DRIVER_WINDOW_MAX_CURRENT_FIELD_NUMBER = 4;
     private int driverWindowMaxCurrent_;
     /**
-     * <code>int32 driver_window_max_current = 1;</code>
+     * <code>int32 driver_window_max_current = 4;</code>
      * @return The driverWindowMaxCurrent.
      */
     @java.lang.Override
@@ -2922,10 +3084,10 @@ public final class DoorConfigMessage {
       return driverWindowMaxCurrent_;
     }
 
-    public static final int PASSENGER_WINDOW_MAX_CURRENT_FIELD_NUMBER = 2;
+    public static final int PASSENGER_WINDOW_MAX_CURRENT_FIELD_NUMBER = 5;
     private int passengerWindowMaxCurrent_;
     /**
-     * <code>int32 passenger_window_max_current = 2;</code>
+     * <code>int32 passenger_window_max_current = 5;</code>
      * @return The passengerWindowMaxCurrent.
      */
     @java.lang.Override
@@ -2947,11 +3109,20 @@ public final class DoorConfigMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (mirrorAction_ != null) {
+        output.writeMessage(1, getMirrorAction());
+      }
+      if (mirrorSelect_ != null) {
+        output.writeMessage(2, getMirrorSelect());
+      }
+      if (windowAction_ != null) {
+        output.writeMessage(3, getWindowAction());
+      }
       if (driverWindowMaxCurrent_ != 0) {
-        output.writeInt32(1, driverWindowMaxCurrent_);
+        output.writeInt32(4, driverWindowMaxCurrent_);
       }
       if (passengerWindowMaxCurrent_ != 0) {
-        output.writeInt32(2, passengerWindowMaxCurrent_);
+        output.writeInt32(5, passengerWindowMaxCurrent_);
       }
       unknownFields.writeTo(output);
     }
@@ -2962,13 +3133,25 @@ public final class DoorConfigMessage {
       if (size != -1) return size;
 
       size = 0;
+      if (mirrorAction_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getMirrorAction());
+      }
+      if (mirrorSelect_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getMirrorSelect());
+      }
+      if (windowAction_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getWindowAction());
+      }
       if (driverWindowMaxCurrent_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, driverWindowMaxCurrent_);
+          .computeInt32Size(4, driverWindowMaxCurrent_);
       }
       if (passengerWindowMaxCurrent_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, passengerWindowMaxCurrent_);
+          .computeInt32Size(5, passengerWindowMaxCurrent_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2985,6 +3168,21 @@ public final class DoorConfigMessage {
       }
       com.b3tuning.b3console.DoorConfigMessage.DoorMessage other = (com.b3tuning.b3console.DoorConfigMessage.DoorMessage) obj;
 
+      if (hasMirrorAction() != other.hasMirrorAction()) return false;
+      if (hasMirrorAction()) {
+        if (!getMirrorAction()
+            .equals(other.getMirrorAction())) return false;
+      }
+      if (hasMirrorSelect() != other.hasMirrorSelect()) return false;
+      if (hasMirrorSelect()) {
+        if (!getMirrorSelect()
+            .equals(other.getMirrorSelect())) return false;
+      }
+      if (hasWindowAction() != other.hasWindowAction()) return false;
+      if (hasWindowAction()) {
+        if (!getWindowAction()
+            .equals(other.getWindowAction())) return false;
+      }
       if (getDriverWindowMaxCurrent()
           != other.getDriverWindowMaxCurrent()) return false;
       if (getPassengerWindowMaxCurrent()
@@ -3000,6 +3198,18 @@ public final class DoorConfigMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasMirrorAction()) {
+        hash = (37 * hash) + MIRROR_ACTION_FIELD_NUMBER;
+        hash = (53 * hash) + getMirrorAction().hashCode();
+      }
+      if (hasMirrorSelect()) {
+        hash = (37 * hash) + MIRROR_SELECT_FIELD_NUMBER;
+        hash = (53 * hash) + getMirrorSelect().hashCode();
+      }
+      if (hasWindowAction()) {
+        hash = (37 * hash) + WINDOW_ACTION_FIELD_NUMBER;
+        hash = (53 * hash) + getWindowAction().hashCode();
+      }
       hash = (37 * hash) + DRIVER_WINDOW_MAX_CURRENT_FIELD_NUMBER;
       hash = (53 * hash) + getDriverWindowMaxCurrent();
       hash = (37 * hash) + PASSENGER_WINDOW_MAX_CURRENT_FIELD_NUMBER;
@@ -3137,6 +3347,24 @@ public final class DoorConfigMessage {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (mirrorActionBuilder_ == null) {
+          mirrorAction_ = null;
+        } else {
+          mirrorAction_ = null;
+          mirrorActionBuilder_ = null;
+        }
+        if (mirrorSelectBuilder_ == null) {
+          mirrorSelect_ = null;
+        } else {
+          mirrorSelect_ = null;
+          mirrorSelectBuilder_ = null;
+        }
+        if (windowActionBuilder_ == null) {
+          windowAction_ = null;
+        } else {
+          windowAction_ = null;
+          windowActionBuilder_ = null;
+        }
         driverWindowMaxCurrent_ = 0;
 
         passengerWindowMaxCurrent_ = 0;
@@ -3167,6 +3395,21 @@ public final class DoorConfigMessage {
       @java.lang.Override
       public com.b3tuning.b3console.DoorConfigMessage.DoorMessage buildPartial() {
         com.b3tuning.b3console.DoorConfigMessage.DoorMessage result = new com.b3tuning.b3console.DoorConfigMessage.DoorMessage(this);
+        if (mirrorActionBuilder_ == null) {
+          result.mirrorAction_ = mirrorAction_;
+        } else {
+          result.mirrorAction_ = mirrorActionBuilder_.build();
+        }
+        if (mirrorSelectBuilder_ == null) {
+          result.mirrorSelect_ = mirrorSelect_;
+        } else {
+          result.mirrorSelect_ = mirrorSelectBuilder_.build();
+        }
+        if (windowActionBuilder_ == null) {
+          result.windowAction_ = windowAction_;
+        } else {
+          result.windowAction_ = windowActionBuilder_.build();
+        }
         result.driverWindowMaxCurrent_ = driverWindowMaxCurrent_;
         result.passengerWindowMaxCurrent_ = passengerWindowMaxCurrent_;
         onBuilt();
@@ -3217,6 +3460,15 @@ public final class DoorConfigMessage {
 
       public Builder mergeFrom(com.b3tuning.b3console.DoorConfigMessage.DoorMessage other) {
         if (other == com.b3tuning.b3console.DoorConfigMessage.DoorMessage.getDefaultInstance()) return this;
+        if (other.hasMirrorAction()) {
+          mergeMirrorAction(other.getMirrorAction());
+        }
+        if (other.hasMirrorSelect()) {
+          mergeMirrorSelect(other.getMirrorSelect());
+        }
+        if (other.hasWindowAction()) {
+          mergeWindowAction(other.getWindowAction());
+        }
         if (other.getDriverWindowMaxCurrent() != 0) {
           setDriverWindowMaxCurrent(other.getDriverWindowMaxCurrent());
         }
@@ -3252,9 +3504,366 @@ public final class DoorConfigMessage {
         return this;
       }
 
+      private com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage mirrorAction_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage.Builder, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessageOrBuilder> mirrorActionBuilder_;
+      /**
+       * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+       * @return Whether the mirrorAction field is set.
+       */
+      public boolean hasMirrorAction() {
+        return mirrorActionBuilder_ != null || mirrorAction_ != null;
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+       * @return The mirrorAction.
+       */
+      public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage getMirrorAction() {
+        if (mirrorActionBuilder_ == null) {
+          return mirrorAction_ == null ? com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage.getDefaultInstance() : mirrorAction_;
+        } else {
+          return mirrorActionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+       */
+      public Builder setMirrorAction(com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage value) {
+        if (mirrorActionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          mirrorAction_ = value;
+          onChanged();
+        } else {
+          mirrorActionBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+       */
+      public Builder setMirrorAction(
+          com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage.Builder builderForValue) {
+        if (mirrorActionBuilder_ == null) {
+          mirrorAction_ = builderForValue.build();
+          onChanged();
+        } else {
+          mirrorActionBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+       */
+      public Builder mergeMirrorAction(com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage value) {
+        if (mirrorActionBuilder_ == null) {
+          if (mirrorAction_ != null) {
+            mirrorAction_ =
+              com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage.newBuilder(mirrorAction_).mergeFrom(value).buildPartial();
+          } else {
+            mirrorAction_ = value;
+          }
+          onChanged();
+        } else {
+          mirrorActionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+       */
+      public Builder clearMirrorAction() {
+        if (mirrorActionBuilder_ == null) {
+          mirrorAction_ = null;
+          onChanged();
+        } else {
+          mirrorAction_ = null;
+          mirrorActionBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+       */
+      public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage.Builder getMirrorActionBuilder() {
+        
+        onChanged();
+        return getMirrorActionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+       */
+      public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessageOrBuilder getMirrorActionOrBuilder() {
+        if (mirrorActionBuilder_ != null) {
+          return mirrorActionBuilder_.getMessageOrBuilder();
+        } else {
+          return mirrorAction_ == null ?
+              com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage.getDefaultInstance() : mirrorAction_;
+        }
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorActionConfigMessage mirror_action = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage.Builder, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessageOrBuilder> 
+          getMirrorActionFieldBuilder() {
+        if (mirrorActionBuilder_ == null) {
+          mirrorActionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessage.Builder, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorActionConfigMessageOrBuilder>(
+                  getMirrorAction(),
+                  getParentForChildren(),
+                  isClean());
+          mirrorAction_ = null;
+        }
+        return mirrorActionBuilder_;
+      }
+
+      private com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage mirrorSelect_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage.Builder, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessageOrBuilder> mirrorSelectBuilder_;
+      /**
+       * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+       * @return Whether the mirrorSelect field is set.
+       */
+      public boolean hasMirrorSelect() {
+        return mirrorSelectBuilder_ != null || mirrorSelect_ != null;
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+       * @return The mirrorSelect.
+       */
+      public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage getMirrorSelect() {
+        if (mirrorSelectBuilder_ == null) {
+          return mirrorSelect_ == null ? com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage.getDefaultInstance() : mirrorSelect_;
+        } else {
+          return mirrorSelectBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+       */
+      public Builder setMirrorSelect(com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage value) {
+        if (mirrorSelectBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          mirrorSelect_ = value;
+          onChanged();
+        } else {
+          mirrorSelectBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+       */
+      public Builder setMirrorSelect(
+          com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage.Builder builderForValue) {
+        if (mirrorSelectBuilder_ == null) {
+          mirrorSelect_ = builderForValue.build();
+          onChanged();
+        } else {
+          mirrorSelectBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+       */
+      public Builder mergeMirrorSelect(com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage value) {
+        if (mirrorSelectBuilder_ == null) {
+          if (mirrorSelect_ != null) {
+            mirrorSelect_ =
+              com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage.newBuilder(mirrorSelect_).mergeFrom(value).buildPartial();
+          } else {
+            mirrorSelect_ = value;
+          }
+          onChanged();
+        } else {
+          mirrorSelectBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+       */
+      public Builder clearMirrorSelect() {
+        if (mirrorSelectBuilder_ == null) {
+          mirrorSelect_ = null;
+          onChanged();
+        } else {
+          mirrorSelect_ = null;
+          mirrorSelectBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+       */
+      public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage.Builder getMirrorSelectBuilder() {
+        
+        onChanged();
+        return getMirrorSelectFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+       */
+      public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessageOrBuilder getMirrorSelectOrBuilder() {
+        if (mirrorSelectBuilder_ != null) {
+          return mirrorSelectBuilder_.getMessageOrBuilder();
+        } else {
+          return mirrorSelect_ == null ?
+              com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage.getDefaultInstance() : mirrorSelect_;
+        }
+      }
+      /**
+       * <code>.b3console.DoorMessage.MirrorSelectConfigMessage mirror_select = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage.Builder, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessageOrBuilder> 
+          getMirrorSelectFieldBuilder() {
+        if (mirrorSelectBuilder_ == null) {
+          mirrorSelectBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessage.Builder, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.MirrorSelectConfigMessageOrBuilder>(
+                  getMirrorSelect(),
+                  getParentForChildren(),
+                  isClean());
+          mirrorSelect_ = null;
+        }
+        return mirrorSelectBuilder_;
+      }
+
+      private com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage windowAction_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage.Builder, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessageOrBuilder> windowActionBuilder_;
+      /**
+       * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+       * @return Whether the windowAction field is set.
+       */
+      public boolean hasWindowAction() {
+        return windowActionBuilder_ != null || windowAction_ != null;
+      }
+      /**
+       * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+       * @return The windowAction.
+       */
+      public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage getWindowAction() {
+        if (windowActionBuilder_ == null) {
+          return windowAction_ == null ? com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage.getDefaultInstance() : windowAction_;
+        } else {
+          return windowActionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+       */
+      public Builder setWindowAction(com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage value) {
+        if (windowActionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          windowAction_ = value;
+          onChanged();
+        } else {
+          windowActionBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+       */
+      public Builder setWindowAction(
+          com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage.Builder builderForValue) {
+        if (windowActionBuilder_ == null) {
+          windowAction_ = builderForValue.build();
+          onChanged();
+        } else {
+          windowActionBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+       */
+      public Builder mergeWindowAction(com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage value) {
+        if (windowActionBuilder_ == null) {
+          if (windowAction_ != null) {
+            windowAction_ =
+              com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage.newBuilder(windowAction_).mergeFrom(value).buildPartial();
+          } else {
+            windowAction_ = value;
+          }
+          onChanged();
+        } else {
+          windowActionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+       */
+      public Builder clearWindowAction() {
+        if (windowActionBuilder_ == null) {
+          windowAction_ = null;
+          onChanged();
+        } else {
+          windowAction_ = null;
+          windowActionBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+       */
+      public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage.Builder getWindowActionBuilder() {
+        
+        onChanged();
+        return getWindowActionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+       */
+      public com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessageOrBuilder getWindowActionOrBuilder() {
+        if (windowActionBuilder_ != null) {
+          return windowActionBuilder_.getMessageOrBuilder();
+        } else {
+          return windowAction_ == null ?
+              com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage.getDefaultInstance() : windowAction_;
+        }
+      }
+      /**
+       * <code>.b3console.DoorMessage.WindowActionConfigMessage window_action = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage.Builder, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessageOrBuilder> 
+          getWindowActionFieldBuilder() {
+        if (windowActionBuilder_ == null) {
+          windowActionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessage.Builder, com.b3tuning.b3console.DoorConfigMessage.DoorMessage.WindowActionConfigMessageOrBuilder>(
+                  getWindowAction(),
+                  getParentForChildren(),
+                  isClean());
+          windowAction_ = null;
+        }
+        return windowActionBuilder_;
+      }
+
       private int driverWindowMaxCurrent_ ;
       /**
-       * <code>int32 driver_window_max_current = 1;</code>
+       * <code>int32 driver_window_max_current = 4;</code>
        * @return The driverWindowMaxCurrent.
        */
       @java.lang.Override
@@ -3262,7 +3871,7 @@ public final class DoorConfigMessage {
         return driverWindowMaxCurrent_;
       }
       /**
-       * <code>int32 driver_window_max_current = 1;</code>
+       * <code>int32 driver_window_max_current = 4;</code>
        * @param value The driverWindowMaxCurrent to set.
        * @return This builder for chaining.
        */
@@ -3273,7 +3882,7 @@ public final class DoorConfigMessage {
         return this;
       }
       /**
-       * <code>int32 driver_window_max_current = 1;</code>
+       * <code>int32 driver_window_max_current = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearDriverWindowMaxCurrent() {
@@ -3285,7 +3894,7 @@ public final class DoorConfigMessage {
 
       private int passengerWindowMaxCurrent_ ;
       /**
-       * <code>int32 passenger_window_max_current = 2;</code>
+       * <code>int32 passenger_window_max_current = 5;</code>
        * @return The passengerWindowMaxCurrent.
        */
       @java.lang.Override
@@ -3293,7 +3902,7 @@ public final class DoorConfigMessage {
         return passengerWindowMaxCurrent_;
       }
       /**
-       * <code>int32 passenger_window_max_current = 2;</code>
+       * <code>int32 passenger_window_max_current = 5;</code>
        * @param value The passengerWindowMaxCurrent to set.
        * @return This builder for chaining.
        */
@@ -3304,7 +3913,7 @@ public final class DoorConfigMessage {
         return this;
       }
       /**
-       * <code>int32 passenger_window_max_current = 2;</code>
+       * <code>int32 passenger_window_max_current = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearPassengerWindowMaxCurrent() {
@@ -3395,24 +4004,29 @@ public final class DoorConfigMessage {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\031door_config_message.proto\022\tb3console\"\324" +
-      "\004\n\013DoorMessage\022!\n\031driver_window_max_curr" +
-      "ent\030\001 \001(\005\022$\n\034passenger_window_max_curren" +
-      "t\030\002 \001(\005\032\251\001\n\031MirrorActionConfigMessage\022\020\n" +
-      "\010down_max\030\001 \001(\005\022\020\n\010down_min\030\002 \001(\005\022\020\n\010lef" +
-      "t_max\030\003 \001(\005\022\020\n\010left_min\030\004 \001(\005\022\021\n\tright_m" +
-      "ax\030\005 \001(\005\022\021\n\tright_min\030\006 \001(\005\022\016\n\006up_max\030\007 " +
-      "\001(\005\022\016\n\006up_min\030\010 \001(\005\032\225\001\n\031MirrorSelectConf" +
-      "igMessage\022\022\n\ndriver_max\030\001 \001(\005\022\022\n\ndriver_" +
-      "min\030\002 \001(\005\022\020\n\010fold_max\030\003 \001(\005\022\020\n\010fold_min\030" +
-      "\004 \001(\005\022\025\n\rpassenger_max\030\005 \001(\005\022\025\n\rpassenge" +
-      "r_min\030\006 \001(\005\032\267\001\n\031WindowActionConfigMessag" +
-      "e\022\025\n\rauto_down_max\030\001 \001(\005\022\025\n\rauto_down_mi" +
-      "n\030\002 \001(\005\022\023\n\013auto_up_max\030\003 \001(\005\022\023\n\013auto_up_" +
-      "min\030\004 \001(\005\022\020\n\010down_max\030\005 \001(\005\022\020\n\010down_min\030" +
-      "\006 \001(\005\022\016\n\006up_max\030\007 \001(\005\022\016\n\006up_min\030\010 \001(\005B+\n" +
-      "\026com.b3tuning.b3consoleB\021DoorConfigMessa" +
-      "geb\006proto3"
+      "\n\031door_config_message.proto\022\tb3console\"\257" +
+      "\006\n\013DoorMessage\022G\n\rmirror_action\030\001 \001(\01320." +
+      "b3console.DoorMessage.MirrorActionConfig" +
+      "Message\022G\n\rmirror_select\030\002 \001(\01320.b3conso" +
+      "le.DoorMessage.MirrorSelectConfigMessage" +
+      "\022G\n\rwindow_action\030\003 \001(\01320.b3console.Door" +
+      "Message.WindowActionConfigMessage\022!\n\031dri" +
+      "ver_window_max_current\030\004 \001(\005\022$\n\034passenge" +
+      "r_window_max_current\030\005 \001(\005\032\251\001\n\031MirrorAct" +
+      "ionConfigMessage\022\020\n\010down_max\030\001 \001(\005\022\020\n\010do" +
+      "wn_min\030\002 \001(\005\022\020\n\010left_max\030\003 \001(\005\022\020\n\010left_m" +
+      "in\030\004 \001(\005\022\021\n\tright_max\030\005 \001(\005\022\021\n\tright_min" +
+      "\030\006 \001(\005\022\016\n\006up_max\030\007 \001(\005\022\016\n\006up_min\030\010 \001(\005\032\225" +
+      "\001\n\031MirrorSelectConfigMessage\022\022\n\ndriver_m" +
+      "ax\030\001 \001(\005\022\022\n\ndriver_min\030\002 \001(\005\022\020\n\010fold_max" +
+      "\030\003 \001(\005\022\020\n\010fold_min\030\004 \001(\005\022\025\n\rpassenger_ma" +
+      "x\030\005 \001(\005\022\025\n\rpassenger_min\030\006 \001(\005\032\267\001\n\031Windo" +
+      "wActionConfigMessage\022\025\n\rauto_down_max\030\001 " +
+      "\001(\005\022\025\n\rauto_down_min\030\002 \001(\005\022\023\n\013auto_up_ma" +
+      "x\030\003 \001(\005\022\023\n\013auto_up_min\030\004 \001(\005\022\020\n\010down_max" +
+      "\030\005 \001(\005\022\020\n\010down_min\030\006 \001(\005\022\016\n\006up_max\030\007 \001(\005" +
+      "\022\016\n\006up_min\030\010 \001(\005B+\n\026com.b3tuning.b3conso" +
+      "leB\021DoorConfigMessageb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3423,7 +4037,7 @@ public final class DoorConfigMessage {
     internal_static_b3console_DoorMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_b3console_DoorMessage_descriptor,
-        new java.lang.String[] { "DriverWindowMaxCurrent", "PassengerWindowMaxCurrent", });
+        new java.lang.String[] { "MirrorAction", "MirrorSelect", "WindowAction", "DriverWindowMaxCurrent", "PassengerWindowMaxCurrent", });
     internal_static_b3console_DoorMessage_MirrorActionConfigMessage_descriptor =
       internal_static_b3console_DoorMessage_descriptor.getNestedTypes().get(0);
     internal_static_b3console_DoorMessage_MirrorActionConfigMessage_fieldAccessorTable = new
