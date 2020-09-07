@@ -10,6 +10,7 @@ import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResou
 import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.IndicatorResource;
 import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.MelexisResource;
 import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource.ShifterPositionResource;
+import com.b3tuning.b3console.service.protobuf.ConfigMessage;
 
 /*
  *  Created on:  May 01, 2020
@@ -83,5 +84,8 @@ public class ShifterAssembler extends ConfigBaseAssembler {
 		                                   config.getY2(),
 		                                   config.getEnumVal());
 	}
+
+    public static ConfigMessage.ConfigBaseMessage assembleBase(ShifterConfig config) {
+    }
 }
 

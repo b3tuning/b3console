@@ -3,10 +3,61 @@ syntax = "proto3";
 package b3console;
 
 option java_package = "com.b3tuning.b3console.service.protobuf";
-option java_outer_classname = "ShifterConfigMessage";
+option java_outer_classname = "ConfigMessage";
+
+enum Type {
+  DOOR = 0;
+  SHIFTER = 1;
+  TRANS = 2;
+}
+
+message ConfigBaseMessage {
+  Type type = 1;
+  DoorMessage door = 2;
+  ShifterMessage shifter = 3;
+  TransMessage trans = 4;
+}
+
+message DoorMessage {
+  MirrorActionConfigMessage mirror_action = 1;
+  MirrorSelectConfigMessage mirror_select = 2;
+  WindowActionConfigMessage window_action = 3;
+  int32 driver_window_max_current = 4;
+  int32 passenger_window_max_current = 5;
+
+  message MirrorActionConfigMessage {
+    int32 down_max = 1;
+    int32 down_min = 2;
+    int32 left_max = 3;
+    int32 left_min = 4;
+    int32 right_max = 5;
+    int32 right_min = 6;
+    int32 up_max = 7;
+    int32 up_min = 8;
+  }
+
+  message MirrorSelectConfigMessage {
+    int32 driver_max = 1;
+    int32 driver_min = 2;
+    int32 fold_max = 3;
+    int32 fold_min = 4;
+    int32 passenger_max = 5;
+    int32 passenger_min = 6;
+  }
+
+  message WindowActionConfigMessage {
+    int32 auto_down_max = 1;
+    int32 auto_down_min = 2;
+    int32 auto_up_max = 3;
+    int32 auto_up_min = 4;
+    int32 down_max = 5;
+    int32 down_min = 6;
+    int32 up_max = 7;
+    int32 up_min = 8;
+  }
+}
 
 message ShifterMessage {
-
   CanBusConfigMessage can_bus_config = 1;
   IndicatorConfigMessage indicator_config = 2;
   MelexisConfigMessage melexis_config = 3;
@@ -98,5 +149,44 @@ message ShifterMessage {
     int32 y2 = 4;
     int32 enum_val = 5;
   }
+}
 
+message TransMessage {
+  CanBusConfigMessage can_bus_config = 1;
+  Ems22AConfigMessage ems22a_config = 2;
+  Vnh5019ConfigMessage vnh5019_config = 3;
+  PidConfigMessage pid_config = 4;
+
+  message CanBusConfigMessage {
+    int32 addr_tx = 1;
+    int32 boot_rx = 2;
+    int32 boot_tx = 3;
+    int32 intvl_tx = 4;
+    int32 mask0 = 5;
+    int32 filter0_0 = 6;
+    int32 filter0_1 = 7;
+    int32 mask1 = 8;
+    int32 filter1_0 = 9;
+    int32 filter1_1 = 10;
+    int32 filter1_2 = 11;
+    int32 filter1_3 = 12;
+  }
+
+  message Ems22AConfigMessage {
+    int32 enc_max = 1;
+    int32 enc_min = 2;
+  }
+
+  message Vnh5019ConfigMessage {
+    int32 max_current = 1;
+  }
+
+  message PidConfigMessage {
+    int32 agg_kd = 1;
+    int32 agg_ki = 2;
+    int32 agg_kp = 3;
+    int32 cons_kd = 4;
+    int32 cons_ki = 5;
+    int32 cons_kp = 6;
+  }
 }

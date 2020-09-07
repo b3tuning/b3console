@@ -10,6 +10,7 @@ import com.b3tuning.b3console.service.module.trans.resource.TransConfigResource;
 import com.b3tuning.b3console.service.module.trans.resource.TransConfigResource.Ems22AResource;
 import com.b3tuning.b3console.service.module.trans.resource.TransConfigResource.PidResource;
 import com.b3tuning.b3console.service.module.trans.resource.TransConfigResource.Vnh5019Resource;
+import com.b3tuning.b3console.service.protobuf.ConfigMessage;
 
 /*
  *  Created on:  May 04, 2020
@@ -71,4 +72,7 @@ public class TransConfigAssembler extends ConfigBaseAssembler {
 		                       config.getConsKi(),
 		                       config.getConsKp());
 	}
+
+    public static ConfigMessage.ConfigBaseMessage assembleBase(TransConfig config) {
+    }
 }

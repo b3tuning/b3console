@@ -20,6 +20,7 @@ import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResou
 import com.b3tuning.b3console.service.module.trans.TransConfigAssembler;
 import com.b3tuning.b3console.service.module.trans.config.TransConfig;
 import com.b3tuning.b3console.service.module.trans.resource.TransConfigResource;
+import com.b3tuning.b3console.service.protobuf.ConfigMessage;
 
 public class ConfigBaseAssembler {
 
@@ -31,11 +32,11 @@ public class ConfigBaseAssembler {
 		};
 	}
 
-	public static ConfigBaseResource assemble(ConfigBase config) {
+	public static ConfigMessage.ConfigBaseMessage assemble(ConfigBase config) {
 		return switch (config.getType()) {
-			case DOOR -> DoorConfigAssembler.assemble((DoorConfig) config);
-			case SHIFTER -> ShifterAssembler.assemble((ShifterConfig) config);
-			case TRANS -> TransConfigAssembler.assemble((TransConfig) config);
+			case DOOR -> DoorConfigAssembler.assembleBase((DoorConfig) config);
+			case SHIFTER -> ShifterAssembler.assembleBase((ShifterConfig) config);
+			case TRANS -> TransConfigAssembler.assembleBase((TransConfig) config);
 		};
 	}
 }

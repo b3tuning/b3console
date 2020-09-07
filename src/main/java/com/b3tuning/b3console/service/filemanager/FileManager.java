@@ -13,6 +13,7 @@ import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.ConfigBaseAssembler;
 import com.b3tuning.b3console.service.module.ConfigBaseResource;
+import com.b3tuning.b3console.service.protobuf.ConfigMessage;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
@@ -87,7 +88,7 @@ public class FileManager {
 
 	private void writeFile(@NonNull String path, @NonNull ConfigBase base) {
 		log.entry(path);
-		ConfigBaseResource resource = ConfigBaseAssembler.assemble(base);
+		ConfigMessage.ConfigBaseMessage resource = ConfigBaseAssembler.assemble(base);
 		try (FileOutputStream out = new FileOutputStream(path, false);
 		     ObjectOutputStream stream = new ObjectOutputStream(out)) {
 			stream.writeObject(resource);
