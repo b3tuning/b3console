@@ -5226,24 +5226,1282 @@ public final class ConfigMessage {
 
   }
 
+  public interface CanBusConfigMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:b3console.CanBusConfigMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 addr_tx = 1;</code>
+     * @return The addrTx.
+     */
+    int getAddrTx();
+
+    /**
+     * <code>int32 boot_rx = 2;</code>
+     * @return The bootRx.
+     */
+    int getBootRx();
+
+    /**
+     * <code>int32 boot_tx = 3;</code>
+     * @return The bootTx.
+     */
+    int getBootTx();
+
+    /**
+     * <code>int32 intvl_tx = 4;</code>
+     * @return The intvlTx.
+     */
+    int getIntvlTx();
+
+    /**
+     * <code>int32 mask0 = 5;</code>
+     * @return The mask0.
+     */
+    int getMask0();
+
+    /**
+     * <code>int32 filter0_0 = 6;</code>
+     * @return The filter00.
+     */
+    int getFilter00();
+
+    /**
+     * <code>int32 filter0_1 = 7;</code>
+     * @return The filter01.
+     */
+    int getFilter01();
+
+    /**
+     * <code>int32 mask1 = 8;</code>
+     * @return The mask1.
+     */
+    int getMask1();
+
+    /**
+     * <code>int32 filter1_0 = 9;</code>
+     * @return The filter10.
+     */
+    int getFilter10();
+
+    /**
+     * <code>int32 filter1_1 = 10;</code>
+     * @return The filter11.
+     */
+    int getFilter11();
+
+    /**
+     * <code>int32 filter1_2 = 11;</code>
+     * @return The filter12.
+     */
+    int getFilter12();
+
+    /**
+     * <code>int32 filter1_3 = 12;</code>
+     * @return The filter13.
+     */
+    int getFilter13();
+  }
+  /**
+   * Protobuf type {@code b3console.CanBusConfigMessage}
+   */
+  public static final class CanBusConfigMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:b3console.CanBusConfigMessage)
+      CanBusConfigMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CanBusConfigMessage.newBuilder() to construct.
+    private CanBusConfigMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CanBusConfigMessage() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CanBusConfigMessage();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CanBusConfigMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              addrTx_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              bootRx_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              bootTx_ = input.readInt32();
+              break;
+            }
+            case 32: {
+
+              intvlTx_ = input.readInt32();
+              break;
+            }
+            case 40: {
+
+              mask0_ = input.readInt32();
+              break;
+            }
+            case 48: {
+
+              filter00_ = input.readInt32();
+              break;
+            }
+            case 56: {
+
+              filter01_ = input.readInt32();
+              break;
+            }
+            case 64: {
+
+              mask1_ = input.readInt32();
+              break;
+            }
+            case 72: {
+
+              filter10_ = input.readInt32();
+              break;
+            }
+            case 80: {
+
+              filter11_ = input.readInt32();
+              break;
+            }
+            case 88: {
+
+              filter12_ = input.readInt32();
+              break;
+            }
+            case 96: {
+
+              filter13_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_CanBusConfigMessage_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_CanBusConfigMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder.class);
+    }
+
+    public static final int ADDR_TX_FIELD_NUMBER = 1;
+    private int addrTx_;
+    /**
+     * <code>int32 addr_tx = 1;</code>
+     * @return The addrTx.
+     */
+    @java.lang.Override
+    public int getAddrTx() {
+      return addrTx_;
+    }
+
+    public static final int BOOT_RX_FIELD_NUMBER = 2;
+    private int bootRx_;
+    /**
+     * <code>int32 boot_rx = 2;</code>
+     * @return The bootRx.
+     */
+    @java.lang.Override
+    public int getBootRx() {
+      return bootRx_;
+    }
+
+    public static final int BOOT_TX_FIELD_NUMBER = 3;
+    private int bootTx_;
+    /**
+     * <code>int32 boot_tx = 3;</code>
+     * @return The bootTx.
+     */
+    @java.lang.Override
+    public int getBootTx() {
+      return bootTx_;
+    }
+
+    public static final int INTVL_TX_FIELD_NUMBER = 4;
+    private int intvlTx_;
+    /**
+     * <code>int32 intvl_tx = 4;</code>
+     * @return The intvlTx.
+     */
+    @java.lang.Override
+    public int getIntvlTx() {
+      return intvlTx_;
+    }
+
+    public static final int MASK0_FIELD_NUMBER = 5;
+    private int mask0_;
+    /**
+     * <code>int32 mask0 = 5;</code>
+     * @return The mask0.
+     */
+    @java.lang.Override
+    public int getMask0() {
+      return mask0_;
+    }
+
+    public static final int FILTER0_0_FIELD_NUMBER = 6;
+    private int filter00_;
+    /**
+     * <code>int32 filter0_0 = 6;</code>
+     * @return The filter00.
+     */
+    @java.lang.Override
+    public int getFilter00() {
+      return filter00_;
+    }
+
+    public static final int FILTER0_1_FIELD_NUMBER = 7;
+    private int filter01_;
+    /**
+     * <code>int32 filter0_1 = 7;</code>
+     * @return The filter01.
+     */
+    @java.lang.Override
+    public int getFilter01() {
+      return filter01_;
+    }
+
+    public static final int MASK1_FIELD_NUMBER = 8;
+    private int mask1_;
+    /**
+     * <code>int32 mask1 = 8;</code>
+     * @return The mask1.
+     */
+    @java.lang.Override
+    public int getMask1() {
+      return mask1_;
+    }
+
+    public static final int FILTER1_0_FIELD_NUMBER = 9;
+    private int filter10_;
+    /**
+     * <code>int32 filter1_0 = 9;</code>
+     * @return The filter10.
+     */
+    @java.lang.Override
+    public int getFilter10() {
+      return filter10_;
+    }
+
+    public static final int FILTER1_1_FIELD_NUMBER = 10;
+    private int filter11_;
+    /**
+     * <code>int32 filter1_1 = 10;</code>
+     * @return The filter11.
+     */
+    @java.lang.Override
+    public int getFilter11() {
+      return filter11_;
+    }
+
+    public static final int FILTER1_2_FIELD_NUMBER = 11;
+    private int filter12_;
+    /**
+     * <code>int32 filter1_2 = 11;</code>
+     * @return The filter12.
+     */
+    @java.lang.Override
+    public int getFilter12() {
+      return filter12_;
+    }
+
+    public static final int FILTER1_3_FIELD_NUMBER = 12;
+    private int filter13_;
+    /**
+     * <code>int32 filter1_3 = 12;</code>
+     * @return The filter13.
+     */
+    @java.lang.Override
+    public int getFilter13() {
+      return filter13_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (addrTx_ != 0) {
+        output.writeInt32(1, addrTx_);
+      }
+      if (bootRx_ != 0) {
+        output.writeInt32(2, bootRx_);
+      }
+      if (bootTx_ != 0) {
+        output.writeInt32(3, bootTx_);
+      }
+      if (intvlTx_ != 0) {
+        output.writeInt32(4, intvlTx_);
+      }
+      if (mask0_ != 0) {
+        output.writeInt32(5, mask0_);
+      }
+      if (filter00_ != 0) {
+        output.writeInt32(6, filter00_);
+      }
+      if (filter01_ != 0) {
+        output.writeInt32(7, filter01_);
+      }
+      if (mask1_ != 0) {
+        output.writeInt32(8, mask1_);
+      }
+      if (filter10_ != 0) {
+        output.writeInt32(9, filter10_);
+      }
+      if (filter11_ != 0) {
+        output.writeInt32(10, filter11_);
+      }
+      if (filter12_ != 0) {
+        output.writeInt32(11, filter12_);
+      }
+      if (filter13_ != 0) {
+        output.writeInt32(12, filter13_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (addrTx_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, addrTx_);
+      }
+      if (bootRx_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, bootRx_);
+      }
+      if (bootTx_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, bootTx_);
+      }
+      if (intvlTx_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, intvlTx_);
+      }
+      if (mask0_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, mask0_);
+      }
+      if (filter00_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, filter00_);
+      }
+      if (filter01_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, filter01_);
+      }
+      if (mask1_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, mask1_);
+      }
+      if (filter10_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, filter10_);
+      }
+      if (filter11_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(10, filter11_);
+      }
+      if (filter12_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(11, filter12_);
+      }
+      if (filter13_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(12, filter13_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage)) {
+        return super.equals(obj);
+      }
+      com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage other = (com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage) obj;
+
+      if (getAddrTx()
+          != other.getAddrTx()) return false;
+      if (getBootRx()
+          != other.getBootRx()) return false;
+      if (getBootTx()
+          != other.getBootTx()) return false;
+      if (getIntvlTx()
+          != other.getIntvlTx()) return false;
+      if (getMask0()
+          != other.getMask0()) return false;
+      if (getFilter00()
+          != other.getFilter00()) return false;
+      if (getFilter01()
+          != other.getFilter01()) return false;
+      if (getMask1()
+          != other.getMask1()) return false;
+      if (getFilter10()
+          != other.getFilter10()) return false;
+      if (getFilter11()
+          != other.getFilter11()) return false;
+      if (getFilter12()
+          != other.getFilter12()) return false;
+      if (getFilter13()
+          != other.getFilter13()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ADDR_TX_FIELD_NUMBER;
+      hash = (53 * hash) + getAddrTx();
+      hash = (37 * hash) + BOOT_RX_FIELD_NUMBER;
+      hash = (53 * hash) + getBootRx();
+      hash = (37 * hash) + BOOT_TX_FIELD_NUMBER;
+      hash = (53 * hash) + getBootTx();
+      hash = (37 * hash) + INTVL_TX_FIELD_NUMBER;
+      hash = (53 * hash) + getIntvlTx();
+      hash = (37 * hash) + MASK0_FIELD_NUMBER;
+      hash = (53 * hash) + getMask0();
+      hash = (37 * hash) + FILTER0_0_FIELD_NUMBER;
+      hash = (53 * hash) + getFilter00();
+      hash = (37 * hash) + FILTER0_1_FIELD_NUMBER;
+      hash = (53 * hash) + getFilter01();
+      hash = (37 * hash) + MASK1_FIELD_NUMBER;
+      hash = (53 * hash) + getMask1();
+      hash = (37 * hash) + FILTER1_0_FIELD_NUMBER;
+      hash = (53 * hash) + getFilter10();
+      hash = (37 * hash) + FILTER1_1_FIELD_NUMBER;
+      hash = (53 * hash) + getFilter11();
+      hash = (37 * hash) + FILTER1_2_FIELD_NUMBER;
+      hash = (53 * hash) + getFilter12();
+      hash = (37 * hash) + FILTER1_3_FIELD_NUMBER;
+      hash = (53 * hash) + getFilter13();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code b3console.CanBusConfigMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:b3console.CanBusConfigMessage)
+        com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_CanBusConfigMessage_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_CanBusConfigMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder.class);
+      }
+
+      // Construct using com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        addrTx_ = 0;
+
+        bootRx_ = 0;
+
+        bootTx_ = 0;
+
+        intvlTx_ = 0;
+
+        mask0_ = 0;
+
+        filter00_ = 0;
+
+        filter01_ = 0;
+
+        mask1_ = 0;
+
+        filter10_ = 0;
+
+        filter11_ = 0;
+
+        filter12_ = 0;
+
+        filter13_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_CanBusConfigMessage_descriptor;
+      }
+
+      @java.lang.Override
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage getDefaultInstanceForType() {
+        return com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage build() {
+        com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage buildPartial() {
+        com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage result = new com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage(this);
+        result.addrTx_ = addrTx_;
+        result.bootRx_ = bootRx_;
+        result.bootTx_ = bootTx_;
+        result.intvlTx_ = intvlTx_;
+        result.mask0_ = mask0_;
+        result.filter00_ = filter00_;
+        result.filter01_ = filter01_;
+        result.mask1_ = mask1_;
+        result.filter10_ = filter10_;
+        result.filter11_ = filter11_;
+        result.filter12_ = filter12_;
+        result.filter13_ = filter13_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage) {
+          return mergeFrom((com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage other) {
+        if (other == com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.getDefaultInstance()) return this;
+        if (other.getAddrTx() != 0) {
+          setAddrTx(other.getAddrTx());
+        }
+        if (other.getBootRx() != 0) {
+          setBootRx(other.getBootRx());
+        }
+        if (other.getBootTx() != 0) {
+          setBootTx(other.getBootTx());
+        }
+        if (other.getIntvlTx() != 0) {
+          setIntvlTx(other.getIntvlTx());
+        }
+        if (other.getMask0() != 0) {
+          setMask0(other.getMask0());
+        }
+        if (other.getFilter00() != 0) {
+          setFilter00(other.getFilter00());
+        }
+        if (other.getFilter01() != 0) {
+          setFilter01(other.getFilter01());
+        }
+        if (other.getMask1() != 0) {
+          setMask1(other.getMask1());
+        }
+        if (other.getFilter10() != 0) {
+          setFilter10(other.getFilter10());
+        }
+        if (other.getFilter11() != 0) {
+          setFilter11(other.getFilter11());
+        }
+        if (other.getFilter12() != 0) {
+          setFilter12(other.getFilter12());
+        }
+        if (other.getFilter13() != 0) {
+          setFilter13(other.getFilter13());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int addrTx_ ;
+      /**
+       * <code>int32 addr_tx = 1;</code>
+       * @return The addrTx.
+       */
+      @java.lang.Override
+      public int getAddrTx() {
+        return addrTx_;
+      }
+      /**
+       * <code>int32 addr_tx = 1;</code>
+       * @param value The addrTx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddrTx(int value) {
+        
+        addrTx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 addr_tx = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAddrTx() {
+        
+        addrTx_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int bootRx_ ;
+      /**
+       * <code>int32 boot_rx = 2;</code>
+       * @return The bootRx.
+       */
+      @java.lang.Override
+      public int getBootRx() {
+        return bootRx_;
+      }
+      /**
+       * <code>int32 boot_rx = 2;</code>
+       * @param value The bootRx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBootRx(int value) {
+        
+        bootRx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 boot_rx = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBootRx() {
+        
+        bootRx_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int bootTx_ ;
+      /**
+       * <code>int32 boot_tx = 3;</code>
+       * @return The bootTx.
+       */
+      @java.lang.Override
+      public int getBootTx() {
+        return bootTx_;
+      }
+      /**
+       * <code>int32 boot_tx = 3;</code>
+       * @param value The bootTx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBootTx(int value) {
+        
+        bootTx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 boot_tx = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBootTx() {
+        
+        bootTx_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int intvlTx_ ;
+      /**
+       * <code>int32 intvl_tx = 4;</code>
+       * @return The intvlTx.
+       */
+      @java.lang.Override
+      public int getIntvlTx() {
+        return intvlTx_;
+      }
+      /**
+       * <code>int32 intvl_tx = 4;</code>
+       * @param value The intvlTx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIntvlTx(int value) {
+        
+        intvlTx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 intvl_tx = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIntvlTx() {
+        
+        intvlTx_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int mask0_ ;
+      /**
+       * <code>int32 mask0 = 5;</code>
+       * @return The mask0.
+       */
+      @java.lang.Override
+      public int getMask0() {
+        return mask0_;
+      }
+      /**
+       * <code>int32 mask0 = 5;</code>
+       * @param value The mask0 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMask0(int value) {
+        
+        mask0_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 mask0 = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMask0() {
+        
+        mask0_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int filter00_ ;
+      /**
+       * <code>int32 filter0_0 = 6;</code>
+       * @return The filter00.
+       */
+      @java.lang.Override
+      public int getFilter00() {
+        return filter00_;
+      }
+      /**
+       * <code>int32 filter0_0 = 6;</code>
+       * @param value The filter00 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilter00(int value) {
+        
+        filter00_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 filter0_0 = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFilter00() {
+        
+        filter00_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int filter01_ ;
+      /**
+       * <code>int32 filter0_1 = 7;</code>
+       * @return The filter01.
+       */
+      @java.lang.Override
+      public int getFilter01() {
+        return filter01_;
+      }
+      /**
+       * <code>int32 filter0_1 = 7;</code>
+       * @param value The filter01 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilter01(int value) {
+        
+        filter01_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 filter0_1 = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFilter01() {
+        
+        filter01_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int mask1_ ;
+      /**
+       * <code>int32 mask1 = 8;</code>
+       * @return The mask1.
+       */
+      @java.lang.Override
+      public int getMask1() {
+        return mask1_;
+      }
+      /**
+       * <code>int32 mask1 = 8;</code>
+       * @param value The mask1 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMask1(int value) {
+        
+        mask1_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 mask1 = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMask1() {
+        
+        mask1_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int filter10_ ;
+      /**
+       * <code>int32 filter1_0 = 9;</code>
+       * @return The filter10.
+       */
+      @java.lang.Override
+      public int getFilter10() {
+        return filter10_;
+      }
+      /**
+       * <code>int32 filter1_0 = 9;</code>
+       * @param value The filter10 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilter10(int value) {
+        
+        filter10_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 filter1_0 = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFilter10() {
+        
+        filter10_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int filter11_ ;
+      /**
+       * <code>int32 filter1_1 = 10;</code>
+       * @return The filter11.
+       */
+      @java.lang.Override
+      public int getFilter11() {
+        return filter11_;
+      }
+      /**
+       * <code>int32 filter1_1 = 10;</code>
+       * @param value The filter11 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilter11(int value) {
+        
+        filter11_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 filter1_1 = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFilter11() {
+        
+        filter11_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int filter12_ ;
+      /**
+       * <code>int32 filter1_2 = 11;</code>
+       * @return The filter12.
+       */
+      @java.lang.Override
+      public int getFilter12() {
+        return filter12_;
+      }
+      /**
+       * <code>int32 filter1_2 = 11;</code>
+       * @param value The filter12 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilter12(int value) {
+        
+        filter12_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 filter1_2 = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFilter12() {
+        
+        filter12_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int filter13_ ;
+      /**
+       * <code>int32 filter1_3 = 12;</code>
+       * @return The filter13.
+       */
+      @java.lang.Override
+      public int getFilter13() {
+        return filter13_;
+      }
+      /**
+       * <code>int32 filter1_3 = 12;</code>
+       * @param value The filter13 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilter13(int value) {
+        
+        filter13_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 filter1_3 = 12;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFilter13() {
+        
+        filter13_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:b3console.CanBusConfigMessage)
+    }
+
+    // @@protoc_insertion_point(class_scope:b3console.CanBusConfigMessage)
+    private static final com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage();
+    }
+
+    public static com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CanBusConfigMessage>
+        PARSER = new com.google.protobuf.AbstractParser<CanBusConfigMessage>() {
+      @java.lang.Override
+      public CanBusConfigMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CanBusConfigMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CanBusConfigMessage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CanBusConfigMessage> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ShifterMessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:b3console.ShifterMessage)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
      * @return Whether the canBusConfig field is set.
      */
     boolean hasCanBusConfig();
     /**
-     * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
      * @return The canBusConfig.
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage getCanBusConfig();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage getCanBusConfig();
     /**
-     * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder();
 
     /**
      * <code>.b3console.ShifterMessage.IndicatorConfigMessage indicator_config = 2;</code>
@@ -5276,109 +6534,109 @@ public final class ConfigMessage {
     com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.MelexisConfigMessageOrBuilder getMelexisConfigOrBuilder();
 
     /**
-     * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
      * @return Whether the parkConfig field is set.
      */
     boolean hasParkConfig();
     /**
-     * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
      * @return The parkConfig.
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage getParkConfig();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getParkConfig();
     /**
-     * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessageOrBuilder getParkConfigOrBuilder();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getParkConfigOrBuilder();
 
     /**
-     * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
      * @return Whether the reverseConfig field is set.
      */
     boolean hasReverseConfig();
     /**
-     * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
      * @return The reverseConfig.
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage getReverseConfig();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getReverseConfig();
     /**
-     * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessageOrBuilder getReverseConfigOrBuilder();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getReverseConfigOrBuilder();
 
     /**
-     * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
      * @return Whether the neutralConfig field is set.
      */
     boolean hasNeutralConfig();
     /**
-     * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
      * @return The neutralConfig.
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage getNeutralConfig();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getNeutralConfig();
     /**
-     * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessageOrBuilder getNeutralConfigOrBuilder();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getNeutralConfigOrBuilder();
 
     /**
-     * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
      * @return Whether the driveConfig field is set.
      */
     boolean hasDriveConfig();
     /**
-     * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
      * @return The driveConfig.
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage getDriveConfig();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getDriveConfig();
     /**
-     * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessageOrBuilder getDriveConfigOrBuilder();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getDriveConfigOrBuilder();
 
     /**
-     * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
      * @return Whether the manualConfig field is set.
      */
     boolean hasManualConfig();
     /**
-     * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
      * @return The manualConfig.
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage getManualConfig();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getManualConfig();
     /**
-     * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessageOrBuilder getManualConfigOrBuilder();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getManualConfigOrBuilder();
 
     /**
-     * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
      * @return Whether the upConfig field is set.
      */
     boolean hasUpConfig();
     /**
-     * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
      * @return The upConfig.
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage getUpConfig();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getUpConfig();
     /**
-     * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessageOrBuilder getUpConfigOrBuilder();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getUpConfigOrBuilder();
 
     /**
-     * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
      * @return Whether the downConfig field is set.
      */
     boolean hasDownConfig();
     /**
-     * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
      * @return The downConfig.
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage getDownConfig();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getDownConfig();
     /**
-     * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessageOrBuilder getDownConfigOrBuilder();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getDownConfigOrBuilder();
   }
   /**
    * Protobuf type {@code b3console.ShifterMessage}
@@ -5426,11 +6684,11 @@ public final class ConfigMessage {
               done = true;
               break;
             case 10: {
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.Builder subBuilder = null;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder subBuilder = null;
               if (canBusConfig_ != null) {
                 subBuilder = canBusConfig_.toBuilder();
               }
-              canBusConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.parser(), extensionRegistry);
+              canBusConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(canBusConfig_);
                 canBusConfig_ = subBuilder.buildPartial();
@@ -5465,11 +6723,11 @@ public final class ConfigMessage {
               break;
             }
             case 34: {
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder subBuilder = null;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder subBuilder = null;
               if (parkConfig_ != null) {
                 subBuilder = parkConfig_.toBuilder();
               }
-              parkConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.parser(), extensionRegistry);
+              parkConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(parkConfig_);
                 parkConfig_ = subBuilder.buildPartial();
@@ -5478,11 +6736,11 @@ public final class ConfigMessage {
               break;
             }
             case 42: {
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder subBuilder = null;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder subBuilder = null;
               if (reverseConfig_ != null) {
                 subBuilder = reverseConfig_.toBuilder();
               }
-              reverseConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.parser(), extensionRegistry);
+              reverseConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(reverseConfig_);
                 reverseConfig_ = subBuilder.buildPartial();
@@ -5491,11 +6749,11 @@ public final class ConfigMessage {
               break;
             }
             case 50: {
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder subBuilder = null;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder subBuilder = null;
               if (neutralConfig_ != null) {
                 subBuilder = neutralConfig_.toBuilder();
               }
-              neutralConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.parser(), extensionRegistry);
+              neutralConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(neutralConfig_);
                 neutralConfig_ = subBuilder.buildPartial();
@@ -5504,11 +6762,11 @@ public final class ConfigMessage {
               break;
             }
             case 58: {
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder subBuilder = null;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder subBuilder = null;
               if (driveConfig_ != null) {
                 subBuilder = driveConfig_.toBuilder();
               }
-              driveConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.parser(), extensionRegistry);
+              driveConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(driveConfig_);
                 driveConfig_ = subBuilder.buildPartial();
@@ -5517,11 +6775,11 @@ public final class ConfigMessage {
               break;
             }
             case 66: {
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder subBuilder = null;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder subBuilder = null;
               if (manualConfig_ != null) {
                 subBuilder = manualConfig_.toBuilder();
               }
-              manualConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.parser(), extensionRegistry);
+              manualConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(manualConfig_);
                 manualConfig_ = subBuilder.buildPartial();
@@ -5530,11 +6788,11 @@ public final class ConfigMessage {
               break;
             }
             case 74: {
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder subBuilder = null;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder subBuilder = null;
               if (upConfig_ != null) {
                 subBuilder = upConfig_.toBuilder();
               }
-              upConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.parser(), extensionRegistry);
+              upConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(upConfig_);
                 upConfig_ = subBuilder.buildPartial();
@@ -5543,11 +6801,11 @@ public final class ConfigMessage {
               break;
             }
             case 82: {
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder subBuilder = null;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder subBuilder = null;
               if (downConfig_ != null) {
                 subBuilder = downConfig_.toBuilder();
               }
-              downConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.parser(), extensionRegistry);
+              downConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(downConfig_);
                 downConfig_ = subBuilder.buildPartial();
@@ -5585,1264 +6843,6 @@ public final class ConfigMessage {
       return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.Builder.class);
-    }
-
-    public interface CanBusConfigMessageOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:b3console.ShifterMessage.CanBusConfigMessage)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>int32 addr_tx = 1;</code>
-       * @return The addrTx.
-       */
-      int getAddrTx();
-
-      /**
-       * <code>int32 boot_rx = 2;</code>
-       * @return The bootRx.
-       */
-      int getBootRx();
-
-      /**
-       * <code>int32 boot_tx = 3;</code>
-       * @return The bootTx.
-       */
-      int getBootTx();
-
-      /**
-       * <code>int32 intvl_tx = 4;</code>
-       * @return The intvlTx.
-       */
-      int getIntvlTx();
-
-      /**
-       * <code>int32 mask0 = 5;</code>
-       * @return The mask0.
-       */
-      int getMask0();
-
-      /**
-       * <code>int32 filter0_0 = 6;</code>
-       * @return The filter00.
-       */
-      int getFilter00();
-
-      /**
-       * <code>int32 filter0_1 = 7;</code>
-       * @return The filter01.
-       */
-      int getFilter01();
-
-      /**
-       * <code>int32 mask1 = 8;</code>
-       * @return The mask1.
-       */
-      int getMask1();
-
-      /**
-       * <code>int32 filter1_0 = 9;</code>
-       * @return The filter10.
-       */
-      int getFilter10();
-
-      /**
-       * <code>int32 filter1_1 = 10;</code>
-       * @return The filter11.
-       */
-      int getFilter11();
-
-      /**
-       * <code>int32 filter1_2 = 11;</code>
-       * @return The filter12.
-       */
-      int getFilter12();
-
-      /**
-       * <code>int32 filter1_3 = 12;</code>
-       * @return The filter13.
-       */
-      int getFilter13();
-    }
-    /**
-     * Protobuf type {@code b3console.ShifterMessage.CanBusConfigMessage}
-     */
-    public static final class CanBusConfigMessage extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:b3console.ShifterMessage.CanBusConfigMessage)
-        CanBusConfigMessageOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use CanBusConfigMessage.newBuilder() to construct.
-      private CanBusConfigMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private CanBusConfigMessage() {
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new CanBusConfigMessage();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private CanBusConfigMessage(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-
-                addrTx_ = input.readInt32();
-                break;
-              }
-              case 16: {
-
-                bootRx_ = input.readInt32();
-                break;
-              }
-              case 24: {
-
-                bootTx_ = input.readInt32();
-                break;
-              }
-              case 32: {
-
-                intvlTx_ = input.readInt32();
-                break;
-              }
-              case 40: {
-
-                mask0_ = input.readInt32();
-                break;
-              }
-              case 48: {
-
-                filter00_ = input.readInt32();
-                break;
-              }
-              case 56: {
-
-                filter01_ = input.readInt32();
-                break;
-              }
-              case 64: {
-
-                mask1_ = input.readInt32();
-                break;
-              }
-              case 72: {
-
-                filter10_ = input.readInt32();
-                break;
-              }
-              case 80: {
-
-                filter11_ = input.readInt32();
-                break;
-              }
-              case 88: {
-
-                filter12_ = input.readInt32();
-                break;
-              }
-              case 96: {
-
-                filter13_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_CanBusConfigMessage_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_CanBusConfigMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.Builder.class);
-      }
-
-      public static final int ADDR_TX_FIELD_NUMBER = 1;
-      private int addrTx_;
-      /**
-       * <code>int32 addr_tx = 1;</code>
-       * @return The addrTx.
-       */
-      @java.lang.Override
-      public int getAddrTx() {
-        return addrTx_;
-      }
-
-      public static final int BOOT_RX_FIELD_NUMBER = 2;
-      private int bootRx_;
-      /**
-       * <code>int32 boot_rx = 2;</code>
-       * @return The bootRx.
-       */
-      @java.lang.Override
-      public int getBootRx() {
-        return bootRx_;
-      }
-
-      public static final int BOOT_TX_FIELD_NUMBER = 3;
-      private int bootTx_;
-      /**
-       * <code>int32 boot_tx = 3;</code>
-       * @return The bootTx.
-       */
-      @java.lang.Override
-      public int getBootTx() {
-        return bootTx_;
-      }
-
-      public static final int INTVL_TX_FIELD_NUMBER = 4;
-      private int intvlTx_;
-      /**
-       * <code>int32 intvl_tx = 4;</code>
-       * @return The intvlTx.
-       */
-      @java.lang.Override
-      public int getIntvlTx() {
-        return intvlTx_;
-      }
-
-      public static final int MASK0_FIELD_NUMBER = 5;
-      private int mask0_;
-      /**
-       * <code>int32 mask0 = 5;</code>
-       * @return The mask0.
-       */
-      @java.lang.Override
-      public int getMask0() {
-        return mask0_;
-      }
-
-      public static final int FILTER0_0_FIELD_NUMBER = 6;
-      private int filter00_;
-      /**
-       * <code>int32 filter0_0 = 6;</code>
-       * @return The filter00.
-       */
-      @java.lang.Override
-      public int getFilter00() {
-        return filter00_;
-      }
-
-      public static final int FILTER0_1_FIELD_NUMBER = 7;
-      private int filter01_;
-      /**
-       * <code>int32 filter0_1 = 7;</code>
-       * @return The filter01.
-       */
-      @java.lang.Override
-      public int getFilter01() {
-        return filter01_;
-      }
-
-      public static final int MASK1_FIELD_NUMBER = 8;
-      private int mask1_;
-      /**
-       * <code>int32 mask1 = 8;</code>
-       * @return The mask1.
-       */
-      @java.lang.Override
-      public int getMask1() {
-        return mask1_;
-      }
-
-      public static final int FILTER1_0_FIELD_NUMBER = 9;
-      private int filter10_;
-      /**
-       * <code>int32 filter1_0 = 9;</code>
-       * @return The filter10.
-       */
-      @java.lang.Override
-      public int getFilter10() {
-        return filter10_;
-      }
-
-      public static final int FILTER1_1_FIELD_NUMBER = 10;
-      private int filter11_;
-      /**
-       * <code>int32 filter1_1 = 10;</code>
-       * @return The filter11.
-       */
-      @java.lang.Override
-      public int getFilter11() {
-        return filter11_;
-      }
-
-      public static final int FILTER1_2_FIELD_NUMBER = 11;
-      private int filter12_;
-      /**
-       * <code>int32 filter1_2 = 11;</code>
-       * @return The filter12.
-       */
-      @java.lang.Override
-      public int getFilter12() {
-        return filter12_;
-      }
-
-      public static final int FILTER1_3_FIELD_NUMBER = 12;
-      private int filter13_;
-      /**
-       * <code>int32 filter1_3 = 12;</code>
-       * @return The filter13.
-       */
-      @java.lang.Override
-      public int getFilter13() {
-        return filter13_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (addrTx_ != 0) {
-          output.writeInt32(1, addrTx_);
-        }
-        if (bootRx_ != 0) {
-          output.writeInt32(2, bootRx_);
-        }
-        if (bootTx_ != 0) {
-          output.writeInt32(3, bootTx_);
-        }
-        if (intvlTx_ != 0) {
-          output.writeInt32(4, intvlTx_);
-        }
-        if (mask0_ != 0) {
-          output.writeInt32(5, mask0_);
-        }
-        if (filter00_ != 0) {
-          output.writeInt32(6, filter00_);
-        }
-        if (filter01_ != 0) {
-          output.writeInt32(7, filter01_);
-        }
-        if (mask1_ != 0) {
-          output.writeInt32(8, mask1_);
-        }
-        if (filter10_ != 0) {
-          output.writeInt32(9, filter10_);
-        }
-        if (filter11_ != 0) {
-          output.writeInt32(10, filter11_);
-        }
-        if (filter12_ != 0) {
-          output.writeInt32(11, filter12_);
-        }
-        if (filter13_ != 0) {
-          output.writeInt32(12, filter13_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (addrTx_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, addrTx_);
-        }
-        if (bootRx_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, bootRx_);
-        }
-        if (bootTx_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, bootTx_);
-        }
-        if (intvlTx_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, intvlTx_);
-        }
-        if (mask0_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, mask0_);
-        }
-        if (filter00_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(6, filter00_);
-        }
-        if (filter01_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(7, filter01_);
-        }
-        if (mask1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(8, mask1_);
-        }
-        if (filter10_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(9, filter10_);
-        }
-        if (filter11_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(10, filter11_);
-        }
-        if (filter12_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(11, filter12_);
-        }
-        if (filter13_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(12, filter13_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage)) {
-          return super.equals(obj);
-        }
-        com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage other = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage) obj;
-
-        if (getAddrTx()
-            != other.getAddrTx()) return false;
-        if (getBootRx()
-            != other.getBootRx()) return false;
-        if (getBootTx()
-            != other.getBootTx()) return false;
-        if (getIntvlTx()
-            != other.getIntvlTx()) return false;
-        if (getMask0()
-            != other.getMask0()) return false;
-        if (getFilter00()
-            != other.getFilter00()) return false;
-        if (getFilter01()
-            != other.getFilter01()) return false;
-        if (getMask1()
-            != other.getMask1()) return false;
-        if (getFilter10()
-            != other.getFilter10()) return false;
-        if (getFilter11()
-            != other.getFilter11()) return false;
-        if (getFilter12()
-            != other.getFilter12()) return false;
-        if (getFilter13()
-            != other.getFilter13()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + ADDR_TX_FIELD_NUMBER;
-        hash = (53 * hash) + getAddrTx();
-        hash = (37 * hash) + BOOT_RX_FIELD_NUMBER;
-        hash = (53 * hash) + getBootRx();
-        hash = (37 * hash) + BOOT_TX_FIELD_NUMBER;
-        hash = (53 * hash) + getBootTx();
-        hash = (37 * hash) + INTVL_TX_FIELD_NUMBER;
-        hash = (53 * hash) + getIntvlTx();
-        hash = (37 * hash) + MASK0_FIELD_NUMBER;
-        hash = (53 * hash) + getMask0();
-        hash = (37 * hash) + FILTER0_0_FIELD_NUMBER;
-        hash = (53 * hash) + getFilter00();
-        hash = (37 * hash) + FILTER0_1_FIELD_NUMBER;
-        hash = (53 * hash) + getFilter01();
-        hash = (37 * hash) + MASK1_FIELD_NUMBER;
-        hash = (53 * hash) + getMask1();
-        hash = (37 * hash) + FILTER1_0_FIELD_NUMBER;
-        hash = (53 * hash) + getFilter10();
-        hash = (37 * hash) + FILTER1_1_FIELD_NUMBER;
-        hash = (53 * hash) + getFilter11();
-        hash = (37 * hash) + FILTER1_2_FIELD_NUMBER;
-        hash = (53 * hash) + getFilter12();
-        hash = (37 * hash) + FILTER1_3_FIELD_NUMBER;
-        hash = (53 * hash) + getFilter13();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code b3console.ShifterMessage.CanBusConfigMessage}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:b3console.ShifterMessage.CanBusConfigMessage)
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessageOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_CanBusConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_CanBusConfigMessage_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.Builder.class);
-        }
-
-        // Construct using com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          addrTx_ = 0;
-
-          bootRx_ = 0;
-
-          bootTx_ = 0;
-
-          intvlTx_ = 0;
-
-          mask0_ = 0;
-
-          filter00_ = 0;
-
-          filter01_ = 0;
-
-          mask1_ = 0;
-
-          filter10_ = 0;
-
-          filter11_ = 0;
-
-          filter12_ = 0;
-
-          filter13_ = 0;
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_CanBusConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage getDefaultInstanceForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage build() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage buildPartial() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage result = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage(this);
-          result.addrTx_ = addrTx_;
-          result.bootRx_ = bootRx_;
-          result.bootTx_ = bootTx_;
-          result.intvlTx_ = intvlTx_;
-          result.mask0_ = mask0_;
-          result.filter00_ = filter00_;
-          result.filter01_ = filter01_;
-          result.mask1_ = mask1_;
-          result.filter10_ = filter10_;
-          result.filter11_ = filter11_;
-          result.filter12_ = filter12_;
-          result.filter13_ = filter13_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage) {
-            return mergeFrom((com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage other) {
-          if (other == com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.getDefaultInstance()) return this;
-          if (other.getAddrTx() != 0) {
-            setAddrTx(other.getAddrTx());
-          }
-          if (other.getBootRx() != 0) {
-            setBootRx(other.getBootRx());
-          }
-          if (other.getBootTx() != 0) {
-            setBootTx(other.getBootTx());
-          }
-          if (other.getIntvlTx() != 0) {
-            setIntvlTx(other.getIntvlTx());
-          }
-          if (other.getMask0() != 0) {
-            setMask0(other.getMask0());
-          }
-          if (other.getFilter00() != 0) {
-            setFilter00(other.getFilter00());
-          }
-          if (other.getFilter01() != 0) {
-            setFilter01(other.getFilter01());
-          }
-          if (other.getMask1() != 0) {
-            setMask1(other.getMask1());
-          }
-          if (other.getFilter10() != 0) {
-            setFilter10(other.getFilter10());
-          }
-          if (other.getFilter11() != 0) {
-            setFilter11(other.getFilter11());
-          }
-          if (other.getFilter12() != 0) {
-            setFilter12(other.getFilter12());
-          }
-          if (other.getFilter13() != 0) {
-            setFilter13(other.getFilter13());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private int addrTx_ ;
-        /**
-         * <code>int32 addr_tx = 1;</code>
-         * @return The addrTx.
-         */
-        @java.lang.Override
-        public int getAddrTx() {
-          return addrTx_;
-        }
-        /**
-         * <code>int32 addr_tx = 1;</code>
-         * @param value The addrTx to set.
-         * @return This builder for chaining.
-         */
-        public Builder setAddrTx(int value) {
-          
-          addrTx_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 addr_tx = 1;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearAddrTx() {
-          
-          addrTx_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int bootRx_ ;
-        /**
-         * <code>int32 boot_rx = 2;</code>
-         * @return The bootRx.
-         */
-        @java.lang.Override
-        public int getBootRx() {
-          return bootRx_;
-        }
-        /**
-         * <code>int32 boot_rx = 2;</code>
-         * @param value The bootRx to set.
-         * @return This builder for chaining.
-         */
-        public Builder setBootRx(int value) {
-          
-          bootRx_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 boot_rx = 2;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearBootRx() {
-          
-          bootRx_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int bootTx_ ;
-        /**
-         * <code>int32 boot_tx = 3;</code>
-         * @return The bootTx.
-         */
-        @java.lang.Override
-        public int getBootTx() {
-          return bootTx_;
-        }
-        /**
-         * <code>int32 boot_tx = 3;</code>
-         * @param value The bootTx to set.
-         * @return This builder for chaining.
-         */
-        public Builder setBootTx(int value) {
-          
-          bootTx_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 boot_tx = 3;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearBootTx() {
-          
-          bootTx_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int intvlTx_ ;
-        /**
-         * <code>int32 intvl_tx = 4;</code>
-         * @return The intvlTx.
-         */
-        @java.lang.Override
-        public int getIntvlTx() {
-          return intvlTx_;
-        }
-        /**
-         * <code>int32 intvl_tx = 4;</code>
-         * @param value The intvlTx to set.
-         * @return This builder for chaining.
-         */
-        public Builder setIntvlTx(int value) {
-          
-          intvlTx_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 intvl_tx = 4;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearIntvlTx() {
-          
-          intvlTx_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int mask0_ ;
-        /**
-         * <code>int32 mask0 = 5;</code>
-         * @return The mask0.
-         */
-        @java.lang.Override
-        public int getMask0() {
-          return mask0_;
-        }
-        /**
-         * <code>int32 mask0 = 5;</code>
-         * @param value The mask0 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setMask0(int value) {
-          
-          mask0_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 mask0 = 5;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearMask0() {
-          
-          mask0_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int filter00_ ;
-        /**
-         * <code>int32 filter0_0 = 6;</code>
-         * @return The filter00.
-         */
-        @java.lang.Override
-        public int getFilter00() {
-          return filter00_;
-        }
-        /**
-         * <code>int32 filter0_0 = 6;</code>
-         * @param value The filter00 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFilter00(int value) {
-          
-          filter00_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 filter0_0 = 6;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFilter00() {
-          
-          filter00_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int filter01_ ;
-        /**
-         * <code>int32 filter0_1 = 7;</code>
-         * @return The filter01.
-         */
-        @java.lang.Override
-        public int getFilter01() {
-          return filter01_;
-        }
-        /**
-         * <code>int32 filter0_1 = 7;</code>
-         * @param value The filter01 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFilter01(int value) {
-          
-          filter01_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 filter0_1 = 7;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFilter01() {
-          
-          filter01_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int mask1_ ;
-        /**
-         * <code>int32 mask1 = 8;</code>
-         * @return The mask1.
-         */
-        @java.lang.Override
-        public int getMask1() {
-          return mask1_;
-        }
-        /**
-         * <code>int32 mask1 = 8;</code>
-         * @param value The mask1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setMask1(int value) {
-          
-          mask1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 mask1 = 8;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearMask1() {
-          
-          mask1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int filter10_ ;
-        /**
-         * <code>int32 filter1_0 = 9;</code>
-         * @return The filter10.
-         */
-        @java.lang.Override
-        public int getFilter10() {
-          return filter10_;
-        }
-        /**
-         * <code>int32 filter1_0 = 9;</code>
-         * @param value The filter10 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFilter10(int value) {
-          
-          filter10_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 filter1_0 = 9;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFilter10() {
-          
-          filter10_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int filter11_ ;
-        /**
-         * <code>int32 filter1_1 = 10;</code>
-         * @return The filter11.
-         */
-        @java.lang.Override
-        public int getFilter11() {
-          return filter11_;
-        }
-        /**
-         * <code>int32 filter1_1 = 10;</code>
-         * @param value The filter11 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFilter11(int value) {
-          
-          filter11_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 filter1_1 = 10;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFilter11() {
-          
-          filter11_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int filter12_ ;
-        /**
-         * <code>int32 filter1_2 = 11;</code>
-         * @return The filter12.
-         */
-        @java.lang.Override
-        public int getFilter12() {
-          return filter12_;
-        }
-        /**
-         * <code>int32 filter1_2 = 11;</code>
-         * @param value The filter12 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFilter12(int value) {
-          
-          filter12_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 filter1_2 = 11;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFilter12() {
-          
-          filter12_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int filter13_ ;
-        /**
-         * <code>int32 filter1_3 = 12;</code>
-         * @return The filter13.
-         */
-        @java.lang.Override
-        public int getFilter13() {
-          return filter13_;
-        }
-        /**
-         * <code>int32 filter1_3 = 12;</code>
-         * @param value The filter13 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFilter13(int value) {
-          
-          filter13_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 filter1_3 = 12;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFilter13() {
-          
-          filter13_ = 0;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:b3console.ShifterMessage.CanBusConfigMessage)
-      }
-
-      // @@protoc_insertion_point(class_scope:b3console.ShifterMessage.CanBusConfigMessage)
-      private static final com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage();
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<CanBusConfigMessage>
-          PARSER = new com.google.protobuf.AbstractParser<CanBusConfigMessage>() {
-        @java.lang.Override
-        public CanBusConfigMessage parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CanBusConfigMessage(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<CanBusConfigMessage> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<CanBusConfigMessage> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
     }
 
     public interface IndicatorConfigMessageOrBuilder extends
@@ -7961,8 +7961,8 @@ public final class ConfigMessage {
 
     }
 
-    public interface ParkPositionConfigMessageOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:b3console.ShifterMessage.ParkPositionConfigMessage)
+    public interface ShifterPositionMessageOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:b3console.ShifterMessage.ShifterPositionMessage)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -7996,25 +7996,25 @@ public final class ConfigMessage {
       int getEnumVal();
     }
     /**
-     * Protobuf type {@code b3console.ShifterMessage.ParkPositionConfigMessage}
+     * Protobuf type {@code b3console.ShifterMessage.ShifterPositionMessage}
      */
-    public static final class ParkPositionConfigMessage extends
+    public static final class ShifterPositionMessage extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:b3console.ShifterMessage.ParkPositionConfigMessage)
-        ParkPositionConfigMessageOrBuilder {
+        // @@protoc_insertion_point(message_implements:b3console.ShifterMessage.ShifterPositionMessage)
+        ShifterPositionMessageOrBuilder {
     private static final long serialVersionUID = 0L;
-      // Use ParkPositionConfigMessage.newBuilder() to construct.
-      private ParkPositionConfigMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      // Use ShifterPositionMessage.newBuilder() to construct.
+      private ShifterPositionMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
       }
-      private ParkPositionConfigMessage() {
+      private ShifterPositionMessage() {
       }
 
       @java.lang.Override
       @SuppressWarnings({"unused"})
       protected java.lang.Object newInstance(
           UnusedPrivateParameter unused) {
-        return new ParkPositionConfigMessage();
+        return new ShifterPositionMessage();
       }
 
       @java.lang.Override
@@ -8022,7 +8022,7 @@ public final class ConfigMessage {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private ParkPositionConfigMessage(
+      private ShifterPositionMessage(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -8086,15 +8086,15 @@ public final class ConfigMessage {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ParkPositionConfigMessage_descriptor;
+        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ShifterPositionMessage_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ParkPositionConfigMessage_fieldAccessorTable
+        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ShifterPositionMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder.class);
+                com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder.class);
       }
 
       public static final int X1_FIELD_NUMBER = 1;
@@ -8220,10 +8220,10 @@ public final class ConfigMessage {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage)) {
+        if (!(obj instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage)) {
           return super.equals(obj);
         }
-        com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage other = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage) obj;
+        com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage other = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage) obj;
 
         if (getX1()
             != other.getX1()) return false;
@@ -8261,69 +8261,69 @@ public final class ConfigMessage {
         return hash;
       }
 
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parseFrom(
+      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parseFrom(
+      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parseFrom(
+      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parseFrom(
+      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parseFrom(byte[] data)
+      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parseFrom(
+      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parseFrom(java.io.InputStream input)
+      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parseFrom(
+      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parseDelimitedFrom(java.io.InputStream input)
+      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parseDelimitedFrom(
+      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parseFrom(
+      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parseFrom(
+      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -8336,7 +8336,7 @@ public final class ConfigMessage {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage prototype) {
+      public static Builder newBuilder(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -8352,26 +8352,26 @@ public final class ConfigMessage {
         return builder;
       }
       /**
-       * Protobuf type {@code b3console.ShifterMessage.ParkPositionConfigMessage}
+       * Protobuf type {@code b3console.ShifterMessage.ShifterPositionMessage}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:b3console.ShifterMessage.ParkPositionConfigMessage)
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessageOrBuilder {
+          // @@protoc_insertion_point(builder_implements:b3console.ShifterMessage.ShifterPositionMessage)
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ParkPositionConfigMessage_descriptor;
+          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ShifterPositionMessage_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ParkPositionConfigMessage_fieldAccessorTable
+          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ShifterPositionMessage_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder.class);
+                  com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder.class);
         }
 
-        // Construct using com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.newBuilder()
+        // Construct using com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -8405,17 +8405,17 @@ public final class ConfigMessage {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ParkPositionConfigMessage_descriptor;
+          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ShifterPositionMessage_descriptor;
         }
 
         @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage getDefaultInstanceForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.getDefaultInstance();
+        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getDefaultInstanceForType() {
+          return com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance();
         }
 
         @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage build() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage result = buildPartial();
+        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage build() {
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -8423,8 +8423,8 @@ public final class ConfigMessage {
         }
 
         @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage buildPartial() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage result = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage(this);
+        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage buildPartial() {
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage result = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage(this);
           result.x1_ = x1_;
           result.y1_ = y1_;
           result.x2_ = x2_;
@@ -8468,16 +8468,16 @@ public final class ConfigMessage {
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage) {
-            return mergeFrom((com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage)other);
+          if (other instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage) {
+            return mergeFrom((com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage other) {
-          if (other == com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.getDefaultInstance()) return this;
+        public Builder mergeFrom(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage other) {
+          if (other == com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance()) return this;
           if (other.getX1() != 0) {
             setX1(other.getX1());
           }
@@ -8508,11 +8508,11 @@ public final class ConfigMessage {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parsedMessage = null;
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage) e.getUnfinishedMessage();
+            parsedMessage = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -8689,4658 +8689,50 @@ public final class ConfigMessage {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:b3console.ShifterMessage.ParkPositionConfigMessage)
+        // @@protoc_insertion_point(builder_scope:b3console.ShifterMessage.ShifterPositionMessage)
       }
 
-      // @@protoc_insertion_point(class_scope:b3console.ShifterMessage.ParkPositionConfigMessage)
-      private static final com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:b3console.ShifterMessage.ShifterPositionMessage)
+      private static final com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage();
+        DEFAULT_INSTANCE = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage();
       }
 
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage getDefaultInstance() {
+      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
-      private static final com.google.protobuf.Parser<ParkPositionConfigMessage>
-          PARSER = new com.google.protobuf.AbstractParser<ParkPositionConfigMessage>() {
+      private static final com.google.protobuf.Parser<ShifterPositionMessage>
+          PARSER = new com.google.protobuf.AbstractParser<ShifterPositionMessage>() {
         @java.lang.Override
-        public ParkPositionConfigMessage parsePartialFrom(
+        public ShifterPositionMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ParkPositionConfigMessage(input, extensionRegistry);
+          return new ShifterPositionMessage(input, extensionRegistry);
         }
       };
 
-      public static com.google.protobuf.Parser<ParkPositionConfigMessage> parser() {
+      public static com.google.protobuf.Parser<ShifterPositionMessage> parser() {
         return PARSER;
       }
 
       @java.lang.Override
-      public com.google.protobuf.Parser<ParkPositionConfigMessage> getParserForType() {
+      public com.google.protobuf.Parser<ShifterPositionMessage> getParserForType() {
         return PARSER;
       }
 
       @java.lang.Override
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
-    public interface ReversePositionConfigMessageOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:b3console.ShifterMessage.ReversePositionConfigMessage)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>int32 x1 = 1;</code>
-       * @return The x1.
-       */
-      int getX1();
-
-      /**
-       * <code>int32 y1 = 2;</code>
-       * @return The y1.
-       */
-      int getY1();
-
-      /**
-       * <code>int32 x2 = 3;</code>
-       * @return The x2.
-       */
-      int getX2();
-
-      /**
-       * <code>int32 y2 = 4;</code>
-       * @return The y2.
-       */
-      int getY2();
-
-      /**
-       * <code>int32 enum_val = 5;</code>
-       * @return The enumVal.
-       */
-      int getEnumVal();
-    }
-    /**
-     * Protobuf type {@code b3console.ShifterMessage.ReversePositionConfigMessage}
-     */
-    public static final class ReversePositionConfigMessage extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:b3console.ShifterMessage.ReversePositionConfigMessage)
-        ReversePositionConfigMessageOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use ReversePositionConfigMessage.newBuilder() to construct.
-      private ReversePositionConfigMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private ReversePositionConfigMessage() {
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new ReversePositionConfigMessage();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private ReversePositionConfigMessage(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-
-                x1_ = input.readInt32();
-                break;
-              }
-              case 16: {
-
-                y1_ = input.readInt32();
-                break;
-              }
-              case 24: {
-
-                x2_ = input.readInt32();
-                break;
-              }
-              case 32: {
-
-                y2_ = input.readInt32();
-                break;
-              }
-              case 40: {
-
-                enumVal_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ReversePositionConfigMessage_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ReversePositionConfigMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder.class);
-      }
-
-      public static final int X1_FIELD_NUMBER = 1;
-      private int x1_;
-      /**
-       * <code>int32 x1 = 1;</code>
-       * @return The x1.
-       */
-      @java.lang.Override
-      public int getX1() {
-        return x1_;
-      }
-
-      public static final int Y1_FIELD_NUMBER = 2;
-      private int y1_;
-      /**
-       * <code>int32 y1 = 2;</code>
-       * @return The y1.
-       */
-      @java.lang.Override
-      public int getY1() {
-        return y1_;
-      }
-
-      public static final int X2_FIELD_NUMBER = 3;
-      private int x2_;
-      /**
-       * <code>int32 x2 = 3;</code>
-       * @return The x2.
-       */
-      @java.lang.Override
-      public int getX2() {
-        return x2_;
-      }
-
-      public static final int Y2_FIELD_NUMBER = 4;
-      private int y2_;
-      /**
-       * <code>int32 y2 = 4;</code>
-       * @return The y2.
-       */
-      @java.lang.Override
-      public int getY2() {
-        return y2_;
-      }
-
-      public static final int ENUM_VAL_FIELD_NUMBER = 5;
-      private int enumVal_;
-      /**
-       * <code>int32 enum_val = 5;</code>
-       * @return The enumVal.
-       */
-      @java.lang.Override
-      public int getEnumVal() {
-        return enumVal_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (x1_ != 0) {
-          output.writeInt32(1, x1_);
-        }
-        if (y1_ != 0) {
-          output.writeInt32(2, y1_);
-        }
-        if (x2_ != 0) {
-          output.writeInt32(3, x2_);
-        }
-        if (y2_ != 0) {
-          output.writeInt32(4, y2_);
-        }
-        if (enumVal_ != 0) {
-          output.writeInt32(5, enumVal_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (x1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, x1_);
-        }
-        if (y1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, y1_);
-        }
-        if (x2_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, x2_);
-        }
-        if (y2_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, y2_);
-        }
-        if (enumVal_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, enumVal_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage)) {
-          return super.equals(obj);
-        }
-        com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage other = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage) obj;
-
-        if (getX1()
-            != other.getX1()) return false;
-        if (getY1()
-            != other.getY1()) return false;
-        if (getX2()
-            != other.getX2()) return false;
-        if (getY2()
-            != other.getY2()) return false;
-        if (getEnumVal()
-            != other.getEnumVal()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + X1_FIELD_NUMBER;
-        hash = (53 * hash) + getX1();
-        hash = (37 * hash) + Y1_FIELD_NUMBER;
-        hash = (53 * hash) + getY1();
-        hash = (37 * hash) + X2_FIELD_NUMBER;
-        hash = (53 * hash) + getX2();
-        hash = (37 * hash) + Y2_FIELD_NUMBER;
-        hash = (53 * hash) + getY2();
-        hash = (37 * hash) + ENUM_VAL_FIELD_NUMBER;
-        hash = (53 * hash) + getEnumVal();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code b3console.ShifterMessage.ReversePositionConfigMessage}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:b3console.ShifterMessage.ReversePositionConfigMessage)
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessageOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ReversePositionConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ReversePositionConfigMessage_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder.class);
-        }
-
-        // Construct using com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          x1_ = 0;
-
-          y1_ = 0;
-
-          x2_ = 0;
-
-          y2_ = 0;
-
-          enumVal_ = 0;
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ReversePositionConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage getDefaultInstanceForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage build() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage buildPartial() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage result = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage(this);
-          result.x1_ = x1_;
-          result.y1_ = y1_;
-          result.x2_ = x2_;
-          result.y2_ = y2_;
-          result.enumVal_ = enumVal_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage) {
-            return mergeFrom((com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage other) {
-          if (other == com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.getDefaultInstance()) return this;
-          if (other.getX1() != 0) {
-            setX1(other.getX1());
-          }
-          if (other.getY1() != 0) {
-            setY1(other.getY1());
-          }
-          if (other.getX2() != 0) {
-            setX2(other.getX2());
-          }
-          if (other.getY2() != 0) {
-            setY2(other.getY2());
-          }
-          if (other.getEnumVal() != 0) {
-            setEnumVal(other.getEnumVal());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private int x1_ ;
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @return The x1.
-         */
-        @java.lang.Override
-        public int getX1() {
-          return x1_;
-        }
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @param value The x1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setX1(int value) {
-          
-          x1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearX1() {
-          
-          x1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int y1_ ;
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @return The y1.
-         */
-        @java.lang.Override
-        public int getY1() {
-          return y1_;
-        }
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @param value The y1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setY1(int value) {
-          
-          y1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearY1() {
-          
-          y1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int x2_ ;
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @return The x2.
-         */
-        @java.lang.Override
-        public int getX2() {
-          return x2_;
-        }
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @param value The x2 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setX2(int value) {
-          
-          x2_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearX2() {
-          
-          x2_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int y2_ ;
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @return The y2.
-         */
-        @java.lang.Override
-        public int getY2() {
-          return y2_;
-        }
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @param value The y2 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setY2(int value) {
-          
-          y2_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearY2() {
-          
-          y2_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int enumVal_ ;
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @return The enumVal.
-         */
-        @java.lang.Override
-        public int getEnumVal() {
-          return enumVal_;
-        }
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @param value The enumVal to set.
-         * @return This builder for chaining.
-         */
-        public Builder setEnumVal(int value) {
-          
-          enumVal_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearEnumVal() {
-          
-          enumVal_ = 0;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:b3console.ShifterMessage.ReversePositionConfigMessage)
-      }
-
-      // @@protoc_insertion_point(class_scope:b3console.ShifterMessage.ReversePositionConfigMessage)
-      private static final com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage();
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<ReversePositionConfigMessage>
-          PARSER = new com.google.protobuf.AbstractParser<ReversePositionConfigMessage>() {
-        @java.lang.Override
-        public ReversePositionConfigMessage parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ReversePositionConfigMessage(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<ReversePositionConfigMessage> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<ReversePositionConfigMessage> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
-    public interface NeutralPositionConfigMessageOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:b3console.ShifterMessage.NeutralPositionConfigMessage)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>int32 x1 = 1;</code>
-       * @return The x1.
-       */
-      int getX1();
-
-      /**
-       * <code>int32 y1 = 2;</code>
-       * @return The y1.
-       */
-      int getY1();
-
-      /**
-       * <code>int32 x2 = 3;</code>
-       * @return The x2.
-       */
-      int getX2();
-
-      /**
-       * <code>int32 y2 = 4;</code>
-       * @return The y2.
-       */
-      int getY2();
-
-      /**
-       * <code>int32 enum_val = 5;</code>
-       * @return The enumVal.
-       */
-      int getEnumVal();
-    }
-    /**
-     * Protobuf type {@code b3console.ShifterMessage.NeutralPositionConfigMessage}
-     */
-    public static final class NeutralPositionConfigMessage extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:b3console.ShifterMessage.NeutralPositionConfigMessage)
-        NeutralPositionConfigMessageOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use NeutralPositionConfigMessage.newBuilder() to construct.
-      private NeutralPositionConfigMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private NeutralPositionConfigMessage() {
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new NeutralPositionConfigMessage();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private NeutralPositionConfigMessage(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-
-                x1_ = input.readInt32();
-                break;
-              }
-              case 16: {
-
-                y1_ = input.readInt32();
-                break;
-              }
-              case 24: {
-
-                x2_ = input.readInt32();
-                break;
-              }
-              case 32: {
-
-                y2_ = input.readInt32();
-                break;
-              }
-              case 40: {
-
-                enumVal_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_NeutralPositionConfigMessage_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_NeutralPositionConfigMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder.class);
-      }
-
-      public static final int X1_FIELD_NUMBER = 1;
-      private int x1_;
-      /**
-       * <code>int32 x1 = 1;</code>
-       * @return The x1.
-       */
-      @java.lang.Override
-      public int getX1() {
-        return x1_;
-      }
-
-      public static final int Y1_FIELD_NUMBER = 2;
-      private int y1_;
-      /**
-       * <code>int32 y1 = 2;</code>
-       * @return The y1.
-       */
-      @java.lang.Override
-      public int getY1() {
-        return y1_;
-      }
-
-      public static final int X2_FIELD_NUMBER = 3;
-      private int x2_;
-      /**
-       * <code>int32 x2 = 3;</code>
-       * @return The x2.
-       */
-      @java.lang.Override
-      public int getX2() {
-        return x2_;
-      }
-
-      public static final int Y2_FIELD_NUMBER = 4;
-      private int y2_;
-      /**
-       * <code>int32 y2 = 4;</code>
-       * @return The y2.
-       */
-      @java.lang.Override
-      public int getY2() {
-        return y2_;
-      }
-
-      public static final int ENUM_VAL_FIELD_NUMBER = 5;
-      private int enumVal_;
-      /**
-       * <code>int32 enum_val = 5;</code>
-       * @return The enumVal.
-       */
-      @java.lang.Override
-      public int getEnumVal() {
-        return enumVal_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (x1_ != 0) {
-          output.writeInt32(1, x1_);
-        }
-        if (y1_ != 0) {
-          output.writeInt32(2, y1_);
-        }
-        if (x2_ != 0) {
-          output.writeInt32(3, x2_);
-        }
-        if (y2_ != 0) {
-          output.writeInt32(4, y2_);
-        }
-        if (enumVal_ != 0) {
-          output.writeInt32(5, enumVal_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (x1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, x1_);
-        }
-        if (y1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, y1_);
-        }
-        if (x2_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, x2_);
-        }
-        if (y2_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, y2_);
-        }
-        if (enumVal_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, enumVal_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage)) {
-          return super.equals(obj);
-        }
-        com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage other = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage) obj;
-
-        if (getX1()
-            != other.getX1()) return false;
-        if (getY1()
-            != other.getY1()) return false;
-        if (getX2()
-            != other.getX2()) return false;
-        if (getY2()
-            != other.getY2()) return false;
-        if (getEnumVal()
-            != other.getEnumVal()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + X1_FIELD_NUMBER;
-        hash = (53 * hash) + getX1();
-        hash = (37 * hash) + Y1_FIELD_NUMBER;
-        hash = (53 * hash) + getY1();
-        hash = (37 * hash) + X2_FIELD_NUMBER;
-        hash = (53 * hash) + getX2();
-        hash = (37 * hash) + Y2_FIELD_NUMBER;
-        hash = (53 * hash) + getY2();
-        hash = (37 * hash) + ENUM_VAL_FIELD_NUMBER;
-        hash = (53 * hash) + getEnumVal();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code b3console.ShifterMessage.NeutralPositionConfigMessage}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:b3console.ShifterMessage.NeutralPositionConfigMessage)
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessageOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_NeutralPositionConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_NeutralPositionConfigMessage_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder.class);
-        }
-
-        // Construct using com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          x1_ = 0;
-
-          y1_ = 0;
-
-          x2_ = 0;
-
-          y2_ = 0;
-
-          enumVal_ = 0;
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_NeutralPositionConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage getDefaultInstanceForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage build() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage buildPartial() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage result = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage(this);
-          result.x1_ = x1_;
-          result.y1_ = y1_;
-          result.x2_ = x2_;
-          result.y2_ = y2_;
-          result.enumVal_ = enumVal_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage) {
-            return mergeFrom((com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage other) {
-          if (other == com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.getDefaultInstance()) return this;
-          if (other.getX1() != 0) {
-            setX1(other.getX1());
-          }
-          if (other.getY1() != 0) {
-            setY1(other.getY1());
-          }
-          if (other.getX2() != 0) {
-            setX2(other.getX2());
-          }
-          if (other.getY2() != 0) {
-            setY2(other.getY2());
-          }
-          if (other.getEnumVal() != 0) {
-            setEnumVal(other.getEnumVal());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private int x1_ ;
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @return The x1.
-         */
-        @java.lang.Override
-        public int getX1() {
-          return x1_;
-        }
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @param value The x1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setX1(int value) {
-          
-          x1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearX1() {
-          
-          x1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int y1_ ;
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @return The y1.
-         */
-        @java.lang.Override
-        public int getY1() {
-          return y1_;
-        }
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @param value The y1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setY1(int value) {
-          
-          y1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearY1() {
-          
-          y1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int x2_ ;
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @return The x2.
-         */
-        @java.lang.Override
-        public int getX2() {
-          return x2_;
-        }
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @param value The x2 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setX2(int value) {
-          
-          x2_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearX2() {
-          
-          x2_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int y2_ ;
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @return The y2.
-         */
-        @java.lang.Override
-        public int getY2() {
-          return y2_;
-        }
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @param value The y2 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setY2(int value) {
-          
-          y2_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearY2() {
-          
-          y2_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int enumVal_ ;
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @return The enumVal.
-         */
-        @java.lang.Override
-        public int getEnumVal() {
-          return enumVal_;
-        }
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @param value The enumVal to set.
-         * @return This builder for chaining.
-         */
-        public Builder setEnumVal(int value) {
-          
-          enumVal_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearEnumVal() {
-          
-          enumVal_ = 0;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:b3console.ShifterMessage.NeutralPositionConfigMessage)
-      }
-
-      // @@protoc_insertion_point(class_scope:b3console.ShifterMessage.NeutralPositionConfigMessage)
-      private static final com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage();
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<NeutralPositionConfigMessage>
-          PARSER = new com.google.protobuf.AbstractParser<NeutralPositionConfigMessage>() {
-        @java.lang.Override
-        public NeutralPositionConfigMessage parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new NeutralPositionConfigMessage(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<NeutralPositionConfigMessage> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<NeutralPositionConfigMessage> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
-    public interface DrivePositionConfigMessageOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:b3console.ShifterMessage.DrivePositionConfigMessage)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>int32 x1 = 1;</code>
-       * @return The x1.
-       */
-      int getX1();
-
-      /**
-       * <code>int32 y1 = 2;</code>
-       * @return The y1.
-       */
-      int getY1();
-
-      /**
-       * <code>int32 x2 = 3;</code>
-       * @return The x2.
-       */
-      int getX2();
-
-      /**
-       * <code>int32 y2 = 4;</code>
-       * @return The y2.
-       */
-      int getY2();
-
-      /**
-       * <code>int32 enum_val = 5;</code>
-       * @return The enumVal.
-       */
-      int getEnumVal();
-    }
-    /**
-     * Protobuf type {@code b3console.ShifterMessage.DrivePositionConfigMessage}
-     */
-    public static final class DrivePositionConfigMessage extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:b3console.ShifterMessage.DrivePositionConfigMessage)
-        DrivePositionConfigMessageOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use DrivePositionConfigMessage.newBuilder() to construct.
-      private DrivePositionConfigMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private DrivePositionConfigMessage() {
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new DrivePositionConfigMessage();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private DrivePositionConfigMessage(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-
-                x1_ = input.readInt32();
-                break;
-              }
-              case 16: {
-
-                y1_ = input.readInt32();
-                break;
-              }
-              case 24: {
-
-                x2_ = input.readInt32();
-                break;
-              }
-              case 32: {
-
-                y2_ = input.readInt32();
-                break;
-              }
-              case 40: {
-
-                enumVal_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_DrivePositionConfigMessage_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_DrivePositionConfigMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder.class);
-      }
-
-      public static final int X1_FIELD_NUMBER = 1;
-      private int x1_;
-      /**
-       * <code>int32 x1 = 1;</code>
-       * @return The x1.
-       */
-      @java.lang.Override
-      public int getX1() {
-        return x1_;
-      }
-
-      public static final int Y1_FIELD_NUMBER = 2;
-      private int y1_;
-      /**
-       * <code>int32 y1 = 2;</code>
-       * @return The y1.
-       */
-      @java.lang.Override
-      public int getY1() {
-        return y1_;
-      }
-
-      public static final int X2_FIELD_NUMBER = 3;
-      private int x2_;
-      /**
-       * <code>int32 x2 = 3;</code>
-       * @return The x2.
-       */
-      @java.lang.Override
-      public int getX2() {
-        return x2_;
-      }
-
-      public static final int Y2_FIELD_NUMBER = 4;
-      private int y2_;
-      /**
-       * <code>int32 y2 = 4;</code>
-       * @return The y2.
-       */
-      @java.lang.Override
-      public int getY2() {
-        return y2_;
-      }
-
-      public static final int ENUM_VAL_FIELD_NUMBER = 5;
-      private int enumVal_;
-      /**
-       * <code>int32 enum_val = 5;</code>
-       * @return The enumVal.
-       */
-      @java.lang.Override
-      public int getEnumVal() {
-        return enumVal_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (x1_ != 0) {
-          output.writeInt32(1, x1_);
-        }
-        if (y1_ != 0) {
-          output.writeInt32(2, y1_);
-        }
-        if (x2_ != 0) {
-          output.writeInt32(3, x2_);
-        }
-        if (y2_ != 0) {
-          output.writeInt32(4, y2_);
-        }
-        if (enumVal_ != 0) {
-          output.writeInt32(5, enumVal_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (x1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, x1_);
-        }
-        if (y1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, y1_);
-        }
-        if (x2_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, x2_);
-        }
-        if (y2_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, y2_);
-        }
-        if (enumVal_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, enumVal_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage)) {
-          return super.equals(obj);
-        }
-        com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage other = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage) obj;
-
-        if (getX1()
-            != other.getX1()) return false;
-        if (getY1()
-            != other.getY1()) return false;
-        if (getX2()
-            != other.getX2()) return false;
-        if (getY2()
-            != other.getY2()) return false;
-        if (getEnumVal()
-            != other.getEnumVal()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + X1_FIELD_NUMBER;
-        hash = (53 * hash) + getX1();
-        hash = (37 * hash) + Y1_FIELD_NUMBER;
-        hash = (53 * hash) + getY1();
-        hash = (37 * hash) + X2_FIELD_NUMBER;
-        hash = (53 * hash) + getX2();
-        hash = (37 * hash) + Y2_FIELD_NUMBER;
-        hash = (53 * hash) + getY2();
-        hash = (37 * hash) + ENUM_VAL_FIELD_NUMBER;
-        hash = (53 * hash) + getEnumVal();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code b3console.ShifterMessage.DrivePositionConfigMessage}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:b3console.ShifterMessage.DrivePositionConfigMessage)
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessageOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_DrivePositionConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_DrivePositionConfigMessage_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder.class);
-        }
-
-        // Construct using com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          x1_ = 0;
-
-          y1_ = 0;
-
-          x2_ = 0;
-
-          y2_ = 0;
-
-          enumVal_ = 0;
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_DrivePositionConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage getDefaultInstanceForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage build() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage buildPartial() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage result = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage(this);
-          result.x1_ = x1_;
-          result.y1_ = y1_;
-          result.x2_ = x2_;
-          result.y2_ = y2_;
-          result.enumVal_ = enumVal_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage) {
-            return mergeFrom((com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage other) {
-          if (other == com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.getDefaultInstance()) return this;
-          if (other.getX1() != 0) {
-            setX1(other.getX1());
-          }
-          if (other.getY1() != 0) {
-            setY1(other.getY1());
-          }
-          if (other.getX2() != 0) {
-            setX2(other.getX2());
-          }
-          if (other.getY2() != 0) {
-            setY2(other.getY2());
-          }
-          if (other.getEnumVal() != 0) {
-            setEnumVal(other.getEnumVal());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private int x1_ ;
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @return The x1.
-         */
-        @java.lang.Override
-        public int getX1() {
-          return x1_;
-        }
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @param value The x1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setX1(int value) {
-          
-          x1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearX1() {
-          
-          x1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int y1_ ;
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @return The y1.
-         */
-        @java.lang.Override
-        public int getY1() {
-          return y1_;
-        }
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @param value The y1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setY1(int value) {
-          
-          y1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearY1() {
-          
-          y1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int x2_ ;
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @return The x2.
-         */
-        @java.lang.Override
-        public int getX2() {
-          return x2_;
-        }
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @param value The x2 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setX2(int value) {
-          
-          x2_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearX2() {
-          
-          x2_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int y2_ ;
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @return The y2.
-         */
-        @java.lang.Override
-        public int getY2() {
-          return y2_;
-        }
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @param value The y2 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setY2(int value) {
-          
-          y2_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearY2() {
-          
-          y2_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int enumVal_ ;
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @return The enumVal.
-         */
-        @java.lang.Override
-        public int getEnumVal() {
-          return enumVal_;
-        }
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @param value The enumVal to set.
-         * @return This builder for chaining.
-         */
-        public Builder setEnumVal(int value) {
-          
-          enumVal_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearEnumVal() {
-          
-          enumVal_ = 0;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:b3console.ShifterMessage.DrivePositionConfigMessage)
-      }
-
-      // @@protoc_insertion_point(class_scope:b3console.ShifterMessage.DrivePositionConfigMessage)
-      private static final com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage();
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<DrivePositionConfigMessage>
-          PARSER = new com.google.protobuf.AbstractParser<DrivePositionConfigMessage>() {
-        @java.lang.Override
-        public DrivePositionConfigMessage parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DrivePositionConfigMessage(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<DrivePositionConfigMessage> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<DrivePositionConfigMessage> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
-    public interface ManualPositionConfigMessageOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:b3console.ShifterMessage.ManualPositionConfigMessage)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>int32 x1 = 1;</code>
-       * @return The x1.
-       */
-      int getX1();
-
-      /**
-       * <code>int32 y1 = 2;</code>
-       * @return The y1.
-       */
-      int getY1();
-
-      /**
-       * <code>int32 x2 = 3;</code>
-       * @return The x2.
-       */
-      int getX2();
-
-      /**
-       * <code>int32 y2 = 4;</code>
-       * @return The y2.
-       */
-      int getY2();
-
-      /**
-       * <code>int32 enum_val = 5;</code>
-       * @return The enumVal.
-       */
-      int getEnumVal();
-    }
-    /**
-     * Protobuf type {@code b3console.ShifterMessage.ManualPositionConfigMessage}
-     */
-    public static final class ManualPositionConfigMessage extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:b3console.ShifterMessage.ManualPositionConfigMessage)
-        ManualPositionConfigMessageOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use ManualPositionConfigMessage.newBuilder() to construct.
-      private ManualPositionConfigMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private ManualPositionConfigMessage() {
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new ManualPositionConfigMessage();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private ManualPositionConfigMessage(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-
-                x1_ = input.readInt32();
-                break;
-              }
-              case 16: {
-
-                y1_ = input.readInt32();
-                break;
-              }
-              case 24: {
-
-                x2_ = input.readInt32();
-                break;
-              }
-              case 32: {
-
-                y2_ = input.readInt32();
-                break;
-              }
-              case 40: {
-
-                enumVal_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ManualPositionConfigMessage_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ManualPositionConfigMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder.class);
-      }
-
-      public static final int X1_FIELD_NUMBER = 1;
-      private int x1_;
-      /**
-       * <code>int32 x1 = 1;</code>
-       * @return The x1.
-       */
-      @java.lang.Override
-      public int getX1() {
-        return x1_;
-      }
-
-      public static final int Y1_FIELD_NUMBER = 2;
-      private int y1_;
-      /**
-       * <code>int32 y1 = 2;</code>
-       * @return The y1.
-       */
-      @java.lang.Override
-      public int getY1() {
-        return y1_;
-      }
-
-      public static final int X2_FIELD_NUMBER = 3;
-      private int x2_;
-      /**
-       * <code>int32 x2 = 3;</code>
-       * @return The x2.
-       */
-      @java.lang.Override
-      public int getX2() {
-        return x2_;
-      }
-
-      public static final int Y2_FIELD_NUMBER = 4;
-      private int y2_;
-      /**
-       * <code>int32 y2 = 4;</code>
-       * @return The y2.
-       */
-      @java.lang.Override
-      public int getY2() {
-        return y2_;
-      }
-
-      public static final int ENUM_VAL_FIELD_NUMBER = 5;
-      private int enumVal_;
-      /**
-       * <code>int32 enum_val = 5;</code>
-       * @return The enumVal.
-       */
-      @java.lang.Override
-      public int getEnumVal() {
-        return enumVal_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (x1_ != 0) {
-          output.writeInt32(1, x1_);
-        }
-        if (y1_ != 0) {
-          output.writeInt32(2, y1_);
-        }
-        if (x2_ != 0) {
-          output.writeInt32(3, x2_);
-        }
-        if (y2_ != 0) {
-          output.writeInt32(4, y2_);
-        }
-        if (enumVal_ != 0) {
-          output.writeInt32(5, enumVal_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (x1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, x1_);
-        }
-        if (y1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, y1_);
-        }
-        if (x2_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, x2_);
-        }
-        if (y2_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, y2_);
-        }
-        if (enumVal_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, enumVal_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage)) {
-          return super.equals(obj);
-        }
-        com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage other = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage) obj;
-
-        if (getX1()
-            != other.getX1()) return false;
-        if (getY1()
-            != other.getY1()) return false;
-        if (getX2()
-            != other.getX2()) return false;
-        if (getY2()
-            != other.getY2()) return false;
-        if (getEnumVal()
-            != other.getEnumVal()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + X1_FIELD_NUMBER;
-        hash = (53 * hash) + getX1();
-        hash = (37 * hash) + Y1_FIELD_NUMBER;
-        hash = (53 * hash) + getY1();
-        hash = (37 * hash) + X2_FIELD_NUMBER;
-        hash = (53 * hash) + getX2();
-        hash = (37 * hash) + Y2_FIELD_NUMBER;
-        hash = (53 * hash) + getY2();
-        hash = (37 * hash) + ENUM_VAL_FIELD_NUMBER;
-        hash = (53 * hash) + getEnumVal();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code b3console.ShifterMessage.ManualPositionConfigMessage}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:b3console.ShifterMessage.ManualPositionConfigMessage)
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessageOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ManualPositionConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ManualPositionConfigMessage_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder.class);
-        }
-
-        // Construct using com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          x1_ = 0;
-
-          y1_ = 0;
-
-          x2_ = 0;
-
-          y2_ = 0;
-
-          enumVal_ = 0;
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_ManualPositionConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage getDefaultInstanceForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage build() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage buildPartial() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage result = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage(this);
-          result.x1_ = x1_;
-          result.y1_ = y1_;
-          result.x2_ = x2_;
-          result.y2_ = y2_;
-          result.enumVal_ = enumVal_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage) {
-            return mergeFrom((com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage other) {
-          if (other == com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.getDefaultInstance()) return this;
-          if (other.getX1() != 0) {
-            setX1(other.getX1());
-          }
-          if (other.getY1() != 0) {
-            setY1(other.getY1());
-          }
-          if (other.getX2() != 0) {
-            setX2(other.getX2());
-          }
-          if (other.getY2() != 0) {
-            setY2(other.getY2());
-          }
-          if (other.getEnumVal() != 0) {
-            setEnumVal(other.getEnumVal());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private int x1_ ;
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @return The x1.
-         */
-        @java.lang.Override
-        public int getX1() {
-          return x1_;
-        }
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @param value The x1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setX1(int value) {
-          
-          x1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearX1() {
-          
-          x1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int y1_ ;
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @return The y1.
-         */
-        @java.lang.Override
-        public int getY1() {
-          return y1_;
-        }
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @param value The y1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setY1(int value) {
-          
-          y1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearY1() {
-          
-          y1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int x2_ ;
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @return The x2.
-         */
-        @java.lang.Override
-        public int getX2() {
-          return x2_;
-        }
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @param value The x2 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setX2(int value) {
-          
-          x2_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearX2() {
-          
-          x2_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int y2_ ;
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @return The y2.
-         */
-        @java.lang.Override
-        public int getY2() {
-          return y2_;
-        }
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @param value The y2 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setY2(int value) {
-          
-          y2_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearY2() {
-          
-          y2_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int enumVal_ ;
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @return The enumVal.
-         */
-        @java.lang.Override
-        public int getEnumVal() {
-          return enumVal_;
-        }
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @param value The enumVal to set.
-         * @return This builder for chaining.
-         */
-        public Builder setEnumVal(int value) {
-          
-          enumVal_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearEnumVal() {
-          
-          enumVal_ = 0;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:b3console.ShifterMessage.ManualPositionConfigMessage)
-      }
-
-      // @@protoc_insertion_point(class_scope:b3console.ShifterMessage.ManualPositionConfigMessage)
-      private static final com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage();
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<ManualPositionConfigMessage>
-          PARSER = new com.google.protobuf.AbstractParser<ManualPositionConfigMessage>() {
-        @java.lang.Override
-        public ManualPositionConfigMessage parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ManualPositionConfigMessage(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<ManualPositionConfigMessage> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<ManualPositionConfigMessage> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
-    public interface UpPositionConfigMessageOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:b3console.ShifterMessage.UpPositionConfigMessage)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>int32 x1 = 1;</code>
-       * @return The x1.
-       */
-      int getX1();
-
-      /**
-       * <code>int32 y1 = 2;</code>
-       * @return The y1.
-       */
-      int getY1();
-
-      /**
-       * <code>int32 x2 = 3;</code>
-       * @return The x2.
-       */
-      int getX2();
-
-      /**
-       * <code>int32 y2 = 4;</code>
-       * @return The y2.
-       */
-      int getY2();
-
-      /**
-       * <code>int32 enum_val = 5;</code>
-       * @return The enumVal.
-       */
-      int getEnumVal();
-    }
-    /**
-     * Protobuf type {@code b3console.ShifterMessage.UpPositionConfigMessage}
-     */
-    public static final class UpPositionConfigMessage extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:b3console.ShifterMessage.UpPositionConfigMessage)
-        UpPositionConfigMessageOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use UpPositionConfigMessage.newBuilder() to construct.
-      private UpPositionConfigMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private UpPositionConfigMessage() {
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new UpPositionConfigMessage();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private UpPositionConfigMessage(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-
-                x1_ = input.readInt32();
-                break;
-              }
-              case 16: {
-
-                y1_ = input.readInt32();
-                break;
-              }
-              case 24: {
-
-                x2_ = input.readInt32();
-                break;
-              }
-              case 32: {
-
-                y2_ = input.readInt32();
-                break;
-              }
-              case 40: {
-
-                enumVal_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_UpPositionConfigMessage_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_UpPositionConfigMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder.class);
-      }
-
-      public static final int X1_FIELD_NUMBER = 1;
-      private int x1_;
-      /**
-       * <code>int32 x1 = 1;</code>
-       * @return The x1.
-       */
-      @java.lang.Override
-      public int getX1() {
-        return x1_;
-      }
-
-      public static final int Y1_FIELD_NUMBER = 2;
-      private int y1_;
-      /**
-       * <code>int32 y1 = 2;</code>
-       * @return The y1.
-       */
-      @java.lang.Override
-      public int getY1() {
-        return y1_;
-      }
-
-      public static final int X2_FIELD_NUMBER = 3;
-      private int x2_;
-      /**
-       * <code>int32 x2 = 3;</code>
-       * @return The x2.
-       */
-      @java.lang.Override
-      public int getX2() {
-        return x2_;
-      }
-
-      public static final int Y2_FIELD_NUMBER = 4;
-      private int y2_;
-      /**
-       * <code>int32 y2 = 4;</code>
-       * @return The y2.
-       */
-      @java.lang.Override
-      public int getY2() {
-        return y2_;
-      }
-
-      public static final int ENUM_VAL_FIELD_NUMBER = 5;
-      private int enumVal_;
-      /**
-       * <code>int32 enum_val = 5;</code>
-       * @return The enumVal.
-       */
-      @java.lang.Override
-      public int getEnumVal() {
-        return enumVal_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (x1_ != 0) {
-          output.writeInt32(1, x1_);
-        }
-        if (y1_ != 0) {
-          output.writeInt32(2, y1_);
-        }
-        if (x2_ != 0) {
-          output.writeInt32(3, x2_);
-        }
-        if (y2_ != 0) {
-          output.writeInt32(4, y2_);
-        }
-        if (enumVal_ != 0) {
-          output.writeInt32(5, enumVal_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (x1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, x1_);
-        }
-        if (y1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, y1_);
-        }
-        if (x2_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, x2_);
-        }
-        if (y2_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, y2_);
-        }
-        if (enumVal_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, enumVal_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage)) {
-          return super.equals(obj);
-        }
-        com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage other = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage) obj;
-
-        if (getX1()
-            != other.getX1()) return false;
-        if (getY1()
-            != other.getY1()) return false;
-        if (getX2()
-            != other.getX2()) return false;
-        if (getY2()
-            != other.getY2()) return false;
-        if (getEnumVal()
-            != other.getEnumVal()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + X1_FIELD_NUMBER;
-        hash = (53 * hash) + getX1();
-        hash = (37 * hash) + Y1_FIELD_NUMBER;
-        hash = (53 * hash) + getY1();
-        hash = (37 * hash) + X2_FIELD_NUMBER;
-        hash = (53 * hash) + getX2();
-        hash = (37 * hash) + Y2_FIELD_NUMBER;
-        hash = (53 * hash) + getY2();
-        hash = (37 * hash) + ENUM_VAL_FIELD_NUMBER;
-        hash = (53 * hash) + getEnumVal();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code b3console.ShifterMessage.UpPositionConfigMessage}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:b3console.ShifterMessage.UpPositionConfigMessage)
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessageOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_UpPositionConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_UpPositionConfigMessage_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder.class);
-        }
-
-        // Construct using com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          x1_ = 0;
-
-          y1_ = 0;
-
-          x2_ = 0;
-
-          y2_ = 0;
-
-          enumVal_ = 0;
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_UpPositionConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage getDefaultInstanceForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage build() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage buildPartial() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage result = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage(this);
-          result.x1_ = x1_;
-          result.y1_ = y1_;
-          result.x2_ = x2_;
-          result.y2_ = y2_;
-          result.enumVal_ = enumVal_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage) {
-            return mergeFrom((com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage other) {
-          if (other == com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.getDefaultInstance()) return this;
-          if (other.getX1() != 0) {
-            setX1(other.getX1());
-          }
-          if (other.getY1() != 0) {
-            setY1(other.getY1());
-          }
-          if (other.getX2() != 0) {
-            setX2(other.getX2());
-          }
-          if (other.getY2() != 0) {
-            setY2(other.getY2());
-          }
-          if (other.getEnumVal() != 0) {
-            setEnumVal(other.getEnumVal());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private int x1_ ;
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @return The x1.
-         */
-        @java.lang.Override
-        public int getX1() {
-          return x1_;
-        }
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @param value The x1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setX1(int value) {
-          
-          x1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearX1() {
-          
-          x1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int y1_ ;
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @return The y1.
-         */
-        @java.lang.Override
-        public int getY1() {
-          return y1_;
-        }
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @param value The y1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setY1(int value) {
-          
-          y1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearY1() {
-          
-          y1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int x2_ ;
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @return The x2.
-         */
-        @java.lang.Override
-        public int getX2() {
-          return x2_;
-        }
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @param value The x2 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setX2(int value) {
-          
-          x2_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearX2() {
-          
-          x2_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int y2_ ;
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @return The y2.
-         */
-        @java.lang.Override
-        public int getY2() {
-          return y2_;
-        }
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @param value The y2 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setY2(int value) {
-          
-          y2_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearY2() {
-          
-          y2_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int enumVal_ ;
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @return The enumVal.
-         */
-        @java.lang.Override
-        public int getEnumVal() {
-          return enumVal_;
-        }
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @param value The enumVal to set.
-         * @return This builder for chaining.
-         */
-        public Builder setEnumVal(int value) {
-          
-          enumVal_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearEnumVal() {
-          
-          enumVal_ = 0;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:b3console.ShifterMessage.UpPositionConfigMessage)
-      }
-
-      // @@protoc_insertion_point(class_scope:b3console.ShifterMessage.UpPositionConfigMessage)
-      private static final com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage();
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<UpPositionConfigMessage>
-          PARSER = new com.google.protobuf.AbstractParser<UpPositionConfigMessage>() {
-        @java.lang.Override
-        public UpPositionConfigMessage parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new UpPositionConfigMessage(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<UpPositionConfigMessage> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<UpPositionConfigMessage> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
-    public interface DownPositionConfigMessageOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:b3console.ShifterMessage.DownPositionConfigMessage)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>int32 x1 = 1;</code>
-       * @return The x1.
-       */
-      int getX1();
-
-      /**
-       * <code>int32 y1 = 2;</code>
-       * @return The y1.
-       */
-      int getY1();
-
-      /**
-       * <code>int32 x2 = 3;</code>
-       * @return The x2.
-       */
-      int getX2();
-
-      /**
-       * <code>int32 y2 = 4;</code>
-       * @return The y2.
-       */
-      int getY2();
-
-      /**
-       * <code>int32 enum_val = 5;</code>
-       * @return The enumVal.
-       */
-      int getEnumVal();
-    }
-    /**
-     * Protobuf type {@code b3console.ShifterMessage.DownPositionConfigMessage}
-     */
-    public static final class DownPositionConfigMessage extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:b3console.ShifterMessage.DownPositionConfigMessage)
-        DownPositionConfigMessageOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use DownPositionConfigMessage.newBuilder() to construct.
-      private DownPositionConfigMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private DownPositionConfigMessage() {
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new DownPositionConfigMessage();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private DownPositionConfigMessage(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-
-                x1_ = input.readInt32();
-                break;
-              }
-              case 16: {
-
-                y1_ = input.readInt32();
-                break;
-              }
-              case 24: {
-
-                x2_ = input.readInt32();
-                break;
-              }
-              case 32: {
-
-                y2_ = input.readInt32();
-                break;
-              }
-              case 40: {
-
-                enumVal_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_DownPositionConfigMessage_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_DownPositionConfigMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder.class);
-      }
-
-      public static final int X1_FIELD_NUMBER = 1;
-      private int x1_;
-      /**
-       * <code>int32 x1 = 1;</code>
-       * @return The x1.
-       */
-      @java.lang.Override
-      public int getX1() {
-        return x1_;
-      }
-
-      public static final int Y1_FIELD_NUMBER = 2;
-      private int y1_;
-      /**
-       * <code>int32 y1 = 2;</code>
-       * @return The y1.
-       */
-      @java.lang.Override
-      public int getY1() {
-        return y1_;
-      }
-
-      public static final int X2_FIELD_NUMBER = 3;
-      private int x2_;
-      /**
-       * <code>int32 x2 = 3;</code>
-       * @return The x2.
-       */
-      @java.lang.Override
-      public int getX2() {
-        return x2_;
-      }
-
-      public static final int Y2_FIELD_NUMBER = 4;
-      private int y2_;
-      /**
-       * <code>int32 y2 = 4;</code>
-       * @return The y2.
-       */
-      @java.lang.Override
-      public int getY2() {
-        return y2_;
-      }
-
-      public static final int ENUM_VAL_FIELD_NUMBER = 5;
-      private int enumVal_;
-      /**
-       * <code>int32 enum_val = 5;</code>
-       * @return The enumVal.
-       */
-      @java.lang.Override
-      public int getEnumVal() {
-        return enumVal_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (x1_ != 0) {
-          output.writeInt32(1, x1_);
-        }
-        if (y1_ != 0) {
-          output.writeInt32(2, y1_);
-        }
-        if (x2_ != 0) {
-          output.writeInt32(3, x2_);
-        }
-        if (y2_ != 0) {
-          output.writeInt32(4, y2_);
-        }
-        if (enumVal_ != 0) {
-          output.writeInt32(5, enumVal_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (x1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, x1_);
-        }
-        if (y1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, y1_);
-        }
-        if (x2_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, x2_);
-        }
-        if (y2_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, y2_);
-        }
-        if (enumVal_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, enumVal_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage)) {
-          return super.equals(obj);
-        }
-        com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage other = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage) obj;
-
-        if (getX1()
-            != other.getX1()) return false;
-        if (getY1()
-            != other.getY1()) return false;
-        if (getX2()
-            != other.getX2()) return false;
-        if (getY2()
-            != other.getY2()) return false;
-        if (getEnumVal()
-            != other.getEnumVal()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + X1_FIELD_NUMBER;
-        hash = (53 * hash) + getX1();
-        hash = (37 * hash) + Y1_FIELD_NUMBER;
-        hash = (53 * hash) + getY1();
-        hash = (37 * hash) + X2_FIELD_NUMBER;
-        hash = (53 * hash) + getX2();
-        hash = (37 * hash) + Y2_FIELD_NUMBER;
-        hash = (53 * hash) + getY2();
-        hash = (37 * hash) + ENUM_VAL_FIELD_NUMBER;
-        hash = (53 * hash) + getEnumVal();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code b3console.ShifterMessage.DownPositionConfigMessage}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:b3console.ShifterMessage.DownPositionConfigMessage)
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessageOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_DownPositionConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_DownPositionConfigMessage_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder.class);
-        }
-
-        // Construct using com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          x1_ = 0;
-
-          y1_ = 0;
-
-          x2_ = 0;
-
-          y2_ = 0;
-
-          enumVal_ = 0;
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_ShifterMessage_DownPositionConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage getDefaultInstanceForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage build() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage buildPartial() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage result = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage(this);
-          result.x1_ = x1_;
-          result.y1_ = y1_;
-          result.x2_ = x2_;
-          result.y2_ = y2_;
-          result.enumVal_ = enumVal_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage) {
-            return mergeFrom((com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage other) {
-          if (other == com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.getDefaultInstance()) return this;
-          if (other.getX1() != 0) {
-            setX1(other.getX1());
-          }
-          if (other.getY1() != 0) {
-            setY1(other.getY1());
-          }
-          if (other.getX2() != 0) {
-            setX2(other.getX2());
-          }
-          if (other.getY2() != 0) {
-            setY2(other.getY2());
-          }
-          if (other.getEnumVal() != 0) {
-            setEnumVal(other.getEnumVal());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private int x1_ ;
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @return The x1.
-         */
-        @java.lang.Override
-        public int getX1() {
-          return x1_;
-        }
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @param value The x1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setX1(int value) {
-          
-          x1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 x1 = 1;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearX1() {
-          
-          x1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int y1_ ;
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @return The y1.
-         */
-        @java.lang.Override
-        public int getY1() {
-          return y1_;
-        }
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @param value The y1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setY1(int value) {
-          
-          y1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 y1 = 2;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearY1() {
-          
-          y1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int x2_ ;
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @return The x2.
-         */
-        @java.lang.Override
-        public int getX2() {
-          return x2_;
-        }
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @param value The x2 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setX2(int value) {
-          
-          x2_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 x2 = 3;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearX2() {
-          
-          x2_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int y2_ ;
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @return The y2.
-         */
-        @java.lang.Override
-        public int getY2() {
-          return y2_;
-        }
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @param value The y2 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setY2(int value) {
-          
-          y2_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 y2 = 4;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearY2() {
-          
-          y2_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int enumVal_ ;
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @return The enumVal.
-         */
-        @java.lang.Override
-        public int getEnumVal() {
-          return enumVal_;
-        }
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @param value The enumVal to set.
-         * @return This builder for chaining.
-         */
-        public Builder setEnumVal(int value) {
-          
-          enumVal_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 enum_val = 5;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearEnumVal() {
-          
-          enumVal_ = 0;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:b3console.ShifterMessage.DownPositionConfigMessage)
-      }
-
-      // @@protoc_insertion_point(class_scope:b3console.ShifterMessage.DownPositionConfigMessage)
-      private static final com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage();
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<DownPositionConfigMessage>
-          PARSER = new com.google.protobuf.AbstractParser<DownPositionConfigMessage>() {
-        @java.lang.Override
-        public DownPositionConfigMessage parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DownPositionConfigMessage(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<DownPositionConfigMessage> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<DownPositionConfigMessage> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage getDefaultInstanceForType() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
     public static final int CAN_BUS_CONFIG_FIELD_NUMBER = 1;
-    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage canBusConfig_;
+    private com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage canBusConfig_;
     /**
-     * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
      * @return Whether the canBusConfig field is set.
      */
     @java.lang.Override
@@ -13348,18 +8740,18 @@ public final class ConfigMessage {
       return canBusConfig_ != null;
     }
     /**
-     * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
      * @return The canBusConfig.
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage getCanBusConfig() {
-      return canBusConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage getCanBusConfig() {
+      return canBusConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
     }
     /**
-     * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder() {
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder() {
       return getCanBusConfig();
     }
 
@@ -13416,9 +8808,9 @@ public final class ConfigMessage {
     }
 
     public static final int PARK_CONFIG_FIELD_NUMBER = 4;
-    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parkConfig_;
+    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parkConfig_;
     /**
-     * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
      * @return Whether the parkConfig field is set.
      */
     @java.lang.Override
@@ -13426,25 +8818,25 @@ public final class ConfigMessage {
       return parkConfig_ != null;
     }
     /**
-     * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
      * @return The parkConfig.
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage getParkConfig() {
-      return parkConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.getDefaultInstance() : parkConfig_;
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getParkConfig() {
+      return parkConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : parkConfig_;
     }
     /**
-     * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessageOrBuilder getParkConfigOrBuilder() {
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getParkConfigOrBuilder() {
       return getParkConfig();
     }
 
     public static final int REVERSE_CONFIG_FIELD_NUMBER = 5;
-    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage reverseConfig_;
+    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage reverseConfig_;
     /**
-     * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
      * @return Whether the reverseConfig field is set.
      */
     @java.lang.Override
@@ -13452,25 +8844,25 @@ public final class ConfigMessage {
       return reverseConfig_ != null;
     }
     /**
-     * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
      * @return The reverseConfig.
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage getReverseConfig() {
-      return reverseConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.getDefaultInstance() : reverseConfig_;
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getReverseConfig() {
+      return reverseConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : reverseConfig_;
     }
     /**
-     * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessageOrBuilder getReverseConfigOrBuilder() {
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getReverseConfigOrBuilder() {
       return getReverseConfig();
     }
 
     public static final int NEUTRAL_CONFIG_FIELD_NUMBER = 6;
-    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage neutralConfig_;
+    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage neutralConfig_;
     /**
-     * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
      * @return Whether the neutralConfig field is set.
      */
     @java.lang.Override
@@ -13478,25 +8870,25 @@ public final class ConfigMessage {
       return neutralConfig_ != null;
     }
     /**
-     * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
      * @return The neutralConfig.
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage getNeutralConfig() {
-      return neutralConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.getDefaultInstance() : neutralConfig_;
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getNeutralConfig() {
+      return neutralConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : neutralConfig_;
     }
     /**
-     * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessageOrBuilder getNeutralConfigOrBuilder() {
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getNeutralConfigOrBuilder() {
       return getNeutralConfig();
     }
 
     public static final int DRIVE_CONFIG_FIELD_NUMBER = 7;
-    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage driveConfig_;
+    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage driveConfig_;
     /**
-     * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
      * @return Whether the driveConfig field is set.
      */
     @java.lang.Override
@@ -13504,25 +8896,25 @@ public final class ConfigMessage {
       return driveConfig_ != null;
     }
     /**
-     * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
      * @return The driveConfig.
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage getDriveConfig() {
-      return driveConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.getDefaultInstance() : driveConfig_;
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getDriveConfig() {
+      return driveConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : driveConfig_;
     }
     /**
-     * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessageOrBuilder getDriveConfigOrBuilder() {
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getDriveConfigOrBuilder() {
       return getDriveConfig();
     }
 
     public static final int MANUAL_CONFIG_FIELD_NUMBER = 8;
-    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage manualConfig_;
+    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage manualConfig_;
     /**
-     * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
      * @return Whether the manualConfig field is set.
      */
     @java.lang.Override
@@ -13530,25 +8922,25 @@ public final class ConfigMessage {
       return manualConfig_ != null;
     }
     /**
-     * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
      * @return The manualConfig.
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage getManualConfig() {
-      return manualConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.getDefaultInstance() : manualConfig_;
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getManualConfig() {
+      return manualConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : manualConfig_;
     }
     /**
-     * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessageOrBuilder getManualConfigOrBuilder() {
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getManualConfigOrBuilder() {
       return getManualConfig();
     }
 
     public static final int UP_CONFIG_FIELD_NUMBER = 9;
-    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage upConfig_;
+    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage upConfig_;
     /**
-     * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
      * @return Whether the upConfig field is set.
      */
     @java.lang.Override
@@ -13556,25 +8948,25 @@ public final class ConfigMessage {
       return upConfig_ != null;
     }
     /**
-     * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
      * @return The upConfig.
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage getUpConfig() {
-      return upConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.getDefaultInstance() : upConfig_;
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getUpConfig() {
+      return upConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : upConfig_;
     }
     /**
-     * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessageOrBuilder getUpConfigOrBuilder() {
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getUpConfigOrBuilder() {
       return getUpConfig();
     }
 
     public static final int DOWN_CONFIG_FIELD_NUMBER = 10;
-    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage downConfig_;
+    private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage downConfig_;
     /**
-     * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
      * @return Whether the downConfig field is set.
      */
     @java.lang.Override
@@ -13582,18 +8974,18 @@ public final class ConfigMessage {
       return downConfig_ != null;
     }
     /**
-     * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
      * @return The downConfig.
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage getDownConfig() {
-      return downConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.getDefaultInstance() : downConfig_;
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getDownConfig() {
+      return downConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : downConfig_;
     }
     /**
-     * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+     * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessageOrBuilder getDownConfigOrBuilder() {
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getDownConfigOrBuilder() {
       return getDownConfig();
     }
 
@@ -14182,31 +9574,31 @@ public final class ConfigMessage {
         return this;
       }
 
-      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage canBusConfig_;
+      private com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage canBusConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessageOrBuilder> canBusConfigBuilder_;
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessageOrBuilder> canBusConfigBuilder_;
       /**
-       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        * @return Whether the canBusConfig field is set.
        */
       public boolean hasCanBusConfig() {
         return canBusConfigBuilder_ != null || canBusConfig_ != null;
       }
       /**
-       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        * @return The canBusConfig.
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage getCanBusConfig() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage getCanBusConfig() {
         if (canBusConfigBuilder_ == null) {
-          return canBusConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
+          return canBusConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
         } else {
           return canBusConfigBuilder_.getMessage();
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
-      public Builder setCanBusConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage value) {
+      public Builder setCanBusConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage value) {
         if (canBusConfigBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -14220,10 +9612,10 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
       public Builder setCanBusConfig(
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.Builder builderForValue) {
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder builderForValue) {
         if (canBusConfigBuilder_ == null) {
           canBusConfig_ = builderForValue.build();
           onChanged();
@@ -14234,13 +9626,13 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
-      public Builder mergeCanBusConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage value) {
+      public Builder mergeCanBusConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage value) {
         if (canBusConfigBuilder_ == null) {
           if (canBusConfig_ != null) {
             canBusConfig_ =
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.newBuilder(canBusConfig_).mergeFrom(value).buildPartial();
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.newBuilder(canBusConfig_).mergeFrom(value).buildPartial();
           } else {
             canBusConfig_ = value;
           }
@@ -14252,7 +9644,7 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
       public Builder clearCanBusConfig() {
         if (canBusConfigBuilder_ == null) {
@@ -14266,33 +9658,33 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.Builder getCanBusConfigBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder getCanBusConfigBuilder() {
         
         onChanged();
         return getCanBusConfigFieldBuilder().getBuilder();
       }
       /**
-       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder() {
         if (canBusConfigBuilder_ != null) {
           return canBusConfigBuilder_.getMessageOrBuilder();
         } else {
           return canBusConfig_ == null ?
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessageOrBuilder> 
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessageOrBuilder> 
           getCanBusConfigFieldBuilder() {
         if (canBusConfigBuilder_ == null) {
           canBusConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.CanBusConfigMessageOrBuilder>(
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessageOrBuilder>(
                   getCanBusConfig(),
                   getParentForChildren(),
                   isClean());
@@ -14539,31 +9931,31 @@ public final class ConfigMessage {
         return melexisConfigBuilder_;
       }
 
-      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage parkConfig_;
+      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage parkConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessageOrBuilder> parkConfigBuilder_;
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> parkConfigBuilder_;
       /**
-       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
        * @return Whether the parkConfig field is set.
        */
       public boolean hasParkConfig() {
         return parkConfigBuilder_ != null || parkConfig_ != null;
       }
       /**
-       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
        * @return The parkConfig.
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage getParkConfig() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getParkConfig() {
         if (parkConfigBuilder_ == null) {
-          return parkConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.getDefaultInstance() : parkConfig_;
+          return parkConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : parkConfig_;
         } else {
           return parkConfigBuilder_.getMessage();
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
        */
-      public Builder setParkConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage value) {
+      public Builder setParkConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (parkConfigBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -14577,10 +9969,10 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
        */
       public Builder setParkConfig(
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder builderForValue) {
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder builderForValue) {
         if (parkConfigBuilder_ == null) {
           parkConfig_ = builderForValue.build();
           onChanged();
@@ -14591,13 +9983,13 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
        */
-      public Builder mergeParkConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage value) {
+      public Builder mergeParkConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (parkConfigBuilder_ == null) {
           if (parkConfig_ != null) {
             parkConfig_ =
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.newBuilder(parkConfig_).mergeFrom(value).buildPartial();
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.newBuilder(parkConfig_).mergeFrom(value).buildPartial();
           } else {
             parkConfig_ = value;
           }
@@ -14609,7 +10001,7 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
        */
       public Builder clearParkConfig() {
         if (parkConfigBuilder_ == null) {
@@ -14623,33 +10015,33 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder getParkConfigBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder getParkConfigBuilder() {
         
         onChanged();
         return getParkConfigFieldBuilder().getBuilder();
       }
       /**
-       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessageOrBuilder getParkConfigOrBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getParkConfigOrBuilder() {
         if (parkConfigBuilder_ != null) {
           return parkConfigBuilder_.getMessageOrBuilder();
         } else {
           return parkConfig_ == null ?
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.getDefaultInstance() : parkConfig_;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : parkConfig_;
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.ParkPositionConfigMessage park_config = 4;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage park_config = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessageOrBuilder> 
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> 
           getParkConfigFieldBuilder() {
         if (parkConfigBuilder_ == null) {
           parkConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ParkPositionConfigMessageOrBuilder>(
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder>(
                   getParkConfig(),
                   getParentForChildren(),
                   isClean());
@@ -14658,31 +10050,31 @@ public final class ConfigMessage {
         return parkConfigBuilder_;
       }
 
-      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage reverseConfig_;
+      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage reverseConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessageOrBuilder> reverseConfigBuilder_;
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> reverseConfigBuilder_;
       /**
-       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
        * @return Whether the reverseConfig field is set.
        */
       public boolean hasReverseConfig() {
         return reverseConfigBuilder_ != null || reverseConfig_ != null;
       }
       /**
-       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
        * @return The reverseConfig.
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage getReverseConfig() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getReverseConfig() {
         if (reverseConfigBuilder_ == null) {
-          return reverseConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.getDefaultInstance() : reverseConfig_;
+          return reverseConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : reverseConfig_;
         } else {
           return reverseConfigBuilder_.getMessage();
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
        */
-      public Builder setReverseConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage value) {
+      public Builder setReverseConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (reverseConfigBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -14696,10 +10088,10 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
        */
       public Builder setReverseConfig(
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder builderForValue) {
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder builderForValue) {
         if (reverseConfigBuilder_ == null) {
           reverseConfig_ = builderForValue.build();
           onChanged();
@@ -14710,13 +10102,13 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
        */
-      public Builder mergeReverseConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage value) {
+      public Builder mergeReverseConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (reverseConfigBuilder_ == null) {
           if (reverseConfig_ != null) {
             reverseConfig_ =
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.newBuilder(reverseConfig_).mergeFrom(value).buildPartial();
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.newBuilder(reverseConfig_).mergeFrom(value).buildPartial();
           } else {
             reverseConfig_ = value;
           }
@@ -14728,7 +10120,7 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
        */
       public Builder clearReverseConfig() {
         if (reverseConfigBuilder_ == null) {
@@ -14742,33 +10134,33 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder getReverseConfigBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder getReverseConfigBuilder() {
         
         onChanged();
         return getReverseConfigFieldBuilder().getBuilder();
       }
       /**
-       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessageOrBuilder getReverseConfigOrBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getReverseConfigOrBuilder() {
         if (reverseConfigBuilder_ != null) {
           return reverseConfigBuilder_.getMessageOrBuilder();
         } else {
           return reverseConfig_ == null ?
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.getDefaultInstance() : reverseConfig_;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : reverseConfig_;
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.ReversePositionConfigMessage reverse_config = 5;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage reverse_config = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessageOrBuilder> 
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> 
           getReverseConfigFieldBuilder() {
         if (reverseConfigBuilder_ == null) {
           reverseConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ReversePositionConfigMessageOrBuilder>(
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder>(
                   getReverseConfig(),
                   getParentForChildren(),
                   isClean());
@@ -14777,31 +10169,31 @@ public final class ConfigMessage {
         return reverseConfigBuilder_;
       }
 
-      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage neutralConfig_;
+      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage neutralConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessageOrBuilder> neutralConfigBuilder_;
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> neutralConfigBuilder_;
       /**
-       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
        * @return Whether the neutralConfig field is set.
        */
       public boolean hasNeutralConfig() {
         return neutralConfigBuilder_ != null || neutralConfig_ != null;
       }
       /**
-       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
        * @return The neutralConfig.
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage getNeutralConfig() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getNeutralConfig() {
         if (neutralConfigBuilder_ == null) {
-          return neutralConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.getDefaultInstance() : neutralConfig_;
+          return neutralConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : neutralConfig_;
         } else {
           return neutralConfigBuilder_.getMessage();
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
        */
-      public Builder setNeutralConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage value) {
+      public Builder setNeutralConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (neutralConfigBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -14815,10 +10207,10 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
        */
       public Builder setNeutralConfig(
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder builderForValue) {
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder builderForValue) {
         if (neutralConfigBuilder_ == null) {
           neutralConfig_ = builderForValue.build();
           onChanged();
@@ -14829,13 +10221,13 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
        */
-      public Builder mergeNeutralConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage value) {
+      public Builder mergeNeutralConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (neutralConfigBuilder_ == null) {
           if (neutralConfig_ != null) {
             neutralConfig_ =
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.newBuilder(neutralConfig_).mergeFrom(value).buildPartial();
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.newBuilder(neutralConfig_).mergeFrom(value).buildPartial();
           } else {
             neutralConfig_ = value;
           }
@@ -14847,7 +10239,7 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
        */
       public Builder clearNeutralConfig() {
         if (neutralConfigBuilder_ == null) {
@@ -14861,33 +10253,33 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder getNeutralConfigBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder getNeutralConfigBuilder() {
         
         onChanged();
         return getNeutralConfigFieldBuilder().getBuilder();
       }
       /**
-       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessageOrBuilder getNeutralConfigOrBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getNeutralConfigOrBuilder() {
         if (neutralConfigBuilder_ != null) {
           return neutralConfigBuilder_.getMessageOrBuilder();
         } else {
           return neutralConfig_ == null ?
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.getDefaultInstance() : neutralConfig_;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : neutralConfig_;
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.NeutralPositionConfigMessage neutral_config = 6;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage neutral_config = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessageOrBuilder> 
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> 
           getNeutralConfigFieldBuilder() {
         if (neutralConfigBuilder_ == null) {
           neutralConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.NeutralPositionConfigMessageOrBuilder>(
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder>(
                   getNeutralConfig(),
                   getParentForChildren(),
                   isClean());
@@ -14896,31 +10288,31 @@ public final class ConfigMessage {
         return neutralConfigBuilder_;
       }
 
-      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage driveConfig_;
+      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage driveConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessageOrBuilder> driveConfigBuilder_;
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> driveConfigBuilder_;
       /**
-       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
        * @return Whether the driveConfig field is set.
        */
       public boolean hasDriveConfig() {
         return driveConfigBuilder_ != null || driveConfig_ != null;
       }
       /**
-       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
        * @return The driveConfig.
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage getDriveConfig() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getDriveConfig() {
         if (driveConfigBuilder_ == null) {
-          return driveConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.getDefaultInstance() : driveConfig_;
+          return driveConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : driveConfig_;
         } else {
           return driveConfigBuilder_.getMessage();
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
        */
-      public Builder setDriveConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage value) {
+      public Builder setDriveConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (driveConfigBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -14934,10 +10326,10 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
        */
       public Builder setDriveConfig(
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder builderForValue) {
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder builderForValue) {
         if (driveConfigBuilder_ == null) {
           driveConfig_ = builderForValue.build();
           onChanged();
@@ -14948,13 +10340,13 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
        */
-      public Builder mergeDriveConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage value) {
+      public Builder mergeDriveConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (driveConfigBuilder_ == null) {
           if (driveConfig_ != null) {
             driveConfig_ =
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.newBuilder(driveConfig_).mergeFrom(value).buildPartial();
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.newBuilder(driveConfig_).mergeFrom(value).buildPartial();
           } else {
             driveConfig_ = value;
           }
@@ -14966,7 +10358,7 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
        */
       public Builder clearDriveConfig() {
         if (driveConfigBuilder_ == null) {
@@ -14980,33 +10372,33 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder getDriveConfigBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder getDriveConfigBuilder() {
         
         onChanged();
         return getDriveConfigFieldBuilder().getBuilder();
       }
       /**
-       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessageOrBuilder getDriveConfigOrBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getDriveConfigOrBuilder() {
         if (driveConfigBuilder_ != null) {
           return driveConfigBuilder_.getMessageOrBuilder();
         } else {
           return driveConfig_ == null ?
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.getDefaultInstance() : driveConfig_;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : driveConfig_;
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.DrivePositionConfigMessage drive_config = 7;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage drive_config = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessageOrBuilder> 
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> 
           getDriveConfigFieldBuilder() {
         if (driveConfigBuilder_ == null) {
           driveConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DrivePositionConfigMessageOrBuilder>(
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder>(
                   getDriveConfig(),
                   getParentForChildren(),
                   isClean());
@@ -15015,31 +10407,31 @@ public final class ConfigMessage {
         return driveConfigBuilder_;
       }
 
-      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage manualConfig_;
+      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage manualConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessageOrBuilder> manualConfigBuilder_;
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> manualConfigBuilder_;
       /**
-       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
        * @return Whether the manualConfig field is set.
        */
       public boolean hasManualConfig() {
         return manualConfigBuilder_ != null || manualConfig_ != null;
       }
       /**
-       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
        * @return The manualConfig.
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage getManualConfig() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getManualConfig() {
         if (manualConfigBuilder_ == null) {
-          return manualConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.getDefaultInstance() : manualConfig_;
+          return manualConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : manualConfig_;
         } else {
           return manualConfigBuilder_.getMessage();
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
        */
-      public Builder setManualConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage value) {
+      public Builder setManualConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (manualConfigBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15053,10 +10445,10 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
        */
       public Builder setManualConfig(
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder builderForValue) {
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder builderForValue) {
         if (manualConfigBuilder_ == null) {
           manualConfig_ = builderForValue.build();
           onChanged();
@@ -15067,13 +10459,13 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
        */
-      public Builder mergeManualConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage value) {
+      public Builder mergeManualConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (manualConfigBuilder_ == null) {
           if (manualConfig_ != null) {
             manualConfig_ =
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.newBuilder(manualConfig_).mergeFrom(value).buildPartial();
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.newBuilder(manualConfig_).mergeFrom(value).buildPartial();
           } else {
             manualConfig_ = value;
           }
@@ -15085,7 +10477,7 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
        */
       public Builder clearManualConfig() {
         if (manualConfigBuilder_ == null) {
@@ -15099,33 +10491,33 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder getManualConfigBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder getManualConfigBuilder() {
         
         onChanged();
         return getManualConfigFieldBuilder().getBuilder();
       }
       /**
-       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessageOrBuilder getManualConfigOrBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getManualConfigOrBuilder() {
         if (manualConfigBuilder_ != null) {
           return manualConfigBuilder_.getMessageOrBuilder();
         } else {
           return manualConfig_ == null ?
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.getDefaultInstance() : manualConfig_;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : manualConfig_;
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.ManualPositionConfigMessage manual_config = 8;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage manual_config = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessageOrBuilder> 
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> 
           getManualConfigFieldBuilder() {
         if (manualConfigBuilder_ == null) {
           manualConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ManualPositionConfigMessageOrBuilder>(
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder>(
                   getManualConfig(),
                   getParentForChildren(),
                   isClean());
@@ -15134,31 +10526,31 @@ public final class ConfigMessage {
         return manualConfigBuilder_;
       }
 
-      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage upConfig_;
+      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage upConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessageOrBuilder> upConfigBuilder_;
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> upConfigBuilder_;
       /**
-       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
        * @return Whether the upConfig field is set.
        */
       public boolean hasUpConfig() {
         return upConfigBuilder_ != null || upConfig_ != null;
       }
       /**
-       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
        * @return The upConfig.
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage getUpConfig() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getUpConfig() {
         if (upConfigBuilder_ == null) {
-          return upConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.getDefaultInstance() : upConfig_;
+          return upConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : upConfig_;
         } else {
           return upConfigBuilder_.getMessage();
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
        */
-      public Builder setUpConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage value) {
+      public Builder setUpConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (upConfigBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15172,10 +10564,10 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
        */
       public Builder setUpConfig(
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder builderForValue) {
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder builderForValue) {
         if (upConfigBuilder_ == null) {
           upConfig_ = builderForValue.build();
           onChanged();
@@ -15186,13 +10578,13 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
        */
-      public Builder mergeUpConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage value) {
+      public Builder mergeUpConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (upConfigBuilder_ == null) {
           if (upConfig_ != null) {
             upConfig_ =
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.newBuilder(upConfig_).mergeFrom(value).buildPartial();
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.newBuilder(upConfig_).mergeFrom(value).buildPartial();
           } else {
             upConfig_ = value;
           }
@@ -15204,7 +10596,7 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
        */
       public Builder clearUpConfig() {
         if (upConfigBuilder_ == null) {
@@ -15218,33 +10610,33 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder getUpConfigBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder getUpConfigBuilder() {
         
         onChanged();
         return getUpConfigFieldBuilder().getBuilder();
       }
       /**
-       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessageOrBuilder getUpConfigOrBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getUpConfigOrBuilder() {
         if (upConfigBuilder_ != null) {
           return upConfigBuilder_.getMessageOrBuilder();
         } else {
           return upConfig_ == null ?
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.getDefaultInstance() : upConfig_;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : upConfig_;
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.UpPositionConfigMessage up_config = 9;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage up_config = 9;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessageOrBuilder> 
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> 
           getUpConfigFieldBuilder() {
         if (upConfigBuilder_ == null) {
           upConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.UpPositionConfigMessageOrBuilder>(
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder>(
                   getUpConfig(),
                   getParentForChildren(),
                   isClean());
@@ -15253,31 +10645,31 @@ public final class ConfigMessage {
         return upConfigBuilder_;
       }
 
-      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage downConfig_;
+      private com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage downConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessageOrBuilder> downConfigBuilder_;
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> downConfigBuilder_;
       /**
-       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
        * @return Whether the downConfig field is set.
        */
       public boolean hasDownConfig() {
         return downConfigBuilder_ != null || downConfig_ != null;
       }
       /**
-       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
        * @return The downConfig.
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage getDownConfig() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage getDownConfig() {
         if (downConfigBuilder_ == null) {
-          return downConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.getDefaultInstance() : downConfig_;
+          return downConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : downConfig_;
         } else {
           return downConfigBuilder_.getMessage();
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
        */
-      public Builder setDownConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage value) {
+      public Builder setDownConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (downConfigBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15291,10 +10683,10 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
        */
       public Builder setDownConfig(
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder builderForValue) {
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder builderForValue) {
         if (downConfigBuilder_ == null) {
           downConfig_ = builderForValue.build();
           onChanged();
@@ -15305,13 +10697,13 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
        */
-      public Builder mergeDownConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage value) {
+      public Builder mergeDownConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage value) {
         if (downConfigBuilder_ == null) {
           if (downConfig_ != null) {
             downConfig_ =
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.newBuilder(downConfig_).mergeFrom(value).buildPartial();
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.newBuilder(downConfig_).mergeFrom(value).buildPartial();
           } else {
             downConfig_ = value;
           }
@@ -15323,7 +10715,7 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
        */
       public Builder clearDownConfig() {
         if (downConfigBuilder_ == null) {
@@ -15337,33 +10729,33 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder getDownConfigBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder getDownConfigBuilder() {
         
         onChanged();
         return getDownConfigFieldBuilder().getBuilder();
       }
       /**
-       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessageOrBuilder getDownConfigOrBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder getDownConfigOrBuilder() {
         if (downConfigBuilder_ != null) {
           return downConfigBuilder_.getMessageOrBuilder();
         } else {
           return downConfig_ == null ?
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.getDefaultInstance() : downConfig_;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.getDefaultInstance() : downConfig_;
         }
       }
       /**
-       * <code>.b3console.ShifterMessage.DownPositionConfigMessage down_config = 10;</code>
+       * <code>.b3console.ShifterMessage.ShifterPositionMessage down_config = 10;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessageOrBuilder> 
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder> 
           getDownConfigFieldBuilder() {
         if (downConfigBuilder_ == null) {
           downConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.DownPositionConfigMessageOrBuilder>(
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.ShifterMessage.ShifterPositionMessageOrBuilder>(
                   getDownConfig(),
                   getParentForChildren(),
                   isClean());
@@ -15429,19 +10821,19 @@ public final class ConfigMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
      * @return Whether the canBusConfig field is set.
      */
     boolean hasCanBusConfig();
     /**
-     * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
      * @return The canBusConfig.
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage getCanBusConfig();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage getCanBusConfig();
     /**
-     * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
      */
-    com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder();
+    com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder();
 
     /**
      * <code>.b3console.TransMessage.Ems22AConfigMessage ems22a_config = 2;</code>
@@ -15534,11 +10926,11 @@ public final class ConfigMessage {
               done = true;
               break;
             case 10: {
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.Builder subBuilder = null;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder subBuilder = null;
               if (canBusConfig_ != null) {
                 subBuilder = canBusConfig_.toBuilder();
               }
-              canBusConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.parser(), extensionRegistry);
+              canBusConfig_ = input.readMessage(com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(canBusConfig_);
                 canBusConfig_ = subBuilder.buildPartial();
@@ -15615,1264 +11007,6 @@ public final class ConfigMessage {
       return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_TransMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.Builder.class);
-    }
-
-    public interface CanBusConfigMessageOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:b3console.TransMessage.CanBusConfigMessage)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>int32 addr_tx = 1;</code>
-       * @return The addrTx.
-       */
-      int getAddrTx();
-
-      /**
-       * <code>int32 boot_rx = 2;</code>
-       * @return The bootRx.
-       */
-      int getBootRx();
-
-      /**
-       * <code>int32 boot_tx = 3;</code>
-       * @return The bootTx.
-       */
-      int getBootTx();
-
-      /**
-       * <code>int32 intvl_tx = 4;</code>
-       * @return The intvlTx.
-       */
-      int getIntvlTx();
-
-      /**
-       * <code>int32 mask0 = 5;</code>
-       * @return The mask0.
-       */
-      int getMask0();
-
-      /**
-       * <code>int32 filter0_0 = 6;</code>
-       * @return The filter00.
-       */
-      int getFilter00();
-
-      /**
-       * <code>int32 filter0_1 = 7;</code>
-       * @return The filter01.
-       */
-      int getFilter01();
-
-      /**
-       * <code>int32 mask1 = 8;</code>
-       * @return The mask1.
-       */
-      int getMask1();
-
-      /**
-       * <code>int32 filter1_0 = 9;</code>
-       * @return The filter10.
-       */
-      int getFilter10();
-
-      /**
-       * <code>int32 filter1_1 = 10;</code>
-       * @return The filter11.
-       */
-      int getFilter11();
-
-      /**
-       * <code>int32 filter1_2 = 11;</code>
-       * @return The filter12.
-       */
-      int getFilter12();
-
-      /**
-       * <code>int32 filter1_3 = 12;</code>
-       * @return The filter13.
-       */
-      int getFilter13();
-    }
-    /**
-     * Protobuf type {@code b3console.TransMessage.CanBusConfigMessage}
-     */
-    public static final class CanBusConfigMessage extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:b3console.TransMessage.CanBusConfigMessage)
-        CanBusConfigMessageOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use CanBusConfigMessage.newBuilder() to construct.
-      private CanBusConfigMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private CanBusConfigMessage() {
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new CanBusConfigMessage();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private CanBusConfigMessage(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-
-                addrTx_ = input.readInt32();
-                break;
-              }
-              case 16: {
-
-                bootRx_ = input.readInt32();
-                break;
-              }
-              case 24: {
-
-                bootTx_ = input.readInt32();
-                break;
-              }
-              case 32: {
-
-                intvlTx_ = input.readInt32();
-                break;
-              }
-              case 40: {
-
-                mask0_ = input.readInt32();
-                break;
-              }
-              case 48: {
-
-                filter00_ = input.readInt32();
-                break;
-              }
-              case 56: {
-
-                filter01_ = input.readInt32();
-                break;
-              }
-              case 64: {
-
-                mask1_ = input.readInt32();
-                break;
-              }
-              case 72: {
-
-                filter10_ = input.readInt32();
-                break;
-              }
-              case 80: {
-
-                filter11_ = input.readInt32();
-                break;
-              }
-              case 88: {
-
-                filter12_ = input.readInt32();
-                break;
-              }
-              case 96: {
-
-                filter13_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_TransMessage_CanBusConfigMessage_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_TransMessage_CanBusConfigMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.Builder.class);
-      }
-
-      public static final int ADDR_TX_FIELD_NUMBER = 1;
-      private int addrTx_;
-      /**
-       * <code>int32 addr_tx = 1;</code>
-       * @return The addrTx.
-       */
-      @java.lang.Override
-      public int getAddrTx() {
-        return addrTx_;
-      }
-
-      public static final int BOOT_RX_FIELD_NUMBER = 2;
-      private int bootRx_;
-      /**
-       * <code>int32 boot_rx = 2;</code>
-       * @return The bootRx.
-       */
-      @java.lang.Override
-      public int getBootRx() {
-        return bootRx_;
-      }
-
-      public static final int BOOT_TX_FIELD_NUMBER = 3;
-      private int bootTx_;
-      /**
-       * <code>int32 boot_tx = 3;</code>
-       * @return The bootTx.
-       */
-      @java.lang.Override
-      public int getBootTx() {
-        return bootTx_;
-      }
-
-      public static final int INTVL_TX_FIELD_NUMBER = 4;
-      private int intvlTx_;
-      /**
-       * <code>int32 intvl_tx = 4;</code>
-       * @return The intvlTx.
-       */
-      @java.lang.Override
-      public int getIntvlTx() {
-        return intvlTx_;
-      }
-
-      public static final int MASK0_FIELD_NUMBER = 5;
-      private int mask0_;
-      /**
-       * <code>int32 mask0 = 5;</code>
-       * @return The mask0.
-       */
-      @java.lang.Override
-      public int getMask0() {
-        return mask0_;
-      }
-
-      public static final int FILTER0_0_FIELD_NUMBER = 6;
-      private int filter00_;
-      /**
-       * <code>int32 filter0_0 = 6;</code>
-       * @return The filter00.
-       */
-      @java.lang.Override
-      public int getFilter00() {
-        return filter00_;
-      }
-
-      public static final int FILTER0_1_FIELD_NUMBER = 7;
-      private int filter01_;
-      /**
-       * <code>int32 filter0_1 = 7;</code>
-       * @return The filter01.
-       */
-      @java.lang.Override
-      public int getFilter01() {
-        return filter01_;
-      }
-
-      public static final int MASK1_FIELD_NUMBER = 8;
-      private int mask1_;
-      /**
-       * <code>int32 mask1 = 8;</code>
-       * @return The mask1.
-       */
-      @java.lang.Override
-      public int getMask1() {
-        return mask1_;
-      }
-
-      public static final int FILTER1_0_FIELD_NUMBER = 9;
-      private int filter10_;
-      /**
-       * <code>int32 filter1_0 = 9;</code>
-       * @return The filter10.
-       */
-      @java.lang.Override
-      public int getFilter10() {
-        return filter10_;
-      }
-
-      public static final int FILTER1_1_FIELD_NUMBER = 10;
-      private int filter11_;
-      /**
-       * <code>int32 filter1_1 = 10;</code>
-       * @return The filter11.
-       */
-      @java.lang.Override
-      public int getFilter11() {
-        return filter11_;
-      }
-
-      public static final int FILTER1_2_FIELD_NUMBER = 11;
-      private int filter12_;
-      /**
-       * <code>int32 filter1_2 = 11;</code>
-       * @return The filter12.
-       */
-      @java.lang.Override
-      public int getFilter12() {
-        return filter12_;
-      }
-
-      public static final int FILTER1_3_FIELD_NUMBER = 12;
-      private int filter13_;
-      /**
-       * <code>int32 filter1_3 = 12;</code>
-       * @return The filter13.
-       */
-      @java.lang.Override
-      public int getFilter13() {
-        return filter13_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (addrTx_ != 0) {
-          output.writeInt32(1, addrTx_);
-        }
-        if (bootRx_ != 0) {
-          output.writeInt32(2, bootRx_);
-        }
-        if (bootTx_ != 0) {
-          output.writeInt32(3, bootTx_);
-        }
-        if (intvlTx_ != 0) {
-          output.writeInt32(4, intvlTx_);
-        }
-        if (mask0_ != 0) {
-          output.writeInt32(5, mask0_);
-        }
-        if (filter00_ != 0) {
-          output.writeInt32(6, filter00_);
-        }
-        if (filter01_ != 0) {
-          output.writeInt32(7, filter01_);
-        }
-        if (mask1_ != 0) {
-          output.writeInt32(8, mask1_);
-        }
-        if (filter10_ != 0) {
-          output.writeInt32(9, filter10_);
-        }
-        if (filter11_ != 0) {
-          output.writeInt32(10, filter11_);
-        }
-        if (filter12_ != 0) {
-          output.writeInt32(11, filter12_);
-        }
-        if (filter13_ != 0) {
-          output.writeInt32(12, filter13_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (addrTx_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, addrTx_);
-        }
-        if (bootRx_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, bootRx_);
-        }
-        if (bootTx_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, bootTx_);
-        }
-        if (intvlTx_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, intvlTx_);
-        }
-        if (mask0_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, mask0_);
-        }
-        if (filter00_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(6, filter00_);
-        }
-        if (filter01_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(7, filter01_);
-        }
-        if (mask1_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(8, mask1_);
-        }
-        if (filter10_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(9, filter10_);
-        }
-        if (filter11_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(10, filter11_);
-        }
-        if (filter12_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(11, filter12_);
-        }
-        if (filter13_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(12, filter13_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage)) {
-          return super.equals(obj);
-        }
-        com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage other = (com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage) obj;
-
-        if (getAddrTx()
-            != other.getAddrTx()) return false;
-        if (getBootRx()
-            != other.getBootRx()) return false;
-        if (getBootTx()
-            != other.getBootTx()) return false;
-        if (getIntvlTx()
-            != other.getIntvlTx()) return false;
-        if (getMask0()
-            != other.getMask0()) return false;
-        if (getFilter00()
-            != other.getFilter00()) return false;
-        if (getFilter01()
-            != other.getFilter01()) return false;
-        if (getMask1()
-            != other.getMask1()) return false;
-        if (getFilter10()
-            != other.getFilter10()) return false;
-        if (getFilter11()
-            != other.getFilter11()) return false;
-        if (getFilter12()
-            != other.getFilter12()) return false;
-        if (getFilter13()
-            != other.getFilter13()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + ADDR_TX_FIELD_NUMBER;
-        hash = (53 * hash) + getAddrTx();
-        hash = (37 * hash) + BOOT_RX_FIELD_NUMBER;
-        hash = (53 * hash) + getBootRx();
-        hash = (37 * hash) + BOOT_TX_FIELD_NUMBER;
-        hash = (53 * hash) + getBootTx();
-        hash = (37 * hash) + INTVL_TX_FIELD_NUMBER;
-        hash = (53 * hash) + getIntvlTx();
-        hash = (37 * hash) + MASK0_FIELD_NUMBER;
-        hash = (53 * hash) + getMask0();
-        hash = (37 * hash) + FILTER0_0_FIELD_NUMBER;
-        hash = (53 * hash) + getFilter00();
-        hash = (37 * hash) + FILTER0_1_FIELD_NUMBER;
-        hash = (53 * hash) + getFilter01();
-        hash = (37 * hash) + MASK1_FIELD_NUMBER;
-        hash = (53 * hash) + getMask1();
-        hash = (37 * hash) + FILTER1_0_FIELD_NUMBER;
-        hash = (53 * hash) + getFilter10();
-        hash = (37 * hash) + FILTER1_1_FIELD_NUMBER;
-        hash = (53 * hash) + getFilter11();
-        hash = (37 * hash) + FILTER1_2_FIELD_NUMBER;
-        hash = (53 * hash) + getFilter12();
-        hash = (37 * hash) + FILTER1_3_FIELD_NUMBER;
-        hash = (53 * hash) + getFilter13();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code b3console.TransMessage.CanBusConfigMessage}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:b3console.TransMessage.CanBusConfigMessage)
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessageOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_TransMessage_CanBusConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_TransMessage_CanBusConfigMessage_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.class, com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.Builder.class);
-        }
-
-        // Construct using com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          addrTx_ = 0;
-
-          bootRx_ = 0;
-
-          bootTx_ = 0;
-
-          intvlTx_ = 0;
-
-          mask0_ = 0;
-
-          filter00_ = 0;
-
-          filter01_ = 0;
-
-          mask1_ = 0;
-
-          filter10_ = 0;
-
-          filter11_ = 0;
-
-          filter12_ = 0;
-
-          filter13_ = 0;
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.internal_static_b3console_TransMessage_CanBusConfigMessage_descriptor;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage getDefaultInstanceForType() {
-          return com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage build() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage buildPartial() {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage result = new com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage(this);
-          result.addrTx_ = addrTx_;
-          result.bootRx_ = bootRx_;
-          result.bootTx_ = bootTx_;
-          result.intvlTx_ = intvlTx_;
-          result.mask0_ = mask0_;
-          result.filter00_ = filter00_;
-          result.filter01_ = filter01_;
-          result.mask1_ = mask1_;
-          result.filter10_ = filter10_;
-          result.filter11_ = filter11_;
-          result.filter12_ = filter12_;
-          result.filter13_ = filter13_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage) {
-            return mergeFrom((com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage other) {
-          if (other == com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.getDefaultInstance()) return this;
-          if (other.getAddrTx() != 0) {
-            setAddrTx(other.getAddrTx());
-          }
-          if (other.getBootRx() != 0) {
-            setBootRx(other.getBootRx());
-          }
-          if (other.getBootTx() != 0) {
-            setBootTx(other.getBootTx());
-          }
-          if (other.getIntvlTx() != 0) {
-            setIntvlTx(other.getIntvlTx());
-          }
-          if (other.getMask0() != 0) {
-            setMask0(other.getMask0());
-          }
-          if (other.getFilter00() != 0) {
-            setFilter00(other.getFilter00());
-          }
-          if (other.getFilter01() != 0) {
-            setFilter01(other.getFilter01());
-          }
-          if (other.getMask1() != 0) {
-            setMask1(other.getMask1());
-          }
-          if (other.getFilter10() != 0) {
-            setFilter10(other.getFilter10());
-          }
-          if (other.getFilter11() != 0) {
-            setFilter11(other.getFilter11());
-          }
-          if (other.getFilter12() != 0) {
-            setFilter12(other.getFilter12());
-          }
-          if (other.getFilter13() != 0) {
-            setFilter13(other.getFilter13());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private int addrTx_ ;
-        /**
-         * <code>int32 addr_tx = 1;</code>
-         * @return The addrTx.
-         */
-        @java.lang.Override
-        public int getAddrTx() {
-          return addrTx_;
-        }
-        /**
-         * <code>int32 addr_tx = 1;</code>
-         * @param value The addrTx to set.
-         * @return This builder for chaining.
-         */
-        public Builder setAddrTx(int value) {
-          
-          addrTx_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 addr_tx = 1;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearAddrTx() {
-          
-          addrTx_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int bootRx_ ;
-        /**
-         * <code>int32 boot_rx = 2;</code>
-         * @return The bootRx.
-         */
-        @java.lang.Override
-        public int getBootRx() {
-          return bootRx_;
-        }
-        /**
-         * <code>int32 boot_rx = 2;</code>
-         * @param value The bootRx to set.
-         * @return This builder for chaining.
-         */
-        public Builder setBootRx(int value) {
-          
-          bootRx_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 boot_rx = 2;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearBootRx() {
-          
-          bootRx_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int bootTx_ ;
-        /**
-         * <code>int32 boot_tx = 3;</code>
-         * @return The bootTx.
-         */
-        @java.lang.Override
-        public int getBootTx() {
-          return bootTx_;
-        }
-        /**
-         * <code>int32 boot_tx = 3;</code>
-         * @param value The bootTx to set.
-         * @return This builder for chaining.
-         */
-        public Builder setBootTx(int value) {
-          
-          bootTx_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 boot_tx = 3;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearBootTx() {
-          
-          bootTx_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int intvlTx_ ;
-        /**
-         * <code>int32 intvl_tx = 4;</code>
-         * @return The intvlTx.
-         */
-        @java.lang.Override
-        public int getIntvlTx() {
-          return intvlTx_;
-        }
-        /**
-         * <code>int32 intvl_tx = 4;</code>
-         * @param value The intvlTx to set.
-         * @return This builder for chaining.
-         */
-        public Builder setIntvlTx(int value) {
-          
-          intvlTx_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 intvl_tx = 4;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearIntvlTx() {
-          
-          intvlTx_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int mask0_ ;
-        /**
-         * <code>int32 mask0 = 5;</code>
-         * @return The mask0.
-         */
-        @java.lang.Override
-        public int getMask0() {
-          return mask0_;
-        }
-        /**
-         * <code>int32 mask0 = 5;</code>
-         * @param value The mask0 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setMask0(int value) {
-          
-          mask0_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 mask0 = 5;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearMask0() {
-          
-          mask0_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int filter00_ ;
-        /**
-         * <code>int32 filter0_0 = 6;</code>
-         * @return The filter00.
-         */
-        @java.lang.Override
-        public int getFilter00() {
-          return filter00_;
-        }
-        /**
-         * <code>int32 filter0_0 = 6;</code>
-         * @param value The filter00 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFilter00(int value) {
-          
-          filter00_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 filter0_0 = 6;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFilter00() {
-          
-          filter00_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int filter01_ ;
-        /**
-         * <code>int32 filter0_1 = 7;</code>
-         * @return The filter01.
-         */
-        @java.lang.Override
-        public int getFilter01() {
-          return filter01_;
-        }
-        /**
-         * <code>int32 filter0_1 = 7;</code>
-         * @param value The filter01 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFilter01(int value) {
-          
-          filter01_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 filter0_1 = 7;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFilter01() {
-          
-          filter01_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int mask1_ ;
-        /**
-         * <code>int32 mask1 = 8;</code>
-         * @return The mask1.
-         */
-        @java.lang.Override
-        public int getMask1() {
-          return mask1_;
-        }
-        /**
-         * <code>int32 mask1 = 8;</code>
-         * @param value The mask1 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setMask1(int value) {
-          
-          mask1_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 mask1 = 8;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearMask1() {
-          
-          mask1_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int filter10_ ;
-        /**
-         * <code>int32 filter1_0 = 9;</code>
-         * @return The filter10.
-         */
-        @java.lang.Override
-        public int getFilter10() {
-          return filter10_;
-        }
-        /**
-         * <code>int32 filter1_0 = 9;</code>
-         * @param value The filter10 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFilter10(int value) {
-          
-          filter10_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 filter1_0 = 9;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFilter10() {
-          
-          filter10_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int filter11_ ;
-        /**
-         * <code>int32 filter1_1 = 10;</code>
-         * @return The filter11.
-         */
-        @java.lang.Override
-        public int getFilter11() {
-          return filter11_;
-        }
-        /**
-         * <code>int32 filter1_1 = 10;</code>
-         * @param value The filter11 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFilter11(int value) {
-          
-          filter11_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 filter1_1 = 10;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFilter11() {
-          
-          filter11_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int filter12_ ;
-        /**
-         * <code>int32 filter1_2 = 11;</code>
-         * @return The filter12.
-         */
-        @java.lang.Override
-        public int getFilter12() {
-          return filter12_;
-        }
-        /**
-         * <code>int32 filter1_2 = 11;</code>
-         * @param value The filter12 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFilter12(int value) {
-          
-          filter12_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 filter1_2 = 11;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFilter12() {
-          
-          filter12_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private int filter13_ ;
-        /**
-         * <code>int32 filter1_3 = 12;</code>
-         * @return The filter13.
-         */
-        @java.lang.Override
-        public int getFilter13() {
-          return filter13_;
-        }
-        /**
-         * <code>int32 filter1_3 = 12;</code>
-         * @param value The filter13 to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFilter13(int value) {
-          
-          filter13_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 filter1_3 = 12;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFilter13() {
-          
-          filter13_ = 0;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:b3console.TransMessage.CanBusConfigMessage)
-      }
-
-      // @@protoc_insertion_point(class_scope:b3console.TransMessage.CanBusConfigMessage)
-      private static final com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage();
-      }
-
-      public static com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<CanBusConfigMessage>
-          PARSER = new com.google.protobuf.AbstractParser<CanBusConfigMessage>() {
-        @java.lang.Override
-        public CanBusConfigMessage parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CanBusConfigMessage(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<CanBusConfigMessage> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<CanBusConfigMessage> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
     }
 
     public interface Ems22AConfigMessageOrBuilder extends
@@ -17926,40 +12060,40 @@ public final class ConfigMessage {
         com.google.protobuf.MessageOrBuilder {
 
       /**
-       * <code>int32 agg_kd = 1;</code>
+       * <code>double agg_kd = 1;</code>
        * @return The aggKd.
        */
-      int getAggKd();
+      double getAggKd();
 
       /**
-       * <code>int32 agg_ki = 2;</code>
+       * <code>double agg_ki = 2;</code>
        * @return The aggKi.
        */
-      int getAggKi();
+      double getAggKi();
 
       /**
-       * <code>int32 agg_kp = 3;</code>
+       * <code>double agg_kp = 3;</code>
        * @return The aggKp.
        */
-      int getAggKp();
+      double getAggKp();
 
       /**
-       * <code>int32 cons_kd = 4;</code>
+       * <code>double cons_kd = 4;</code>
        * @return The consKd.
        */
-      int getConsKd();
+      double getConsKd();
 
       /**
-       * <code>int32 cons_ki = 5;</code>
+       * <code>double cons_ki = 5;</code>
        * @return The consKi.
        */
-      int getConsKi();
+      double getConsKi();
 
       /**
-       * <code>int32 cons_kp = 6;</code>
+       * <code>double cons_kp = 6;</code>
        * @return The consKp.
        */
-      int getConsKp();
+      double getConsKp();
     }
     /**
      * Protobuf type {@code b3console.TransMessage.PidConfigMessage}
@@ -18006,34 +12140,34 @@ public final class ConfigMessage {
               case 0:
                 done = true;
                 break;
-              case 8: {
+              case 9: {
 
-                aggKd_ = input.readInt32();
+                aggKd_ = input.readDouble();
                 break;
               }
-              case 16: {
+              case 17: {
 
-                aggKi_ = input.readInt32();
+                aggKi_ = input.readDouble();
                 break;
               }
-              case 24: {
+              case 25: {
 
-                aggKp_ = input.readInt32();
+                aggKp_ = input.readDouble();
                 break;
               }
-              case 32: {
+              case 33: {
 
-                consKd_ = input.readInt32();
+                consKd_ = input.readDouble();
                 break;
               }
-              case 40: {
+              case 41: {
 
-                consKi_ = input.readInt32();
+                consKi_ = input.readDouble();
                 break;
               }
-              case 48: {
+              case 49: {
 
-                consKp_ = input.readInt32();
+                consKp_ = input.readDouble();
                 break;
               }
               default: {
@@ -18069,68 +12203,68 @@ public final class ConfigMessage {
       }
 
       public static final int AGG_KD_FIELD_NUMBER = 1;
-      private int aggKd_;
+      private double aggKd_;
       /**
-       * <code>int32 agg_kd = 1;</code>
+       * <code>double agg_kd = 1;</code>
        * @return The aggKd.
        */
       @java.lang.Override
-      public int getAggKd() {
+      public double getAggKd() {
         return aggKd_;
       }
 
       public static final int AGG_KI_FIELD_NUMBER = 2;
-      private int aggKi_;
+      private double aggKi_;
       /**
-       * <code>int32 agg_ki = 2;</code>
+       * <code>double agg_ki = 2;</code>
        * @return The aggKi.
        */
       @java.lang.Override
-      public int getAggKi() {
+      public double getAggKi() {
         return aggKi_;
       }
 
       public static final int AGG_KP_FIELD_NUMBER = 3;
-      private int aggKp_;
+      private double aggKp_;
       /**
-       * <code>int32 agg_kp = 3;</code>
+       * <code>double agg_kp = 3;</code>
        * @return The aggKp.
        */
       @java.lang.Override
-      public int getAggKp() {
+      public double getAggKp() {
         return aggKp_;
       }
 
       public static final int CONS_KD_FIELD_NUMBER = 4;
-      private int consKd_;
+      private double consKd_;
       /**
-       * <code>int32 cons_kd = 4;</code>
+       * <code>double cons_kd = 4;</code>
        * @return The consKd.
        */
       @java.lang.Override
-      public int getConsKd() {
+      public double getConsKd() {
         return consKd_;
       }
 
       public static final int CONS_KI_FIELD_NUMBER = 5;
-      private int consKi_;
+      private double consKi_;
       /**
-       * <code>int32 cons_ki = 5;</code>
+       * <code>double cons_ki = 5;</code>
        * @return The consKi.
        */
       @java.lang.Override
-      public int getConsKi() {
+      public double getConsKi() {
         return consKi_;
       }
 
       public static final int CONS_KP_FIELD_NUMBER = 6;
-      private int consKp_;
+      private double consKp_;
       /**
-       * <code>int32 cons_kp = 6;</code>
+       * <code>double cons_kp = 6;</code>
        * @return The consKp.
        */
       @java.lang.Override
-      public int getConsKp() {
+      public double getConsKp() {
         return consKp_;
       }
 
@@ -18148,23 +12282,23 @@ public final class ConfigMessage {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (aggKd_ != 0) {
-          output.writeInt32(1, aggKd_);
+        if (aggKd_ != 0D) {
+          output.writeDouble(1, aggKd_);
         }
-        if (aggKi_ != 0) {
-          output.writeInt32(2, aggKi_);
+        if (aggKi_ != 0D) {
+          output.writeDouble(2, aggKi_);
         }
-        if (aggKp_ != 0) {
-          output.writeInt32(3, aggKp_);
+        if (aggKp_ != 0D) {
+          output.writeDouble(3, aggKp_);
         }
-        if (consKd_ != 0) {
-          output.writeInt32(4, consKd_);
+        if (consKd_ != 0D) {
+          output.writeDouble(4, consKd_);
         }
-        if (consKi_ != 0) {
-          output.writeInt32(5, consKi_);
+        if (consKi_ != 0D) {
+          output.writeDouble(5, consKi_);
         }
-        if (consKp_ != 0) {
-          output.writeInt32(6, consKp_);
+        if (consKp_ != 0D) {
+          output.writeDouble(6, consKp_);
         }
         unknownFields.writeTo(output);
       }
@@ -18175,29 +12309,29 @@ public final class ConfigMessage {
         if (size != -1) return size;
 
         size = 0;
-        if (aggKd_ != 0) {
+        if (aggKd_ != 0D) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, aggKd_);
+            .computeDoubleSize(1, aggKd_);
         }
-        if (aggKi_ != 0) {
+        if (aggKi_ != 0D) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, aggKi_);
+            .computeDoubleSize(2, aggKi_);
         }
-        if (aggKp_ != 0) {
+        if (aggKp_ != 0D) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, aggKp_);
+            .computeDoubleSize(3, aggKp_);
         }
-        if (consKd_ != 0) {
+        if (consKd_ != 0D) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, consKd_);
+            .computeDoubleSize(4, consKd_);
         }
-        if (consKi_ != 0) {
+        if (consKi_ != 0D) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, consKi_);
+            .computeDoubleSize(5, consKi_);
         }
-        if (consKp_ != 0) {
+        if (consKp_ != 0D) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(6, consKp_);
+            .computeDoubleSize(6, consKp_);
         }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
@@ -18214,18 +12348,24 @@ public final class ConfigMessage {
         }
         com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.PidConfigMessage other = (com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.PidConfigMessage) obj;
 
-        if (getAggKd()
-            != other.getAggKd()) return false;
-        if (getAggKi()
-            != other.getAggKi()) return false;
-        if (getAggKp()
-            != other.getAggKp()) return false;
-        if (getConsKd()
-            != other.getConsKd()) return false;
-        if (getConsKi()
-            != other.getConsKi()) return false;
-        if (getConsKp()
-            != other.getConsKp()) return false;
+        if (java.lang.Double.doubleToLongBits(getAggKd())
+            != java.lang.Double.doubleToLongBits(
+                other.getAggKd())) return false;
+        if (java.lang.Double.doubleToLongBits(getAggKi())
+            != java.lang.Double.doubleToLongBits(
+                other.getAggKi())) return false;
+        if (java.lang.Double.doubleToLongBits(getAggKp())
+            != java.lang.Double.doubleToLongBits(
+                other.getAggKp())) return false;
+        if (java.lang.Double.doubleToLongBits(getConsKd())
+            != java.lang.Double.doubleToLongBits(
+                other.getConsKd())) return false;
+        if (java.lang.Double.doubleToLongBits(getConsKi())
+            != java.lang.Double.doubleToLongBits(
+                other.getConsKi())) return false;
+        if (java.lang.Double.doubleToLongBits(getConsKp())
+            != java.lang.Double.doubleToLongBits(
+                other.getConsKp())) return false;
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -18238,17 +12378,23 @@ public final class ConfigMessage {
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
         hash = (37 * hash) + AGG_KD_FIELD_NUMBER;
-        hash = (53 * hash) + getAggKd();
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getAggKd()));
         hash = (37 * hash) + AGG_KI_FIELD_NUMBER;
-        hash = (53 * hash) + getAggKi();
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getAggKi()));
         hash = (37 * hash) + AGG_KP_FIELD_NUMBER;
-        hash = (53 * hash) + getAggKp();
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getAggKp()));
         hash = (37 * hash) + CONS_KD_FIELD_NUMBER;
-        hash = (53 * hash) + getConsKd();
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getConsKd()));
         hash = (37 * hash) + CONS_KI_FIELD_NUMBER;
-        hash = (53 * hash) + getConsKi();
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getConsKi()));
         hash = (37 * hash) + CONS_KP_FIELD_NUMBER;
-        hash = (53 * hash) + getConsKp();
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getConsKp()));
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
@@ -18382,17 +12528,17 @@ public final class ConfigMessage {
         @java.lang.Override
         public Builder clear() {
           super.clear();
-          aggKd_ = 0;
+          aggKd_ = 0D;
 
-          aggKi_ = 0;
+          aggKi_ = 0D;
 
-          aggKp_ = 0;
+          aggKp_ = 0D;
 
-          consKd_ = 0;
+          consKd_ = 0D;
 
-          consKi_ = 0;
+          consKi_ = 0D;
 
-          consKp_ = 0;
+          consKp_ = 0D;
 
           return this;
         }
@@ -18474,22 +12620,22 @@ public final class ConfigMessage {
 
         public Builder mergeFrom(com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.PidConfigMessage other) {
           if (other == com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.PidConfigMessage.getDefaultInstance()) return this;
-          if (other.getAggKd() != 0) {
+          if (other.getAggKd() != 0D) {
             setAggKd(other.getAggKd());
           }
-          if (other.getAggKi() != 0) {
+          if (other.getAggKi() != 0D) {
             setAggKi(other.getAggKi());
           }
-          if (other.getAggKp() != 0) {
+          if (other.getAggKp() != 0D) {
             setAggKp(other.getAggKp());
           }
-          if (other.getConsKd() != 0) {
+          if (other.getConsKd() != 0D) {
             setConsKd(other.getConsKd());
           }
-          if (other.getConsKi() != 0) {
+          if (other.getConsKi() != 0D) {
             setConsKi(other.getConsKi());
           }
-          if (other.getConsKp() != 0) {
+          if (other.getConsKp() != 0D) {
             setConsKp(other.getConsKp());
           }
           this.mergeUnknownFields(other.unknownFields);
@@ -18521,188 +12667,188 @@ public final class ConfigMessage {
           return this;
         }
 
-        private int aggKd_ ;
+        private double aggKd_ ;
         /**
-         * <code>int32 agg_kd = 1;</code>
+         * <code>double agg_kd = 1;</code>
          * @return The aggKd.
          */
         @java.lang.Override
-        public int getAggKd() {
+        public double getAggKd() {
           return aggKd_;
         }
         /**
-         * <code>int32 agg_kd = 1;</code>
+         * <code>double agg_kd = 1;</code>
          * @param value The aggKd to set.
          * @return This builder for chaining.
          */
-        public Builder setAggKd(int value) {
+        public Builder setAggKd(double value) {
           
           aggKd_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>int32 agg_kd = 1;</code>
+         * <code>double agg_kd = 1;</code>
          * @return This builder for chaining.
          */
         public Builder clearAggKd() {
           
-          aggKd_ = 0;
+          aggKd_ = 0D;
           onChanged();
           return this;
         }
 
-        private int aggKi_ ;
+        private double aggKi_ ;
         /**
-         * <code>int32 agg_ki = 2;</code>
+         * <code>double agg_ki = 2;</code>
          * @return The aggKi.
          */
         @java.lang.Override
-        public int getAggKi() {
+        public double getAggKi() {
           return aggKi_;
         }
         /**
-         * <code>int32 agg_ki = 2;</code>
+         * <code>double agg_ki = 2;</code>
          * @param value The aggKi to set.
          * @return This builder for chaining.
          */
-        public Builder setAggKi(int value) {
+        public Builder setAggKi(double value) {
           
           aggKi_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>int32 agg_ki = 2;</code>
+         * <code>double agg_ki = 2;</code>
          * @return This builder for chaining.
          */
         public Builder clearAggKi() {
           
-          aggKi_ = 0;
+          aggKi_ = 0D;
           onChanged();
           return this;
         }
 
-        private int aggKp_ ;
+        private double aggKp_ ;
         /**
-         * <code>int32 agg_kp = 3;</code>
+         * <code>double agg_kp = 3;</code>
          * @return The aggKp.
          */
         @java.lang.Override
-        public int getAggKp() {
+        public double getAggKp() {
           return aggKp_;
         }
         /**
-         * <code>int32 agg_kp = 3;</code>
+         * <code>double agg_kp = 3;</code>
          * @param value The aggKp to set.
          * @return This builder for chaining.
          */
-        public Builder setAggKp(int value) {
+        public Builder setAggKp(double value) {
           
           aggKp_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>int32 agg_kp = 3;</code>
+         * <code>double agg_kp = 3;</code>
          * @return This builder for chaining.
          */
         public Builder clearAggKp() {
           
-          aggKp_ = 0;
+          aggKp_ = 0D;
           onChanged();
           return this;
         }
 
-        private int consKd_ ;
+        private double consKd_ ;
         /**
-         * <code>int32 cons_kd = 4;</code>
+         * <code>double cons_kd = 4;</code>
          * @return The consKd.
          */
         @java.lang.Override
-        public int getConsKd() {
+        public double getConsKd() {
           return consKd_;
         }
         /**
-         * <code>int32 cons_kd = 4;</code>
+         * <code>double cons_kd = 4;</code>
          * @param value The consKd to set.
          * @return This builder for chaining.
          */
-        public Builder setConsKd(int value) {
+        public Builder setConsKd(double value) {
           
           consKd_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>int32 cons_kd = 4;</code>
+         * <code>double cons_kd = 4;</code>
          * @return This builder for chaining.
          */
         public Builder clearConsKd() {
           
-          consKd_ = 0;
+          consKd_ = 0D;
           onChanged();
           return this;
         }
 
-        private int consKi_ ;
+        private double consKi_ ;
         /**
-         * <code>int32 cons_ki = 5;</code>
+         * <code>double cons_ki = 5;</code>
          * @return The consKi.
          */
         @java.lang.Override
-        public int getConsKi() {
+        public double getConsKi() {
           return consKi_;
         }
         /**
-         * <code>int32 cons_ki = 5;</code>
+         * <code>double cons_ki = 5;</code>
          * @param value The consKi to set.
          * @return This builder for chaining.
          */
-        public Builder setConsKi(int value) {
+        public Builder setConsKi(double value) {
           
           consKi_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>int32 cons_ki = 5;</code>
+         * <code>double cons_ki = 5;</code>
          * @return This builder for chaining.
          */
         public Builder clearConsKi() {
           
-          consKi_ = 0;
+          consKi_ = 0D;
           onChanged();
           return this;
         }
 
-        private int consKp_ ;
+        private double consKp_ ;
         /**
-         * <code>int32 cons_kp = 6;</code>
+         * <code>double cons_kp = 6;</code>
          * @return The consKp.
          */
         @java.lang.Override
-        public int getConsKp() {
+        public double getConsKp() {
           return consKp_;
         }
         /**
-         * <code>int32 cons_kp = 6;</code>
+         * <code>double cons_kp = 6;</code>
          * @param value The consKp to set.
          * @return This builder for chaining.
          */
-        public Builder setConsKp(int value) {
+        public Builder setConsKp(double value) {
           
           consKp_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>int32 cons_kp = 6;</code>
+         * <code>double cons_kp = 6;</code>
          * @return This builder for chaining.
          */
         public Builder clearConsKp() {
           
-          consKp_ = 0;
+          consKp_ = 0D;
           onChanged();
           return this;
         }
@@ -18760,9 +12906,9 @@ public final class ConfigMessage {
     }
 
     public static final int CAN_BUS_CONFIG_FIELD_NUMBER = 1;
-    private com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage canBusConfig_;
+    private com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage canBusConfig_;
     /**
-     * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
      * @return Whether the canBusConfig field is set.
      */
     @java.lang.Override
@@ -18770,18 +12916,18 @@ public final class ConfigMessage {
       return canBusConfig_ != null;
     }
     /**
-     * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
      * @return The canBusConfig.
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage getCanBusConfig() {
-      return canBusConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage getCanBusConfig() {
+      return canBusConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
     }
     /**
-     * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+     * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
      */
     @java.lang.Override
-    public com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder() {
+    public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder() {
       return getCanBusConfig();
     }
 
@@ -19268,31 +13414,31 @@ public final class ConfigMessage {
         return this;
       }
 
-      private com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage canBusConfig_;
+      private com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage canBusConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessageOrBuilder> canBusConfigBuilder_;
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessageOrBuilder> canBusConfigBuilder_;
       /**
-       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        * @return Whether the canBusConfig field is set.
        */
       public boolean hasCanBusConfig() {
         return canBusConfigBuilder_ != null || canBusConfig_ != null;
       }
       /**
-       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        * @return The canBusConfig.
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage getCanBusConfig() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage getCanBusConfig() {
         if (canBusConfigBuilder_ == null) {
-          return canBusConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
+          return canBusConfig_ == null ? com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
         } else {
           return canBusConfigBuilder_.getMessage();
         }
       }
       /**
-       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
-      public Builder setCanBusConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage value) {
+      public Builder setCanBusConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage value) {
         if (canBusConfigBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -19306,10 +13452,10 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
       public Builder setCanBusConfig(
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.Builder builderForValue) {
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder builderForValue) {
         if (canBusConfigBuilder_ == null) {
           canBusConfig_ = builderForValue.build();
           onChanged();
@@ -19320,13 +13466,13 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
-      public Builder mergeCanBusConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage value) {
+      public Builder mergeCanBusConfig(com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage value) {
         if (canBusConfigBuilder_ == null) {
           if (canBusConfig_ != null) {
             canBusConfig_ =
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.newBuilder(canBusConfig_).mergeFrom(value).buildPartial();
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.newBuilder(canBusConfig_).mergeFrom(value).buildPartial();
           } else {
             canBusConfig_ = value;
           }
@@ -19338,7 +13484,7 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
       public Builder clearCanBusConfig() {
         if (canBusConfigBuilder_ == null) {
@@ -19352,33 +13498,33 @@ public final class ConfigMessage {
         return this;
       }
       /**
-       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.Builder getCanBusConfigBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder getCanBusConfigBuilder() {
         
         onChanged();
         return getCanBusConfigFieldBuilder().getBuilder();
       }
       /**
-       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
-      public com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder() {
+      public com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessageOrBuilder getCanBusConfigOrBuilder() {
         if (canBusConfigBuilder_ != null) {
           return canBusConfigBuilder_.getMessageOrBuilder();
         } else {
           return canBusConfig_ == null ?
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.getDefaultInstance() : canBusConfig_;
         }
       }
       /**
-       * <code>.b3console.TransMessage.CanBusConfigMessage can_bus_config = 1;</code>
+       * <code>.b3console.CanBusConfigMessage can_bus_config = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessageOrBuilder> 
+          com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessageOrBuilder> 
           getCanBusConfigFieldBuilder() {
         if (canBusConfigBuilder_ == null) {
           canBusConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.TransMessage.CanBusConfigMessageOrBuilder>(
+              com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessage.Builder, com.b3tuning.b3console.service.protobuf.ConfigMessage.CanBusConfigMessageOrBuilder>(
                   getCanBusConfig(),
                   getParentForChildren(),
                   isClean());
@@ -19822,15 +13968,15 @@ public final class ConfigMessage {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_b3console_DoorMessage_WindowActionConfigMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_b3console_CanBusConfigMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_b3console_CanBusConfigMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_b3console_ShifterMessage_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_b3console_ShifterMessage_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_b3console_ShifterMessage_CanBusConfigMessage_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_b3console_ShifterMessage_CanBusConfigMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_b3console_ShifterMessage_IndicatorConfigMessage_descriptor;
   private static final 
@@ -19842,50 +13988,15 @@ public final class ConfigMessage {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_b3console_ShifterMessage_MelexisConfigMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_b3console_ShifterMessage_ParkPositionConfigMessage_descriptor;
+    internal_static_b3console_ShifterMessage_ShifterPositionMessage_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_b3console_ShifterMessage_ParkPositionConfigMessage_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_b3console_ShifterMessage_ReversePositionConfigMessage_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_b3console_ShifterMessage_ReversePositionConfigMessage_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_b3console_ShifterMessage_NeutralPositionConfigMessage_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_b3console_ShifterMessage_NeutralPositionConfigMessage_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_b3console_ShifterMessage_DrivePositionConfigMessage_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_b3console_ShifterMessage_DrivePositionConfigMessage_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_b3console_ShifterMessage_ManualPositionConfigMessage_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_b3console_ShifterMessage_ManualPositionConfigMessage_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_b3console_ShifterMessage_UpPositionConfigMessage_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_b3console_ShifterMessage_UpPositionConfigMessage_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_b3console_ShifterMessage_DownPositionConfigMessage_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_b3console_ShifterMessage_DownPositionConfigMessage_fieldAccessorTable;
+      internal_static_b3console_ShifterMessage_ShifterPositionMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_b3console_TransMessage_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_b3console_TransMessage_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_b3console_TransMessage_CanBusConfigMessage_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_b3console_TransMessage_CanBusConfigMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_b3console_TransMessage_Ems22AConfigMessage_descriptor;
   private static final 
@@ -19935,73 +14046,51 @@ public final class ConfigMessage {
       "own_max\030\001 \001(\005\022\025\n\rauto_down_min\030\002 \001(\005\022\023\n\013" +
       "auto_up_max\030\003 \001(\005\022\023\n\013auto_up_min\030\004 \001(\005\022\020" +
       "\n\010down_max\030\005 \001(\005\022\020\n\010down_min\030\006 \001(\005\022\016\n\006up" +
-      "_max\030\007 \001(\005\022\016\n\006up_min\030\010 \001(\005\"\376\r\n\016ShifterMe" +
-      "ssage\022E\n\016can_bus_config\030\001 \001(\0132-.b3consol" +
-      "e.ShifterMessage.CanBusConfigMessage\022J\n\020" +
-      "indicator_config\030\002 \001(\01320.b3console.Shift" +
-      "erMessage.IndicatorConfigMessage\022F\n\016mele" +
-      "xis_config\030\003 \001(\0132..b3console.ShifterMess" +
-      "age.MelexisConfigMessage\022H\n\013park_config\030" +
-      "\004 \001(\01323.b3console.ShifterMessage.ParkPos" +
-      "itionConfigMessage\022N\n\016reverse_config\030\005 \001" +
-      "(\01326.b3console.ShifterMessage.ReversePos" +
-      "itionConfigMessage\022N\n\016neutral_config\030\006 \001" +
-      "(\01326.b3console.ShifterMessage.NeutralPos" +
-      "itionConfigMessage\022J\n\014drive_config\030\007 \001(\013" +
-      "24.b3console.ShifterMessage.DrivePositio" +
-      "nConfigMessage\022L\n\rmanual_config\030\010 \001(\01325." +
-      "b3console.ShifterMessage.ManualPositionC" +
-      "onfigMessage\022D\n\tup_config\030\t \001(\01321.b3cons" +
-      "ole.ShifterMessage.UpPositionConfigMessa" +
-      "ge\022H\n\013down_config\030\n \001(\01323.b3console.Shif" +
-      "terMessage.DownPositionConfigMessage\032\352\001\n" +
-      "\023CanBusConfigMessage\022\017\n\007addr_tx\030\001 \001(\005\022\017\n" +
-      "\007boot_rx\030\002 \001(\005\022\017\n\007boot_tx\030\003 \001(\005\022\020\n\010intvl" +
-      "_tx\030\004 \001(\005\022\r\n\005mask0\030\005 \001(\005\022\021\n\tfilter0_0\030\006 " +
-      "\001(\005\022\021\n\tfilter0_1\030\007 \001(\005\022\r\n\005mask1\030\010 \001(\005\022\021\n" +
-      "\tfilter1_0\030\t \001(\005\022\021\n\tfilter1_1\030\n \001(\005\022\021\n\tf" +
-      "ilter1_2\030\013 \001(\005\022\021\n\tfilter1_3\030\014 \001(\005\032I\n\026Ind" +
-      "icatorConfigMessage\022\022\n\nbrightness\030\001 \001(\005\022" +
-      "\r\n\005color\030\002 \001(\005\022\014\n\004wait\030\003 \001(\005\032%\n\024MelexisC" +
-      "onfigMessage\022\r\n\005range\030\001 \001(\005\032]\n\031ParkPosit" +
-      "ionConfigMessage\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002 \001(\005" +
-      "\022\n\n\002x2\030\003 \001(\005\022\n\n\002y2\030\004 \001(\005\022\020\n\010enum_val\030\005 \001" +
-      "(\005\032`\n\034ReversePositionConfigMessage\022\n\n\002x1" +
-      "\030\001 \001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030\003 \001(\005\022\n\n\002y2\030\004 \001" +
-      "(\005\022\020\n\010enum_val\030\005 \001(\005\032`\n\034NeutralPositionC" +
-      "onfigMessage\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002" +
-      "x2\030\003 \001(\005\022\n\n\002y2\030\004 \001(\005\022\020\n\010enum_val\030\005 \001(\005\032^" +
-      "\n\032DrivePositionConfigMessage\022\n\n\002x1\030\001 \001(\005" +
-      "\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030\003 \001(\005\022\n\n\002y2\030\004 \001(\005\022\020\n\010" +
-      "enum_val\030\005 \001(\005\032_\n\033ManualPositionConfigMe" +
-      "ssage\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030\003 \001(" +
-      "\005\022\n\n\002y2\030\004 \001(\005\022\020\n\010enum_val\030\005 \001(\005\032[\n\027UpPos" +
-      "itionConfigMessage\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002 \001" +
-      "(\005\022\n\n\002x2\030\003 \001(\005\022\n\n\002y2\030\004 \001(\005\022\020\n\010enum_val\030\005" +
-      " \001(\005\032]\n\031DownPositionConfigMessage\022\n\n\002x1\030" +
-      "\001 \001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2\030\003 \001(\005\022\n\n\002y2\030\004 \001(" +
-      "\005\022\020\n\010enum_val\030\005 \001(\005\"\345\005\n\014TransMessage\022C\n\016" +
-      "can_bus_config\030\001 \001(\0132+.b3console.TransMe" +
-      "ssage.CanBusConfigMessage\022B\n\rems22a_conf" +
-      "ig\030\002 \001(\0132+.b3console.TransMessage.Ems22A" +
-      "ConfigMessage\022D\n\016vnh5019_config\030\003 \001(\0132,." +
-      "b3console.TransMessage.Vnh5019ConfigMess" +
-      "age\022<\n\npid_config\030\004 \001(\0132(.b3console.Tran" +
-      "sMessage.PidConfigMessage\032\352\001\n\023CanBusConf" +
-      "igMessage\022\017\n\007addr_tx\030\001 \001(\005\022\017\n\007boot_rx\030\002 " +
-      "\001(\005\022\017\n\007boot_tx\030\003 \001(\005\022\020\n\010intvl_tx\030\004 \001(\005\022\r" +
-      "\n\005mask0\030\005 \001(\005\022\021\n\tfilter0_0\030\006 \001(\005\022\021\n\tfilt" +
-      "er0_1\030\007 \001(\005\022\r\n\005mask1\030\010 \001(\005\022\021\n\tfilter1_0\030" +
-      "\t \001(\005\022\021\n\tfilter1_1\030\n \001(\005\022\021\n\tfilter1_2\030\013 " +
-      "\001(\005\022\021\n\tfilter1_3\030\014 \001(\005\0327\n\023Ems22AConfigMe" +
-      "ssage\022\017\n\007enc_max\030\001 \001(\005\022\017\n\007enc_min\030\002 \001(\005\032" +
-      "+\n\024Vnh5019ConfigMessage\022\023\n\013max_current\030\001" +
-      " \001(\005\032u\n\020PidConfigMessage\022\016\n\006agg_kd\030\001 \001(\005" +
-      "\022\016\n\006agg_ki\030\002 \001(\005\022\016\n\006agg_kp\030\003 \001(\005\022\017\n\007cons" +
-      "_kd\030\004 \001(\005\022\017\n\007cons_ki\030\005 \001(\005\022\017\n\007cons_kp\030\006 " +
-      "\001(\005*(\n\004Type\022\010\n\004DOOR\020\000\022\013\n\007SHIFTER\020\001\022\t\n\005TR" +
-      "ANS\020\002B8\n\'com.b3tuning.b3console.service." +
-      "protobufB\rConfigMessageb\006proto3"
+      "_max\030\007 \001(\005\022\016\n\006up_min\030\010 \001(\005\"\352\001\n\023CanBusCon" +
+      "figMessage\022\017\n\007addr_tx\030\001 \001(\005\022\017\n\007boot_rx\030\002" +
+      " \001(\005\022\017\n\007boot_tx\030\003 \001(\005\022\020\n\010intvl_tx\030\004 \001(\005\022" +
+      "\r\n\005mask0\030\005 \001(\005\022\021\n\tfilter0_0\030\006 \001(\005\022\021\n\tfil" +
+      "ter0_1\030\007 \001(\005\022\r\n\005mask1\030\010 \001(\005\022\021\n\tfilter1_0" +
+      "\030\t \001(\005\022\021\n\tfilter1_1\030\n \001(\005\022\021\n\tfilter1_2\030\013" +
+      " \001(\005\022\021\n\tfilter1_3\030\014 \001(\005\"\242\007\n\016ShifterMessa" +
+      "ge\0226\n\016can_bus_config\030\001 \001(\0132\036.b3console.C" +
+      "anBusConfigMessage\022J\n\020indicator_config\030\002" +
+      " \001(\01320.b3console.ShifterMessage.Indicato" +
+      "rConfigMessage\022F\n\016melexis_config\030\003 \001(\0132." +
+      ".b3console.ShifterMessage.MelexisConfigM" +
+      "essage\022E\n\013park_config\030\004 \001(\01320.b3console." +
+      "ShifterMessage.ShifterPositionMessage\022H\n" +
+      "\016reverse_config\030\005 \001(\01320.b3console.Shifte" +
+      "rMessage.ShifterPositionMessage\022H\n\016neutr" +
+      "al_config\030\006 \001(\01320.b3console.ShifterMessa" +
+      "ge.ShifterPositionMessage\022F\n\014drive_confi" +
+      "g\030\007 \001(\01320.b3console.ShifterMessage.Shift" +
+      "erPositionMessage\022G\n\rmanual_config\030\010 \001(\013" +
+      "20.b3console.ShifterMessage.ShifterPosit" +
+      "ionMessage\022C\n\tup_config\030\t \001(\01320.b3consol" +
+      "e.ShifterMessage.ShifterPositionMessage\022" +
+      "E\n\013down_config\030\n \001(\01320.b3console.Shifter" +
+      "Message.ShifterPositionMessage\032I\n\026Indica" +
+      "torConfigMessage\022\022\n\nbrightness\030\001 \001(\005\022\r\n\005" +
+      "color\030\002 \001(\005\022\014\n\004wait\030\003 \001(\005\032%\n\024MelexisConf" +
+      "igMessage\022\r\n\005range\030\001 \001(\005\032Z\n\026ShifterPosit" +
+      "ionMessage\022\n\n\002x1\030\001 \001(\005\022\n\n\002y1\030\002 \001(\005\022\n\n\002x2" +
+      "\030\003 \001(\005\022\n\n\002y2\030\004 \001(\005\022\020\n\010enum_val\030\005 \001(\005\"\353\003\n" +
+      "\014TransMessage\0226\n\016can_bus_config\030\001 \001(\0132\036." +
+      "b3console.CanBusConfigMessage\022B\n\rems22a_" +
+      "config\030\002 \001(\0132+.b3console.TransMessage.Em" +
+      "s22AConfigMessage\022D\n\016vnh5019_config\030\003 \001(" +
+      "\0132,.b3console.TransMessage.Vnh5019Config" +
+      "Message\022<\n\npid_config\030\004 \001(\0132(.b3console." +
+      "TransMessage.PidConfigMessage\0327\n\023Ems22AC" +
+      "onfigMessage\022\017\n\007enc_max\030\001 \001(\005\022\017\n\007enc_min" +
+      "\030\002 \001(\005\032+\n\024Vnh5019ConfigMessage\022\023\n\013max_cu" +
+      "rrent\030\001 \001(\005\032u\n\020PidConfigMessage\022\016\n\006agg_k" +
+      "d\030\001 \001(\001\022\016\n\006agg_ki\030\002 \001(\001\022\016\n\006agg_kp\030\003 \001(\001\022" +
+      "\017\n\007cons_kd\030\004 \001(\001\022\017\n\007cons_ki\030\005 \001(\001\022\017\n\007con" +
+      "s_kp\030\006 \001(\001*(\n\004Type\022\010\n\004DOOR\020\000\022\013\n\007SHIFTER\020" +
+      "\001\022\t\n\005TRANS\020\002B8\n\'com.b3tuning.b3console.s" +
+      "ervice.protobufB\rConfigMessageb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -20037,98 +14126,56 @@ public final class ConfigMessage {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_b3console_DoorMessage_WindowActionConfigMessage_descriptor,
         new java.lang.String[] { "AutoDownMax", "AutoDownMin", "AutoUpMax", "AutoUpMin", "DownMax", "DownMin", "UpMax", "UpMin", });
-    internal_static_b3console_ShifterMessage_descriptor =
+    internal_static_b3console_CanBusConfigMessage_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_b3console_CanBusConfigMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_b3console_CanBusConfigMessage_descriptor,
+        new java.lang.String[] { "AddrTx", "BootRx", "BootTx", "IntvlTx", "Mask0", "Filter00", "Filter01", "Mask1", "Filter10", "Filter11", "Filter12", "Filter13", });
+    internal_static_b3console_ShifterMessage_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_b3console_ShifterMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_b3console_ShifterMessage_descriptor,
         new java.lang.String[] { "CanBusConfig", "IndicatorConfig", "MelexisConfig", "ParkConfig", "ReverseConfig", "NeutralConfig", "DriveConfig", "ManualConfig", "UpConfig", "DownConfig", });
-    internal_static_b3console_ShifterMessage_CanBusConfigMessage_descriptor =
-      internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(0);
-    internal_static_b3console_ShifterMessage_CanBusConfigMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_b3console_ShifterMessage_CanBusConfigMessage_descriptor,
-        new java.lang.String[] { "AddrTx", "BootRx", "BootTx", "IntvlTx", "Mask0", "Filter00", "Filter01", "Mask1", "Filter10", "Filter11", "Filter12", "Filter13", });
     internal_static_b3console_ShifterMessage_IndicatorConfigMessage_descriptor =
-      internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(1);
+      internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(0);
     internal_static_b3console_ShifterMessage_IndicatorConfigMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_b3console_ShifterMessage_IndicatorConfigMessage_descriptor,
         new java.lang.String[] { "Brightness", "Color", "Wait", });
     internal_static_b3console_ShifterMessage_MelexisConfigMessage_descriptor =
-      internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(2);
+      internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(1);
     internal_static_b3console_ShifterMessage_MelexisConfigMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_b3console_ShifterMessage_MelexisConfigMessage_descriptor,
         new java.lang.String[] { "Range", });
-    internal_static_b3console_ShifterMessage_ParkPositionConfigMessage_descriptor =
-      internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(3);
-    internal_static_b3console_ShifterMessage_ParkPositionConfigMessage_fieldAccessorTable = new
+    internal_static_b3console_ShifterMessage_ShifterPositionMessage_descriptor =
+      internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(2);
+    internal_static_b3console_ShifterMessage_ShifterPositionMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_b3console_ShifterMessage_ParkPositionConfigMessage_descriptor,
-        new java.lang.String[] { "X1", "Y1", "X2", "Y2", "EnumVal", });
-    internal_static_b3console_ShifterMessage_ReversePositionConfigMessage_descriptor =
-      internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(4);
-    internal_static_b3console_ShifterMessage_ReversePositionConfigMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_b3console_ShifterMessage_ReversePositionConfigMessage_descriptor,
-        new java.lang.String[] { "X1", "Y1", "X2", "Y2", "EnumVal", });
-    internal_static_b3console_ShifterMessage_NeutralPositionConfigMessage_descriptor =
-      internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(5);
-    internal_static_b3console_ShifterMessage_NeutralPositionConfigMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_b3console_ShifterMessage_NeutralPositionConfigMessage_descriptor,
-        new java.lang.String[] { "X1", "Y1", "X2", "Y2", "EnumVal", });
-    internal_static_b3console_ShifterMessage_DrivePositionConfigMessage_descriptor =
-      internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(6);
-    internal_static_b3console_ShifterMessage_DrivePositionConfigMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_b3console_ShifterMessage_DrivePositionConfigMessage_descriptor,
-        new java.lang.String[] { "X1", "Y1", "X2", "Y2", "EnumVal", });
-    internal_static_b3console_ShifterMessage_ManualPositionConfigMessage_descriptor =
-      internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(7);
-    internal_static_b3console_ShifterMessage_ManualPositionConfigMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_b3console_ShifterMessage_ManualPositionConfigMessage_descriptor,
-        new java.lang.String[] { "X1", "Y1", "X2", "Y2", "EnumVal", });
-    internal_static_b3console_ShifterMessage_UpPositionConfigMessage_descriptor =
-      internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(8);
-    internal_static_b3console_ShifterMessage_UpPositionConfigMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_b3console_ShifterMessage_UpPositionConfigMessage_descriptor,
-        new java.lang.String[] { "X1", "Y1", "X2", "Y2", "EnumVal", });
-    internal_static_b3console_ShifterMessage_DownPositionConfigMessage_descriptor =
-      internal_static_b3console_ShifterMessage_descriptor.getNestedTypes().get(9);
-    internal_static_b3console_ShifterMessage_DownPositionConfigMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_b3console_ShifterMessage_DownPositionConfigMessage_descriptor,
+        internal_static_b3console_ShifterMessage_ShifterPositionMessage_descriptor,
         new java.lang.String[] { "X1", "Y1", "X2", "Y2", "EnumVal", });
     internal_static_b3console_TransMessage_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_b3console_TransMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_b3console_TransMessage_descriptor,
         new java.lang.String[] { "CanBusConfig", "Ems22AConfig", "Vnh5019Config", "PidConfig", });
-    internal_static_b3console_TransMessage_CanBusConfigMessage_descriptor =
-      internal_static_b3console_TransMessage_descriptor.getNestedTypes().get(0);
-    internal_static_b3console_TransMessage_CanBusConfigMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_b3console_TransMessage_CanBusConfigMessage_descriptor,
-        new java.lang.String[] { "AddrTx", "BootRx", "BootTx", "IntvlTx", "Mask0", "Filter00", "Filter01", "Mask1", "Filter10", "Filter11", "Filter12", "Filter13", });
     internal_static_b3console_TransMessage_Ems22AConfigMessage_descriptor =
-      internal_static_b3console_TransMessage_descriptor.getNestedTypes().get(1);
+      internal_static_b3console_TransMessage_descriptor.getNestedTypes().get(0);
     internal_static_b3console_TransMessage_Ems22AConfigMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_b3console_TransMessage_Ems22AConfigMessage_descriptor,
         new java.lang.String[] { "EncMax", "EncMin", });
     internal_static_b3console_TransMessage_Vnh5019ConfigMessage_descriptor =
-      internal_static_b3console_TransMessage_descriptor.getNestedTypes().get(2);
+      internal_static_b3console_TransMessage_descriptor.getNestedTypes().get(1);
     internal_static_b3console_TransMessage_Vnh5019ConfigMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_b3console_TransMessage_Vnh5019ConfigMessage_descriptor,
         new java.lang.String[] { "MaxCurrent", });
     internal_static_b3console_TransMessage_PidConfigMessage_descriptor =
-      internal_static_b3console_TransMessage_descriptor.getNestedTypes().get(3);
+      internal_static_b3console_TransMessage_descriptor.getNestedTypes().get(2);
     internal_static_b3console_TransMessage_PidConfigMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_b3console_TransMessage_PidConfigMessage_descriptor,

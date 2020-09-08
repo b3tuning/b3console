@@ -13,22 +13,20 @@ package com.b3tuning.b3console.service.module;
 
 import com.b3tuning.b3console.service.module.door.DoorConfigAssembler;
 import com.b3tuning.b3console.service.module.door.config.DoorConfig;
-import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource;
 import com.b3tuning.b3console.service.module.shifter.ShifterAssembler;
 import com.b3tuning.b3console.service.module.shifter.config.ShifterConfig;
-import com.b3tuning.b3console.service.module.shifter.resource.ShifterConfigResource;
 import com.b3tuning.b3console.service.module.trans.TransConfigAssembler;
 import com.b3tuning.b3console.service.module.trans.config.TransConfig;
-import com.b3tuning.b3console.service.module.trans.resource.TransConfigResource;
 import com.b3tuning.b3console.service.protobuf.ConfigMessage;
 
 public class ConfigBaseAssembler {
 
-	public static ConfigBase assemble(ConfigBaseResource resource) {
-		return switch (resource.getType()) {
-			case DOOR -> DoorConfigAssembler.assemble((DoorConfigResource) resource);
-			case SHIFTER -> ShifterAssembler.assemble((ShifterConfigResource) resource);
-			case TRANS -> TransConfigAssembler.assemble((TransConfigResource) resource);
+	public static ConfigBase assemble(ConfigMessage.ConfigBaseMessage message) {
+		return switch (message.getType()) {
+			case DOOR -> DoorConfigAssembler.assemble(message.getDoor());
+			case SHIFTER -> ShifterAssembler.assemble(message.getShifter());
+			case TRANS -> TransConfigAssembler.assemble(message.getTrans());
+			case UNRECOGNIZED -> null;
 		};
 	}
 

@@ -1,6 +1,6 @@
 package com.b3tuning.b3console.service.comms;
 
-import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource;
+import com.b3tuning.b3console.service.protobuf.ConfigMessage;
 import com.fazecast.jSerialComm.SerialPort;
 import lombok.extern.slf4j.XSlf4j;
 
@@ -221,12 +221,12 @@ public class SerialComms {
 		       || s.getPortDescription().contains(B3_USB_PORT_DESCRIPTION);
 	}
 
-	public DoorConfigResource door() {
+	public ConfigMessage.ConfigBaseMessage door() {
 		if (null == getPort()) {
 			log.error("No Serial ports available, unable to connect to module");
 			return null;
 		}
-		DoorConfigResource resource = null;
+		ConfigMessage.ConfigBaseMessage resource = null;
 		if (!port.openPort()) {
 			log.error("Unable to open port");
 			return resource;

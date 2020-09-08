@@ -57,32 +57,32 @@ message DoorMessage {
   }
 }
 
+message CanBusConfigMessage {
+  int32 addr_tx = 1;
+  int32 boot_rx = 2;
+  int32 boot_tx = 3;
+  int32 intvl_tx = 4;
+  int32 mask0 = 5;
+  int32 filter0_0 = 6;
+  int32 filter0_1 = 7;
+  int32 mask1 = 8;
+  int32 filter1_0 = 9;
+  int32 filter1_1 = 10;
+  int32 filter1_2 = 11;
+  int32 filter1_3 = 12;
+}
+
 message ShifterMessage {
   CanBusConfigMessage can_bus_config = 1;
   IndicatorConfigMessage indicator_config = 2;
   MelexisConfigMessage melexis_config = 3;
-  ParkPositionConfigMessage park_config = 4;
-  ReversePositionConfigMessage reverse_config = 5;
-  NeutralPositionConfigMessage neutral_config = 6;
-  DrivePositionConfigMessage drive_config = 7;
-  ManualPositionConfigMessage manual_config = 8;
-  UpPositionConfigMessage up_config = 9;
-  DownPositionConfigMessage down_config = 10;
-
-  message CanBusConfigMessage {
-    int32 addr_tx = 1;
-    int32 boot_rx = 2;
-    int32 boot_tx = 3;
-    int32 intvl_tx = 4;
-    int32 mask0 = 5;
-    int32 filter0_0 = 6;
-    int32 filter0_1 = 7;
-    int32 mask1 = 8;
-    int32 filter1_0 = 9;
-    int32 filter1_1 = 10;
-    int32 filter1_2 = 11;
-    int32 filter1_3 = 12;
-  }
+  ShifterPositionMessage park_config = 4;
+  ShifterPositionMessage reverse_config = 5;
+  ShifterPositionMessage neutral_config = 6;
+  ShifterPositionMessage drive_config = 7;
+  ShifterPositionMessage manual_config = 8;
+  ShifterPositionMessage up_config = 9;
+  ShifterPositionMessage down_config = 10;
 
   message IndicatorConfigMessage {
     int32 brightness = 1;
@@ -94,55 +94,7 @@ message ShifterMessage {
     int32 range = 1;
   }
 
-  message ParkPositionConfigMessage {
-    int32 x1 = 1;
-    int32 y1 = 2;
-    int32 x2 = 3;
-    int32 y2 = 4;
-    int32 enum_val = 5;
-  }
-
-  message ReversePositionConfigMessage {
-    int32 x1 = 1;
-    int32 y1 = 2;
-    int32 x2 = 3;
-    int32 y2 = 4;
-    int32 enum_val = 5;
-  }
-
-  message NeutralPositionConfigMessage {
-    int32 x1 = 1;
-    int32 y1 = 2;
-    int32 x2 = 3;
-    int32 y2 = 4;
-    int32 enum_val = 5;
-  }
-
-  message DrivePositionConfigMessage {
-    int32 x1 = 1;
-    int32 y1 = 2;
-    int32 x2 = 3;
-    int32 y2 = 4;
-    int32 enum_val = 5;
-  }
-
-  message ManualPositionConfigMessage {
-    int32 x1 = 1;
-    int32 y1 = 2;
-    int32 x2 = 3;
-    int32 y2 = 4;
-    int32 enum_val = 5;
-  }
-
-  message UpPositionConfigMessage {
-    int32 x1 = 1;
-    int32 y1 = 2;
-    int32 x2 = 3;
-    int32 y2 = 4;
-    int32 enum_val = 5;
-  }
-
-  message DownPositionConfigMessage {
+  message ShifterPositionMessage {
     int32 x1 = 1;
     int32 y1 = 2;
     int32 x2 = 3;
@@ -157,21 +109,6 @@ message TransMessage {
   Vnh5019ConfigMessage vnh5019_config = 3;
   PidConfigMessage pid_config = 4;
 
-  message CanBusConfigMessage {
-    int32 addr_tx = 1;
-    int32 boot_rx = 2;
-    int32 boot_tx = 3;
-    int32 intvl_tx = 4;
-    int32 mask0 = 5;
-    int32 filter0_0 = 6;
-    int32 filter0_1 = 7;
-    int32 mask1 = 8;
-    int32 filter1_0 = 9;
-    int32 filter1_1 = 10;
-    int32 filter1_2 = 11;
-    int32 filter1_3 = 12;
-  }
-
   message Ems22AConfigMessage {
     int32 enc_max = 1;
     int32 enc_min = 2;
@@ -182,11 +119,11 @@ message TransMessage {
   }
 
   message PidConfigMessage {
-    int32 agg_kd = 1;
-    int32 agg_ki = 2;
-    int32 agg_kp = 3;
-    int32 cons_kd = 4;
-    int32 cons_ki = 5;
-    int32 cons_kp = 6;
+    double agg_kd = 1;
+    double agg_ki = 2;
+    double agg_kp = 3;
+    double cons_kd = 4;
+    double cons_ki = 5;
+    double cons_kp = 6;
   }
 }

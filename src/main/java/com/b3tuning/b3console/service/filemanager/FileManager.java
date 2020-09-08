@@ -12,7 +12,6 @@ package com.b3tuning.b3console.service.filemanager;
 import com.b3tuning.b3console.prefs.UserPreferences;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.ConfigBaseAssembler;
-import com.b3tuning.b3console.service.module.ConfigBaseResource;
 import com.b3tuning.b3console.service.protobuf.ConfigMessage;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import javafx.beans.property.BooleanProperty;
@@ -76,7 +75,7 @@ public class FileManager {
 		log.entry(path);
 		try (InputStream in = new FileInputStream(path);
 		     ObjectInputStream stream = new ObjectInputStream(in)) {
-			ConfigBaseResource resource = (ConfigBaseResource) stream.readObject();
+			ConfigMessage.ConfigBaseMessage resource = (ConfigMessage.ConfigBaseMessage) stream.readObject();
 			setConfig(ConfigBaseAssembler.assemble(resource));
 			setConfigPath(path);
 		}

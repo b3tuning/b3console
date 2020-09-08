@@ -2,7 +2,7 @@ package com.b3tuning.b3console.service.module.door;
 
 import com.b3tuning.b3console.service.comms.SerialComms;
 import com.b3tuning.b3console.service.module.door.config.DoorConfig;
-import com.b3tuning.b3console.service.module.door.resource.DoorConfigResource;
+import com.b3tuning.b3console.service.protobuf.ConfigMessage;
 import lombok.extern.slf4j.XSlf4j;
 
 import javax.inject.Inject;
@@ -31,12 +31,12 @@ public class DoorModuleService {
 	// TODO: implement either (CoAP SLipMux) or (???) over JSerialComm here
 
 	public DoorConfig getDoorConfig() {
-		DoorConfigResource resource = comms.door();
+		ConfigMessage.ConfigBaseMessage resource = comms.door();
 		if (null == resource) {
 			log.error("Unable to get DoorConfigResource from module");
 			return null;
 		}
-		return assembler.assemble(resource);
+		return assembler.assemble(resource.getDoor());
 	}
 //  	public DoorConfig updateDoorConfig(DoorConfigRequest request) {
 //		DoorConfigResource resource = new DoorConfigResource();
