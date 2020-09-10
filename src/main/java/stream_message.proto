@@ -1,0 +1,138 @@
+syntax = "proto3";
+
+package b3console;
+
+option java_package = "com.b3tuning.b3console.service.protobuf";
+option java_outer_classname = "StreamMessage";
+
+enum Type {
+  DOOR = 0;
+  SHIFTER = 1;
+  TRANS = 2;
+}
+
+enum Command {
+  READY = 0;
+  SEND = 1;
+  ACK = 2;
+  NACK = 3;
+  RESET = 4;
+}
+
+message ConfigBaseMessage {
+  Type type = 1;
+  Command command = 2;
+  DoorMessage door = 3;
+  ShifterMessage shifter = 4;
+  TransMessage trans = 5;
+}
+
+message DoorMessage {
+  MirrorActionConfigMessage mirror_action = 1;
+  MirrorSelectConfigMessage mirror_select = 2;
+  WindowActionConfigMessage window_action = 3;
+  int32 driver_window_max_current = 4;
+  int32 passenger_window_max_current = 5;
+
+  message MirrorActionConfigMessage {
+    int32 down_max = 1;
+    int32 down_min = 2;
+    int32 left_max = 3;
+    int32 left_min = 4;
+    int32 right_max = 5;
+    int32 right_min = 6;
+    int32 up_max = 7;
+    int32 up_min = 8;
+  }
+
+  message MirrorSelectConfigMessage {
+    int32 driver_max = 1;
+    int32 driver_min = 2;
+    int32 fold_max = 3;
+    int32 fold_min = 4;
+    int32 passenger_max = 5;
+    int32 passenger_min = 6;
+  }
+
+  message WindowActionConfigMessage {
+    int32 auto_down_max = 1;
+    int32 auto_down_min = 2;
+    int32 auto_up_max = 3;
+    int32 auto_up_min = 4;
+    int32 down_max = 5;
+    int32 down_min = 6;
+    int32 up_max = 7;
+    int32 up_min = 8;
+  }
+}
+
+message CanBusConfigMessage {
+  int32 addr_tx = 1;
+  int32 boot_rx = 2;
+  int32 boot_tx = 3;
+  int32 intvl_tx = 4;
+  int32 mask0 = 5;
+  int32 filter0_0 = 6;
+  int32 filter0_1 = 7;
+  int32 mask1 = 8;
+  int32 filter1_0 = 9;
+  int32 filter1_1 = 10;
+  int32 filter1_2 = 11;
+  int32 filter1_3 = 12;
+}
+
+message ShifterMessage {
+  CanBusConfigMessage can_bus_config = 1;
+  IndicatorConfigMessage indicator_config = 2;
+  MelexisConfigMessage melexis_config = 3;
+  ShifterPositionMessage park_config = 4;
+  ShifterPositionMessage reverse_config = 5;
+  ShifterPositionMessage neutral_config = 6;
+  ShifterPositionMessage drive_config = 7;
+  ShifterPositionMessage manual_config = 8;
+  ShifterPositionMessage up_config = 9;
+  ShifterPositionMessage down_config = 10;
+
+  message IndicatorConfigMessage {
+    int32 brightness = 1;
+    int32 color = 2;
+    int32 wait = 3;
+  }
+
+  message MelexisConfigMessage {
+    int32 range = 1;
+  }
+
+  message ShifterPositionMessage {
+    int32 x1 = 1;
+    int32 y1 = 2;
+    int32 x2 = 3;
+    int32 y2 = 4;
+    int32 enum_val = 5;
+  }
+}
+
+message TransMessage {
+  CanBusConfigMessage can_bus_config = 1;
+  Ems22AConfigMessage ems22a_config = 2;
+  Vnh5019ConfigMessage vnh5019_config = 3;
+  PidConfigMessage pid_config = 4;
+
+  message Ems22AConfigMessage {
+    int32 enc_max = 1;
+    int32 enc_min = 2;
+  }
+
+  message Vnh5019ConfigMessage {
+    int32 max_current = 1;
+  }
+
+  message PidConfigMessage {
+    double agg_kd = 1;
+    double agg_ki = 2;
+    double agg_kp = 3;
+    double cons_kd = 4;
+    double cons_ki = 5;
+    double cons_kp = 6;
+  }
+}
