@@ -39,13 +39,13 @@ public class ShifterConfig extends EditableEntity implements ConfigBase {
 		this.canBus    = new SimpleObjectProperty<>(new CanBusConfig());
 		this.indicator = new SimpleObjectProperty<>(new IndicatorConfig());
 		this.melexis   = new SimpleObjectProperty<>(new MelexisConfig());
-		this.park      = new SimpleObjectProperty<>(new ShifterPositionConfig());
-		this.reverse   = new SimpleObjectProperty<>(new ShifterPositionConfig());
-		this.neutral   = new SimpleObjectProperty<>(new ShifterPositionConfig());
-		this.drive     = new SimpleObjectProperty<>(new ShifterPositionConfig());
-		this.manual    = new SimpleObjectProperty<>(new ShifterPositionConfig());
-		this.up        = new SimpleObjectProperty<>(new ShifterPositionConfig());
-		this.down      = new SimpleObjectProperty<>(new ShifterPositionConfig());
+		this.park      = new SimpleObjectProperty<>(new ShifterPositionConfig(0));
+		this.reverse   = new SimpleObjectProperty<>(new ShifterPositionConfig(1));
+		this.neutral   = new SimpleObjectProperty<>(new ShifterPositionConfig(2));
+		this.drive     = new SimpleObjectProperty<>(new ShifterPositionConfig(3));
+		this.manual    = new SimpleObjectProperty<>(new ShifterPositionConfig(4));
+		this.up        = new SimpleObjectProperty<>(new ShifterPositionConfig(5));
+		this.down      = new SimpleObjectProperty<>(new ShifterPositionConfig(6));
 
 		super.trackProperties(this.canBus,
 		                      this.melexis,

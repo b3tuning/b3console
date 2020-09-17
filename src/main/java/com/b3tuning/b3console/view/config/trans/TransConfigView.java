@@ -54,6 +54,7 @@ public class TransConfigView extends BaseView<TransConfigViewModel> {
 
 		manage(nonNullValuesOf(viewModel.configProperty()).subscribe(c -> {
 			log.entry();
+			canBusConfigController.getViewModel().configProperty().set(c.getCanBus());
 			c.canBusProperty().bindBidirectional(canBusConfigController.getViewModel().configProperty());
 
 			encMax.textProperty().bindBidirectional(c.ems22AProperty().get().encMaxProperty(), intToString);

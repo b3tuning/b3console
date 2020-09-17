@@ -5,6 +5,7 @@ import com.b3tuning.b3console.service.filemanager.FileManager;
 import com.b3tuning.b3console.service.module.ConfigBase;
 import com.b3tuning.b3console.service.module.door.config.DoorConfig;
 import com.b3tuning.b3console.service.module.shifter.config.ShifterConfig;
+import com.b3tuning.b3console.service.module.trans.config.TransConfig;
 import com.b3tuning.b3console.view.BaseViewModel;
 import com.b3tuning.b3console.view.config.door.DoorConfigView;
 import com.b3tuning.b3console.view.config.door.DoorConfigViewModel;
@@ -153,6 +154,7 @@ public class RootViewModel extends BaseViewModel {
 			ViewTuple<TransConfigView, TransConfigViewModel> tuple = FluentViewLoader
 					.fxmlView(TransConfigView.class).load();
 			viewManager.push(TransConfigView.class.getName(), tuple, childViewPane.get());
+			tuple.getViewModel().configProperty().set((TransConfig) config.get());
 		}
 	}
 

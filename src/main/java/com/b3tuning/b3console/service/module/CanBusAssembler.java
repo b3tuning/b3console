@@ -1,7 +1,6 @@
 package com.b3tuning.b3console.service.module;
 
 import com.b3tuning.b3console.service.protobuf.ConfigMessage;
-import lombok.extern.slf4j.XSlf4j;
 
 /*
  *  Created on:  May 05, 2020
@@ -11,15 +10,8 @@ import lombok.extern.slf4j.XSlf4j;
  *
  * Copyright (C) 2020 B3Tuning, LLC.
  */
-@XSlf4j
 public class CanBusAssembler {
 	public static ConfigMessage.CanBusConfigMessage assemble(CanBusConfig config) {
-		if (config == null) {
-			log.error("CANBUS CONFIG IS NULLL!!!!!!!!!!!!!!");
-		}
-		if (config.getAddrTX() == null) {
-			log.error("ADDR TX IS NULLL IN CANBUS CONFIG");
-		}
 		return ConfigMessage.CanBusConfigMessage.newBuilder()
 				.setAddrTx(config.getAddrTX())
 				.setBootRx(config.getBootRX())

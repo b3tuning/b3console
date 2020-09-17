@@ -94,6 +94,7 @@ public class ShifterConfigView extends BaseView<ShifterConfigViewModel> {
 		manage(nonNullValuesOf(viewModel.configProperty()).subscribe(c -> {
 			log.entry();
 
+			canBusConfigController.getViewModel().configProperty().set(c.getCanBus());
 			c.canBusProperty().bindBidirectional(canBusConfigController.getViewModel().configProperty());
 
 			IndicatorConfig indicator = c.getIndicator();
