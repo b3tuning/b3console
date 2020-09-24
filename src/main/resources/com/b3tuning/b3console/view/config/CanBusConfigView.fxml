@@ -14,7 +14,7 @@
            AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0"/>
     <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="0.0"
                 AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
-        <VBox>
+        <HBox>
             <AnchorPane styleClass="white-background-with-border"
                         style="-fx-border-color: gray; -fx-border-width: 1px 0px 1px 0px"
                         AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
@@ -49,6 +49,8 @@
                                                  buttonText="Filter 0-0"/>
                         <IntegerButtonInputField fx:id="filter0_1" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                                  buttonText="Filter 0-1"/>
+                    </VBox>
+                    <VBox spacing="4.0" HBox.hgrow="ALWAYS">
                         <IntegerButtonInputField fx:id="mask1" maxWidth="Infinity" HBox.hgrow="ALWAYS"
                                                  buttonText="Mask 1"/>
                         <IntegerButtonInputField fx:id="filter1_0" maxWidth="Infinity" HBox.hgrow="ALWAYS"
@@ -62,6 +64,6 @@
                     </VBox>
                 </HBox>
             </AnchorPane>
-        </VBox>
+        </HBox>
     </AnchorPane>
 </AnchorPane>

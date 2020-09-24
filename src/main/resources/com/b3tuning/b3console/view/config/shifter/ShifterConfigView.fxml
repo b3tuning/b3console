@@ -17,176 +17,178 @@
                 AnchorPane.topAnchor="45.0">
         <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="15.0"
                     AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="130.0">
-            <HBox>
-                <VBox>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Shift Indicator" AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <IntegerButtonInputField fx:id="brightness" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Brightness"/>
-                                <IntegerButtonInputField fx:id="color" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Color"/>
-                                <IntegerButtonInputField fx:id="delay" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Delay"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Melexis Range" AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <IntegerButtonInputField fx:id="range" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                     buttonText="Range"/>
-                        </HBox>
-                    </AnchorPane>
-                    <fx:include source="../CanBusConfigView.fxml" fx:id="canBusConfig"/>
-                </VBox>
-                <VBox>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Park Position" AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <IntegerButtonInputField fx:id="x1Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X1"/>
-                                <IntegerButtonInputField fx:id="y1Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y1"/>
-                                <IntegerButtonInputField fx:id="x2Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X2"/>
-                                <IntegerButtonInputField fx:id="y2Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y2"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Reverse Position" AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <IntegerButtonInputField fx:id="x1Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X1"/>
-                                <IntegerButtonInputField fx:id="y1Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y1"/>
-                                <IntegerButtonInputField fx:id="x2Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X2"/>
-                                <IntegerButtonInputField fx:id="y2Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y2"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Neutral Position" AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <IntegerButtonInputField fx:id="x1Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X1"/>
-                                <IntegerButtonInputField fx:id="y1Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y1"/>
-                                <IntegerButtonInputField fx:id="x2Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X2"/>
-                                <IntegerButtonInputField fx:id="y2Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y2"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Drive Position" AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <IntegerButtonInputField fx:id="x1Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X1"/>
-                                <IntegerButtonInputField fx:id="y1Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y1"/>
-                                <IntegerButtonInputField fx:id="x2Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X2"/>
-                                <IntegerButtonInputField fx:id="y2Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y2"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                </VBox>
-                <VBox>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Manual Position" AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <IntegerButtonInputField fx:id="x1Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X1"/>
-                                <IntegerButtonInputField fx:id="y1Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y1"/>
-                                <IntegerButtonInputField fx:id="x2Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X2"/>
-                                <IntegerButtonInputField fx:id="y2Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y2"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Up Position" AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <IntegerButtonInputField fx:id="x1Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X1"/>
-                                <IntegerButtonInputField fx:id="y1Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y1"/>
-                                <IntegerButtonInputField fx:id="x2Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X2"/>
-                                <IntegerButtonInputField fx:id="y2Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y2"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                    <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
-                                AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
-                                AnchorPane.topAnchor="30.0">
-                        <Label styleClass="tile-text-sub" text="Down Position" AnchorPane.leftAnchor="30.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                              AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
-                            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                                <IntegerButtonInputField fx:id="x1Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X1"/>
-                                <IntegerButtonInputField fx:id="y1Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y1"/>
-                                <IntegerButtonInputField fx:id="x2Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="X2"/>
-                                <IntegerButtonInputField fx:id="y2Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
-                                                         buttonText="Y2"/>
-                            </VBox>
-                        </HBox>
-                    </AnchorPane>
-                </VBox>
-            </HBox>
+            <VBox>
+                <HBox>
+                    <VBox>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Shift Indicator" AnchorPane.leftAnchor="30.0"
+                                   AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                    <IntegerButtonInputField fx:id="brightness" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Brightness"/>
+                                    <IntegerButtonInputField fx:id="color" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Color"/>
+                                    <IntegerButtonInputField fx:id="delay" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Delay"/>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Melexis Range" AnchorPane.leftAnchor="30.0"
+                                   AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <IntegerButtonInputField fx:id="range" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                         buttonText="Range"/>
+                            </HBox>
+                        </AnchorPane>
+                    </VBox>
+                    <VBox>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Park Position" AnchorPane.leftAnchor="30.0"
+                                   AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                    <IntegerButtonInputField fx:id="x1Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X1"/>
+                                    <IntegerButtonInputField fx:id="y1Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y1"/>
+                                    <IntegerButtonInputField fx:id="x2Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X2"/>
+                                    <IntegerButtonInputField fx:id="y2Park" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y2"/>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Reverse Position" AnchorPane.leftAnchor="30.0"
+                                   AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                    <IntegerButtonInputField fx:id="x1Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X1"/>
+                                    <IntegerButtonInputField fx:id="y1Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y1"/>
+                                    <IntegerButtonInputField fx:id="x2Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X2"/>
+                                    <IntegerButtonInputField fx:id="y2Reverse" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y2"/>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Neutral Position" AnchorPane.leftAnchor="30.0"
+                                   AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                    <IntegerButtonInputField fx:id="x1Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X1"/>
+                                    <IntegerButtonInputField fx:id="y1Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y1"/>
+                                    <IntegerButtonInputField fx:id="x2Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X2"/>
+                                    <IntegerButtonInputField fx:id="y2Neutral" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y2"/>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Drive Position" AnchorPane.leftAnchor="30.0"
+                                   AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                    <IntegerButtonInputField fx:id="x1Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X1"/>
+                                    <IntegerButtonInputField fx:id="y1Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y1"/>
+                                    <IntegerButtonInputField fx:id="x2Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X2"/>
+                                    <IntegerButtonInputField fx:id="y2Drive" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y2"/>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                    </VBox>
+                    <VBox>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Manual Position" AnchorPane.leftAnchor="30.0"
+                                   AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                    <IntegerButtonInputField fx:id="x1Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X1"/>
+                                    <IntegerButtonInputField fx:id="y1Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y1"/>
+                                    <IntegerButtonInputField fx:id="x2Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X2"/>
+                                    <IntegerButtonInputField fx:id="y2Manual" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y2"/>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Up Position" AnchorPane.leftAnchor="30.0"
+                                   AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                    <IntegerButtonInputField fx:id="x1Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X1"/>
+                                    <IntegerButtonInputField fx:id="y1Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y1"/>
+                                    <IntegerButtonInputField fx:id="x2Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X2"/>
+                                    <IntegerButtonInputField fx:id="y2Up" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y2"/>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                        <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
+                                    AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
+                                    AnchorPane.topAnchor="30.0">
+                            <Label styleClass="tile-text-sub" text="Down Position" AnchorPane.leftAnchor="30.0"
+                                   AnchorPane.topAnchor="30.0"/>
+                            <HBox spacing="20.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
+                                  AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
+                                <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                    <IntegerButtonInputField fx:id="x1Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X1"/>
+                                    <IntegerButtonInputField fx:id="y1Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y1"/>
+                                    <IntegerButtonInputField fx:id="x2Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="X2"/>
+                                    <IntegerButtonInputField fx:id="y2Down" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                                                             buttonText="Y2"/>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                    </VBox>
+                </HBox>
+                <fx:include source="../CanBusConfigView.fxml" fx:id="canBusConfig"/>
+            </VBox>
         </AnchorPane>
     </ScrollPane>
 </AnchorPane>

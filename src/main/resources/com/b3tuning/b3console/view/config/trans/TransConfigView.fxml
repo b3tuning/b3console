@@ -17,8 +17,8 @@
                 AnchorPane.topAnchor="45.0">
         <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="15.0"
                     AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="130.0">
-            <HBox>
-                <VBox>
+            <VBox>
+                <HBox>
                     <AnchorPane styleClass="white-background-with-border" AnchorPane.bottomAnchor="30.0"
                                 AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0"
                                 AnchorPane.topAnchor="30.0">
@@ -72,9 +72,9 @@
                             </VBox>
                         </HBox>
                     </AnchorPane>
-                    <fx:include source="../CanBusConfigView.fxml" fx:id="canBusConfig"/>
-                </VBox>
-            </HBox>
+                </HBox>
+                <fx:include source="../CanBusConfigView.fxml" fx:id="canBusConfig"/>
+            </VBox>
         </AnchorPane>
     </ScrollPane>
 </AnchorPane>
