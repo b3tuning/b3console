@@ -131,17 +131,14 @@ public class DoorConfig extends EditableEntity implements ConfigBase {
 	/// JavaFX properties
 	/////////////////////////////////////////////////////////////////////////////
 
-	@SuppressWarnings("unused")
 	public ObjectProperty<MirrorActionConfig> mirrorActionProperty() {
 		return this.mirrorAction;
 	}
 
-	@SuppressWarnings("unused")
 	public ObjectProperty<MirrorSelectConfig> mirrorSelectProperty() {
 		return this.mirrorSelect;
 	}
 
-	@SuppressWarnings("unused")
 	public ObjectProperty<WindowActionConfig> windowActionProperty() {
 		return this.windowAction;
 	}

@@ -7,6 +7,7 @@ import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.validation.visualization.ControlsFxVisualizer;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import lombok.extern.slf4j.XSlf4j;
 import org.controlsfx.validation.decoration.StyleClassValidationDecoration;
@@ -28,7 +29,16 @@ public class TransConfigView extends BaseView<TransConfigViewModel> {
 
 	@FXML private IntegerButtonInputField encMax;
 	@FXML private IntegerButtonInputField encMin;
+
 	@FXML private IntegerButtonInputField maxCurrent;
+
+	@FXML private IntegerButtonInputField aggKp;
+	@FXML private IntegerButtonInputField aggKi;
+	@FXML private IntegerButtonInputField aggKd;
+
+	@FXML private IntegerButtonInputField consKp;
+	@FXML private IntegerButtonInputField consKi;
+	@FXML private IntegerButtonInputField consKd;
 
 	@SuppressWarnings("unused")
 	@FXML
@@ -52,6 +62,8 @@ public class TransConfigView extends BaseView<TransConfigViewModel> {
 
 		IntegerStringConverter intToString = new IntegerStringConverter();
 
+		DoubleStringConverter doubleToString = new DoubleStringConverter();
+
 		manage(nonNullValuesOf(viewModel.configProperty()).subscribe(c -> {
 			log.entry();
 			canBusConfigController.getViewModel().configProperty().set(c.getCanBus());
@@ -59,7 +71,16 @@ public class TransConfigView extends BaseView<TransConfigViewModel> {
 
 			encMax.textProperty().bindBidirectional(c.ems22AProperty().get().encMaxProperty(), intToString);
 			encMin.textProperty().bindBidirectional(c.ems22AProperty().get().encMinProperty(), intToString);
+
 			maxCurrent.textProperty().bindBidirectional(c.vnh5019Property().get().maxCurrentProperty(), intToString);
+
+			aggKp.textProperty().bindBidirectional(c.pidProperty().get().aggKpProperty(), doubleToString);
+			aggKi.textProperty().bindBidirectional(c.pidProperty().get().aggKiProperty(), doubleToString);
+			aggKd.textProperty().bindBidirectional(c.pidProperty().get().aggKdProperty(), doubleToString);
+
+			consKp.textProperty().bindBidirectional(c.pidProperty().get().consKpProperty(), doubleToString);
+			consKi.textProperty().bindBidirectional(c.pidProperty().get().consKiProperty(), doubleToString);
+			consKd.textProperty().bindBidirectional(c.pidProperty().get().consKdProperty(), doubleToString);
 		}));
 		initializeValidation();
 	}
@@ -71,7 +92,16 @@ public class TransConfigView extends BaseView<TransConfigViewModel> {
 
 		visualizer.initVisualization(viewModel.encMaxValidation(), encMax.getTextField(), true);
 		visualizer.initVisualization(viewModel.encMinValidation(), encMin.getTextField(), true);
+
 		visualizer.initVisualization(viewModel.currentMaxValidation(), maxCurrent.getTextField(), true);
+
+		visualizer.initVisualization(viewModel.aggKpValidation(), aggKp.getTextField(), true);
+		visualizer.initVisualization(viewModel.aggKiValidation(), aggKi.getTextField(), true);
+		visualizer.initVisualization(viewModel.aggKdValidation(), aggKd.getTextField(), true);
+
+		visualizer.initVisualization(viewModel.consKpValidation(), consKp.getTextField(), true);
+		visualizer.initVisualization(viewModel.consKiValidation(), consKi.getTextField(), true);
+		visualizer.initVisualization(viewModel.consKdValidation(), consKd.getTextField(), true);
 	}
 
 	@Override

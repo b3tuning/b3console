@@ -123,7 +123,6 @@ public class ShifterPositionConfig extends EditableEntity {
 		return this.y2;
 	}
 
-	@SuppressWarnings("unused")
 	public ObjectProperty<Integer> enumValProperty() {
 		return this.enumVal;
 	}

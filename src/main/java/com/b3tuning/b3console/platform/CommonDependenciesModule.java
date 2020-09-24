@@ -52,8 +52,8 @@ public class CommonDependenciesModule {
 	 ****************/
 	@Provides
 	@Singleton
-	DoorModuleService provideDoorModuleService(DoorConfigAssembler assembler, SerialComms comms) {
-		return new DoorModuleService(assembler, comms);
+	DoorModuleService provideDoorModuleService(SerialComms comms) {
+		return new DoorModuleService(comms);
 	}
 
 	@Provides

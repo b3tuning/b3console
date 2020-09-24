@@ -18,13 +18,10 @@ import javax.inject.Inject;
 @XSlf4j
 public class DoorModuleService {
 
-
-	private final DoorConfigAssembler assembler;
 	private final SerialComms         comms;
 
 	@Inject
-	public DoorModuleService(DoorConfigAssembler assembler, SerialComms comms) {
-		this.assembler = assembler;
+	public DoorModuleService(SerialComms comms) {
 		this.comms     = comms;
 	}
 
@@ -36,7 +33,7 @@ public class DoorModuleService {
 			log.error("Unable to get DoorConfigResource from module");
 			return null;
 		}
-		return assembler.assemble(resource.getDoor());
+		return DoorConfigAssembler.assemble(resource.getDoor());
 	}
 //  	public DoorConfig updateDoorConfig(DoorConfigRequest request) {
 //		DoorConfigResource resource = new DoorConfigResource();

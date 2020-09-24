@@ -128,7 +128,6 @@ public class TransConfig extends EditableEntity implements ConfigBase {
 		return this.vnh5019;
 	}
 
-	@SuppressWarnings("unused")
 	public ObjectProperty<PidConfig> pidProperty() {
 		return this.pid;
 	}

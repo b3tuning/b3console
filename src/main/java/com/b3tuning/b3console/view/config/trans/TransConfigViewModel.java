@@ -30,7 +30,16 @@ public class TransConfigViewModel extends BaseViewModel {
 	// validation properties
 	private final ObservableRuleBasedValidator encMaxValidator     = new ObservableRuleBasedValidator();
 	private final ObservableRuleBasedValidator encMinValidator     = new ObservableRuleBasedValidator();
+
 	private final ObservableRuleBasedValidator currentMaxValidator = new ObservableRuleBasedValidator();
+
+	private final ObservableRuleBasedValidator aggKpValidator = new ObservableRuleBasedValidator();
+	private final ObservableRuleBasedValidator aggKiValidator = new ObservableRuleBasedValidator();
+	private final ObservableRuleBasedValidator aggKdValidator = new ObservableRuleBasedValidator();
+
+	private final ObservableRuleBasedValidator consKpValidator = new ObservableRuleBasedValidator();
+	private final ObservableRuleBasedValidator consKiValidator = new ObservableRuleBasedValidator();
+	private final ObservableRuleBasedValidator consKdValidator = new ObservableRuleBasedValidator();
 
 	private final CompositeValidator validator = new CompositeValidator();
 
@@ -48,10 +57,28 @@ public class TransConfigViewModel extends BaseViewModel {
 
 		ValidationUtil.isNotNull(encMaxValidator, config.get().ems22AProperty().get().encMaxProperty(), "Encoder Max");
 		ValidationUtil.isNotNull(encMinValidator, config.get().ems22AProperty().get().encMinProperty(), "Encoder Min");
+
 		ValidationUtil.isNotNull(currentMaxValidator, config.get().vnh5019Property().get().maxCurrentProperty(),
 		                         "Current Max");
 
-		validator.addValidators(encMaxValidator, encMinValidator, currentMaxValidator);
+		ValidationUtil.isNotNull(aggKpValidator, config.get().pidProperty().get().aggKpProperty(),
+								 "Aggressive Kp");
+		ValidationUtil.isNotNull(aggKiValidator, config.get().pidProperty().get().aggKiProperty(),
+								 "Aggressive Ki");
+		ValidationUtil.isNotNull(aggKdValidator, config.get().pidProperty().get().aggKdProperty(),
+								 "Aggressive Kd");
+
+		ValidationUtil.isNotNull(consKpValidator, config.get().pidProperty().get().consKpProperty(),
+								 "Conservative Kp");
+		ValidationUtil.isNotNull(consKiValidator, config.get().pidProperty().get().consKiProperty(),
+								 "Conservative Ki");
+		ValidationUtil.isNotNull(consKdValidator, config.get().pidProperty().get().consKdProperty(),
+								 "Conservative Kd");
+
+		validator.addValidators(encMaxValidator, encMinValidator,
+								currentMaxValidator,
+								aggKpValidator, aggKiValidator, aggKdValidator,
+								consKpValidator, consKiValidator, consKdValidator);
 	}
 
 	public ObjectProperty<TransConfig> configProperty() {
@@ -68,6 +95,30 @@ public class TransConfigViewModel extends BaseViewModel {
 
 	public ValidationStatus currentMaxValidation() {
 		return currentMaxValidator.getValidationStatus();
+	}
+
+	public ValidationStatus aggKpValidation() {
+		return aggKpValidator.getValidationStatus();
+	}
+
+	public ValidationStatus aggKiValidation() {
+		return aggKiValidator.getValidationStatus();
+	}
+
+	public ValidationStatus aggKdValidation() {
+		return aggKdValidator.getValidationStatus();
+	}
+
+	public ValidationStatus consKpValidation() {
+		return consKpValidator.getValidationStatus();
+	}
+
+	public ValidationStatus consKiValidation() {
+		return consKiValidator.getValidationStatus();
+	}
+
+	public ValidationStatus consKdValidation() {
+		return consKdValidator.getValidationStatus();
 	}
 
 	@Override

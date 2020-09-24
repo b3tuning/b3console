@@ -115,32 +115,26 @@ public class PidConfig extends EditableEntity {
 	/// JavaFX properties
 	/////////////////////////////////////////////////////////////////////////////
 
-	@SuppressWarnings("unused")
 	public ObjectProperty<Double> aggKdProperty() {
 		return this.aggKd;
 	}
 
-	@SuppressWarnings("unused")
 	public ObjectProperty<Double> aggKiProperty() {
 		return this.aggKi;
 	}
 
-	@SuppressWarnings("unused")
 	public ObjectProperty<Double> aggKpProperty() {
 		return this.aggKp;
 	}
 
-	@SuppressWarnings("unused")
 	public ObjectProperty<Double> consKdProperty() {
 		return this.consKd;
 	}
 
-	@SuppressWarnings("unused")
 	public ObjectProperty<Double> consKiProperty() {
 		return this.consKi;
 	}
 
-	@SuppressWarnings("unused")
 	public ObjectProperty<Double> consKpProperty() {
 		return this.consKp;
 	}

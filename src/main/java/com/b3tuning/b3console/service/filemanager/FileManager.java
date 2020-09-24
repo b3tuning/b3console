@@ -38,9 +38,7 @@ import static com.b3tuning.b3console.App.APP_NAME;
 @XSlf4j
 public class FileManager {
 
-	@SuppressWarnings("unused")
 	private final UserPreferences    preferences;
-	@SuppressWarnings("unused")
 	private final NotificationCenter globalNotifications;
 	private final FileChooser        chooser;
 	private final NewConfigDialog    newConfigDialog;
