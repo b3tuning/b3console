@@ -3,7 +3,7 @@ syntax = "proto3";
 package b3console;
 
 option java_package = "com.b3tuning.b3console";
-option java_outer_classname = "ModuleCommands";
+option java_outer_classname = "ModuleCommandsTest";
 
 message Command {
   string name = 1;
